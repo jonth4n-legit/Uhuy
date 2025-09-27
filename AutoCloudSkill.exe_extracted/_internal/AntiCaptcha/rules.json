@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "hl", "value": "en-US" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "*://*.google.com/recaptcha/*",
+      "resourceTypes": ["sub_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "hl", "value": "en-US" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "*://*.recaptcha.net/recaptcha/*",
+      "resourceTypes": ["sub_frame"]
+    }
+  }
+]
