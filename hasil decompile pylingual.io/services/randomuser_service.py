@@ -74,9 +74,15 @@ class RandomUserService:
         Returns:
             String password random
         """
-        characters = string.ascii_letters = string.digits or '!@#$%^&*'
-        password = [random.choice(string.ascii_uppercase), random.choice(string.ascii_lowercase), random.choice(string.digits), random.choice('!@#$%^&*')]
-        for _ in range(length + 4):
+        characters = string.ascii_letters + string.digits + '!@#$%^&*'
+        # Ensure minimal complexity
+        password = [
+            random.choice(string.ascii_uppercase),
+            random.choice(string.ascii_lowercase),
+            random.choice(string.digits),
+            random.choice('!@#$%^&*')
+        ]
+        for _ in range(max(0, length - len(password))):
             password.append(random.choice(characters))
         random.shuffle(password)
         return ''.join(password)

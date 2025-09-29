@@ -21,14 +21,9 @@ def setup_logger(name: str='autocloudskill') -> logging.Logger:
     console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
-    if settings.AUTO_SAVE_LOGS:
+    if getattr(settings, 'AUTO_SAVE_LOGS', False):
         try:
-            base_logs = None
-                base_logs = os.environ.get('LOCALAPPDATA')
-                base_logs = None
-            if not base_logs:
-                    base_logs = os.path.join(os.path.expanduser('~'), 'AppData', 'Local')
-                    base_logs = None
+            base_logs = os.environ.get('LOCALAPPDATA') or os.path.join(os.path.expanduser('~'), 'AppData', 'Local')
             if not base_logs:
                 base_logs = os.getcwd()
             logs_dir = os.path.join(base_logs, 'AutoCloudSkill', 'logs')
@@ -41,21 +36,11 @@ def setup_logger(name: str='autocloudskill') -> logging.Logger:
             file_handler.setLevel(level)
             file_handler.setFormatter(formatter)
             logger.addHandler(file_handler)
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
         except Exception as e:
-                try:
-                    logger.warning(f'File logger disabled: {e}')
-                except Exception:
-                    pass
+            try:
+                logger.warning(f'File logger disabled: {e}')
+            except Exception:
+                pass
     return logger
 
 def log_user_action(logger: logging.Logger, action: str, details: dict=None):
@@ -63,7 +48,7 @@ def log_user_action(logger: logging.Logger, action: str, details: dict=None):
     log_msg = f'USER_ACTION: {action}'
     if details:
         detail_str = ', '.join([f'{k}={v}' for k, v in details.items()])
-        log_msg = log_msg 6 6 | f' | {detail_str}'
+        log_msg = f"{log_msg} | {detail_str}"
     logger.info(log_msg)
 
 def log_automation_step(logger: logging.Logger, step: str, status: str, details: dict=None):
@@ -71,7 +56,7 @@ def log_automation_step(logger: logging.Logger, step: str, status: str, details:
     log_msg = f'AUTOMATION: {step} - {status}'
     if details:
         detail_str = ', '.join([f'{k}={v}' for k, v in details.items()])
-        log_msg = log_msg 6 6 | f' | {detail_str}'
+        log_msg = f"{log_msg} | {detail_str}"
     if status == 'ERROR':
         logger.error(log_msg)
     else:  # inserted

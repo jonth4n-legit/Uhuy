@@ -133,15 +133,16 @@ class GmailService:
     def _decode_part(self, data: str) -> bytes:
         """Decode base64url string ke bytes."""  # inserted
         data = data.replace('-', '+').replace('_', '/')
-        padding = 4 | len(data) | 4
-        if padding and padding < 4:
-            data = data | '=' | padding
+        # pad base64 string
+        missing = len(data) % 4
+        if missing:
+            data = data + ('=' * (4 - missing))
         return base64.b64decode(data)
 
     def _extract_text_and_html(self, payload: Dict[str, Any]) -> Tuple[str, str]:
         """Ekstrak text/plain dan text/html dari payload message."""  # inserted
+        text = ''
         html = ''
-        self = ''
 
         def walk(parts):
             nonlocal html  # inserted
@@ -165,7 +166,7 @@ class GmailService:
                 except Exception:
                     continue
         if (payload.get('mimeType') or '').lower().startswith('multipart/'):
-            text(payload.get('parts') or [])
+            walk(payload.get('parts') or [])
         else:  # inserted
             body = payload.get('body', {})
             data = body.get('data')
@@ -174,13 +175,13 @@ class GmailService:
                     raw = self._decode_part(data)
                     mime = (payload.get('mimeType') or '').lower()
                     if mime == 'text/plain':
-                        html = html | raw.decode(errors='ignore')
+                        text = text + raw.decode(errors='ignore')
                     else:  # inserted
                         if mime == 'text/html':
-                            self = self | raw.decode(errors='ignore')
+                            html = html + raw.decode(errors='ignore')
                 except Exception:
                     pass
-        return (html, self)
+        return (text, html)
 
     def extract_message_content(self, message: Dict[str, Any]) -> Tuple[str, str]:
         payload = message.get('payload', {})
@@ -235,14 +236,15 @@ class GmailService:
                 self.logger.info(f'  q{i}: {q}')
         except Exception:
             pass
-        end = time.time() | timeout_sec
+        end = time.time() + timeout_sec
         last_ids = set()
         attempt = 0
         while time.time() < end:
             attempt = attempt + 1
-            remaining = int(end | time.time())
+            remaining = int(max(0, end - time.time()))
             try:
-                q = (queries + attempt * 1)[len(queries)] if queries else 'in:anywhere newer_than:2d'
+                # rotate queries
+                q = queries[(attempt - 1) % len(queries)] if queries else 'in:anywhere newer_than:2d'
                 self.logger.info(f'Gmail polling attempt={attempt} remaining={remaining}s | query={q}')
             except Exception:
                 pass

@@ -38,18 +38,16 @@ class CaptchaSolverService:
             with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_file:
                 temp_file.write(response.content)
                 temp_file_path = temp_file.name
-                    result = self._process_audio_file(temp_file_path)
-                    return result
-                finally:  # inserted
-                    if os.path.exists(temp_file_path):
-                        os.unlink(temp_file_path)
-            else:  # inserted
-                try:
-                    pass  # postinserted
+            try:
+                result = self._process_audio_file(temp_file_path)
+                return result
+            finally:
+                if os.path.exists(temp_file_path):
+                    os.unlink(temp_file_path)
         except requests.RequestException as e:
-                logger.error(f'Error downloading audio captcha: {e}')
-            except Exception as e:
-                logger.error(f'Error solving audio captcha: {e}')
+            logger.error(f'Error downloading audio captcha: {e}')
+        except Exception as e:
+            logger.error(f'Error solving audio captcha: {e}')
 
     def solve_audio_captcha_from_file(self, file_path: str) -> Optional[str]:
         """\n        Selesaikan audio captcha dari file lokal\n        \n        Args:\n            file_path: Path ke file audio captcha\n            \n        Returns:\n            String teks hasil recognition atau None jika gagal\n        """  # inserted
@@ -68,68 +66,45 @@ class CaptchaSolverService:
             with tempfile.NamedTemporaryFile(delete=False, suffix=f'.{format}') as temp_file:
                 temp_file.write(audio_bytes)
                 temp_file_path = temp_file.name
-                    result = self._process_audio_file(temp_file_path)
-                    return result
-                finally:  # inserted
-                    if os.path.exists(temp_file_path):
-                        os.unlink(temp_file_path)
-            else:  # inserted
-                try:
-                    pass  # postinserted
+            try:
+                result = self._process_audio_file(temp_file_path)
+                return result
+            finally:
+                if os.path.exists(temp_file_path):
+                    os.unlink(temp_file_path)
         except Exception as e:
-                logger.error(f'Error solving audio captcha from bytes: {e}')
+            logger.error(f'Error solving audio captcha from bytes: {e}')
 
     def _process_audio_file(self, file_path: str) -> Optional[str]:
         """\n        Process audio file dan lakukan speech recognition untuk captcha\n        \n        Args:\n            file_path: Path ke file audio\n            \n        Returns:\n            String teks hasil recognition atau None jika gagal\n        """  # inserted
         try:
             wav_path = self._convert_to_wav_16k_mono(file_path)
-            with sr.AudioFile(wav_path) as source:
-                self.recognizer.adjust_for_ambient_noise(source, duration=0.05)
-                audio = self.recognizer.record(source)
-                    raw = self.recognizer.recognize_google(audio, language='en-US')
-                    if raw:
-                        cleaned = self._clean_captcha_result(raw)
-                        logger.info(f'Google recognition raw=\'{raw[:80]}\'')
-                        match cleaned:
-                            if 'wav_path' in locals():
-                                if wav_path and os.path.exists(wav_path):
-                                        os.unlink(wav_path)
-                                    except Exception:
-                                        return False
-                        except Exception:
-                                else:  # inserted
-                                    try:
-                                        pass  # postinserted
-                                    return False
-                    else:  # inserted
-                        try:
-                            pass  # postinserted
-                    logger.debug('Google could not understand audio captcha')
-                    logger.debug(f'Google recognition error: {e}')
-                    if 'wav_path' in locals() and wav_path and os.path.exists(wav_path):
-                            os.unlink(wav_path)
-                        except Exception:
-                            return
-                except Exception:
-                    else:  # inserted
-                        try:
-                            pass  # postinserted
-                        return None
+            try:
+                with sr.AudioFile(wav_path) as source:
+                    self.recognizer.adjust_for_ambient_noise(source, duration=0.05)
+                    audio = self.recognizer.record(source)
+                raw = self.recognizer.recognize_google(audio, language='en-US')
+                if raw:
+                    cleaned = self._clean_captcha_result(raw)
+                    logger.info(f"Google recognition raw='{raw[:80]}'")
+                    return cleaned
+                logger.debug('Google could not understand audio captcha')
+                return None
+            finally:
+                if wav_path and os.path.exists(wav_path):
+                    try:
+                        os.unlink(wav_path)
+                    except Exception:
+                        pass
+        except sr.UnknownValueError:
+            logger.debug('SpeechRecognition: unknown value')
+            return None
+        except sr.RequestError as e:
+            logger.error(f'SpeechRecognition request error: {e}')
+            return None
         except Exception as e:
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except sr.UnknownValueError:
-                    pass  # postinserted
-                except sr.RequestError as e:
-                    pass  # postinserted
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                logger.error(f'Error processing audio captcha: {e}')
-                return
-                except Exception:
-                    pass  # postinserted
+            logger.error(f'Error processing audio captcha: {e}')
+            return None
     def _convert_to_wav_16k_mono(self, file_path: str) -> str:
         """Konversi ke WAV 16k mono.\n        Jalur utama: ffmpeg (imageio-ffmpeg) agar cepat dan ringan.\n        Fallback: moviepy jika terjadi error.\n        """  # inserted
         base, _ = os.path.splitext(file_path)
@@ -146,18 +121,15 @@ class CaptchaSolverService:
             logger.warning(f'ffmpeg convert error: {e_ff}. Falling back to moviepy.')
             try:
                 clip = AudioFileClip(file_path)
-                    clip.write_audiofile(out_path, fps=16000, nbytes=2, codec='pcm_s16le')
-                finally:  # inserted
-                    try:
-                        clip.close()
-                        pass
+                clip.write_audiofile(out_path, fps=16000, nbytes=2, codec='pcm_s16le')
+            finally:
+                try:
+                    clip.close()
+                except Exception:
+                    pass
                 if os.path.exists(out_path) and os.path.getsize(out_path) > 0:
                     return out_path
                 raise RuntimeError('moviepy produced empty output')
-            else:  # inserted
-                try:
-                    except Exception:
-                        pass  # postinserted
             except Exception as e_mv:
                     logger.error(f'moviepy fallback failed: {e_mv}')
                     raise

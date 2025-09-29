@@ -1,0 +1,27 @@
+# Core UI
+ttkbootstrap==1.10.1
+
+# HTTP and utilities
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# Gmail API
+google-api-python-client==2.139.0
+google-auth==2.34.0
+google-auth-oauthlib==1.2.1
+
+# Playwright and helpers (optional for GUI-run only build)
+# playwright and its transitive deps can conflict on managed envs; leave unpinned or comment if not needed
+playwright
+# pyee is a transitive dep of playwright; omit explicit pin to avoid conflicts
+
+# Audio captcha dependencies
+SpeechRecognition==3.10.4
+imageio-ffmpeg==0.5.1
+moviepy==1.0.3
+
+# Misc
+# machineid is optional and may not be packaged on this distro
+# machineid==0.5.2
+pydantic==2.9.2
+packaging==24.1
