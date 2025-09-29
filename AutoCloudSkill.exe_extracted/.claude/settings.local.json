@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find test/ -name \"*.py\" -exec wc -c {} +)",
+      "Bash(find AutoCloudSkill_Professional_V2/ -name \"*.py\" -exec wc -c {} +)",
+      "Bash(find AutoCloudSkill_Professional_V2/ -name \"*.py\" -exec wc -l {} +)",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\main.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\config\\constants.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\config\\licensing.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\config\\settings.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\utils\\logger.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\utils\\validators.py\")",
+      "Bash(git checkout HEAD -- \"test/services/captcha_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\captcha_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\gmail_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\firefox_relay_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\genai_video_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\randomuser_service.py\")",
+      "Bash(python -m py_compile \"D:\\Uhuy\\AutoCloudSkill.exe_extracted\\test\\services\\video_postprocess_service.py\")",
+      "Bash(python -m py_compile main.py)",
+      "Bash(python -c \"import sys; sys.path.insert(0, ''.''); from config.constants import APP_NAME, VERSION, AUTHOR; print(f''{APP_NAME} v{VERSION} by {AUTHOR}'')\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

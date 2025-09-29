@@ -1,0 +1,69 @@
+# Core GUI and Application Framework
+ttkbootstrap>=1.10.1
+tkinter-tooltip>=2.0.0
+
+# Browser Automation
+playwright>=1.40.0
+selenium>=4.15.0
+
+# HTTP and API Clients
+requests>=2.31.0
+httpx>=0.25.0
+urllib3>=2.0.0
+
+# Email and Communication
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+gmail-api-wrapper>=1.0.0
+
+# Audio and Media Processing
+SpeechRecognition>=3.10.0
+pyaudio>=0.2.11
+pydub>=0.25.1
+opencv-python>=4.8.0
+
+# Data Processing and Validation
+pydantic>=2.4.0
+jsonschema>=4.19.0
+validators>=0.22.0
+python-dateutil>=2.8.2
+
+# Encryption and Security
+cryptography>=41.0.0
+pycryptodome>=3.19.0
+bcrypt>=4.0.0
+
+# Logging and Monitoring
+loguru>=0.7.2
+colorlog>=6.7.0
+
+# File and Path Handling
+pathlib2>=2.3.7
+watchdog>=3.0.0
+
+# Async and Concurrency
+aiohttp>=3.8.6
+asyncio-throttle>=1.0.2
+
+# Random Data Generation
+faker>=19.6.0
+random-user-agent>=1.0.1
+
+# Image Processing
+Pillow>=10.0.0
+qrcode>=7.4.2
+
+# System Integration
+psutil>=5.9.5
+win32gui>=221; sys_platform == "win32"
+pywin32>=306; sys_platform == "win32"
+
+# Development and Testing (optional)
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Build and Distribution
+pyinstaller>=6.0.0
+auto-py-to-exe>=2.40.0
