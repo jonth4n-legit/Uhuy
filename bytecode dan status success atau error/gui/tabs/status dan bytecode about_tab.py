@@ -1,0 +1,436 @@
+Python Code - Decompilation Success
+
+
+0 LOAD_CONST 0 ("\nAbout tab UI for Auto Cloud Skill.\nThis tab shows application info, Machine ID, and License details (plan and expiry).\nIt binds StringVars on the owner (MainWindow) to be updated by license checker.\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (None)
+8 IMPORT_NAME 1 (hashlib)
+10 STORE_NAME 1 (hashlib)
+
+12 LOAD_CONST 1 (0)
+14 LOAD_CONST 2 (None)
+16 IMPORT_NAME 2 (tkinter)
+18 STORE_NAME 3 (tk)
+
+20 LOAD_CONST 1 (0)
+22 LOAD_CONST 2 (None)
+24 IMPORT_NAME 4 (ttkbootstrap)
+26 STORE_NAME 5 (ttk)
+
+28 LOAD_CONST 1 (0)
+30 LOAD_CONST 3 (('*',))
+32 IMPORT_NAME 6 (ttkbootstrap.constants)
+34 IMPORT_STAR
+
+36 LOAD_CONST 1 (0)
+38 LOAD_CONST 4 (('get_machine_id',))
+40 IMPORT_NAME 7 (config.licensing)
+42 IMPORT_FROM 8 (get_machine_id)
+44 STORE_NAME 8 (get_machine_id)
+46 POP_TOP
+
+48 LOAD_CONST 1 (0)
+50 LOAD_CONST 5 (('APP_NAME', 'VERSION', 'AUTHOR'))
+52 IMPORT_NAME 9 (config.constants)
+54 IMPORT_FROM 10 (APP_NAME)
+56 STORE_NAME 10 (APP_NAME)
+58 IMPORT_FROM 11 (VERSION)
+60 STORE_NAME 11 (VERSION)
+62 IMPORT_FROM 12 (AUTHOR)
+64 STORE_NAME 12 (AUTHOR)
+66 POP_TOP
+
+68 PUSH_NULL
+70 LOAD_BUILD_CLASS
+72 LOAD_CONST 6 (code object AboutTab)
+74 MAKE_FUNCTION 0 (No arguments)
+76 LOAD_CONST 7 ("AboutTab")
+78 CALL 2
+80 STORE_NAME 13 (AboutTab)
+82 LOAD_CONST 2 (None)
+84 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("AboutTab")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 (code object __init__)
+10 MAKE_FUNCTION 0 (No arguments)
+12 STORE_NAME 3 (__init__)
+
+14 LOAD_CONST 2 (code object _build)
+16 MAKE_FUNCTION 0 (No arguments)
+18 STORE_NAME 4 (_build)
+20 LOAD_CONST 3 (None)
+22 RETURN_VALUE
+
+
+0 LOAD_FAST 1 (owner)
+2 LOAD_FAST 0 (self)
+4 STORE_ATTR 0 (owner)
+
+6 LOAD_FAST 0 (self)
+8 LOAD_METHOD 1 (_build)
+10 LOAD_FAST 2 (notebook)
+12 CALL 1
+14 POP_TOP
+16 LOAD_CONST 0 (None)
+18 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + ttk)
+2 LOAD_ATTR 1 (Frame)
+4 LOAD_FAST 1 (notebook)
+6 LOAD_CONST 1 (20)
+8 KW_NAMES 2 (('padding',))
+10 CALL 2
+12 STORE_FAST 2 (frame)
+
+14 LOAD_FAST 1 (notebook)
+16 LOAD_METHOD 2 (add)
+18 LOAD_FAST 2 (frame)
+20 LOAD_CONST 3 ("About")
+22 KW_NAMES 4 (('text',))
+24 CALL 2
+26 POP_TOP
+
+28 LOAD_GLOBAL 1 (NULL + ttk)
+30 LOAD_ATTR 3 (LabelFrame)
+32 LOAD_FAST 2 (frame)
+34 LOAD_CONST 5 ("Application")
+36 LOAD_CONST 6 (15)
+38 KW_NAMES 7 (('text', 'padding'))
+40 CALL 3
+42 STORE_FAST 3 (info)
+
+44 LOAD_FAST 3 (info)
+46 LOAD_METHOD 4 (pack)
+48 LOAD_GLOBAL 10 (X)
+50 KW_NAMES 8 (('fill',))
+52 CALL 1
+54 POP_TOP
+
+56 LOAD_GLOBAL 1 (NULL + ttk)
+58 LOAD_ATTR 6 (Label)
+60 LOAD_FAST 3 (info)
+62 LOAD_CONST 9 ("Name: ")
+64 LOAD_GLOBAL 14 (APP_NAME)
+66 FORMAT_VALUE 0
+68 BUILD_STRING 2
+70 KW_NAMES 4 (('text',))
+72 CALL 2
+74 LOAD_METHOD 4 (pack)
+76 LOAD_GLOBAL 16 (W)
+78 KW_NAMES 10 (('anchor',))
+80 CALL 1
+82 POP_TOP
+
+84 LOAD_GLOBAL 1 (NULL + ttk)
+86 LOAD_ATTR 6 (Label)
+88 LOAD_FAST 3 (info)
+90 LOAD_CONST 11 ("Version: ")
+92 LOAD_GLOBAL 18 (VERSION)
+94 FORMAT_VALUE 0
+96 BUILD_STRING 2
+98 KW_NAMES 4 (('text',))
+100 CALL 2
+102 LOAD_METHOD 4 (pack)
+104 LOAD_GLOBAL 16 (W)
+106 KW_NAMES 10 (('anchor',))
+108 CALL 1
+110 POP_TOP
+
+112 LOAD_GLOBAL 1 (NULL + ttk)
+114 LOAD_ATTR 6 (Label)
+116 LOAD_FAST 3 (info)
+118 LOAD_CONST 12 ("Author: ")
+120 LOAD_GLOBAL 20 (AUTHOR)
+122 FORMAT_VALUE 0
+124 BUILD_STRING 2
+126 KW_NAMES 4 (('text',))
+128 CALL 2
+130 LOAD_METHOD 4 (pack)
+132 LOAD_GLOBAL 16 (W)
+134 KW_NAMES 10 (('anchor',))
+136 CALL 1
+138 POP_TOP
+
+140 LOAD_GLOBAL 1 (NULL + ttk)
+142 LOAD_ATTR 6 (Label)
+144 LOAD_FAST 3 (info)
+146 LOAD_CONST 13 ("© SinyoRmx")
+148 KW_NAMES 4 (('text',))
+150 CALL 2
+152 LOAD_METHOD 4 (pack)
+154 LOAD_GLOBAL 16 (W)
+156 LOAD_CONST 14 ((4, 0))
+158 KW_NAMES 15 (('anchor', 'pady'))
+160 CALL 2
+162 POP_TOP
+
+164 LOAD_GLOBAL 1 (NULL + ttk)
+166 LOAD_ATTR 3 (LabelFrame)
+168 LOAD_FAST 2 (frame)
+170 LOAD_CONST 16 ("Machine ID")
+172 LOAD_CONST 6 (15)
+174 KW_NAMES 7 (('text', 'padding'))
+176 CALL 3
+178 STORE_FAST 4 (mid_frame)
+
+180 LOAD_FAST 4 (mid_frame)
+182 LOAD_METHOD 4 (pack)
+184 LOAD_GLOBAL 10 (X)
+186 LOAD_CONST 17 ((12, 0))
+188 KW_NAMES 18 (('fill', 'pady'))
+190 CALL 2
+192 POP_TOP
+
+194 NOP
+
+196 LOAD_GLOBAL 23 (NULL + get_machine_id)
+198 CALL 0
+200 STORE_FAST 5 (raw_mid)
+
+202 LOAD_GLOBAL 25 (NULL + hashlib)
+204 LOAD_ATTR 13 (sha256)
+206 LOAD_FAST 5 (raw_mid)
+208 LOAD_METHOD 14 (encode)
+210 LOAD_CONST 19 ("utf-8")
+212 CALL 1
+214 CALL 1
+216 LOAD_METHOD 15 (hexdigest)
+218 CALL 0
+220 STORE_FAST 6 (hashed)
+222 JUMP_FORWARD 28 (to 270)
+224 PUSH_EXC_INFO
+
+226 LOAD_GLOBAL 32 (Exception)
+228 CHECK_EXC_MATCH
+230 POP_JUMP_FORWARD_IF_FALSE 15 (to 262)
+232 STORE_FAST 7 (e)
+
+234 LOAD_CONST 20 ("Error: ")
+236 LOAD_FAST 7 (e)
+238 FORMAT_VALUE 0
+240 BUILD_STRING 2
+242 STORE_FAST 6 (hashed)
+244 POP_EXCEPT
+246 LOAD_CONST 0 (None)
+248 STORE_FAST 7 (e)
+250 DELETE_FAST 7 (e)
+252 JUMP_FORWARD 8 (to 270)
+254 LOAD_CONST 0 (None)
+256 STORE_FAST 7 (e)
+258 DELETE_FAST 7 (e)
+260 RERAISE 1
+
+262 RERAISE 0
+264 COPY 3
+266 POP_EXCEPT
+268 RERAISE 1
+
+270 LOAD_GLOBAL 35 (NULL + tk)
+272 LOAD_ATTR 18 (StringVar)
+274 LOAD_FAST 6 (hashed)
+276 KW_NAMES 21 (('value',))
+278 CALL 1
+280 LOAD_DEREF 0 (self)
+282 LOAD_ATTR 19 (owner)
+284 STORE_ATTR 20 (hashed_mid_var)
+
+286 LOAD_GLOBAL 1 (NULL + ttk)
+288 LOAD_ATTR 21 (Entry)
+290 LOAD_FAST 4 (mid_frame)
+292 LOAD_DEREF 0 (self)
+294 LOAD_ATTR 19 (owner)
+296 LOAD_ATTR 20 (hashed_mid_var)
+298 LOAD_CONST 22 ("readonly")
+300 KW_NAMES 23 (('textvariable', 'state'))
+302 CALL 3
+304 STORE_FAST 8 (entry)
+
+306 LOAD_FAST 8 (entry)
+308 LOAD_METHOD 4 (pack)
+310 LOAD_GLOBAL 44 (LEFT)
+312 LOAD_GLOBAL 10 (X)
+314 LOAD_CONST 24 (True)
+316 KW_NAMES 25 (('side', 'fill', 'expand'))
+318 CALL 3
+320 POP_TOP
+
+322 LOAD_CLOSURE 0 (self)
+324 BUILD_TUPLE 1
+326 LOAD_CONST 26 (code object _copy_mid)
+328 MAKE_FUNCTION 8 (closure)
+330 STORE_FAST 9 (_copy_mid)
+
+332 LOAD_GLOBAL 1 (NULL + ttk)
+334 LOAD_ATTR 23 (Button)
+336 LOAD_FAST 4 (mid_frame)
+338 LOAD_CONST 27 ("Copy")
+340 LOAD_FAST 9 (_copy_mid)
+342 LOAD_GLOBAL 48 (INFO)
+344 KW_NAMES 28 (('text', 'command', 'bootstyle'))
+346 CALL 4
+348 LOAD_METHOD 4 (pack)
+350 LOAD_GLOBAL 44 (LEFT)
+352 LOAD_CONST 29 ((8, 0))
+354 KW_NAMES 30 (('side', 'padx'))
+356 CALL 2
+358 POP_TOP
+
+360 LOAD_GLOBAL 1 (NULL + ttk)
+362 LOAD_ATTR 3 (LabelFrame)
+364 LOAD_FAST 2 (frame)
+366 LOAD_CONST 31 ("License")
+368 LOAD_CONST 6 (15)
+370 KW_NAMES 7 (('text', 'padding'))
+372 CALL 3
+374 STORE_FAST 10 (license_frame)
+
+376 LOAD_FAST 10 (license_frame)
+378 LOAD_METHOD 4 (pack)
+380 LOAD_GLOBAL 10 (X)
+382 LOAD_CONST 17 ((12, 0))
+384 KW_NAMES 18 (('fill', 'pady'))
+386 CALL 2
+388 POP_TOP
+
+390 LOAD_GLOBAL 35 (NULL + tk)
+392 LOAD_ATTR 18 (StringVar)
+394 LOAD_CONST 32 ("Unknown")
+396 KW_NAMES 21 (('value',))
+398 CALL 1
+400 LOAD_DEREF 0 (self)
+402 LOAD_ATTR 19 (owner)
+404 STORE_ATTR 25 (license_plan_var)
+
+406 LOAD_GLOBAL 1 (NULL + ttk)
+408 LOAD_ATTR 6 (Label)
+410 LOAD_FAST 10 (license_frame)
+412 LOAD_CONST 33 ("Plan:")
+414 KW_NAMES 4 (('text',))
+416 CALL 2
+418 LOAD_METHOD 4 (pack)
+420 LOAD_GLOBAL 16 (W)
+422 KW_NAMES 10 (('anchor',))
+424 CALL 1
+426 POP_TOP
+
+428 LOAD_GLOBAL 1 (NULL + ttk)
+430 LOAD_ATTR 6 (Label)
+432 LOAD_FAST 10 (license_frame)
+434 LOAD_DEREF 0 (self)
+436 LOAD_ATTR 19 (owner)
+438 LOAD_ATTR 25 (license_plan_var)
+440 KW_NAMES 34 (('textvariable',))
+442 CALL 2
+444 LOAD_METHOD 4 (pack)
+446 LOAD_GLOBAL 16 (W)
+448 KW_NAMES 10 (('anchor',))
+450 CALL 1
+452 POP_TOP
+
+454 LOAD_GLOBAL 35 (NULL + tk)
+456 LOAD_ATTR 18 (StringVar)
+458 LOAD_CONST 35 ("Lifetime")
+460 KW_NAMES 21 (('value',))
+462 CALL 1
+464 LOAD_DEREF 0 (self)
+466 LOAD_ATTR 19 (owner)
+468 STORE_ATTR 26 (license_expiry_var)
+
+470 LOAD_GLOBAL 1 (NULL + ttk)
+472 LOAD_ATTR 6 (Label)
+474 LOAD_FAST 10 (license_frame)
+476 LOAD_CONST 36 ("Expires at:")
+478 KW_NAMES 4 (('text',))
+480 CALL 2
+482 LOAD_METHOD 4 (pack)
+484 LOAD_GLOBAL 16 (W)
+486 KW_NAMES 10 (('anchor',))
+488 CALL 1
+490 POP_TOP
+
+492 LOAD_GLOBAL 1 (NULL + ttk)
+494 LOAD_ATTR 6 (Label)
+496 LOAD_FAST 10 (license_frame)
+498 LOAD_DEREF 0 (self)
+500 LOAD_ATTR 19 (owner)
+502 LOAD_ATTR 26 (license_expiry_var)
+504 KW_NAMES 34 (('textvariable',))
+506 CALL 2
+508 LOAD_METHOD 4 (pack)
+510 LOAD_GLOBAL 16 (W)
+512 KW_NAMES 10 (('anchor',))
+514 CALL 1
+516 POP_TOP
+518 LOAD_CONST 0 (None)
+520 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 NOP
+
+4 LOAD_DEREF 1 (self)
+6 LOAD_ATTR 0 (owner)
+8 LOAD_ATTR 1 (root)
+10 LOAD_METHOD 2 (clipboard_clear)
+12 CALL 0
+14 POP_TOP
+
+16 LOAD_DEREF 1 (self)
+18 LOAD_ATTR 0 (owner)
+20 LOAD_ATTR 1 (root)
+22 LOAD_METHOD 3 (clipboard_append)
+24 LOAD_DEREF 1 (self)
+26 LOAD_ATTR 0 (owner)
+28 LOAD_ATTR 4 (hashed_mid_var)
+30 LOAD_METHOD 5 (get)
+32 CALL 0
+34 CALL 1
+36 POP_TOP
+
+38 LOAD_DEREF 1 (self)
+40 LOAD_ATTR 0 (owner)
+42 LOAD_METHOD 6 (log_message)
+44 LOAD_CONST 1 ("ℹ️ Machine ID copied to clipboard.")
+46 CALL 1
+48 POP_TOP
+50 LOAD_CONST 0 (None)
+52 RETURN_VALUE
+54 PUSH_EXC_INFO
+
+56 LOAD_GLOBAL 14 (Exception)
+58 CHECK_EXC_MATCH
+60 POP_JUMP_FORWARD_IF_FALSE 40 (to 102)
+62 STORE_FAST 0 (e)
+
+64 LOAD_DEREF 1 (self)
+66 LOAD_ATTR 0 (owner)
+68 LOAD_METHOD 6 (log_message)
+70 LOAD_CONST 2 ("⚠️ Copy error: ")
+72 LOAD_FAST 0 (e)
+74 FORMAT_VALUE 0
+76 BUILD_STRING 2
+78 CALL 1
+80 POP_TOP
+82 POP_EXCEPT
+84 LOAD_CONST 0 (None)
+86 STORE_FAST 0 (e)
+88 DELETE_FAST 0 (e)
+90 LOAD_CONST 0 (None)
+92 RETURN_VALUE
+94 LOAD_CONST 0 (None)
+96 STORE_FAST 0 (e)
+98 DELETE_FAST 0 (e)
+100 RERAISE 1
+
+102 RERAISE 0
+104 COPY 3
+106 POP_EXCEPT
+108 RERAISE 1

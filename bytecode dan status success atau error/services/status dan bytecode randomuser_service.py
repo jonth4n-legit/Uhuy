@@ -1,0 +1,1090 @@
+<module>: Success: Equal
+
+<module>.RandomUserService: Success: Equal
+
+<module>.RandomUserService.__init__: Success: Equal
+
+<module>.RandomUserService.get_random_user: Success: Equal
+
+<module>.RandomUserService._extract_user_info: Success: Equal
+
+***<module>.RandomUserService.generate_password: Failure: Different control flow
+
+<module>.RandomUserService.generate_company_name: Success: Equal
+
+
+
+0 LOAD_CONST 0 ("\nService untuk mengambil data random user dari api.randomuser.me\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (None)
+8 IMPORT_NAME 1 (requests)
+10 STORE_NAME 1 (requests)
+
+12 LOAD_CONST 1 (0)
+14 LOAD_CONST 2 (None)
+16 IMPORT_NAME 2 (random)
+18 STORE_NAME 2 (random)
+
+20 LOAD_CONST 1 (0)
+22 LOAD_CONST 2 (None)
+24 IMPORT_NAME 3 (string)
+26 STORE_NAME 3 (string)
+
+28 LOAD_CONST 1 (0)
+30 LOAD_CONST 3 (('Dict', 'Optional'))
+32 IMPORT_NAME 4 (typing)
+34 IMPORT_FROM 5 (Dict)
+36 STORE_NAME 5 (Dict)
+38 IMPORT_FROM 6 (Optional)
+40 STORE_NAME 6 (Optional)
+42 POP_TOP
+
+44 LOAD_CONST 1 (0)
+46 LOAD_CONST 2 (None)
+48 IMPORT_NAME 7 (logging)
+50 STORE_NAME 7 (logging)
+
+52 PUSH_NULL
+54 LOAD_NAME 7 (logging)
+56 LOAD_ATTR 8 (getLogger)
+58 LOAD_NAME 9 (__name__)
+60 CALL 1
+62 STORE_NAME 10 (logger)
+
+64 PUSH_NULL
+66 LOAD_BUILD_CLASS
+68 LOAD_CONST 4 (code object RandomUserService)
+70 MAKE_FUNCTION 0 (No arguments)
+72 LOAD_CONST 5 ("RandomUserService")
+74 CALL 2
+76 STORE_NAME 11 (RandomUserService)
+
+78 LOAD_NAME 9 (__name__)
+80 LOAD_CONST 6 ("__main__")
+82 COMPARE_OP 2 (==)
+84 POP_JUMP_FORWARD_IF_FALSE 178 (to 230)
+
+86 PUSH_NULL
+88 LOAD_NAME 11 (RandomUserService)
+90 CALL 0
+92 STORE_NAME 12 (service)
+
+94 LOAD_NAME 12 (service)
+96 LOAD_METHOD 13 (get_random_user)
+98 CALL 0
+100 STORE_NAME 14 (user)
+
+102 LOAD_NAME 14 (user)
+104 POP_JUMP_FORWARD_IF_FALSE 148 (to 234)
+
+106 PUSH_NULL
+108 LOAD_NAME 15 (print)
+110 LOAD_CONST 7 ("Generated User Data:")
+112 CALL 1
+114 POP_TOP
+
+116 PUSH_NULL
+118 LOAD_NAME 15 (print)
+120 LOAD_CONST 8 ("Name: ")
+122 LOAD_NAME 14 (user)
+124 LOAD_CONST 9 ("first_name")
+126 BINARY_SUBSCR
+128 FORMAT_VALUE 0
+130 LOAD_CONST 10 (" ")
+132 LOAD_NAME 14 (user)
+134 LOAD_CONST 11 ("last_name")
+136 BINARY_SUBSCR
+138 FORMAT_VALUE 0
+140 BUILD_STRING 4
+142 CALL 1
+144 POP_TOP
+
+146 PUSH_NULL
+148 LOAD_NAME 15 (print)
+150 LOAD_CONST 12 ("Email: ")
+152 LOAD_NAME 14 (user)
+154 LOAD_CONST 13 ("email")
+156 BINARY_SUBSCR
+158 FORMAT_VALUE 0
+160 BUILD_STRING 2
+162 CALL 1
+164 POP_TOP
+
+166 PUSH_NULL
+168 LOAD_NAME 15 (print)
+170 LOAD_CONST 14 ("Country: ")
+172 LOAD_NAME 14 (user)
+174 LOAD_CONST 15 ("country")
+176 BINARY_SUBSCR
+178 FORMAT_VALUE 0
+180 BUILD_STRING 2
+182 CALL 1
+184 POP_TOP
+
+186 PUSH_NULL
+188 LOAD_NAME 15 (print)
+190 LOAD_CONST 16 ("Password: ")
+192 LOAD_NAME 12 (service)
+194 LOAD_METHOD 16 (generate_password)
+196 CALL 0
+198 FORMAT_VALUE 0
+200 BUILD_STRING 2
+202 CALL 1
+204 POP_TOP
+
+206 PUSH_NULL
+208 LOAD_NAME 15 (print)
+210 LOAD_CONST 17 ("Company: ")
+212 LOAD_NAME 12 (service)
+214 LOAD_METHOD 17 (generate_company_name)
+216 CALL 0
+218 FORMAT_VALUE 0
+220 BUILD_STRING 2
+222 CALL 1
+224 POP_TOP
+226 LOAD_CONST 2 (None)
+228 RETURN_VALUE
+
+230 LOAD_CONST 2 (None)
+232 RETURN_VALUE
+
+234 LOAD_CONST 2 (None)
+236 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("RandomUserService")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 ("Service untuk generate data user random dari API randomuser.me")
+10 STORE_NAME 3 (__doc__)
+
+12 LOAD_CONST 2 (code object __init__)
+14 MAKE_FUNCTION 0 (No arguments)
+16 STORE_NAME 4 (__init__)
+
+18 LOAD_CONST 16 (('female', 'gb,us,es'))
+20 LOAD_CONST 5 ("gender")
+22 LOAD_NAME 5 (str)
+24 LOAD_CONST 6 ("nationalities")
+26 LOAD_NAME 5 (str)
+28 LOAD_CONST 7 ("return")
+30 LOAD_NAME 6 (Optional)
+32 LOAD_NAME 7 (Dict)
+34 BINARY_SUBSCR
+36 BUILD_TUPLE 6
+38 LOAD_CONST 8 (code object get_random_user)
+40 MAKE_FUNCTION 5 (default, annotation)
+42 STORE_NAME 8 (get_random_user)
+
+44 LOAD_CONST 9 ("user_data")
+46 LOAD_NAME 7 (Dict)
+48 LOAD_CONST 7 ("return")
+50 LOAD_NAME 7 (Dict)
+52 BUILD_TUPLE 4
+54 LOAD_CONST 10 (code object _extract_user_info)
+56 MAKE_FUNCTION 4 (annotation)
+58 STORE_NAME 9 (_extract_user_info)
+
+60 LOAD_CONST 17 ((12,))
+62 LOAD_CONST 12 ("length")
+64 LOAD_NAME 10 (int)
+66 LOAD_CONST 7 ("return")
+68 LOAD_NAME 5 (str)
+70 BUILD_TUPLE 4
+72 LOAD_CONST 13 (code object generate_password)
+74 MAKE_FUNCTION 5 (default, annotation)
+76 STORE_NAME 11 (generate_password)
+
+78 LOAD_CONST 7 ("return")
+80 LOAD_NAME 5 (str)
+82 BUILD_TUPLE 2
+84 LOAD_CONST 14 (code object generate_company_name)
+86 MAKE_FUNCTION 4 (annotation)
+88 STORE_NAME 12 (generate_company_name)
+90 LOAD_CONST 15 (None)
+92 RETURN_VALUE
+
+
+0 LOAD_CONST 1 ("https://randomuser.me/api/")
+2 LOAD_FAST 0 (self)
+4 STORE_ATTR 0 (base_url)
+
+6 LOAD_GLOBAL 3 (NULL + requests)
+8 LOAD_ATTR 2 (Session)
+10 CALL 0
+12 LOAD_FAST 0 (self)
+14 STORE_ATTR 3 (session)
+16 LOAD_CONST 0 (None)
+18 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 1 (gender)
+
+4 LOAD_FAST 2 (nationalities)
+
+6 LOAD_CONST 1 (1)
+
+8 LOAD_CONST 2 (('gender', 'nat', 'results'))
+10 BUILD_CONST_KEY_MAP 3
+12 STORE_FAST 3 (params)
+
+14 LOAD_FAST 0 (self)
+16 LOAD_ATTR 0 (session)
+18 LOAD_METHOD 1 (get)
+20 LOAD_FAST 0 (self)
+22 LOAD_ATTR 2 (base_url)
+24 LOAD_FAST 3 (params)
+26 LOAD_CONST 3 (10)
+28 KW_NAMES 4 (('params', 'timeout'))
+30 CALL 3
+32 STORE_FAST 4 (response)
+
+34 LOAD_FAST 4 (response)
+36 LOAD_METHOD 3 (raise_for_status)
+38 CALL 0
+40 POP_TOP
+
+42 LOAD_FAST 4 (response)
+44 LOAD_METHOD 4 (json)
+46 CALL 0
+48 STORE_FAST 5 (data)
+
+50 LOAD_FAST 5 (data)
+52 LOAD_METHOD 1 (get)
+54 LOAD_CONST 5 ("results")
+56 CALL 1
+58 POP_JUMP_FORWARD_IF_FALSE 35 (to 82)
+
+60 LOAD_FAST 5 (data)
+62 LOAD_CONST 5 ("results")
+64 BINARY_SUBSCR
+66 LOAD_CONST 6 (0)
+68 BINARY_SUBSCR
+70 STORE_FAST 6 (user_data)
+
+72 LOAD_FAST 0 (self)
+74 LOAD_METHOD 5 (_extract_user_info)
+76 LOAD_FAST 6 (user_data)
+78 CALL 1
+80 RETURN_VALUE
+
+82 LOAD_CONST 7 (None)
+84 RETURN_VALUE
+86 PUSH_EXC_INFO
+
+88 LOAD_GLOBAL 12 (requests)
+90 LOAD_ATTR 7 (RequestException)
+92 CHECK_EXC_MATCH
+94 POP_JUMP_FORWARD_IF_FALSE 40 (to 134)
+96 STORE_FAST 7 (e)
+
+98 LOAD_GLOBAL 16 (logger)
+100 LOAD_METHOD 9 (error)
+102 LOAD_CONST 8 ("Error fetching random user: ")
+104 LOAD_FAST 7 (e)
+106 FORMAT_VALUE 0
+108 BUILD_STRING 2
+110 CALL 1
+112 POP_TOP
+
+114 POP_EXCEPT
+116 LOAD_CONST 7 (None)
+118 STORE_FAST 7 (e)
+120 DELETE_FAST 7 (e)
+122 LOAD_CONST 7 (None)
+124 RETURN_VALUE
+126 LOAD_CONST 7 (None)
+128 STORE_FAST 7 (e)
+130 DELETE_FAST 7 (e)
+132 RERAISE 1
+
+134 LOAD_GLOBAL 20 (Exception)
+136 CHECK_EXC_MATCH
+138 POP_JUMP_FORWARD_IF_FALSE 40 (to 178)
+140 STORE_FAST 7 (e)
+
+142 LOAD_GLOBAL 16 (logger)
+144 LOAD_METHOD 9 (error)
+146 LOAD_CONST 9 ("Unexpected error: ")
+148 LOAD_FAST 7 (e)
+150 FORMAT_VALUE 0
+152 BUILD_STRING 2
+154 CALL 1
+156 POP_TOP
+
+158 POP_EXCEPT
+160 LOAD_CONST 7 (None)
+162 STORE_FAST 7 (e)
+164 DELETE_FAST 7 (e)
+166 LOAD_CONST 7 (None)
+168 RETURN_VALUE
+170 LOAD_CONST 7 (None)
+172 STORE_FAST 7 (e)
+174 DELETE_FAST 7 (e)
+176 RERAISE 1
+
+178 RERAISE 0
+180 COPY 3
+182 POP_EXCEPT
+184 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_FAST 1 (user_data)
+4 LOAD_METHOD 0 (get)
+6 LOAD_CONST 1 ("name")
+8 BUILD_MAP 0
+10 CALL 2
+12 STORE_FAST 2 (name)
+
+14 LOAD_FAST 1 (user_data)
+16 LOAD_METHOD 0 (get)
+18 LOAD_CONST 2 ("location")
+20 BUILD_MAP 0
+22 CALL 2
+24 STORE_FAST 3 (location)
+
+26 LOAD_FAST 2 (name)
+28 LOAD_METHOD 0 (get)
+30 LOAD_CONST 3 ("first")
+32 LOAD_CONST 4 ("")
+34 CALL 2
+36 LOAD_METHOD 1 (title)
+38 CALL 0
+
+40 LOAD_FAST 2 (name)
+42 LOAD_METHOD 0 (get)
+44 LOAD_CONST 5 ("last")
+46 LOAD_CONST 4 ("")
+48 CALL 2
+50 LOAD_METHOD 1 (title)
+52 CALL 0
+
+54 LOAD_FAST 1 (user_data)
+56 LOAD_METHOD 0 (get)
+58 LOAD_CONST 6 ("email")
+60 LOAD_CONST 4 ("")
+62 CALL 2
+
+64 LOAD_FAST 1 (user_data)
+66 LOAD_METHOD 0 (get)
+68 LOAD_CONST 7 ("gender")
+70 LOAD_CONST 4 ("")
+72 CALL 2
+
+74 LOAD_FAST 3 (location)
+76 LOAD_METHOD 0 (get)
+78 LOAD_CONST 8 ("country")
+80 LOAD_CONST 4 ("")
+82 CALL 2
+
+84 LOAD_FAST 3 (location)
+86 LOAD_METHOD 0 (get)
+88 LOAD_CONST 9 ("city")
+90 LOAD_CONST 4 ("")
+92 CALL 2
+
+94 LOAD_FAST 1 (user_data)
+96 LOAD_METHOD 0 (get)
+98 LOAD_CONST 10 ("phone")
+100 LOAD_CONST 4 ("")
+102 CALL 2
+
+104 LOAD_FAST 1 (user_data)
+106 LOAD_METHOD 0 (get)
+108 LOAD_CONST 11 ("picture")
+110 BUILD_MAP 0
+112 CALL 2
+114 LOAD_METHOD 0 (get)
+116 LOAD_CONST 12 ("large")
+118 LOAD_CONST 4 ("")
+120 CALL 2
+
+122 LOAD_CONST 13 (('first_name', 'last_name', 'email', 'gender', 'country', 'city', 'phone', 'picture'))
+124 BUILD_CONST_KEY_MAP 8
+126 RETURN_VALUE
+128 PUSH_EXC_INFO
+
+130 LOAD_GLOBAL 4 (Exception)
+132 CHECK_EXC_MATCH
+134 POP_JUMP_FORWARD_IF_FALSE 41 (to 176)
+136 STORE_FAST 4 (e)
+
+138 LOAD_GLOBAL 6 (logger)
+140 LOAD_METHOD 4 (error)
+142 LOAD_CONST 14 ("Error extracting user info: ")
+144 LOAD_FAST 4 (e)
+146 FORMAT_VALUE 0
+148 BUILD_STRING 2
+150 CALL 1
+152 POP_TOP
+
+154 BUILD_MAP 0
+156 SWAP 2
+158 POP_EXCEPT
+160 LOAD_CONST 15 (None)
+162 STORE_FAST 4 (e)
+164 DELETE_FAST 4 (e)
+166 RETURN_VALUE
+168 LOAD_CONST 15 (None)
+170 STORE_FAST 4 (e)
+172 DELETE_FAST 4 (e)
+174 RERAISE 1
+
+176 RERAISE 0
+178 COPY 3
+180 POP_EXCEPT
+182 RERAISE 1
+
+
+0 LOAD_GLOBAL 0 (string)
+2 LOAD_ATTR 1 (ascii_letters)
+4 LOAD_GLOBAL 0 (string)
+6 LOAD_ATTR 2 (digits)
+8 BINARY_OP 0
+10 LOAD_CONST 1 ("!@#$%^&*")
+12 BINARY_OP 0
+14 STORE_FAST 2 (characters)
+
+16 LOAD_GLOBAL 7 (NULL + random)
+18 LOAD_ATTR 4 (choice)
+20 LOAD_GLOBAL 0 (string)
+22 LOAD_ATTR 5 (ascii_uppercase)
+24 CALL 1
+
+26 LOAD_GLOBAL 7 (NULL + random)
+28 LOAD_ATTR 4 (choice)
+30 LOAD_GLOBAL 0 (string)
+32 LOAD_ATTR 6 (ascii_lowercase)
+34 CALL 1
+
+36 LOAD_GLOBAL 7 (NULL + random)
+38 LOAD_ATTR 4 (choice)
+40 LOAD_GLOBAL 0 (string)
+42 LOAD_ATTR 2 (digits)
+44 CALL 1
+
+46 LOAD_GLOBAL 7 (NULL + random)
+48 LOAD_ATTR 4 (choice)
+50 LOAD_CONST 1 ("!@#$%^&*")
+52 CALL 1
+
+54 BUILD_LIST 4
+56 STORE_FAST 3 (password)
+
+58 LOAD_GLOBAL 15 (NULL + range)
+60 LOAD_FAST 1 (length)
+62 LOAD_CONST 2 (4)
+64 BINARY_OP 10
+66 CALL 1
+68 GET_ITER
+70 FOR_ITER 41 (to 92)
+72 STORE_FAST 4 (_)
+
+74 LOAD_FAST 3 (password)
+76 LOAD_METHOD 8 (append)
+78 LOAD_GLOBAL 7 (NULL + random)
+80 LOAD_ATTR 4 (choice)
+82 LOAD_FAST 2 (characters)
+84 CALL 1
+86 CALL 1
+88 POP_TOP
+90 JUMP_BACKWARD 42 (to 70)
+
+92 LOAD_GLOBAL 7 (NULL + random)
+94 LOAD_ATTR 9 (shuffle)
+96 LOAD_FAST 3 (password)
+98 CALL 1
+100 POP_TOP
+
+102 LOAD_CONST 3 ("")
+104 LOAD_METHOD 10 (join)
+106 LOAD_FAST 3 (password)
+108 CALL 1
+110 RETURN_VALUE
+
+
+0 BUILD_LIST 0
+2 LOAD_CONST 1 (('TechCorp', 'InnovateInc', 'DataSoft', 'CloudTech', 'NextGen', 'DigitalWorks', 'SmartSolutions', 'FutureTech', 'GlobalSoft', 'TechVision', 'DataFlow', 'CloudBase', 'TechHub', 'InnovateLab', 'CyberEdge', 'AIWorks', 'QuantumSoft', 'NeoSystems', 'PixelLogic', 'CodeForge', 'NetSphere', 'VisionaryTech', 'ByteCraft', 'CloudNova'))
+4 LIST_EXTEND 1
+6 STORE_FAST 1 (companies)
+
+8 BUILD_LIST 0
+10 LOAD_CONST 2 (('Solutions', 'Technologies', 'Systems', 'Corp', 'Inc', 'Ltd'))
+12 LIST_EXTEND 1
+14 STORE_FAST 2 (suffixes)
+
+16 LOAD_GLOBAL 1 (NULL + random)
+18 LOAD_ATTR 1 (choice)
+20 LOAD_CONST 3 (True)
+22 LOAD_CONST 4 (False)
+24 BUILD_LIST 2
+26 CALL 1
+28 POP_JUMP_FORWARD_IF_FALSE 20 (to 40)
+
+30 LOAD_GLOBAL 1 (NULL + random)
+32 LOAD_ATTR 1 (choice)
+34 LOAD_FAST 1 (companies)
+36 CALL 1
+38 RETURN_VALUE
+
+40 LOAD_GLOBAL 1 (NULL + random)
+42 LOAD_ATTR 1 (choice)
+44 BUILD_LIST 0
+46 LOAD_CONST 5 (('Tech', 'Data', 'Cloud', 'Smart', 'Digital'))
+48 LIST_EXTEND 1
+50 CALL 1
+52 STORE_FAST 3 (base)
+
+54 LOAD_GLOBAL 1 (NULL + random)
+56 LOAD_ATTR 1 (choice)
+58 LOAD_FAST 2 (suffixes)
+60 CALL 1
+62 STORE_FAST 4 (suffix)
+
+64 LOAD_FAST 3 (base)
+66 FORMAT_VALUE 0
+68 LOAD_FAST 4 (suffix)
+70 FORMAT_VALUE 0
+72 BUILD_STRING 2
+74 RETURN_VALUE
+
+
+
+
+
+
+
+0 LOAD_CONST 0 ("\nService untuk mengambil data random user dari api.randomuser.me\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (None)
+8 IMPORT_NAME 1 (requests)
+10 STORE_NAME 1 (requests)
+
+12 LOAD_CONST 1 (0)
+14 LOAD_CONST 2 (None)
+16 IMPORT_NAME 2 (random)
+18 STORE_NAME 2 (random)
+
+20 LOAD_CONST 1 (0)
+22 LOAD_CONST 2 (None)
+24 IMPORT_NAME 3 (string)
+26 STORE_NAME 3 (string)
+
+28 LOAD_CONST 1 (0)
+30 LOAD_CONST 3 (('Dict', 'Optional'))
+32 IMPORT_NAME 4 (typing)
+34 IMPORT_FROM 5 (Dict)
+36 STORE_NAME 5 (Dict)
+38 IMPORT_FROM 6 (Optional)
+40 STORE_NAME 6 (Optional)
+42 POP_TOP
+
+44 LOAD_CONST 1 (0)
+46 LOAD_CONST 2 (None)
+48 IMPORT_NAME 7 (logging)
+50 STORE_NAME 7 (logging)
+
+52 PUSH_NULL
+54 LOAD_NAME 7 (logging)
+56 LOAD_ATTR 8 (getLogger)
+58 LOAD_NAME 9 (__name__)
+60 CALL 1
+62 STORE_NAME 10 (logger)
+
+64 PUSH_NULL
+66 LOAD_BUILD_CLASS
+68 LOAD_CONST 4 (code object RandomUserService)
+70 MAKE_FUNCTION 0 (No arguments)
+72 LOAD_CONST 5 ("RandomUserService")
+74 CALL 2
+76 STORE_NAME 11 (RandomUserService)
+
+78 LOAD_NAME 9 (__name__)
+80 LOAD_CONST 6 ("__main__")
+82 COMPARE_OP 2 (==)
+84 POP_JUMP_FORWARD_IF_FALSE 178 (to 230)
+
+86 PUSH_NULL
+88 LOAD_NAME 11 (RandomUserService)
+90 CALL 0
+92 STORE_NAME 12 (service)
+
+94 LOAD_NAME 12 (service)
+96 LOAD_METHOD 13 (get_random_user)
+98 CALL 0
+100 STORE_NAME 14 (user)
+
+102 LOAD_NAME 14 (user)
+104 POP_JUMP_FORWARD_IF_FALSE 148 (to 234)
+
+106 PUSH_NULL
+108 LOAD_NAME 15 (print)
+110 LOAD_CONST 7 ("Generated User Data:")
+112 CALL 1
+114 POP_TOP
+
+116 PUSH_NULL
+118 LOAD_NAME 15 (print)
+120 LOAD_CONST 8 ("Name: ")
+122 LOAD_NAME 14 (user)
+124 LOAD_CONST 9 ("first_name")
+126 BINARY_SUBSCR
+128 FORMAT_VALUE 0
+130 LOAD_CONST 10 (" ")
+132 LOAD_NAME 14 (user)
+134 LOAD_CONST 11 ("last_name")
+136 BINARY_SUBSCR
+138 FORMAT_VALUE 0
+140 BUILD_STRING 4
+142 CALL 1
+144 POP_TOP
+
+146 PUSH_NULL
+148 LOAD_NAME 15 (print)
+150 LOAD_CONST 12 ("Email: ")
+152 LOAD_NAME 14 (user)
+154 LOAD_CONST 13 ("email")
+156 BINARY_SUBSCR
+158 FORMAT_VALUE 0
+160 BUILD_STRING 2
+162 CALL 1
+164 POP_TOP
+
+166 PUSH_NULL
+168 LOAD_NAME 15 (print)
+170 LOAD_CONST 14 ("Country: ")
+172 LOAD_NAME 14 (user)
+174 LOAD_CONST 15 ("country")
+176 BINARY_SUBSCR
+178 FORMAT_VALUE 0
+180 BUILD_STRING 2
+182 CALL 1
+184 POP_TOP
+
+186 PUSH_NULL
+188 LOAD_NAME 15 (print)
+190 LOAD_CONST 16 ("Password: ")
+192 LOAD_NAME 12 (service)
+194 LOAD_METHOD 16 (generate_password)
+196 CALL 0
+198 FORMAT_VALUE 0
+200 BUILD_STRING 2
+202 CALL 1
+204 POP_TOP
+
+206 PUSH_NULL
+208 LOAD_NAME 15 (print)
+210 LOAD_CONST 17 ("Company: ")
+212 LOAD_NAME 12 (service)
+214 LOAD_METHOD 17 (generate_company_name)
+216 CALL 0
+218 FORMAT_VALUE 0
+220 BUILD_STRING 2
+222 CALL 1
+224 POP_TOP
+226 LOAD_CONST 2 (None)
+228 RETURN_VALUE
+
+230 LOAD_CONST 2 (None)
+232 RETURN_VALUE
+
+234 LOAD_CONST 2 (None)
+236 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("RandomUserService")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 ("Service untuk generate data user random dari API randomuser.me")
+10 STORE_NAME 3 (__doc__)
+
+12 LOAD_CONST 2 (code object __init__)
+14 MAKE_FUNCTION 0 (No arguments)
+16 STORE_NAME 4 (__init__)
+
+18 LOAD_CONST 16 (('female', 'gb,us,es'))
+20 LOAD_CONST 5 ("gender")
+22 LOAD_NAME 5 (str)
+24 LOAD_CONST 6 ("nationalities")
+26 LOAD_NAME 5 (str)
+28 LOAD_CONST 7 ("return")
+30 LOAD_NAME 6 (Optional)
+32 LOAD_NAME 7 (Dict)
+34 BINARY_SUBSCR
+36 BUILD_TUPLE 6
+38 LOAD_CONST 8 (code object get_random_user)
+40 MAKE_FUNCTION 5 (default, annotation)
+42 STORE_NAME 8 (get_random_user)
+
+44 LOAD_CONST 9 ("user_data")
+46 LOAD_NAME 7 (Dict)
+48 LOAD_CONST 7 ("return")
+50 LOAD_NAME 7 (Dict)
+52 BUILD_TUPLE 4
+54 LOAD_CONST 10 (code object _extract_user_info)
+56 MAKE_FUNCTION 4 (annotation)
+58 STORE_NAME 9 (_extract_user_info)
+
+60 LOAD_CONST 17 ((12,))
+62 LOAD_CONST 12 ("length")
+64 LOAD_NAME 10 (int)
+66 LOAD_CONST 7 ("return")
+68 LOAD_NAME 5 (str)
+70 BUILD_TUPLE 4
+72 LOAD_CONST 13 (code object generate_password)
+74 MAKE_FUNCTION 5 (default, annotation)
+76 STORE_NAME 11 (generate_password)
+
+78 LOAD_CONST 7 ("return")
+80 LOAD_NAME 5 (str)
+82 BUILD_TUPLE 2
+84 LOAD_CONST 14 (code object generate_company_name)
+86 MAKE_FUNCTION 4 (annotation)
+88 STORE_NAME 12 (generate_company_name)
+90 LOAD_CONST 15 (None)
+92 RETURN_VALUE
+
+
+0 LOAD_CONST 1 ("https://randomuser.me/api/")
+2 LOAD_FAST 0 (self)
+4 STORE_ATTR 0 (base_url)
+
+6 LOAD_GLOBAL 3 (NULL + requests)
+8 LOAD_ATTR 2 (Session)
+10 CALL 0
+12 LOAD_FAST 0 (self)
+14 STORE_ATTR 3 (session)
+16 LOAD_CONST 0 (None)
+18 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 1 (gender)
+4 LOAD_FAST 2 (nationalities)
+6 LOAD_CONST 1 (1)
+8 LOAD_CONST 2 (('gender', 'nat', 'results'))
+10 BUILD_CONST_KEY_MAP 3
+12 STORE_FAST 3 (params)
+
+14 LOAD_FAST 0 (self)
+16 LOAD_ATTR 0 (session)
+18 LOAD_METHOD 1 (get)
+20 LOAD_FAST 0 (self)
+22 LOAD_ATTR 2 (base_url)
+24 LOAD_FAST 3 (params)
+26 LOAD_CONST 3 (10)
+28 KW_NAMES 4 (('params', 'timeout'))
+30 CALL 3
+32 STORE_FAST 4 (response)
+
+34 LOAD_FAST 4 (response)
+36 LOAD_METHOD 3 (raise_for_status)
+38 CALL 0
+40 POP_TOP
+
+42 LOAD_FAST 4 (response)
+44 LOAD_METHOD 4 (json)
+46 CALL 0
+48 STORE_FAST 5 (data)
+
+50 LOAD_FAST 5 (data)
+52 LOAD_METHOD 1 (get)
+54 LOAD_CONST 5 ("results")
+56 CALL 1
+58 POP_JUMP_FORWARD_IF_FALSE 35 (to 82)
+
+60 LOAD_FAST 5 (data)
+62 LOAD_CONST 5 ("results")
+64 BINARY_SUBSCR
+66 LOAD_CONST 6 (0)
+68 BINARY_SUBSCR
+70 STORE_FAST 6 (user_data)
+
+72 LOAD_FAST 0 (self)
+74 LOAD_METHOD 5 (_extract_user_info)
+76 LOAD_FAST 6 (user_data)
+78 CALL 1
+80 RETURN_VALUE
+
+82 LOAD_CONST 8 (None)
+84 RETURN_VALUE
+86 PUSH_EXC_INFO
+
+88 LOAD_GLOBAL 12 (requests)
+90 LOAD_ATTR 7 (RequestException)
+92 CHECK_EXC_MATCH
+94 POP_JUMP_FORWARD_IF_FALSE 40 (to 134)
+96 STORE_FAST 7 (e)
+
+98 LOAD_GLOBAL 16 (logger)
+100 LOAD_METHOD 9 (error)
+102 LOAD_CONST 7 ("Error fetching random user: ")
+104 LOAD_FAST 7 (e)
+106 FORMAT_VALUE 0
+108 BUILD_STRING 2
+110 CALL 1
+112 POP_TOP
+
+114 POP_EXCEPT
+116 LOAD_CONST 8 (None)
+118 STORE_FAST 7 (e)
+120 DELETE_FAST 7 (e)
+122 LOAD_CONST 8 (None)
+124 RETURN_VALUE
+126 LOAD_CONST 8 (None)
+128 STORE_FAST 7 (e)
+130 DELETE_FAST 7 (e)
+132 RERAISE 1
+
+134 LOAD_GLOBAL 20 (Exception)
+136 CHECK_EXC_MATCH
+138 POP_JUMP_FORWARD_IF_FALSE 40 (to 178)
+140 STORE_FAST 7 (e)
+
+142 LOAD_GLOBAL 16 (logger)
+144 LOAD_METHOD 9 (error)
+146 LOAD_CONST 9 ("Unexpected error: ")
+148 LOAD_FAST 7 (e)
+150 FORMAT_VALUE 0
+152 BUILD_STRING 2
+154 CALL 1
+156 POP_TOP
+
+158 POP_EXCEPT
+160 LOAD_CONST 8 (None)
+162 STORE_FAST 7 (e)
+164 DELETE_FAST 7 (e)
+166 LOAD_CONST 8 (None)
+168 RETURN_VALUE
+170 LOAD_CONST 8 (None)
+172 STORE_FAST 7 (e)
+174 DELETE_FAST 7 (e)
+176 RERAISE 1
+
+178 RERAISE 0
+180 COPY 3
+182 POP_EXCEPT
+184 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_FAST 1 (user_data)
+4 LOAD_METHOD 0 (get)
+6 LOAD_CONST 1 ("name")
+8 BUILD_MAP 0
+10 CALL 2
+12 STORE_FAST 2 (name)
+
+14 LOAD_FAST 1 (user_data)
+16 LOAD_METHOD 0 (get)
+18 LOAD_CONST 2 ("location")
+20 BUILD_MAP 0
+22 CALL 2
+24 STORE_FAST 3 (location)
+
+26 LOAD_FAST 2 (name)
+28 LOAD_METHOD 0 (get)
+30 LOAD_CONST 3 ("first")
+32 LOAD_CONST 4 ("")
+34 CALL 2
+36 LOAD_METHOD 1 (title)
+38 CALL 0
+40 LOAD_FAST 2 (name)
+42 LOAD_METHOD 0 (get)
+44 LOAD_CONST 5 ("last")
+46 LOAD_CONST 4 ("")
+48 CALL 2
+50 LOAD_METHOD 1 (title)
+52 CALL 0
+54 LOAD_FAST 1 (user_data)
+56 LOAD_METHOD 0 (get)
+58 LOAD_CONST 6 ("email")
+60 LOAD_CONST 4 ("")
+62 CALL 2
+64 LOAD_FAST 1 (user_data)
+66 LOAD_METHOD 0 (get)
+68 LOAD_CONST 7 ("gender")
+70 LOAD_CONST 4 ("")
+72 CALL 2
+74 LOAD_FAST 3 (location)
+76 LOAD_METHOD 0 (get)
+78 LOAD_CONST 8 ("country")
+80 LOAD_CONST 4 ("")
+82 CALL 2
+84 LOAD_FAST 3 (location)
+86 LOAD_METHOD 0 (get)
+88 LOAD_CONST 9 ("city")
+90 LOAD_CONST 4 ("")
+92 CALL 2
+94 LOAD_FAST 1 (user_data)
+96 LOAD_METHOD 0 (get)
+98 LOAD_CONST 10 ("phone")
+100 LOAD_CONST 4 ("")
+102 CALL 2
+104 LOAD_FAST 1 (user_data)
+106 LOAD_METHOD 0 (get)
+108 LOAD_CONST 11 ("picture")
+110 BUILD_MAP 0
+112 CALL 2
+114 LOAD_METHOD 0 (get)
+116 LOAD_CONST 12 ("large")
+118 LOAD_CONST 4 ("")
+120 CALL 2
+122 LOAD_CONST 13 (('first_name', 'last_name', 'email', 'gender', 'country', 'city', 'phone', 'picture'))
+124 BUILD_CONST_KEY_MAP 8
+126 RETURN_VALUE
+128 PUSH_EXC_INFO
+
+130 LOAD_GLOBAL 4 (Exception)
+132 CHECK_EXC_MATCH
+134 POP_JUMP_FORWARD_IF_FALSE 41 (to 176)
+136 STORE_FAST 4 (e)
+
+138 LOAD_GLOBAL 6 (logger)
+140 LOAD_METHOD 4 (error)
+142 LOAD_CONST 14 ("Error extracting user info: ")
+144 LOAD_FAST 4 (e)
+146 FORMAT_VALUE 0
+148 BUILD_STRING 2
+150 CALL 1
+152 POP_TOP
+
+154 BUILD_MAP 0
+156 SWAP 2
+158 POP_EXCEPT
+160 LOAD_CONST 15 (None)
+162 STORE_FAST 4 (e)
+164 DELETE_FAST 4 (e)
+166 RETURN_VALUE
+168 LOAD_CONST 15 (None)
+170 STORE_FAST 4 (e)
+172 DELETE_FAST 4 (e)
+174 RERAISE 1
+
+176 RERAISE 0
+178 COPY 3
+180 POP_EXCEPT
+182 RERAISE 1
+
+
+0 LOAD_GLOBAL 0 (string)
+2 LOAD_ATTR 1 (digits)
+4 JUMP_IF_TRUE_OR_POP 1 (to 8)
+6 LOAD_CONST 1 ("!@#$%^&*")
+8 COPY 1
+10 STORE_FAST 2 (characters)
+12 LOAD_GLOBAL 0 (string)
+14 STORE_ATTR 2 (ascii_letters)
+
+16 LOAD_GLOBAL 7 (NULL + random)
+18 LOAD_ATTR 4 (choice)
+20 LOAD_GLOBAL 0 (string)
+22 LOAD_ATTR 5 (ascii_uppercase)
+24 CALL 1
+26 LOAD_GLOBAL 7 (NULL + random)
+28 LOAD_ATTR 4 (choice)
+30 LOAD_GLOBAL 0 (string)
+32 LOAD_ATTR 6 (ascii_lowercase)
+34 CALL 1
+36 LOAD_GLOBAL 7 (NULL + random)
+38 LOAD_ATTR 4 (choice)
+40 LOAD_GLOBAL 0 (string)
+42 LOAD_ATTR 1 (digits)
+44 CALL 1
+46 LOAD_GLOBAL 7 (NULL + random)
+48 LOAD_ATTR 4 (choice)
+50 LOAD_CONST 1 ("!@#$%^&*")
+52 CALL 1
+54 BUILD_LIST 4
+56 STORE_FAST 3 (password)
+
+58 LOAD_GLOBAL 15 (NULL + range)
+60 LOAD_FAST 1 (length)
+62 LOAD_CONST 2 (4)
+64 BINARY_OP 0
+66 CALL 1
+68 GET_ITER
+70 FOR_ITER 41 (to 92)
+72 STORE_FAST 4 (_)
+
+74 LOAD_FAST 3 (password)
+76 LOAD_METHOD 8 (append)
+78 LOAD_GLOBAL 7 (NULL + random)
+80 LOAD_ATTR 4 (choice)
+82 LOAD_FAST 2 (characters)
+84 CALL 1
+86 CALL 1
+88 POP_TOP
+90 JUMP_BACKWARD 42 (to 70)
+
+92 LOAD_GLOBAL 7 (NULL + random)
+94 LOAD_ATTR 9 (shuffle)
+96 LOAD_FAST 3 (password)
+98 CALL 1
+100 POP_TOP
+
+102 LOAD_CONST 3 ("")
+104 LOAD_METHOD 10 (join)
+106 LOAD_FAST 3 (password)
+108 CALL 1
+110 RETURN_VALUE
+
+
+0 BUILD_LIST 0
+2 LOAD_CONST 1 (('TechCorp', 'InnovateInc', 'DataSoft', 'CloudTech', 'NextGen', 'DigitalWorks', 'SmartSolutions', 'FutureTech', 'GlobalSoft', 'TechVision', 'DataFlow', 'CloudBase', 'TechHub', 'InnovateLab', 'CyberEdge', 'AIWorks', 'QuantumSoft', 'NeoSystems', 'PixelLogic', 'CodeForge', 'NetSphere', 'VisionaryTech', 'ByteCraft', 'CloudNova'))
+4 LIST_EXTEND 1
+6 STORE_FAST 1 (companies)
+
+8 BUILD_LIST 0
+10 LOAD_CONST 2 (('Solutions', 'Technologies', 'Systems', 'Corp', 'Inc', 'Ltd'))
+12 LIST_EXTEND 1
+14 STORE_FAST 2 (suffixes)
+
+16 LOAD_GLOBAL 1 (NULL + random)
+18 LOAD_ATTR 1 (choice)
+20 LOAD_CONST 3 (True)
+22 LOAD_CONST 4 (False)
+24 BUILD_LIST 2
+26 CALL 1
+28 POP_JUMP_FORWARD_IF_FALSE 20 (to 40)
+
+30 LOAD_GLOBAL 1 (NULL + random)
+32 LOAD_ATTR 1 (choice)
+34 LOAD_FAST 1 (companies)
+36 CALL 1
+38 RETURN_VALUE
+
+40 LOAD_GLOBAL 1 (NULL + random)
+42 LOAD_ATTR 1 (choice)
+44 BUILD_LIST 0
+46 LOAD_CONST 5 (('Tech', 'Data', 'Cloud', 'Smart', 'Digital'))
+48 LIST_EXTEND 1
+50 CALL 1
+52 STORE_FAST 3 (base)
+
+54 LOAD_GLOBAL 1 (NULL + random)
+56 LOAD_ATTR 1 (choice)
+58 LOAD_FAST 2 (suffixes)
+60 CALL 1
+62 STORE_FAST 4 (suffix)
+
+64 LOAD_FAST 3 (base)
+66 FORMAT_VALUE 0
+68 LOAD_FAST 4 (suffix)
+70 FORMAT_VALUE 0
+72 BUILD_STRING 2
+74 RETURN_VALUE

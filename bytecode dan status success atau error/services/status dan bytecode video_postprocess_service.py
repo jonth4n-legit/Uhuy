@@ -1,0 +1,658 @@
+<module>: Success: Equal
+
+<module>.VideoPostprocessService: Success: Equal
+
+***<module>.VideoPostprocessService.remove_audio_inplace: Failure detected at line number 29 and instruction offset 40: Different bytecode
+
+
+
+0 LOAD_CONST 0 ("\nVideo Post-process Service: utilitas untuk memproses video lokal, seperti menghapus audio.\nImplementasi menggunakan imageio-ffmpeg (memanggil ffmpeg langsung), tanpa dependensi moviepy.editor.\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (('annotations',))
+8 IMPORT_NAME 1 (__future__)
+10 IMPORT_FROM 2 (annotations)
+12 STORE_NAME 2 (annotations)
+14 POP_TOP
+
+16 LOAD_CONST 1 (0)
+18 LOAD_CONST 3 (None)
+20 IMPORT_NAME 3 (os)
+22 STORE_NAME 3 (os)
+
+24 LOAD_CONST 1 (0)
+26 LOAD_CONST 3 (None)
+28 IMPORT_NAME 4 (tempfile)
+30 STORE_NAME 4 (tempfile)
+
+32 LOAD_CONST 1 (0)
+34 LOAD_CONST 3 (None)
+36 IMPORT_NAME 5 (subprocess)
+38 STORE_NAME 5 (subprocess)
+
+40 LOAD_CONST 1 (0)
+42 LOAD_CONST 4 (('Path',))
+44 IMPORT_NAME 6 (pathlib)
+46 IMPORT_FROM 7 (Path)
+48 STORE_NAME 7 (Path)
+50 POP_TOP
+
+52 LOAD_CONST 1 (0)
+54 LOAD_CONST 5 (('Optional',))
+56 IMPORT_NAME 8 (typing)
+58 IMPORT_FROM 9 (Optional)
+60 STORE_NAME 9 (Optional)
+62 POP_TOP
+
+64 LOAD_CONST 1 (0)
+66 LOAD_CONST 3 (None)
+68 IMPORT_NAME 10 (imageio_ffmpeg)
+70 STORE_NAME 11 (iio_ffmpeg)
+
+72 PUSH_NULL
+74 LOAD_BUILD_CLASS
+76 LOAD_CONST 6 (code object VideoPostprocessService)
+78 MAKE_FUNCTION 0 (No arguments)
+80 LOAD_CONST 7 ("VideoPostprocessService")
+82 CALL 2
+84 STORE_NAME 12 (VideoPostprocessService)
+86 LOAD_CONST 3 (None)
+88 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("VideoPostprocessService")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 ("Kumpulan utilitas post-process video.")
+10 STORE_NAME 3 (__doc__)
+
+12 LOAD_CONST 7 (('input_path', 'str', 'return', 'str'))
+14 LOAD_CONST 5 (code object remove_audio_inplace)
+16 MAKE_FUNCTION 4 (annotation)
+18 STORE_NAME 4 (remove_audio_inplace)
+20 LOAD_CONST 6 (None)
+22 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_FAST 1 (input_path)
+4 CALL 1
+6 STORE_FAST 2 (src)
+
+8 LOAD_FAST 2 (src)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_TRUE 18 (to 30)
+
+16 LOAD_GLOBAL 5 (NULL + FileNotFoundError)
+18 LOAD_CONST 1 ("File tidak ditemukan: ")
+20 LOAD_FAST 1 (input_path)
+22 FORMAT_VALUE 0
+24 BUILD_STRING 2
+26 CALL 1
+28 RAISE_VARARGS 1 (exception instance)
+
+30 LOAD_GLOBAL 1 (NULL + Path)
+32 LOAD_GLOBAL 7 (NULL + tempfile)
+34 LOAD_ATTR 4 (gettempdir)
+36 CALL 0
+38 CALL 1
+40 STORE_FAST 3 (tmp_dir)
+
+42 LOAD_FAST 3 (tmp_dir)
+44 LOAD_FAST 2 (src)
+46 LOAD_ATTR 5 (stem)
+48 FORMAT_VALUE 0
+50 LOAD_CONST 2 ("_noaudio")
+52 LOAD_FAST 2 (src)
+54 LOAD_ATTR 6 (suffix)
+56 FORMAT_VALUE 0
+58 BUILD_STRING 3
+60 BINARY_OP 11
+62 STORE_FAST 4 (tmp_out)
+
+64 LOAD_GLOBAL 15 (NULL + iio_ffmpeg)
+66 LOAD_ATTR 8 (get_ffmpeg_exe)
+68 CALL 0
+70 STORE_FAST 5 (ffmpeg)
+
+72 LOAD_FAST 5 (ffmpeg)
+
+74 LOAD_CONST 3 ("-y")
+76 LOAD_CONST 4 ("-i")
+78 LOAD_GLOBAL 19 (NULL + str)
+80 LOAD_FAST 2 (src)
+82 CALL 1
+
+84 LOAD_CONST 5 ("-c:v")
+
+86 LOAD_CONST 6 ("copy")
+
+88 LOAD_CONST 7 ("-an")
+90 LOAD_GLOBAL 19 (NULL + str)
+92 LOAD_FAST 4 (tmp_out)
+94 CALL 1
+
+96 BUILD_LIST 8
+98 STORE_FAST 6 (cmd)
+
+100 LOAD_GLOBAL 21 (NULL + getattr)
+102 LOAD_GLOBAL 22 (subprocess)
+104 LOAD_CONST 8 ("CREATE_NO_WINDOW")
+106 LOAD_CONST 9 (0)
+108 CALL 3
+110 STORE_FAST 7 (creationflags)
+
+112 NOP
+
+114 LOAD_GLOBAL 23 (NULL + subprocess)
+116 LOAD_ATTR 12 (run)
+
+118 LOAD_FAST 6 (cmd)
+
+120 LOAD_CONST 10 (True)
+
+122 LOAD_GLOBAL 22 (subprocess)
+124 LOAD_ATTR 13 (PIPE)
+
+126 LOAD_GLOBAL 22 (subprocess)
+128 LOAD_ATTR 13 (PIPE)
+
+130 LOAD_FAST 7 (creationflags)
+
+132 KW_NAMES 11 (('check', 'stdout', 'stderr', 'creationflags'))
+134 CALL 5
+136 POP_TOP
+138 JUMP_FORWARD 157 (to 286)
+140 PUSH_EXC_INFO
+
+142 LOAD_GLOBAL 22 (subprocess)
+144 LOAD_ATTR 14 (CalledProcessError)
+146 CHECK_EXC_MATCH
+148 POP_JUMP_FORWARD_IF_FALSE 139 (to 278)
+150 STORE_FAST 8 (e)
+
+152 NOP
+
+154 LOAD_FAST 5 (ffmpeg)
+156 LOAD_CONST 3 ("-y")
+158 LOAD_CONST 4 ("-i")
+160 LOAD_GLOBAL 19 (NULL + str)
+162 LOAD_FAST 2 (src)
+164 CALL 1
+
+166 LOAD_CONST 5 ("-c:v")
+168 LOAD_CONST 12 ("libx264")
+170 LOAD_CONST 13 ("-preset")
+172 LOAD_CONST 14 ("veryfast")
+174 LOAD_CONST 15 ("-crf")
+
+176 LOAD_CONST 16 ("23")
+178 LOAD_CONST 7 ("-an")
+180 LOAD_GLOBAL 19 (NULL + str)
+182 LOAD_FAST 4 (tmp_out)
+184 CALL 1
+
+186 BUILD_LIST 12
+188 STORE_FAST 9 (cmd_fallback)
+
+190 LOAD_GLOBAL 23 (NULL + subprocess)
+192 LOAD_ATTR 12 (run)
+
+194 LOAD_FAST 9 (cmd_fallback)
+
+196 LOAD_CONST 10 (True)
+
+198 LOAD_GLOBAL 22 (subprocess)
+200 LOAD_ATTR 13 (PIPE)
+
+202 LOAD_GLOBAL 22 (subprocess)
+204 LOAD_ATTR 13 (PIPE)
+
+206 LOAD_FAST 7 (creationflags)
+
+208 KW_NAMES 11 (('check', 'stdout', 'stderr', 'creationflags'))
+210 CALL 5
+212 POP_TOP
+214 JUMP_FORWARD 42 (to 260)
+216 PUSH_EXC_INFO
+
+218 LOAD_GLOBAL 22 (subprocess)
+220 LOAD_ATTR 14 (CalledProcessError)
+222 CHECK_EXC_MATCH
+224 POP_JUMP_FORWARD_IF_FALSE 24 (to 252)
+226 STORE_FAST 10 (e2)
+
+228 LOAD_GLOBAL 31 (NULL + RuntimeError)
+230 LOAD_CONST 17 ("ffmpeg gagal menghapus audio: ")
+232 LOAD_FAST 10 (e2)
+234 FORMAT_VALUE 0
+236 BUILD_STRING 2
+238 CALL 1
+240 LOAD_FAST 8 (e)
+242 RAISE_VARARGS 2 (exception instance with __cause__)
+244 LOAD_CONST 18 (None)
+246 STORE_FAST 10 (e2)
+248 DELETE_FAST 10 (e2)
+250 RERAISE 1
+
+252 RERAISE 0
+254 COPY 3
+256 POP_EXCEPT
+258 RERAISE 1
+
+260 POP_EXCEPT
+262 LOAD_CONST 18 (None)
+264 STORE_FAST 8 (e)
+266 DELETE_FAST 8 (e)
+268 JUMP_FORWARD 8 (to 286)
+270 LOAD_CONST 18 (None)
+272 STORE_FAST 8 (e)
+274 DELETE_FAST 8 (e)
+276 RERAISE 1
+
+278 RERAISE 0
+280 COPY 3
+282 POP_EXCEPT
+284 RERAISE 1
+
+286 NOP
+
+288 LOAD_GLOBAL 33 (NULL + os)
+290 LOAD_ATTR 17 (replace)
+292 LOAD_GLOBAL 19 (NULL + str)
+294 LOAD_FAST 4 (tmp_out)
+296 CALL 1
+298 LOAD_GLOBAL 19 (NULL + str)
+300 LOAD_FAST 2 (src)
+302 CALL 1
+304 CALL 2
+306 POP_TOP
+
+308 LOAD_FAST 4 (tmp_out)
+310 LOAD_METHOD 1 (exists)
+312 CALL 0
+314 POP_JUMP_FORWARD_IF_FALSE 38 (to 350)
+
+316 NOP
+
+318 LOAD_FAST 4 (tmp_out)
+320 LOAD_METHOD 18 (unlink)
+322 CALL 0
+324 POP_TOP
+326 JUMP_FORWARD 80 (to 404)
+328 PUSH_EXC_INFO
+
+330 LOAD_GLOBAL 38 (Exception)
+332 CHECK_EXC_MATCH
+334 POP_JUMP_FORWARD_IF_FALSE 3 (to 342)
+336 POP_TOP
+
+338 POP_EXCEPT
+340 JUMP_FORWARD 68 (to 404)
+
+342 RERAISE 0
+344 COPY 3
+346 POP_EXCEPT
+348 RERAISE 1
+
+350 JUMP_FORWARD 63 (to 404)
+352 PUSH_EXC_INFO
+354 LOAD_FAST 4 (tmp_out)
+356 LOAD_METHOD 1 (exists)
+358 CALL 0
+360 POP_JUMP_FORWARD_IF_FALSE 38 (to 396)
+
+362 NOP
+
+364 LOAD_FAST 4 (tmp_out)
+366 LOAD_METHOD 18 (unlink)
+368 CALL 0
+370 POP_TOP
+372 RERAISE 0
+374 PUSH_EXC_INFO
+
+376 LOAD_GLOBAL 38 (Exception)
+378 CHECK_EXC_MATCH
+380 POP_JUMP_FORWARD_IF_FALSE 3 (to 388)
+382 POP_TOP
+
+384 POP_EXCEPT
+386 RERAISE 0
+
+388 RERAISE 0
+390 COPY 3
+392 POP_EXCEPT
+394 RERAISE 1
+
+396 RERAISE 0
+398 COPY 3
+400 POP_EXCEPT
+402 RERAISE 1
+
+404 LOAD_GLOBAL 19 (NULL + str)
+406 LOAD_FAST 2 (src)
+408 CALL 1
+410 RETURN_VALUE
+
+
+
+
+
+
+
+
+
+0 LOAD_CONST 0 ("\nVideo Post-process Service: utilitas untuk memproses video lokal, seperti menghapus audio.\nImplementasi menggunakan imageio-ffmpeg (memanggil ffmpeg langsung), tanpa dependensi moviepy.editor.\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (('annotations',))
+8 IMPORT_NAME 1 (__future__)
+10 IMPORT_FROM 2 (annotations)
+12 STORE_NAME 2 (annotations)
+14 POP_TOP
+
+16 LOAD_CONST 1 (0)
+18 LOAD_CONST 3 (None)
+20 IMPORT_NAME 3 (os)
+22 STORE_NAME 3 (os)
+
+24 LOAD_CONST 1 (0)
+26 LOAD_CONST 3 (None)
+28 IMPORT_NAME 4 (tempfile)
+30 STORE_NAME 4 (tempfile)
+
+32 LOAD_CONST 1 (0)
+34 LOAD_CONST 3 (None)
+36 IMPORT_NAME 5 (subprocess)
+38 STORE_NAME 5 (subprocess)
+
+40 LOAD_CONST 1 (0)
+42 LOAD_CONST 4 (('Path',))
+44 IMPORT_NAME 6 (pathlib)
+46 IMPORT_FROM 7 (Path)
+48 STORE_NAME 7 (Path)
+50 POP_TOP
+
+52 LOAD_CONST 1 (0)
+54 LOAD_CONST 5 (('Optional',))
+56 IMPORT_NAME 8 (typing)
+58 IMPORT_FROM 9 (Optional)
+60 STORE_NAME 9 (Optional)
+62 POP_TOP
+
+64 LOAD_CONST 1 (0)
+66 LOAD_CONST 3 (None)
+68 IMPORT_NAME 10 (imageio_ffmpeg)
+70 STORE_NAME 11 (iio_ffmpeg)
+
+72 PUSH_NULL
+74 LOAD_BUILD_CLASS
+76 LOAD_CONST 6 (code object VideoPostprocessService)
+78 MAKE_FUNCTION 0 (No arguments)
+80 LOAD_CONST 7 ("VideoPostprocessService")
+82 CALL 2
+84 STORE_NAME 12 (VideoPostprocessService)
+86 LOAD_CONST 3 (None)
+88 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("VideoPostprocessService")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 ("Kumpulan utilitas post-process video.")
+10 STORE_NAME 3 (__doc__)
+
+12 LOAD_CONST 7 (('input_path', 'str', 'return', 'str'))
+14 LOAD_CONST 5 (code object remove_audio_inplace)
+16 MAKE_FUNCTION 4 (annotation)
+18 STORE_NAME 4 (remove_audio_inplace)
+20 LOAD_CONST 6 (None)
+22 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_FAST 1 (input_path)
+4 CALL 1
+6 STORE_FAST 2 (src)
+
+8 LOAD_FAST 2 (src)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_TRUE 18 (to 30)
+
+16 LOAD_GLOBAL 5 (NULL + FileNotFoundError)
+18 LOAD_CONST 1 ("File tidak ditemukan: ")
+20 LOAD_FAST 1 (input_path)
+22 FORMAT_VALUE 0
+24 BUILD_STRING 2
+26 CALL 1
+28 RAISE_VARARGS 1 (exception instance)
+
+30 LOAD_GLOBAL 1 (NULL + Path)
+32 LOAD_GLOBAL 7 (NULL + tempfile)
+34 LOAD_ATTR 4 (gettempdir)
+36 CALL 0
+38 CALL 1
+40 LOAD_GLOBAL 10 (tmp_dir)
+42 BINARY_OP 5
+44 LOAD_FAST 2 (src)
+46 LOAD_ATTR 6 (stem)
+48 FORMAT_VALUE 0
+50 LOAD_CONST 2 ("_noaudio")
+52 LOAD_FAST 2 (src)
+54 LOAD_ATTR 7 (suffix)
+56 FORMAT_VALUE 0
+58 BUILD_STRING 3
+60 BINARY_OP 0
+62 STORE_FAST 3 (tmp_out)
+
+64 LOAD_GLOBAL 17 (NULL + iio_ffmpeg)
+66 LOAD_ATTR 9 (get_ffmpeg_exe)
+68 CALL 0
+70 STORE_FAST 4 (ffmpeg)
+
+72 LOAD_FAST 4 (ffmpeg)
+74 LOAD_CONST 3 ("-y")
+76 LOAD_CONST 4 ("-i")
+78 LOAD_GLOBAL 21 (NULL + str)
+80 LOAD_FAST 2 (src)
+82 CALL 1
+84 LOAD_CONST 5 ("-c:v")
+86 LOAD_CONST 6 ("copy")
+88 LOAD_CONST 7 ("-an")
+90 LOAD_GLOBAL 21 (NULL + str)
+92 LOAD_FAST 3 (tmp_out)
+94 CALL 1
+96 BUILD_LIST 8
+98 STORE_FAST 5 (cmd)
+
+100 LOAD_GLOBAL 23 (NULL + getattr)
+102 LOAD_GLOBAL 24 (subprocess)
+104 LOAD_CONST 8 ("CREATE_NO_WINDOW")
+106 LOAD_CONST 9 (0)
+108 CALL 3
+110 STORE_FAST 6 (creationflags)
+
+112 NOP
+
+114 LOAD_GLOBAL 25 (NULL + subprocess)
+116 LOAD_ATTR 13 (run)
+118 LOAD_FAST 5 (cmd)
+120 LOAD_CONST 10 (True)
+122 LOAD_GLOBAL 24 (subprocess)
+124 LOAD_ATTR 14 (PIPE)
+126 LOAD_GLOBAL 24 (subprocess)
+128 LOAD_ATTR 14 (PIPE)
+130 LOAD_FAST 6 (creationflags)
+132 KW_NAMES 11 (('check', 'stdout', 'stderr', 'creationflags'))
+134 CALL 5
+136 POP_TOP
+138 JUMP_FORWARD 157 (to 286)
+140 PUSH_EXC_INFO
+
+142 LOAD_GLOBAL 24 (subprocess)
+144 LOAD_ATTR 15 (CalledProcessError)
+146 CHECK_EXC_MATCH
+148 POP_JUMP_FORWARD_IF_FALSE 139 (to 278)
+150 STORE_FAST 7 (e)
+
+152 NOP
+
+154 LOAD_FAST 4 (ffmpeg)
+156 LOAD_CONST 3 ("-y")
+158 LOAD_CONST 4 ("-i")
+160 LOAD_GLOBAL 21 (NULL + str)
+162 LOAD_FAST 2 (src)
+164 CALL 1
+166 LOAD_CONST 5 ("-c:v")
+168 LOAD_CONST 12 ("libx264")
+170 LOAD_CONST 13 ("-preset")
+172 LOAD_CONST 14 ("veryfast")
+174 LOAD_CONST 15 ("-crf")
+176 LOAD_CONST 16 ("23")
+178 LOAD_CONST 7 ("-an")
+180 LOAD_GLOBAL 21 (NULL + str)
+182 LOAD_FAST 3 (tmp_out)
+184 CALL 1
+186 BUILD_LIST 12
+188 STORE_FAST 8 (cmd_fallback)
+
+190 LOAD_GLOBAL 25 (NULL + subprocess)
+192 LOAD_ATTR 13 (run)
+194 LOAD_FAST 8 (cmd_fallback)
+196 LOAD_CONST 10 (True)
+198 LOAD_GLOBAL 24 (subprocess)
+200 LOAD_ATTR 14 (PIPE)
+202 LOAD_GLOBAL 24 (subprocess)
+204 LOAD_ATTR 14 (PIPE)
+206 LOAD_FAST 6 (creationflags)
+208 KW_NAMES 11 (('check', 'stdout', 'stderr', 'creationflags'))
+210 CALL 5
+212 POP_TOP
+214 JUMP_FORWARD 42 (to 260)
+216 PUSH_EXC_INFO
+
+218 LOAD_GLOBAL 24 (subprocess)
+220 LOAD_ATTR 15 (CalledProcessError)
+222 CHECK_EXC_MATCH
+224 POP_JUMP_FORWARD_IF_FALSE 24 (to 252)
+226 STORE_FAST 9 (e2)
+
+228 LOAD_GLOBAL 33 (NULL + RuntimeError)
+230 LOAD_CONST 17 ("ffmpeg gagal menghapus audio: ")
+232 LOAD_FAST 9 (e2)
+234 FORMAT_VALUE 0
+236 BUILD_STRING 2
+238 CALL 1
+240 LOAD_FAST 7 (e)
+242 RAISE_VARARGS 2 (exception instance with __cause__)
+244 LOAD_CONST 18 (None)
+246 STORE_FAST 9 (e2)
+248 DELETE_FAST 9 (e2)
+250 RERAISE 1
+
+252 RERAISE 0
+254 COPY 3
+256 POP_EXCEPT
+258 RERAISE 1
+
+260 POP_EXCEPT
+262 LOAD_CONST 18 (None)
+264 STORE_FAST 7 (e)
+266 DELETE_FAST 7 (e)
+268 JUMP_FORWARD 8 (to 286)
+270 LOAD_CONST 18 (None)
+272 STORE_FAST 7 (e)
+274 DELETE_FAST 7 (e)
+276 RERAISE 1
+
+278 RERAISE 0
+280 COPY 3
+282 POP_EXCEPT
+284 RERAISE 1
+
+286 NOP
+
+288 LOAD_GLOBAL 35 (NULL + os)
+290 LOAD_ATTR 18 (replace)
+292 LOAD_GLOBAL 21 (NULL + str)
+294 LOAD_FAST 3 (tmp_out)
+296 CALL 1
+298 LOAD_GLOBAL 21 (NULL + str)
+300 LOAD_FAST 2 (src)
+302 CALL 1
+304 CALL 2
+306 POP_TOP
+
+308 LOAD_FAST 3 (tmp_out)
+310 LOAD_METHOD 1 (exists)
+312 CALL 0
+314 POP_JUMP_FORWARD_IF_FALSE 38 (to 350)
+
+316 NOP
+
+318 LOAD_FAST 3 (tmp_out)
+320 LOAD_METHOD 19 (unlink)
+322 CALL 0
+324 POP_TOP
+326 JUMP_FORWARD 80 (to 404)
+328 PUSH_EXC_INFO
+
+330 LOAD_GLOBAL 40 (Exception)
+332 CHECK_EXC_MATCH
+334 POP_JUMP_FORWARD_IF_FALSE 3 (to 342)
+336 POP_TOP
+
+338 POP_EXCEPT
+340 JUMP_FORWARD 68 (to 404)
+
+342 RERAISE 0
+344 COPY 3
+346 POP_EXCEPT
+348 RERAISE 1
+
+350 JUMP_FORWARD 63 (to 404)
+352 PUSH_EXC_INFO
+354 LOAD_FAST 3 (tmp_out)
+356 LOAD_METHOD 1 (exists)
+358 CALL 0
+360 POP_JUMP_FORWARD_IF_FALSE 38 (to 396)
+
+362 NOP
+
+364 LOAD_FAST 3 (tmp_out)
+366 LOAD_METHOD 19 (unlink)
+368 CALL 0
+370 POP_TOP
+372 RERAISE 0
+374 PUSH_EXC_INFO
+
+376 LOAD_GLOBAL 40 (Exception)
+378 CHECK_EXC_MATCH
+380 POP_JUMP_FORWARD_IF_FALSE 3 (to 388)
+382 POP_TOP
+
+384 POP_EXCEPT
+386 RERAISE 0
+
+388 RERAISE 0
+390 COPY 3
+392 POP_EXCEPT
+394 RERAISE 1
+
+396 RERAISE 0
+398 COPY 3
+400 POP_EXCEPT
+402 RERAISE 1
+
+404 LOAD_GLOBAL 21 (NULL + str)
+406 LOAD_FAST 2 (src)
+408 CALL 1
+410 RETURN_VALUE

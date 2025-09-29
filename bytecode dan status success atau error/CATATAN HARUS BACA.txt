@@ -1,0 +1,44 @@
+Navigation Bar provides access to different regions of the webservice. When the screen is too small to display the entire bar, elements are stacked into a dropdown menu.
+"PyLingual" will route back to Home.
+"About" provides information about the PyLingual.io webservice.
+"Recently Viewed" provides access to previously viewed files.
+"Help" brings you to this resource page.
+"Use Old/New Editor" toggles between editor views. The old editor was the first rendition of a patch editor, and has fewer features. This resource page will primarily focus on supporting the new editor.
+The sun/moon toggle switches between darkmode and lightmode display options.
+
+File Information Bar shows basic information about the file. This includes filename and python version.
+Error Localization (dropdown) shows what errors were detected in the decompilation process, and where in the bytecode those errors can be found. Errors are divided into code objects (classes, functions, etc). A object in the decompiled python that holds an error will have an error listed here.
+Deletion Button (trash can icon) will delete the uploaded files from the service.
+Download Button (download icon) will download the currently viewed decompiled python.
+
+Patch Editor Toolbar offers tools for customizing the editor's contents and layout.
+"Select Patch Version" can be used to select a different patch from the patch history of the current file.
+Top / Bottom dropdowns offer customization options for the top editor pane (#4) and the bottom editor pane (#5).
+These customizations include:
+Contents of editor pane (one or two panes, difference editor, or none)
+Height of the editor pane
+Restore to default
+Keybinding offers different options of keyboard keybindings for use with the editor.
+
+Patch Editor provides a means to patch an incorrect decompilation. Different editor views are linked to the different tabs.
+Original Bytecode shows the bytecode that was in the .pyc file, divided by number into lines of python code.
+Reconstructed Bytecode shows the bytecode produced by the current patch python, divided by number into lines of python code. Each group of bytecode lines with the same number represent a single line of python code. These numbers do not necessarily align with the numbering of the python code due to conventions of comments and whitespace, so an offset field is provided to customize the current numbering.
+Patch Python is the current version of decompiled python from the submitted .pyc file. Errors between this file and the 'real python file' are represented as bytecode differences. Bytecode differences can be reconciled by altering this code and submitting the patch edit for re-evaluation.
+Empty Editor provides a space for "scratch text". This text is not saved.
+
+Bytecode Difference Viewer shows the differences between the source bytecode (left; the uploaded .pyc file's bytecode) and the patch bytecode (right; the bytecode of the currently viewed decompiled python file).
+The Patching Process
+Common Error Types
+Syntax Error occurs when bytcode could not be generated for a patch's python due to incorrect syntax in the body of the code.
+To Fix: Change the python patch code to be syntactically correct. There are many ways of doing this, such as spot-repairing syntax errors, removing incorrect code (to add again later), or addressing underlying errors that result in a syntax error (such as control flow errors).
+Semantic Error occurs when the bytecode generated from the python patch code is not a perfect match for the bytecode derived from the submitted .pyc file.
+To Fix: Locate the code object ("module") that is causing the error using the Error Localization dropdown. Address the error listed by changing the python code to reflect a more correct interpretation of the .pyc file bytecode.
+Dict/Tuple/List Mismatch Error occurs when the translation model incorrectly counts the number of items in a list, dictionary (map), set, tuple, or related datastructure. This error can be identified when the datastructure generation bytecode (ex. ```BUILD_MAP(4)```) has an incorrect number of elements; this is identifiable as a mismatch between datastructure generation bytecode instructions in the source bytecode and the patch bytecode.
+To Fix: Identify the missing items in bytecode, and add them to the list or related datastructure in the python code.
+Control Flow Error occurs when the control flow of the patch bytecode (the pattern of if's and else's and such) does not match the control flow of the source bytecode.
+To Fix: Reconcile the differences in control flow by changing the python code to better reflect the source bytecode.
+Missing Bytecode Error occurs when the patch python is missing chunks of bytecode from the original bytecode. This is caused by the imperfect nature of the transformation model, which we are always working to improve.
+To Fix: Reference the source bytecode to reconstruct the python code that generates the associated bytecode.
+Bytecode Patching Tips
+Not all bytecode differences are semantically significant; python code can be an exact recreation of a .pyc bytecode's source even when the whitespace is different. Therefore it is safe to ignore differences in bytecode that are whitespace differences (identified as differences caused by a mismatch of newlines in the bytecode)
+Use of the control+f command to search text when focused on an editor can assist in locating similarities between bytecode and python code. By searching keywords, such as string text, function names and variable names, corresponding locations between bytecode and python code can be quickly located.
