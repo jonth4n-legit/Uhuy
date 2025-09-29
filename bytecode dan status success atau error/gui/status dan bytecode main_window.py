@@ -1,0 +1,7022 @@
+File "/decompiler_workspace/68816a275e8fe9242947f141e1572a313270877d9d3353f6839fe2273f106da9/decompiler_output/indented_0.py", line 123
+
+x = self.root.winfo_screenwidth() 2 * 2 + width 2
+
+^
+
+SyntaxError: invalid syntax
+
+
+
+0 LOAD_CONST 0 ("\nMain window untuk aplikasi Auto Cloud Skill Registration\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (None)
+8 IMPORT_NAME 1 (tkinter)
+10 STORE_NAME 2 (tk)
+
+12 LOAD_CONST 1 (0)
+14 LOAD_CONST 3 (('messagebox', 'scrolledtext', 'filedialog'))
+16 IMPORT_NAME 1 (tkinter)
+18 IMPORT_FROM 3 (messagebox)
+20 STORE_NAME 3 (messagebox)
+22 IMPORT_FROM 4 (scrolledtext)
+24 STORE_NAME 4 (scrolledtext)
+26 IMPORT_FROM 5 (filedialog)
+28 STORE_NAME 5 (filedialog)
+30 POP_TOP
+
+32 LOAD_CONST 1 (0)
+34 LOAD_CONST 2 (None)
+36 IMPORT_NAME 6 (ttkbootstrap)
+38 STORE_NAME 7 (ttk)
+
+40 LOAD_CONST 1 (0)
+42 LOAD_CONST 4 (('*',))
+44 IMPORT_NAME 8 (ttkbootstrap.constants)
+46 IMPORT_STAR
+
+48 LOAD_CONST 1 (0)
+50 LOAD_CONST 2 (None)
+52 IMPORT_NAME 9 (threading)
+54 STORE_NAME 9 (threading)
+
+56 LOAD_CONST 1 (0)
+58 LOAD_CONST 2 (None)
+60 IMPORT_NAME 10 (json)
+62 STORE_NAME 10 (json)
+
+64 LOAD_CONST 1 (0)
+66 LOAD_CONST 2 (None)
+68 IMPORT_NAME 11 (time)
+70 STORE_NAME 11 (time)
+
+72 LOAD_CONST 1 (0)
+74 LOAD_CONST 5 (('datetime',))
+76 IMPORT_NAME 12 (datetime)
+78 IMPORT_FROM 12 (datetime)
+80 STORE_NAME 12 (datetime)
+82 POP_TOP
+
+84 LOAD_CONST 1 (0)
+86 LOAD_CONST 6 (('Dict', 'Optional'))
+88 IMPORT_NAME 13 (typing)
+90 IMPORT_FROM 14 (Dict)
+92 STORE_NAME 14 (Dict)
+94 IMPORT_FROM 15 (Optional)
+96 STORE_NAME 15 (Optional)
+98 POP_TOP
+
+100 LOAD_CONST 1 (0)
+102 LOAD_CONST 2 (None)
+104 IMPORT_NAME 16 (tempfile)
+106 STORE_NAME 16 (tempfile)
+
+108 LOAD_CONST 1 (0)
+110 LOAD_CONST 7 (('Path',))
+112 IMPORT_NAME 17 (pathlib)
+114 IMPORT_FROM 18 (Path)
+116 STORE_NAME 18 (Path)
+118 POP_TOP
+
+120 LOAD_CONST 1 (0)
+122 LOAD_CONST 2 (None)
+124 IMPORT_NAME 19 (sys)
+126 STORE_NAME 19 (sys)
+
+128 LOAD_CONST 1 (0)
+130 LOAD_CONST 2 (None)
+132 IMPORT_NAME 20 (asyncio)
+134 STORE_NAME 20 (asyncio)
+
+136 LOAD_CONST 1 (0)
+138 LOAD_CONST 2 (None)
+140 IMPORT_NAME 21 (hashlib)
+142 STORE_NAME 21 (hashlib)
+
+144 LOAD_CONST 1 (0)
+146 LOAD_CONST 8 (('RandomUserService',))
+148 IMPORT_NAME 22 (services.randomuser_service)
+150 IMPORT_FROM 23 (RandomUserService)
+152 STORE_NAME 23 (RandomUserService)
+154 POP_TOP
+
+156 LOAD_CONST 1 (0)
+158 LOAD_CONST 9 (('FirefoxRelayService',))
+160 IMPORT_NAME 24 (services.firefox_relay_service)
+162 IMPORT_FROM 25 (FirefoxRelayService)
+164 STORE_NAME 25 (FirefoxRelayService)
+166 POP_TOP
+
+168 LOAD_CONST 1 (0)
+170 LOAD_CONST 10 (('CaptchaSolverService',))
+172 IMPORT_NAME 26 (services.captcha_service)
+174 IMPORT_FROM 27 (CaptchaSolverService)
+176 STORE_NAME 27 (CaptchaSolverService)
+178 POP_TOP
+
+180 LOAD_CONST 1 (0)
+182 LOAD_CONST 11 (('CloudSkillAutomation',))
+184 IMPORT_NAME 28 (automation.cloudskill_automation)
+186 IMPORT_FROM 29 (CloudSkillAutomation)
+188 STORE_NAME 29 (CloudSkillAutomation)
+190 POP_TOP
+
+192 LOAD_CONST 1 (0)
+194 LOAD_CONST 12 (('setup_logger', 'log_user_action'))
+196 IMPORT_NAME 30 (utils.logger)
+198 IMPORT_FROM 31 (setup_logger)
+200 STORE_NAME 31 (setup_logger)
+202 IMPORT_FROM 32 (log_user_action)
+204 STORE_NAME 32 (log_user_action)
+206 POP_TOP
+
+208 LOAD_CONST 1 (0)
+210 LOAD_CONST 13 (('validate_user_data',))
+212 IMPORT_NAME 33 (utils.validators)
+214 IMPORT_FROM 34 (validate_user_data)
+216 STORE_NAME 34 (validate_user_data)
+218 POP_TOP
+
+220 LOAD_CONST 1 (0)
+222 LOAD_CONST 14 (('settings',))
+224 IMPORT_NAME 35 (config.settings)
+226 IMPORT_FROM 36 (settings)
+228 STORE_NAME 36 (settings)
+230 POP_TOP
+
+232 LOAD_CONST 1 (0)
+234 LOAD_CONST 15 (('VideoGeneratorTab',))
+236 IMPORT_NAME 37 (gui.tabs.video_generator_tab)
+238 IMPORT_FROM 38 (VideoGeneratorTab)
+240 STORE_NAME 38 (VideoGeneratorTab)
+242 POP_TOP
+
+244 LOAD_CONST 1 (0)
+246 LOAD_CONST 16 (('RegistrationTab',))
+248 IMPORT_NAME 39 (gui.tabs.registration_tab)
+250 IMPORT_FROM 40 (RegistrationTab)
+252 STORE_NAME 40 (RegistrationTab)
+254 POP_TOP
+
+256 LOAD_CONST 1 (0)
+258 LOAD_CONST 17 (('SettingsTab',))
+260 IMPORT_NAME 41 (gui.tabs.settings_tab)
+262 IMPORT_FROM 42 (SettingsTab)
+264 STORE_NAME 42 (SettingsTab)
+266 POP_TOP
+
+268 LOAD_CONST 1 (0)
+270 LOAD_CONST 18 (('LogsTab',))
+272 IMPORT_NAME 43 (gui.tabs.logs_tab)
+274 IMPORT_FROM 44 (LogsTab)
+276 STORE_NAME 44 (LogsTab)
+278 POP_TOP
+
+280 LOAD_CONST 1 (0)
+282 LOAD_CONST 19 (('AboutTab',))
+284 IMPORT_NAME 45 (gui.tabs.about_tab)
+286 IMPORT_FROM 46 (AboutTab)
+288 STORE_NAME 46 (AboutTab)
+290 POP_TOP
+
+292 LOAD_CONST 1 (0)
+294 LOAD_CONST 20 (('ensure_license', 'get_machine_id'))
+296 IMPORT_NAME 47 (config.licensing)
+298 IMPORT_FROM 48 (ensure_license)
+300 STORE_NAME 48 (ensure_license)
+302 IMPORT_FROM 49 (get_machine_id)
+304 STORE_NAME 49 (get_machine_id)
+306 POP_TOP
+
+308 LOAD_CONST 1 (0)
+310 LOAD_CONST 21 (('APP_NAME', 'VERSION', 'AUTHOR'))
+312 IMPORT_NAME 50 (config.constants)
+314 IMPORT_FROM 51 (APP_NAME)
+316 STORE_NAME 51 (APP_NAME)
+318 IMPORT_FROM 52 (VERSION)
+320 STORE_NAME 52 (VERSION)
+322 IMPORT_FROM 53 (AUTHOR)
+324 STORE_NAME 53 (AUTHOR)
+326 POP_TOP
+
+328 PUSH_NULL
+330 LOAD_BUILD_CLASS
+332 LOAD_CONST 22 (code object MainWindow)
+334 MAKE_FUNCTION 0 (No arguments)
+336 LOAD_CONST 23 ("MainWindow")
+338 CALL 2
+340 STORE_NAME 54 (MainWindow)
+
+342 LOAD_NAME 55 (__name__)
+344 LOAD_CONST 24 ("__main__")
+346 COMPARE_OP 2 (==)
+348 POP_JUMP_FORWARD_IF_FALSE 32 (to 370)
+
+350 PUSH_NULL
+352 LOAD_NAME 54 (MainWindow)
+354 CALL 0
+356 STORE_NAME 56 (app)
+
+358 LOAD_NAME 56 (app)
+360 LOAD_METHOD 57 (run)
+362 CALL 0
+364 POP_TOP
+366 LOAD_CONST 2 (None)
+368 RETURN_VALUE
+
+370 LOAD_CONST 2 (None)
+372 RETURN_VALUE
+
+
+0 LOAD_NAME 0 (__name__)
+2 STORE_NAME 1 (__module__)
+4 LOAD_CONST 0 ("MainWindow")
+6 STORE_NAME 2 (__qualname__)
+
+8 LOAD_CONST 1 ("Main window aplikasi")
+10 STORE_NAME 3 (__doc__)
+
+12 LOAD_CONST 2 (code object __init__)
+14 MAKE_FUNCTION 0 (No arguments)
+16 STORE_NAME 4 (__init__)
+
+18 LOAD_CONST 3 (code object center_window)
+20 MAKE_FUNCTION 0 (No arguments)
+22 STORE_NAME 5 (center_window)
+
+24 LOAD_CONST 4 (code object set_app_icon)
+26 MAKE_FUNCTION 0 (No arguments)
+28 STORE_NAME 6 (set_app_icon)
+
+30 LOAD_CONST 5 ("return")
+32 LOAD_NAME 7 (Path)
+34 BUILD_TUPLE 2
+36 LOAD_CONST 6 (code object _resolve_base_dir)
+38 MAKE_FUNCTION 4 (annotation)
+40 STORE_NAME 8 (_resolve_base_dir)
+
+42 LOAD_CONST 7 (code object setup_variables)
+44 MAKE_FUNCTION 0 (No arguments)
+46 STORE_NAME 9 (setup_variables)
+
+48 LOAD_CONST 8 (code object build_ui)
+50 MAKE_FUNCTION 0 (No arguments)
+52 STORE_NAME 10 (build_ui)
+
+54 LOAD_CONST 9 (code object create_video_generator_tab)
+56 MAKE_FUNCTION 0 (No arguments)
+58 STORE_NAME 11 (create_video_generator_tab)
+
+60 LOAD_CONST 10 ("key")
+62 LOAD_NAME 12 (str)
+64 BUILD_TUPLE 2
+66 LOAD_CONST 11 (code object set_genai_api_key)
+68 MAKE_FUNCTION 4 (annotation)
+70 STORE_NAME 13 (set_genai_api_key)
+
+72 LOAD_CONST 71 ((600,))
+74 LOAD_CONST 13 ("reason")
+76 LOAD_NAME 12 (str)
+78 LOAD_CONST 14 ("timeout_seconds")
+80 LOAD_NAME 14 (int)
+82 LOAD_CONST 5 ("return")
+84 LOAD_NAME 15 (Optional)
+86 LOAD_NAME 12 (str)
+88 BINARY_SUBSCR
+90 BUILD_TUPLE 6
+92 LOAD_CONST 15 (code object request_new_api_key_and_wait)
+94 MAKE_FUNCTION 5 (default, annotation)
+96 STORE_NAME 16 (request_new_api_key_and_wait)
+
+98 LOAD_CONST 16 (code object toggle_password_visibility)
+100 MAKE_FUNCTION 0 (No arguments)
+102 STORE_NAME 17 (toggle_password_visibility)
+
+104 LOAD_CONST 17 (code object copy_password)
+106 MAKE_FUNCTION 0 (No arguments)
+108 STORE_NAME 18 (copy_password)
+
+110 LOAD_CONST 18 (code object auto_init_firefox_relay_from_temp)
+112 MAKE_FUNCTION 0 (No arguments)
+114 STORE_NAME 19 (auto_init_firefox_relay_from_temp)
+
+116 LOAD_CONST 19 ("total_sec")
+118 LOAD_NAME 14 (int)
+120 LOAD_CONST 20 ("interval_sec")
+122 LOAD_NAME 14 (int)
+124 BUILD_TUPLE 4
+126 LOAD_CONST 21 (code object start_gmail_progress)
+128 MAKE_FUNCTION 4 (annotation)
+130 STORE_NAME 20 (start_gmail_progress)
+
+132 LOAD_CONST 22 (code object _update_gmail_progress)
+134 MAKE_FUNCTION 0 (No arguments)
+136 STORE_NAME 21 (_update_gmail_progress)
+
+138 LOAD_CONST 23 (code object stop_gmail_progress)
+140 MAKE_FUNCTION 0 (No arguments)
+142 STORE_NAME 22 (stop_gmail_progress)
+
+144 LOAD_CONST 24 (code object auto_generate_initial_data)
+146 MAKE_FUNCTION 0 (No arguments)
+148 STORE_NAME 23 (auto_generate_initial_data)
+
+150 LOAD_CONST 25 (code object refresh_generated_data)
+152 MAKE_FUNCTION 0 (No arguments)
+154 STORE_NAME 24 (refresh_generated_data)
+
+156 LOAD_CONST 26 (code object test_firefox_api_key)
+158 MAKE_FUNCTION 0 (No arguments)
+160 STORE_NAME 25 (test_firefox_api_key)
+
+162 LOAD_CONST 27 (code object delete_all_firefox_masks)
+164 MAKE_FUNCTION 0 (No arguments)
+166 STORE_NAME 26 (delete_all_firefox_masks)
+
+168 LOAD_CONST 28 (code object start_automation)
+170 MAKE_FUNCTION 0 (No arguments)
+172 STORE_NAME 27 (start_automation)
+
+174 LOAD_CONST 29 ("user_data")
+176 LOAD_NAME 28 (Dict)
+178 BUILD_TUPLE 2
+180 LOAD_CONST 30 (code object run_automation)
+182 MAKE_FUNCTION 4 (annotation)
+184 STORE_NAME 29 (run_automation)
+
+186 LOAD_CONST 31 (code object update_gmail_status_label)
+188 MAKE_FUNCTION 0 (No arguments)
+190 STORE_NAME 30 (update_gmail_status_label)
+
+192 LOAD_CONST 32 (code object stop_automation)
+194 MAKE_FUNCTION 0 (No arguments)
+196 STORE_NAME 31 (stop_automation)
+
+198 LOAD_CONST 33 (code object automation_finished)
+200 MAKE_FUNCTION 0 (No arguments)
+202 STORE_NAME 32 (automation_finished)
+
+204 LOAD_CONST 34 (code object check_and_apply_license_async)
+206 MAKE_FUNCTION 0 (No arguments)
+208 STORE_NAME 33 (check_and_apply_license_async)
+
+210 LOAD_CONST 35 (code object update_start_button_state)
+212 MAKE_FUNCTION 0 (No arguments)
+214 STORE_NAME 34 (update_start_button_state)
+
+216 LOAD_CONST 36 ("message")
+218 LOAD_NAME 12 (str)
+220 BUILD_TUPLE 2
+222 LOAD_CONST 37 (code object log_message)
+224 MAKE_FUNCTION 4 (annotation)
+226 STORE_NAME 35 (log_message)
+
+228 LOAD_CONST 38 (code object clear_logs)
+230 MAKE_FUNCTION 0 (No arguments)
+232 STORE_NAME 36 (clear_logs)
+
+234 LOAD_CONST 39 (code object save_logs)
+236 MAKE_FUNCTION 0 (No arguments)
+238 STORE_NAME 37 (save_logs)
+
+240 LOAD_CONST 40 (code object browse_gmail_credentials)
+242 MAKE_FUNCTION 0 (No arguments)
+244 STORE_NAME 38 (browse_gmail_credentials)
+
+246 LOAD_CONST 41 (code object generate_gmail_auth_url)
+248 MAKE_FUNCTION 0 (No arguments)
+250 STORE_NAME 39 (generate_gmail_auth_url)
+
+252 LOAD_CONST 42 (code object copy_gmail_auth_url)
+254 MAKE_FUNCTION 0 (No arguments)
+256 STORE_NAME 40 (copy_gmail_auth_url)
+
+258 LOAD_CONST 43 (code object complete_gmail_auth_async)
+260 MAKE_FUNCTION 0 (No arguments)
+262 STORE_NAME 41 (complete_gmail_auth_async)
+
+264 LOAD_CONST 44 ("code")
+266 LOAD_NAME 12 (str)
+268 BUILD_TUPLE 2
+270 LOAD_CONST 45 (code object complete_gmail_auth)
+272 MAKE_FUNCTION 4 (annotation)
+274 STORE_NAME 42 (complete_gmail_auth)
+
+276 LOAD_CONST 46 (code object authenticate_gmail_async)
+278 MAKE_FUNCTION 0 (No arguments)
+280 STORE_NAME 43 (authenticate_gmail_async)
+
+282 LOAD_CONST 47 ("cred_path")
+284 LOAD_NAME 12 (str)
+286 BUILD_TUPLE 2
+288 LOAD_CONST 48 (code object authenticate_gmail)
+290 MAKE_FUNCTION 4 (annotation)
+292 STORE_NAME 44 (authenticate_gmail)
+
+294 LOAD_CONST 5 ("return")
+296 LOAD_NAME 7 (Path)
+298 BUILD_TUPLE 2
+300 LOAD_CONST 49 (code object _relay_key_temp_path)
+302 MAKE_FUNCTION 4 (annotation)
+304 STORE_NAME 45 (_relay_key_temp_path)
+
+306 LOAD_CONST 50 ("api_key")
+308 LOAD_NAME 12 (str)
+310 LOAD_CONST 5 ("return")
+312 LOAD_CONST 51 (None)
+314 BUILD_TUPLE 4
+316 LOAD_CONST 52 (code object _save_relay_key_to_temp)
+318 MAKE_FUNCTION 4 (annotation)
+320 STORE_NAME 46 (_save_relay_key_to_temp)
+
+322 LOAD_CONST 5 ("return")
+324 LOAD_NAME 15 (Optional)
+326 LOAD_NAME 12 (str)
+328 BINARY_SUBSCR
+330 BUILD_TUPLE 2
+332 LOAD_CONST 53 (code object _load_relay_key_from_temp)
+334 MAKE_FUNCTION 4 (annotation)
+336 STORE_NAME 47 (_load_relay_key_from_temp)
+
+338 LOAD_CONST 5 ("return")
+340 LOAD_NAME 7 (Path)
+342 BUILD_TUPLE 2
+344 LOAD_CONST 54 (code object _gmail_cred_temp_path)
+346 MAKE_FUNCTION 4 (annotation)
+348 STORE_NAME 48 (_gmail_cred_temp_path)
+
+350 LOAD_CONST 55 ("path_str")
+352 LOAD_NAME 12 (str)
+354 LOAD_CONST 5 ("return")
+356 LOAD_CONST 51 (None)
+358 BUILD_TUPLE 4
+360 LOAD_CONST 56 (code object _save_gmail_cred_path_to_temp)
+362 MAKE_FUNCTION 4 (annotation)
+364 STORE_NAME 49 (_save_gmail_cred_path_to_temp)
+
+366 LOAD_CONST 5 ("return")
+368 LOAD_NAME 7 (Path)
+370 BUILD_TUPLE 2
+372 LOAD_CONST 57 (code object _lab_url_temp_path)
+374 MAKE_FUNCTION 4 (annotation)
+376 STORE_NAME 50 (_lab_url_temp_path)
+
+378 LOAD_CONST 58 ("url")
+380 LOAD_NAME 12 (str)
+382 LOAD_CONST 5 ("return")
+384 LOAD_CONST 51 (None)
+386 BUILD_TUPLE 4
+388 LOAD_CONST 59 (code object _save_lab_url_to_temp)
+390 MAKE_FUNCTION 4 (annotation)
+392 STORE_NAME 51 (_save_lab_url_to_temp)
+
+394 LOAD_CONST 5 ("return")
+396 LOAD_NAME 15 (Optional)
+398 LOAD_NAME 12 (str)
+400 BINARY_SUBSCR
+402 BUILD_TUPLE 2
+404 LOAD_CONST 60 (code object _load_lab_url_from_temp)
+406 MAKE_FUNCTION 4 (annotation)
+408 STORE_NAME 52 (_load_lab_url_from_temp)
+
+410 LOAD_CONST 5 ("return")
+412 LOAD_NAME 7 (Path)
+414 BUILD_TUPLE 2
+416 LOAD_CONST 61 (code object _auto_start_lab_temp_path)
+418 MAKE_FUNCTION 4 (annotation)
+420 STORE_NAME 53 (_auto_start_lab_temp_path)
+
+422 LOAD_CONST 62 ("value")
+424 LOAD_NAME 54 (bool)
+426 LOAD_CONST 5 ("return")
+428 LOAD_CONST 51 (None)
+430 BUILD_TUPLE 4
+432 LOAD_CONST 63 (code object _save_auto_start_lab_to_temp)
+434 MAKE_FUNCTION 4 (annotation)
+436 STORE_NAME 55 (_save_auto_start_lab_to_temp)
+
+438 LOAD_CONST 5 ("return")
+440 LOAD_NAME 15 (Optional)
+442 LOAD_NAME 54 (bool)
+444 BINARY_SUBSCR
+446 BUILD_TUPLE 2
+448 LOAD_CONST 64 (code object _load_auto_start_lab_from_temp)
+450 MAKE_FUNCTION 4 (annotation)
+452 STORE_NAME 56 (_load_auto_start_lab_from_temp)
+
+454 LOAD_CONST 5 ("return")
+456 LOAD_NAME 7 (Path)
+458 BUILD_TUPLE 2
+460 LOAD_CONST 65 (code object _recaptcha_ext_temp_path)
+462 MAKE_FUNCTION 4 (annotation)
+464 STORE_NAME 57 (_recaptcha_ext_temp_path)
+
+466 LOAD_CONST 62 ("value")
+468 LOAD_NAME 54 (bool)
+470 LOAD_CONST 5 ("return")
+472 LOAD_CONST 51 (None)
+474 BUILD_TUPLE 4
+476 LOAD_CONST 66 (code object _save_recaptcha_extension_to_temp)
+478 MAKE_FUNCTION 4 (annotation)
+480 STORE_NAME 58 (_save_recaptcha_extension_to_temp)
+
+482 LOAD_CONST 5 ("return")
+484 LOAD_NAME 15 (Optional)
+486 LOAD_NAME 54 (bool)
+488 BINARY_SUBSCR
+490 BUILD_TUPLE 2
+492 LOAD_CONST 67 (code object _load_recaptcha_extension_from_temp)
+494 MAKE_FUNCTION 4 (annotation)
+496 STORE_NAME 59 (_load_recaptcha_extension_from_temp)
+
+498 LOAD_CONST 5 ("return")
+500 LOAD_NAME 15 (Optional)
+502 LOAD_NAME 12 (str)
+504 BINARY_SUBSCR
+506 BUILD_TUPLE 2
+508 LOAD_CONST 68 (code object _load_gmail_cred_path_from_temp)
+510 MAKE_FUNCTION 4 (annotation)
+512 STORE_NAME 60 (_load_gmail_cred_path_from_temp)
+
+514 LOAD_CONST 69 (code object on_closing)
+516 MAKE_FUNCTION 0 (No arguments)
+518 STORE_NAME 61 (on_closing)
+
+520 LOAD_CONST 70 (code object run)
+522 MAKE_FUNCTION 0 (No arguments)
+524 STORE_NAME 62 (run)
+526 LOAD_CONST 51 (None)
+528 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + setup_logger)
+2 LOAD_CONST 1 ("MainWindow")
+4 CALL 1
+6 LOAD_DEREF 0 (self)
+8 STORE_ATTR 1 (logger)
+
+10 LOAD_GLOBAL 5 (NULL + RandomUserService)
+12 CALL 0
+14 LOAD_DEREF 0 (self)
+16 STORE_ATTR 3 (random_user_service)
+
+18 LOAD_GLOBAL 9 (NULL + CaptchaSolverService)
+20 CALL 0
+22 LOAD_DEREF 0 (self)
+24 STORE_ATTR 5 (captcha_service)
+
+26 NOP
+
+28 LOAD_GLOBAL 13 (NULL + FirefoxRelayService)
+30 CALL 0
+32 LOAD_DEREF 0 (self)
+34 STORE_ATTR 7 (firefox_relay_service)
+36 JUMP_FORWARD 59 (to 98)
+38 PUSH_EXC_INFO
+
+40 LOAD_GLOBAL 16 (ValueError)
+42 CHECK_EXC_MATCH
+44 POP_JUMP_FORWARD_IF_FALSE 46 (to 90)
+46 STORE_FAST 1 (e)
+
+48 LOAD_CONST 2 (None)
+50 LOAD_DEREF 0 (self)
+52 STORE_ATTR 7 (firefox_relay_service)
+
+54 LOAD_DEREF 0 (self)
+56 LOAD_ATTR 1 (logger)
+58 LOAD_METHOD 9 (warning)
+60 LOAD_CONST 3 ("Firefox Relay service not available: ")
+62 LOAD_FAST 1 (e)
+64 FORMAT_VALUE 0
+66 BUILD_STRING 2
+68 CALL 1
+70 POP_TOP
+72 POP_EXCEPT
+74 LOAD_CONST 2 (None)
+76 STORE_FAST 1 (e)
+78 DELETE_FAST 1 (e)
+80 JUMP_FORWARD 8 (to 98)
+82 LOAD_CONST 2 (None)
+84 STORE_FAST 1 (e)
+86 DELETE_FAST 1 (e)
+88 RERAISE 1
+
+90 RERAISE 0
+92 COPY 3
+94 POP_EXCEPT
+96 RERAISE 1
+
+98 LOAD_CONST 2 (None)
+100 LOAD_DEREF 0 (self)
+102 STORE_ATTR 10 (automation)
+
+104 LOAD_GLOBAL 23 (NULL + ttk)
+106 LOAD_ATTR 12 (Window)
+
+108 LOAD_CONST 4 ("Auto Cloud Skill")
+
+110 LOAD_CONST 5 ("darkly")
+112 LOAD_CONST 6 ((650, 600))
+
+114 LOAD_CONST 7 ((True, True))
+
+116 KW_NAMES 8 (('title', 'themename', 'size', 'resizable'))
+118 CALL 4
+120 LOAD_DEREF 0 (self)
+122 STORE_ATTR 13 (root)
+
+124 NOP
+
+126 LOAD_DEREF 0 (self)
+128 LOAD_METHOD 14 (set_app_icon)
+130 CALL 0
+132 POP_TOP
+134 JUMP_FORWARD 16 (to 158)
+136 PUSH_EXC_INFO
+
+138 LOAD_GLOBAL 30 (Exception)
+140 CHECK_EXC_MATCH
+142 POP_JUMP_FORWARD_IF_FALSE 3 (to 150)
+144 POP_TOP
+
+146 POP_EXCEPT
+148 JUMP_FORWARD 4 (to 158)
+
+150 RERAISE 0
+152 COPY 3
+154 POP_EXCEPT
+156 RERAISE 1
+
+158 LOAD_DEREF 0 (self)
+160 LOAD_METHOD 16 (center_window)
+162 CALL 0
+164 POP_TOP
+
+166 LOAD_DEREF 0 (self)
+168 LOAD_METHOD 17 (setup_variables)
+170 CALL 0
+172 POP_TOP
+
+174 NOP
+
+176 LOAD_DEREF 0 (self)
+178 LOAD_METHOD 18 (_load_relay_key_from_temp)
+180 CALL 0
+182 STORE_FAST 2 (key)
+
+184 LOAD_FAST 2 (key)
+186 POP_JUMP_FORWARD_IF_FALSE 26 (to 200)
+
+188 LOAD_DEREF 0 (self)
+190 LOAD_ATTR 19 (firefox_api_key_var)
+192 LOAD_METHOD 20 (set)
+194 LOAD_FAST 2 (key)
+196 CALL 1
+198 POP_TOP
+200 JUMP_FORWARD 16 (to 224)
+202 PUSH_EXC_INFO
+
+204 LOAD_GLOBAL 30 (Exception)
+206 CHECK_EXC_MATCH
+208 POP_JUMP_FORWARD_IF_FALSE 3 (to 216)
+210 POP_TOP
+
+212 POP_EXCEPT
+214 JUMP_FORWARD 4 (to 224)
+
+216 RERAISE 0
+218 COPY 3
+220 POP_EXCEPT
+222 RERAISE 1
+
+224 NOP
+
+226 LOAD_DEREF 0 (self)
+228 LOAD_METHOD 21 (_load_gmail_cred_path_from_temp)
+230 CALL 0
+232 STORE_FAST 3 (gcred)
+
+234 LOAD_FAST 3 (gcred)
+236 POP_JUMP_FORWARD_IF_FALSE 26 (to 250)
+
+238 LOAD_DEREF 0 (self)
+240 LOAD_ATTR 22 (gmail_credentials_path_var)
+242 LOAD_METHOD 20 (set)
+244 LOAD_FAST 3 (gcred)
+246 CALL 1
+248 POP_TOP
+250 JUMP_FORWARD 16 (to 274)
+252 PUSH_EXC_INFO
+
+254 LOAD_GLOBAL 30 (Exception)
+256 CHECK_EXC_MATCH
+258 POP_JUMP_FORWARD_IF_FALSE 3 (to 266)
+260 POP_TOP
+
+262 POP_EXCEPT
+264 JUMP_FORWARD 4 (to 274)
+
+266 RERAISE 0
+268 COPY 3
+270 POP_EXCEPT
+272 RERAISE 1
+
+274 NOP
+
+276 LOAD_DEREF 0 (self)
+278 LOAD_METHOD 23 (_load_lab_url_from_temp)
+280 CALL 0
+282 STORE_FAST 4 (lab)
+
+284 LOAD_FAST 4 (lab)
+286 POP_JUMP_FORWARD_IF_FALSE 26 (to 300)
+
+288 LOAD_DEREF 0 (self)
+290 LOAD_ATTR 24 (lab_url_var)
+292 LOAD_METHOD 20 (set)
+294 LOAD_FAST 4 (lab)
+296 CALL 1
+298 POP_TOP
+300 JUMP_FORWARD 16 (to 324)
+302 PUSH_EXC_INFO
+
+304 LOAD_GLOBAL 30 (Exception)
+306 CHECK_EXC_MATCH
+308 POP_JUMP_FORWARD_IF_FALSE 3 (to 316)
+310 POP_TOP
+
+312 POP_EXCEPT
+314 JUMP_FORWARD 4 (to 324)
+
+316 RERAISE 0
+318 COPY 3
+320 POP_EXCEPT
+322 RERAISE 1
+
+324 NOP
+
+326 LOAD_DEREF 0 (self)
+328 LOAD_METHOD 25 (_load_auto_start_lab_from_temp)
+330 CALL 0
+332 STORE_FAST 5 (v)
+
+334 LOAD_FAST 5 (v)
+336 POP_JUMP_FORWARD_IF_NONE 39 (to 354)
+
+338 LOAD_DEREF 0 (self)
+340 LOAD_ATTR 26 (auto_start_lab_var)
+342 LOAD_METHOD 20 (set)
+344 LOAD_GLOBAL 55 (NULL + bool)
+346 LOAD_FAST 5 (v)
+348 CALL 1
+350 CALL 1
+352 POP_TOP
+354 JUMP_FORWARD 16 (to 378)
+356 PUSH_EXC_INFO
+
+358 LOAD_GLOBAL 30 (Exception)
+360 CHECK_EXC_MATCH
+362 POP_JUMP_FORWARD_IF_FALSE 3 (to 370)
+364 POP_TOP
+
+366 POP_EXCEPT
+368 JUMP_FORWARD 4 (to 378)
+
+370 RERAISE 0
+372 COPY 3
+374 POP_EXCEPT
+376 RERAISE 1
+
+378 NOP
+
+380 LOAD_DEREF 0 (self)
+382 LOAD_METHOD 28 (_load_recaptcha_extension_from_temp)
+384 CALL 0
+386 STORE_FAST 5 (v)
+
+388 LOAD_FAST 5 (v)
+390 POP_JUMP_FORWARD_IF_NONE 39 (to 408)
+
+392 LOAD_DEREF 0 (self)
+394 LOAD_ATTR 29 (extension_mode_var)
+396 LOAD_METHOD 20 (set)
+398 LOAD_GLOBAL 55 (NULL + bool)
+400 LOAD_FAST 5 (v)
+402 CALL 1
+404 CALL 1
+406 POP_TOP
+408 JUMP_FORWARD 16 (to 432)
+410 PUSH_EXC_INFO
+
+412 LOAD_GLOBAL 30 (Exception)
+414 CHECK_EXC_MATCH
+416 POP_JUMP_FORWARD_IF_FALSE 3 (to 424)
+418 POP_TOP
+
+420 POP_EXCEPT
+422 JUMP_FORWARD 4 (to 432)
+
+424 RERAISE 0
+426 COPY 3
+428 POP_EXCEPT
+430 RERAISE 1
+
+432 LOAD_DEREF 0 (self)
+434 LOAD_METHOD 30 (build_ui)
+436 CALL 0
+438 POP_TOP
+
+440 NOP
+
+442 LOAD_DEREF 0 (self)
+444 LOAD_ATTR 24 (lab_url_var)
+446 LOAD_METHOD 31 (trace_add)
+448 LOAD_CONST 9 ("write")
+450 LOAD_CLOSURE 0 (self)
+452 BUILD_TUPLE 1
+454 LOAD_CONST 10 (code object <lambda>)
+456 MAKE_FUNCTION 8 (closure)
+458 CALL 2
+460 POP_TOP
+462 JUMP_FORWARD 16 (to 486)
+464 PUSH_EXC_INFO
+
+466 LOAD_GLOBAL 30 (Exception)
+468 CHECK_EXC_MATCH
+470 POP_JUMP_FORWARD_IF_FALSE 3 (to 478)
+472 POP_TOP
+
+474 POP_EXCEPT
+476 JUMP_FORWARD 4 (to 486)
+
+478 RERAISE 0
+480 COPY 3
+482 POP_EXCEPT
+484 RERAISE 1
+
+486 NOP
+
+488 LOAD_DEREF 0 (self)
+490 LOAD_ATTR 26 (auto_start_lab_var)
+492 LOAD_METHOD 31 (trace_add)
+494 LOAD_CONST 9 ("write")
+496 LOAD_CLOSURE 0 (self)
+498 BUILD_TUPLE 1
+500 LOAD_CONST 11 (code object <lambda>)
+502 MAKE_FUNCTION 8 (closure)
+504 CALL 2
+506 POP_TOP
+508 JUMP_FORWARD 16 (to 532)
+510 PUSH_EXC_INFO
+
+512 LOAD_GLOBAL 30 (Exception)
+514 CHECK_EXC_MATCH
+516 POP_JUMP_FORWARD_IF_FALSE 3 (to 524)
+518 POP_TOP
+
+520 POP_EXCEPT
+522 JUMP_FORWARD 4 (to 532)
+
+524 RERAISE 0
+526 COPY 3
+528 POP_EXCEPT
+530 RERAISE 1
+
+532 NOP
+
+534 LOAD_DEREF 0 (self)
+536 LOAD_ATTR 29 (extension_mode_var)
+538 LOAD_METHOD 31 (trace_add)
+540 LOAD_CONST 9 ("write")
+542 LOAD_CLOSURE 0 (self)
+544 BUILD_TUPLE 1
+546 LOAD_CONST 12 (code object <lambda>)
+548 MAKE_FUNCTION 8 (closure)
+550 CALL 2
+552 POP_TOP
+554 JUMP_FORWARD 16 (to 578)
+556 PUSH_EXC_INFO
+
+558 LOAD_GLOBAL 30 (Exception)
+560 CHECK_EXC_MATCH
+562 POP_JUMP_FORWARD_IF_FALSE 3 (to 570)
+564 POP_TOP
+
+566 POP_EXCEPT
+568 JUMP_FORWARD 4 (to 578)
+
+570 RERAISE 0
+572 COPY 3
+574 POP_EXCEPT
+576 RERAISE 1
+
+578 NOP
+
+580 LOAD_DEREF 0 (self)
+582 LOAD_METHOD 32 (update_gmail_status_label)
+584 CALL 0
+586 POP_TOP
+588 JUMP_FORWARD 16 (to 612)
+590 PUSH_EXC_INFO
+
+592 LOAD_GLOBAL 30 (Exception)
+594 CHECK_EXC_MATCH
+596 POP_JUMP_FORWARD_IF_FALSE 3 (to 604)
+598 POP_TOP
+
+600 POP_EXCEPT
+602 JUMP_FORWARD 4 (to 612)
+
+604 RERAISE 0
+606 COPY 3
+608 POP_EXCEPT
+610 RERAISE 1
+
+612 NOP
+
+614 LOAD_DEREF 0 (self)
+616 LOAD_ATTR 13 (root)
+618 LOAD_METHOD 33 (after)
+620 LOAD_CONST 13 (200)
+622 LOAD_DEREF 0 (self)
+624 LOAD_ATTR 34 (auto_init_firefox_relay_from_temp)
+626 CALL 2
+628 POP_TOP
+630 JUMP_FORWARD 16 (to 654)
+632 PUSH_EXC_INFO
+
+634 LOAD_GLOBAL 30 (Exception)
+636 CHECK_EXC_MATCH
+638 POP_JUMP_FORWARD_IF_FALSE 3 (to 646)
+640 POP_TOP
+
+642 POP_EXCEPT
+644 JUMP_FORWARD 4 (to 654)
+
+646 RERAISE 0
+648 COPY 3
+650 POP_EXCEPT
+652 RERAISE 1
+
+654 LOAD_CONST 14 (False)
+656 LOAD_DEREF 0 (self)
+658 STORE_ATTR 35 (is_running)
+
+660 LOAD_GLOBAL 73 (NULL + threading)
+662 LOAD_ATTR 37 (Event)
+664 CALL 0
+666 LOAD_DEREF 0 (self)
+668 STORE_ATTR 38 (_genai_api_key_event)
+
+670 LOAD_CONST 2 (None)
+672 LOAD_DEREF 0 (self)
+674 STORE_ATTR 39 (_latest_genai_api_key)
+
+676 LOAD_DEREF 0 (self)
+678 LOAD_ATTR 13 (root)
+680 LOAD_METHOD 33 (after)
+682 LOAD_CONST 15 (5000)
+684 LOAD_DEREF 0 (self)
+686 LOAD_ATTR 40 (auto_generate_initial_data)
+688 CALL 2
+690 POP_TOP
+
+692 NOP
+
+694 LOAD_DEREF 0 (self)
+696 LOAD_ATTR 13 (root)
+698 LOAD_METHOD 33 (after)
+700 LOAD_CONST 13 (200)
+702 LOAD_DEREF 0 (self)
+704 LOAD_ATTR 41 (check_and_apply_license_async)
+706 CALL 2
+708 POP_TOP
+710 JUMP_FORWARD 16 (to 734)
+712 PUSH_EXC_INFO
+
+714 LOAD_GLOBAL 30 (Exception)
+716 CHECK_EXC_MATCH
+718 POP_JUMP_FORWARD_IF_FALSE 3 (to 726)
+720 POP_TOP
+
+722 POP_EXCEPT
+724 JUMP_FORWARD 4 (to 734)
+
+726 RERAISE 0
+728 COPY 3
+730 POP_EXCEPT
+732 RERAISE 1
+
+734 LOAD_GLOBAL 85 (NULL + log_user_action)
+736 LOAD_DEREF 0 (self)
+738 LOAD_ATTR 1 (logger)
+740 LOAD_CONST 16 ("APPLICATION_START")
+742 CALL 2
+744 POP_TOP
+746 LOAD_CONST 2 (None)
+748 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (_save_lab_url_to_temp)
+6 LOAD_DEREF 1 (self)
+8 LOAD_ATTR 1 (lab_url_var)
+10 LOAD_METHOD 2 (get)
+12 CALL 0
+14 CALL 1
+16 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (_save_auto_start_lab_to_temp)
+6 LOAD_GLOBAL 3 (NULL + bool)
+8 LOAD_DEREF 1 (self)
+10 LOAD_ATTR 2 (auto_start_lab_var)
+12 LOAD_METHOD 3 (get)
+14 CALL 0
+16 CALL 1
+18 CALL 1
+20 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (_save_recaptcha_extension_to_temp)
+6 LOAD_GLOBAL 3 (NULL + bool)
+8 LOAD_DEREF 1 (self)
+10 LOAD_ATTR 2 (extension_mode_var)
+12 LOAD_METHOD 3 (get)
+14 CALL 0
+16 CALL 1
+18 CALL 1
+20 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (root)
+4 LOAD_METHOD 1 (update_idletasks)
+6 CALL 0
+8 POP_TOP
+
+10 LOAD_FAST 0 (self)
+12 LOAD_ATTR 0 (root)
+14 LOAD_METHOD 2 (winfo_width)
+16 CALL 0
+18 STORE_FAST 1 (width)
+
+20 LOAD_FAST 0 (self)
+22 LOAD_ATTR 0 (root)
+24 LOAD_METHOD 3 (winfo_height)
+26 CALL 0
+28 STORE_FAST 2 (height)
+
+30 LOAD_FAST 0 (self)
+32 LOAD_ATTR 0 (root)
+34 LOAD_METHOD 4 (winfo_screenwidth)
+36 CALL 0
+38 LOAD_CONST 1 (2)
+40 BINARY_OP 2
+42 LOAD_FAST 1 (width)
+44 LOAD_CONST 1 (2)
+46 BINARY_OP 2
+48 BINARY_OP 10
+50 STORE_FAST 3 (x)
+
+52 LOAD_FAST 0 (self)
+54 LOAD_ATTR 0 (root)
+56 LOAD_METHOD 5 (winfo_screenheight)
+58 CALL 0
+60 LOAD_CONST 1 (2)
+62 BINARY_OP 2
+64 LOAD_FAST 2 (height)
+66 LOAD_CONST 1 (2)
+68 BINARY_OP 2
+70 BINARY_OP 10
+72 STORE_FAST 4 (y)
+
+74 LOAD_FAST 0 (self)
+76 LOAD_ATTR 0 (root)
+78 LOAD_METHOD 6 (geometry)
+80 LOAD_FAST 1 (width)
+82 FORMAT_VALUE 0
+84 LOAD_CONST 2 ("x")
+86 LOAD_FAST 2 (height)
+88 FORMAT_VALUE 0
+90 LOAD_CONST 3 ("+")
+92 LOAD_FAST 3 (x)
+94 FORMAT_VALUE 0
+96 LOAD_CONST 3 ("+")
+98 LOAD_FAST 4 (y)
+100 FORMAT_VALUE 0
+102 BUILD_STRING 7
+104 CALL 1
+106 POP_TOP
+108 LOAD_CONST 4 (None)
+110 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_METHOD 0 (_resolve_base_dir)
+6 CALL 0
+8 STORE_FAST 1 (base_dir)
+
+10 LOAD_FAST 1 (base_dir)
+12 LOAD_CONST 1 ("assets")
+14 BINARY_OP 11
+16 STORE_FAST 2 (assets_dir)
+
+18 LOAD_FAST 2 (assets_dir)
+20 LOAD_CONST 2 ("logo.ico")
+22 BINARY_OP 11
+24 STORE_FAST 3 (ico_path)
+
+26 LOAD_FAST 2 (assets_dir)
+28 LOAD_CONST 3 ("logo.png")
+30 BINARY_OP 11
+32 STORE_FAST 4 (png_path)
+
+34 LOAD_CONST 4 (False)
+36 STORE_FAST 5 (set_ok)
+
+38 LOAD_FAST 3 (ico_path)
+40 LOAD_METHOD 1 (exists)
+42 CALL 0
+44 POP_JUMP_FORWARD_IF_FALSE 212 (to 226)
+
+46 NOP
+
+48 LOAD_FAST 0 (self)
+50 LOAD_ATTR 2 (root)
+52 LOAD_METHOD 3 (iconbitmap)
+54 LOAD_GLOBAL 9 (NULL + str)
+56 LOAD_FAST 3 (ico_path)
+58 CALL 1
+60 KW_NAMES 5 (('default',))
+62 CALL 1
+64 POP_TOP
+
+66 NOP
+
+68 LOAD_FAST 0 (self)
+70 LOAD_ATTR 2 (root)
+72 LOAD_METHOD 3 (iconbitmap)
+74 LOAD_GLOBAL 9 (NULL + str)
+76 LOAD_FAST 3 (ico_path)
+78 CALL 1
+80 KW_NAMES 6 (('bitmap',))
+82 CALL 1
+84 POP_TOP
+86 JUMP_FORWARD 16 (to 110)
+88 PUSH_EXC_INFO
+
+90 LOAD_GLOBAL 10 (Exception)
+92 CHECK_EXC_MATCH
+94 POP_JUMP_FORWARD_IF_FALSE 3 (to 102)
+96 POP_TOP
+
+98 POP_EXCEPT
+100 JUMP_FORWARD 4 (to 110)
+
+102 RERAISE 0
+104 COPY 3
+106 POP_EXCEPT
+108 RERAISE 1
+
+110 NOP
+
+112 LOAD_FAST 0 (self)
+114 LOAD_ATTR 6 (logger)
+116 LOAD_METHOD 7 (info)
+118 LOAD_CONST 7 ("App icon (.ico) applied: ")
+120 LOAD_FAST 3 (ico_path)
+122 FORMAT_VALUE 0
+124 BUILD_STRING 2
+126 CALL 1
+128 POP_TOP
+130 JUMP_FORWARD 16 (to 154)
+132 PUSH_EXC_INFO
+
+134 LOAD_GLOBAL 10 (Exception)
+136 CHECK_EXC_MATCH
+138 POP_JUMP_FORWARD_IF_FALSE 3 (to 146)
+140 POP_TOP
+
+142 POP_EXCEPT
+144 JUMP_FORWARD 4 (to 154)
+
+146 RERAISE 0
+148 COPY 3
+150 POP_EXCEPT
+152 RERAISE 1
+
+154 LOAD_CONST 8 (True)
+156 STORE_FAST 5 (set_ok)
+158 JUMP_FORWARD 63 (to 226)
+160 PUSH_EXC_INFO
+
+162 LOAD_GLOBAL 10 (Exception)
+164 CHECK_EXC_MATCH
+166 POP_JUMP_FORWARD_IF_FALSE 50 (to 218)
+168 POP_TOP
+
+170 NOP
+
+172 LOAD_FAST 0 (self)
+174 LOAD_ATTR 6 (logger)
+176 LOAD_METHOD 8 (warning)
+178 LOAD_CONST 9 ("Failed to apply .ico icon: ")
+180 LOAD_FAST 3 (ico_path)
+182 FORMAT_VALUE 0
+184 BUILD_STRING 2
+186 CALL 1
+188 POP_TOP
+190 JUMP_FORWARD 16 (to 214)
+192 PUSH_EXC_INFO
+
+194 LOAD_GLOBAL 10 (Exception)
+196 CHECK_EXC_MATCH
+198 POP_JUMP_FORWARD_IF_FALSE 3 (to 206)
+200 POP_TOP
+
+202 POP_EXCEPT
+204 JUMP_FORWARD 4 (to 214)
+
+206 RERAISE 0
+208 COPY 3
+210 POP_EXCEPT
+212 RERAISE 1
+
+214 POP_EXCEPT
+216 JUMP_FORWARD 4 (to 226)
+
+218 RERAISE 0
+220 COPY 3
+222 POP_EXCEPT
+224 RERAISE 1
+
+226 LOAD_FAST 4 (png_path)
+228 LOAD_METHOD 1 (exists)
+230 CALL 0
+232 POP_JUMP_FORWARD_IF_FALSE 187 (to 390)
+
+234 NOP
+
+236 LOAD_GLOBAL 19 (NULL + tk)
+238 LOAD_ATTR 10 (PhotoImage)
+240 LOAD_GLOBAL 9 (NULL + str)
+242 LOAD_FAST 4 (png_path)
+244 CALL 1
+246 KW_NAMES 10 (('file',))
+248 CALL 1
+250 STORE_FAST 6 (img)
+
+252 LOAD_FAST 6 (img)
+254 LOAD_FAST 0 (self)
+256 STORE_ATTR 11 (_icon_image)
+
+258 LOAD_FAST 0 (self)
+260 LOAD_ATTR 2 (root)
+262 LOAD_METHOD 12 (iconphoto)
+264 LOAD_CONST 8 (True)
+266 LOAD_FAST 0 (self)
+268 LOAD_ATTR 11 (_icon_image)
+270 CALL 2
+272 POP_TOP
+
+274 NOP
+
+276 LOAD_FAST 0 (self)
+278 LOAD_ATTR 6 (logger)
+280 LOAD_METHOD 7 (info)
+282 LOAD_CONST 11 ("App icon (.png) applied via iconphoto: ")
+284 LOAD_FAST 4 (png_path)
+286 FORMAT_VALUE 0
+288 BUILD_STRING 2
+290 CALL 1
+292 POP_TOP
+294 JUMP_FORWARD 16 (to 318)
+296 PUSH_EXC_INFO
+
+298 LOAD_GLOBAL 10 (Exception)
+300 CHECK_EXC_MATCH
+302 POP_JUMP_FORWARD_IF_FALSE 3 (to 310)
+304 POP_TOP
+
+306 POP_EXCEPT
+308 JUMP_FORWARD 4 (to 318)
+
+310 RERAISE 0
+312 COPY 3
+314 POP_EXCEPT
+316 RERAISE 1
+
+318 LOAD_CONST 8 (True)
+320 STORE_FAST 5 (set_ok)
+322 JUMP_FORWARD 63 (to 390)
+324 PUSH_EXC_INFO
+
+326 LOAD_GLOBAL 10 (Exception)
+328 CHECK_EXC_MATCH
+330 POP_JUMP_FORWARD_IF_FALSE 50 (to 382)
+332 POP_TOP
+
+334 NOP
+
+336 LOAD_FAST 0 (self)
+338 LOAD_ATTR 6 (logger)
+340 LOAD_METHOD 8 (warning)
+342 LOAD_CONST 12 ("Failed to apply .png iconphoto: ")
+344 LOAD_FAST 4 (png_path)
+346 FORMAT_VALUE 0
+348 BUILD_STRING 2
+350 CALL 1
+352 POP_TOP
+354 JUMP_FORWARD 16 (to 378)
+356 PUSH_EXC_INFO
+
+358 LOAD_GLOBAL 10 (Exception)
+360 CHECK_EXC_MATCH
+362 POP_JUMP_FORWARD_IF_FALSE 3 (to 370)
+364 POP_TOP
+
+366 POP_EXCEPT
+368 JUMP_FORWARD 4 (to 378)
+
+370 RERAISE 0
+372 COPY 3
+374 POP_EXCEPT
+376 RERAISE 1
+
+378 POP_EXCEPT
+380 JUMP_FORWARD 4 (to 390)
+
+382 RERAISE 0
+384 COPY 3
+386 POP_EXCEPT
+388 RERAISE 1
+
+390 LOAD_FAST 5 (set_ok)
+392 POP_JUMP_FORWARD_IF_TRUE 46 (to 436)
+
+394 NOP
+
+396 LOAD_FAST 0 (self)
+398 LOAD_ATTR 6 (logger)
+400 LOAD_METHOD 8 (warning)
+402 LOAD_CONST 13 ("App icon not set: assets/logo.ico or assets/logo.png not found or failed to load.")
+404 CALL 1
+406 POP_TOP
+408 LOAD_CONST 14 (None)
+410 RETURN_VALUE
+412 PUSH_EXC_INFO
+
+414 LOAD_GLOBAL 10 (Exception)
+416 CHECK_EXC_MATCH
+418 POP_JUMP_FORWARD_IF_FALSE 4 (to 428)
+420 POP_TOP
+
+422 POP_EXCEPT
+424 LOAD_CONST 14 (None)
+426 RETURN_VALUE
+
+428 RERAISE 0
+430 COPY 3
+432 POP_EXCEPT
+434 RERAISE 1
+
+436 LOAD_CONST 14 (None)
+438 RETURN_VALUE
+440 PUSH_EXC_INFO
+
+442 LOAD_GLOBAL 10 (Exception)
+444 CHECK_EXC_MATCH
+446 POP_JUMP_FORWARD_IF_FALSE 4 (to 456)
+448 POP_TOP
+
+450 POP_EXCEPT
+452 LOAD_CONST 14 (None)
+454 RETURN_VALUE
+
+456 RERAISE 0
+458 COPY 3
+460 POP_EXCEPT
+462 RERAISE 1
+
+
+0 LOAD_GLOBAL 1 (NULL + getattr)
+2 LOAD_GLOBAL 2 (sys)
+4 LOAD_CONST 1 ("_MEIPASS")
+6 LOAD_CONST 2 (None)
+8 CALL 3
+10 STORE_FAST 1 (base)
+
+12 LOAD_FAST 1 (base)
+14 POP_JUMP_FORWARD_IF_FALSE 15 (to 24)
+
+16 LOAD_GLOBAL 5 (NULL + Path)
+18 LOAD_FAST 1 (base)
+20 CALL 1
+22 RETURN_VALUE
+
+24 LOAD_GLOBAL 5 (NULL + Path)
+26 LOAD_GLOBAL 6 (__file__)
+28 CALL 1
+30 LOAD_METHOD 4 (resolve)
+32 CALL 0
+34 LOAD_ATTR 5 (parent)
+36 LOAD_ATTR 5 (parent)
+38 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + tk)
+2 LOAD_ATTR 1 (StringVar)
+4 CALL 0
+6 LOAD_FAST 0 (self)
+8 STORE_ATTR 2 (first_name_var)
+
+10 LOAD_GLOBAL 1 (NULL + tk)
+12 LOAD_ATTR 1 (StringVar)
+14 CALL 0
+16 LOAD_FAST 0 (self)
+18 STORE_ATTR 3 (last_name_var)
+
+20 LOAD_GLOBAL 1 (NULL + tk)
+22 LOAD_ATTR 1 (StringVar)
+24 CALL 0
+26 LOAD_FAST 0 (self)
+28 STORE_ATTR 4 (email_var)
+
+30 LOAD_GLOBAL 1 (NULL + tk)
+32 LOAD_ATTR 1 (StringVar)
+34 CALL 0
+36 LOAD_FAST 0 (self)
+38 STORE_ATTR 5 (company_var)
+
+40 LOAD_GLOBAL 1 (NULL + tk)
+42 LOAD_ATTR 1 (StringVar)
+44 CALL 0
+46 LOAD_FAST 0 (self)
+48 STORE_ATTR 6 (password_var)
+
+50 LOAD_GLOBAL 1 (NULL + tk)
+52 LOAD_ATTR 1 (StringVar)
+54 CALL 0
+56 LOAD_FAST 0 (self)
+58 STORE_ATTR 7 (password_confirm_var)
+
+60 LOAD_GLOBAL 1 (NULL + tk)
+62 LOAD_ATTR 1 (StringVar)
+64 CALL 0
+66 LOAD_FAST 0 (self)
+68 STORE_ATTR 8 (firefox_api_key_var)
+
+70 LOAD_GLOBAL 1 (NULL + tk)
+72 LOAD_ATTR 9 (BooleanVar)
+74 LOAD_CONST 1 (False)
+76 KW_NAMES 2 (('value',))
+78 CALL 1
+80 LOAD_FAST 0 (self)
+82 STORE_ATTR 10 (extension_mode_var)
+
+84 LOAD_GLOBAL 1 (NULL + tk)
+86 LOAD_ATTR 1 (StringVar)
+88 CALL 0
+90 LOAD_FAST 0 (self)
+92 STORE_ATTR 11 (gmail_credentials_path_var)
+
+94 LOAD_GLOBAL 1 (NULL + tk)
+96 LOAD_ATTR 1 (StringVar)
+98 CALL 0
+100 LOAD_FAST 0 (self)
+102 STORE_ATTR 12 (gmail_auth_url_var)
+
+104 LOAD_GLOBAL 1 (NULL + tk)
+106 LOAD_ATTR 1 (StringVar)
+108 CALL 0
+110 LOAD_FAST 0 (self)
+112 STORE_ATTR 13 (gmail_auth_code_var)
+
+114 LOAD_CONST 3 (None)
+116 LOAD_FAST 0 (self)
+118 STORE_ATTR 14 (_gmail_oauth_flow)
+
+120 LOAD_GLOBAL 1 (NULL + tk)
+122 LOAD_ATTR 9 (BooleanVar)
+124 LOAD_CONST 1 (False)
+126 KW_NAMES 2 (('value',))
+128 CALL 1
+130 LOAD_FAST 0 (self)
+132 STORE_ATTR 15 (show_password_var)
+
+134 LOAD_GLOBAL 1 (NULL + tk)
+136 LOAD_ATTR 1 (StringVar)
+138 LOAD_CONST 4 ("Initializing...")
+140 KW_NAMES 2 (('value',))
+142 CALL 1
+144 LOAD_FAST 0 (self)
+146 STORE_ATTR 16 (status_var)
+
+148 LOAD_CONST 1 (False)
+150 LOAD_FAST 0 (self)
+152 STORE_ATTR 17 (data_generated)
+
+154 LOAD_GLOBAL 1 (NULL + tk)
+156 LOAD_ATTR 1 (StringVar)
+158 CALL 0
+160 LOAD_FAST 0 (self)
+162 STORE_ATTR 18 (lab_url_var)
+
+164 LOAD_GLOBAL 1 (NULL + tk)
+166 LOAD_ATTR 9 (BooleanVar)
+168 LOAD_CONST 1 (False)
+170 KW_NAMES 2 (('value',))
+172 CALL 1
+174 LOAD_FAST 0 (self)
+176 STORE_ATTR 19 (auto_start_lab_var)
+178 LOAD_CONST 3 (None)
+180 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + ttk)
+2 LOAD_ATTR 1 (Frame)
+4 LOAD_FAST 0 (self)
+6 LOAD_ATTR 2 (root)
+8 LOAD_CONST 1 (10)
+10 KW_NAMES 2 (('padding',))
+12 CALL 2
+14 STORE_FAST 1 (main_frame)
+
+16 LOAD_FAST 1 (main_frame)
+18 LOAD_METHOD 3 (pack)
+20 LOAD_GLOBAL 8 (BOTH)
+22 LOAD_CONST 3 (True)
+24 KW_NAMES 4 (('fill', 'expand'))
+26 CALL 2
+28 POP_TOP
+
+30 LOAD_GLOBAL 1 (NULL + ttk)
+32 LOAD_ATTR 5 (Notebook)
+34 LOAD_FAST 1 (main_frame)
+36 CALL 1
+38 STORE_FAST 2 (notebook)
+
+40 LOAD_FAST 2 (notebook)
+42 LOAD_METHOD 3 (pack)
+44 LOAD_GLOBAL 8 (BOTH)
+46 LOAD_CONST 3 (True)
+48 KW_NAMES 4 (('fill', 'expand'))
+50 CALL 2
+52 POP_TOP
+
+54 LOAD_GLOBAL 13 (NULL + VideoGeneratorTab)
+56 LOAD_FAST 0 (self)
+58 LOAD_ATTR 2 (root)
+60 LOAD_FAST 2 (notebook)
+62 LOAD_FAST 0 (self)
+64 LOAD_ATTR 7 (log_message)
+66 LOAD_FAST 0 (self)
+68 LOAD_ATTR 8 (request_new_api_key_and_wait)
+70 CALL 4
+72 LOAD_FAST 0 (self)
+74 STORE_ATTR 9 (video_tab)
+
+76 LOAD_GLOBAL 21 (NULL + SettingsTab)
+78 LOAD_FAST 0 (self)
+80 LOAD_FAST 2 (notebook)
+82 CALL 2
+84 LOAD_FAST 0 (self)
+86 STORE_ATTR 11 (settings_tab)
+
+88 LOAD_GLOBAL 25 (NULL + LogsTab)
+90 LOAD_FAST 0 (self)
+92 LOAD_FAST 2 (notebook)
+94 CALL 2
+96 LOAD_FAST 0 (self)
+98 STORE_ATTR 13 (logs_tab)
+
+100 LOAD_GLOBAL 29 (NULL + RegistrationTab)
+102 LOAD_FAST 0 (self)
+104 LOAD_FAST 2 (notebook)
+106 CALL 2
+108 LOAD_FAST 0 (self)
+110 STORE_ATTR 15 (registration_tab)
+
+112 LOAD_GLOBAL 33 (NULL + AboutTab)
+114 LOAD_FAST 0 (self)
+116 LOAD_FAST 2 (notebook)
+118 CALL 2
+120 LOAD_FAST 0 (self)
+122 STORE_ATTR 17 (about_tab)
+
+124 LOAD_GLOBAL 1 (NULL + ttk)
+126 LOAD_ATTR 1 (Frame)
+128 LOAD_FAST 1 (main_frame)
+130 CALL 1
+132 STORE_FAST 3 (bottom_frame)
+
+134 LOAD_FAST 3 (bottom_frame)
+136 LOAD_METHOD 3 (pack)
+138 LOAD_GLOBAL 36 (X)
+140 LOAD_CONST 5 ((10, 0))
+142 KW_NAMES 6 (('fill', 'pady'))
+144 CALL 2
+146 POP_TOP
+
+148 LOAD_GLOBAL 1 (NULL + ttk)
+150 LOAD_ATTR 1 (Frame)
+152 LOAD_FAST 3 (bottom_frame)
+154 CALL 1
+156 STORE_FAST 4 (status_frame)
+
+158 LOAD_FAST 4 (status_frame)
+160 LOAD_METHOD 3 (pack)
+162 LOAD_GLOBAL 36 (X)
+164 LOAD_CONST 7 ((0, 10))
+166 KW_NAMES 6 (('fill', 'pady'))
+168 CALL 2
+170 POP_TOP
+
+172 LOAD_GLOBAL 1 (NULL + ttk)
+174 LOAD_ATTR 19 (Label)
+176 LOAD_FAST 4 (status_frame)
+178 LOAD_CONST 8 ("Status:")
+180 LOAD_GLOBAL 40 (INFO)
+182 KW_NAMES 9 (('text', 'bootstyle'))
+184 CALL 3
+186 LOAD_METHOD 3 (pack)
+188 LOAD_GLOBAL 42 (LEFT)
+190 KW_NAMES 10 (('side',))
+192 CALL 1
+194 POP_TOP
+
+196 LOAD_GLOBAL 1 (NULL + ttk)
+198 LOAD_ATTR 19 (Label)
+
+200 LOAD_FAST 4 (status_frame)
+
+202 LOAD_FAST 0 (self)
+204 LOAD_ATTR 22 (status_var)
+
+206 LOAD_GLOBAL 46 (SUCCESS)
+
+208 KW_NAMES 11 (('textvariable', 'bootstyle'))
+210 CALL 3
+212 STORE_FAST 5 (status_label)
+
+214 LOAD_FAST 5 (status_label)
+216 LOAD_METHOD 3 (pack)
+218 LOAD_GLOBAL 42 (LEFT)
+220 LOAD_CONST 12 ((5, 0))
+222 KW_NAMES 13 (('side', 'padx'))
+224 CALL 2
+226 POP_TOP
+
+228 LOAD_GLOBAL 1 (NULL + ttk)
+230 LOAD_ATTR 1 (Frame)
+232 LOAD_FAST 3 (bottom_frame)
+234 CALL 1
+236 STORE_FAST 6 (button_frame)
+
+238 LOAD_FAST 6 (button_frame)
+240 LOAD_METHOD 3 (pack)
+242 LOAD_GLOBAL 36 (X)
+244 KW_NAMES 14 (('fill',))
+246 CALL 1
+248 POP_TOP
+
+250 LOAD_GLOBAL 1 (NULL + ttk)
+252 LOAD_ATTR 24 (Button)
+
+254 LOAD_FAST 6 (button_frame)
+
+256 LOAD_CONST 15 ("Refresh Data")
+258 LOAD_FAST 0 (self)
+260 LOAD_ATTR 25 (refresh_generated_data)
+
+262 LOAD_GLOBAL 40 (INFO)
+
+264 LOAD_CONST 16 (15)
+
+266 KW_NAMES 17 (('text', 'command', 'bootstyle', 'width'))
+268 CALL 5
+270 STORE_FAST 7 (refresh_btn)
+
+272 LOAD_FAST 7 (refresh_btn)
+274 LOAD_METHOD 3 (pack)
+276 LOAD_GLOBAL 42 (LEFT)
+278 LOAD_CONST 18 ((0, 5))
+280 KW_NAMES 13 (('side', 'padx'))
+282 CALL 2
+284 POP_TOP
+
+286 LOAD_GLOBAL 1 (NULL + ttk)
+288 LOAD_ATTR 24 (Button)
+
+290 LOAD_FAST 6 (button_frame)
+
+292 LOAD_CONST 19 ("Start Registration")
+294 LOAD_FAST 0 (self)
+296 LOAD_ATTR 26 (start_automation)
+
+298 LOAD_GLOBAL 46 (SUCCESS)
+
+300 LOAD_CONST 20 (20)
+
+302 LOAD_GLOBAL 54 (DISABLED)
+
+304 KW_NAMES 21 (('text', 'command', 'bootstyle', 'width', 'state'))
+306 CALL 6
+308 LOAD_FAST 0 (self)
+310 STORE_ATTR 28 (start_btn)
+
+312 LOAD_FAST 0 (self)
+314 LOAD_ATTR 28 (start_btn)
+316 LOAD_METHOD 3 (pack)
+318 LOAD_GLOBAL 42 (LEFT)
+320 LOAD_CONST 22 (5)
+322 KW_NAMES 13 (('side', 'padx'))
+324 CALL 2
+326 POP_TOP
+
+328 LOAD_GLOBAL 1 (NULL + ttk)
+330 LOAD_ATTR 24 (Button)
+
+332 LOAD_FAST 6 (button_frame)
+
+334 LOAD_CONST 23 ("Stop")
+336 LOAD_FAST 0 (self)
+338 LOAD_ATTR 29 (stop_automation)
+
+340 LOAD_GLOBAL 60 (DANGER)
+
+342 LOAD_CONST 16 (15)
+
+344 LOAD_GLOBAL 54 (DISABLED)
+
+346 KW_NAMES 21 (('text', 'command', 'bootstyle', 'width', 'state'))
+348 CALL 6
+350 LOAD_FAST 0 (self)
+352 STORE_ATTR 31 (stop_btn)
+
+354 LOAD_FAST 0 (self)
+356 LOAD_ATTR 31 (stop_btn)
+358 LOAD_METHOD 3 (pack)
+360 LOAD_GLOBAL 42 (LEFT)
+362 LOAD_CONST 22 (5)
+364 KW_NAMES 13 (('side', 'padx'))
+366 CALL 2
+368 POP_TOP
+
+370 LOAD_GLOBAL 1 (NULL + ttk)
+372 LOAD_ATTR 24 (Button)
+
+374 LOAD_FAST 6 (button_frame)
+
+376 LOAD_CONST 24 ("Exit")
+378 LOAD_FAST 0 (self)
+380 LOAD_ATTR 32 (on_closing)
+
+382 LOAD_GLOBAL 60 (DANGER)
+
+384 LOAD_CONST 16 (15)
+
+386 KW_NAMES 17 (('text', 'command', 'bootstyle', 'width'))
+388 CALL 5
+390 STORE_FAST 8 (exit_btn)
+
+392 LOAD_FAST 8 (exit_btn)
+394 LOAD_METHOD 3 (pack)
+396 LOAD_GLOBAL 66 (RIGHT)
+398 KW_NAMES 10 (('side',))
+400 CALL 1
+402 POP_TOP
+404 LOAD_CONST 25 (None)
+406 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + VideoGeneratorTab)
+4 LOAD_FAST 0 (self)
+6 LOAD_ATTR 1 (root)
+8 LOAD_FAST 1 (notebook)
+10 LOAD_FAST 0 (self)
+12 LOAD_ATTR 2 (log_message)
+14 LOAD_FAST 0 (self)
+16 LOAD_ATTR 3 (request_new_api_key_and_wait)
+18 CALL 4
+20 LOAD_FAST 0 (self)
+22 STORE_ATTR 4 (video_tab)
+24 LOAD_CONST 2 (None)
+26 RETURN_VALUE
+28 PUSH_EXC_INFO
+
+30 LOAD_GLOBAL 10 (Exception)
+32 CHECK_EXC_MATCH
+34 POP_JUMP_FORWARD_IF_FALSE 59 (to 112)
+36 STORE_FAST 2 (e)
+
+38 NOP
+
+40 LOAD_FAST 0 (self)
+42 LOAD_METHOD 2 (log_message)
+44 LOAD_CONST 1 ("🛑 Gagal memuat Video Generator tab: ")
+46 LOAD_FAST 2 (e)
+48 FORMAT_VALUE 0
+50 BUILD_STRING 2
+52 CALL 1
+54 POP_TOP
+56 JUMP_FORWARD 16 (to 80)
+58 PUSH_EXC_INFO
+
+60 LOAD_GLOBAL 10 (Exception)
+62 CHECK_EXC_MATCH
+64 POP_JUMP_FORWARD_IF_FALSE 3 (to 72)
+66 POP_TOP
+
+68 POP_EXCEPT
+70 JUMP_FORWARD 10 (to 92)
+
+72 RERAISE 0
+74 COPY 3
+76 POP_EXCEPT
+78 RERAISE 1
+
+80 POP_EXCEPT
+82 LOAD_CONST 2 (None)
+84 STORE_FAST 2 (e)
+86 DELETE_FAST 2 (e)
+88 LOAD_CONST 2 (None)
+90 RETURN_VALUE
+
+92 POP_EXCEPT
+94 LOAD_CONST 2 (None)
+96 STORE_FAST 2 (e)
+98 DELETE_FAST 2 (e)
+100 LOAD_CONST 2 (None)
+102 RETURN_VALUE
+104 LOAD_CONST 2 (None)
+106 STORE_FAST 2 (e)
+108 DELETE_FAST 2 (e)
+110 RERAISE 1
+
+112 RERAISE 0
+114 COPY 3
+116 POP_EXCEPT
+118 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + hasattr)
+4 LOAD_FAST 0 (self)
+6 LOAD_CONST 1 ("video_tab")
+8 CALL 2
+10 POP_JUMP_FORWARD_IF_FALSE 126 (to 94)
+12 LOAD_FAST 0 (self)
+14 LOAD_ATTR 1 (video_tab)
+16 POP_JUMP_FORWARD_IF_FALSE 119 (to 94)
+
+18 LOAD_FAST 0 (self)
+20 LOAD_ATTR 1 (video_tab)
+22 LOAD_METHOD 2 (set_api_key)
+24 LOAD_FAST 1 (key)
+26 CALL 1
+28 POP_TOP
+
+30 LOAD_FAST 0 (self)
+32 LOAD_METHOD 3 (log_message)
+34 LOAD_CONST 2 ("⏳ GenAI API key diteruskan ke Video Generator tab.")
+36 CALL 1
+38 POP_TOP
+
+40 NOP
+
+42 LOAD_FAST 1 (key)
+44 JUMP_IF_TRUE_OR_POP 1 (to 48)
+46 LOAD_CONST 3 ("")
+48 LOAD_METHOD 4 (strip)
+50 CALL 0
+52 LOAD_FAST 0 (self)
+54 STORE_ATTR 5 (_latest_genai_api_key)
+
+56 LOAD_FAST 0 (self)
+58 LOAD_ATTR 6 (_genai_api_key_event)
+60 LOAD_METHOD 7 (set)
+62 CALL 0
+64 POP_TOP
+66 LOAD_CONST 6 (None)
+68 RETURN_VALUE
+70 PUSH_EXC_INFO
+
+72 LOAD_GLOBAL 16 (Exception)
+74 CHECK_EXC_MATCH
+76 POP_JUMP_FORWARD_IF_FALSE 4 (to 86)
+78 POP_TOP
+
+80 POP_EXCEPT
+82 LOAD_CONST 6 (None)
+84 RETURN_VALUE
+
+86 RERAISE 0
+88 COPY 3
+90 POP_EXCEPT
+92 RERAISE 1
+
+94 LOAD_FAST 0 (self)
+96 LOAD_METHOD 3 (log_message)
+98 LOAD_CONST 4 ("⚠️ Video Generator tab belum terinisialisasi; API key belum dapat diatur.")
+100 CALL 1
+102 POP_TOP
+104 LOAD_CONST 6 (None)
+106 RETURN_VALUE
+108 PUSH_EXC_INFO
+
+110 LOAD_GLOBAL 16 (Exception)
+112 CHECK_EXC_MATCH
+114 POP_JUMP_FORWARD_IF_FALSE 59 (to 192)
+116 STORE_FAST 2 (e)
+
+118 NOP
+
+120 LOAD_FAST 0 (self)
+122 LOAD_METHOD 3 (log_message)
+124 LOAD_CONST 5 ("🛑 Gagal menerapkan GenAI API key: ")
+126 LOAD_FAST 2 (e)
+128 FORMAT_VALUE 0
+130 BUILD_STRING 2
+132 CALL 1
+134 POP_TOP
+136 JUMP_FORWARD 16 (to 160)
+138 PUSH_EXC_INFO
+
+140 LOAD_GLOBAL 16 (Exception)
+142 CHECK_EXC_MATCH
+144 POP_JUMP_FORWARD_IF_FALSE 3 (to 152)
+146 POP_TOP
+
+148 POP_EXCEPT
+150 JUMP_FORWARD 10 (to 172)
+
+152 RERAISE 0
+154 COPY 3
+156 POP_EXCEPT
+158 RERAISE 1
+
+160 POP_EXCEPT
+162 LOAD_CONST 6 (None)
+164 STORE_FAST 2 (e)
+166 DELETE_FAST 2 (e)
+168 LOAD_CONST 6 (None)
+170 RETURN_VALUE
+
+172 POP_EXCEPT
+174 LOAD_CONST 6 (None)
+176 STORE_FAST 2 (e)
+178 DELETE_FAST 2 (e)
+180 LOAD_CONST 6 (None)
+182 RETURN_VALUE
+184 LOAD_CONST 6 (None)
+186 STORE_FAST 2 (e)
+188 DELETE_FAST 2 (e)
+190 RERAISE 1
+
+192 RERAISE 0
+194 COPY 3
+196 POP_EXCEPT
+198 RERAISE 1
+
+
+0 NOP
+
+2 NOP
+
+4 LOAD_DEREF 0 (self)
+6 LOAD_ATTR 0 (_genai_api_key_event)
+8 LOAD_METHOD 1 (clear)
+10 CALL 0
+12 POP_TOP
+
+14 LOAD_CONST 1 (None)
+16 LOAD_DEREF 0 (self)
+18 STORE_ATTR 2 (_latest_genai_api_key)
+20 JUMP_FORWARD 16 (to 44)
+22 PUSH_EXC_INFO
+
+24 LOAD_GLOBAL 6 (Exception)
+26 CHECK_EXC_MATCH
+28 POP_JUMP_FORWARD_IF_FALSE 3 (to 36)
+30 POP_TOP
+
+32 POP_EXCEPT
+34 JUMP_FORWARD 4 (to 44)
+
+36 RERAISE 0
+38 COPY 3
+40 POP_EXCEPT
+42 RERAISE 1
+
+44 LOAD_DEREF 0 (self)
+46 LOAD_ATTR 4 (root)
+48 LOAD_METHOD 5 (after)
+50 LOAD_CONST 2 (0)
+52 LOAD_CLOSURE 1 (reason)
+54 LOAD_CLOSURE 0 (self)
+56 BUILD_TUPLE 2
+58 LOAD_CONST 3 (code object <lambda>)
+60 MAKE_FUNCTION 8 (closure)
+62 CALL 2
+64 POP_TOP
+
+66 LOAD_DEREF 0 (self)
+68 LOAD_ATTR 4 (root)
+70 LOAD_METHOD 5 (after)
+72 LOAD_CONST 2 (0)
+74 LOAD_DEREF 0 (self)
+76 LOAD_ATTR 6 (refresh_generated_data)
+78 CALL 2
+80 POP_TOP
+
+82 LOAD_DEREF 0 (self)
+84 LOAD_ATTR 4 (root)
+86 LOAD_METHOD 5 (after)
+88 LOAD_CONST 2 (0)
+90 LOAD_DEREF 0 (self)
+92 LOAD_ATTR 7 (start_automation)
+94 CALL 2
+96 POP_TOP
+
+98 LOAD_DEREF 0 (self)
+100 LOAD_ATTR 0 (_genai_api_key_event)
+102 LOAD_METHOD 8 (wait)
+104 LOAD_GLOBAL 19 (NULL + max)
+106 LOAD_CONST 4 (1)
+108 LOAD_GLOBAL 21 (NULL + int)
+110 LOAD_FAST 2 (timeout_seconds)
+112 CALL 1
+114 CALL 2
+116 KW_NAMES 5 (('timeout',))
+118 CALL 1
+120 STORE_FAST 3 (ok)
+
+122 LOAD_FAST 3 (ok)
+124 POP_JUMP_FORWARD_IF_FALSE 7 (to 132)
+
+126 LOAD_DEREF 0 (self)
+128 LOAD_ATTR 2 (_latest_genai_api_key)
+130 RETURN_VALUE
+
+132 LOAD_DEREF 0 (self)
+134 LOAD_ATTR 4 (root)
+136 LOAD_METHOD 5 (after)
+138 LOAD_CONST 2 (0)
+140 LOAD_CLOSURE 0 (self)
+142 BUILD_TUPLE 1
+144 LOAD_CONST 6 (code object <lambda>)
+146 MAKE_FUNCTION 8 (closure)
+148 CALL 2
+150 POP_TOP
+
+152 LOAD_CONST 1 (None)
+154 RETURN_VALUE
+156 PUSH_EXC_INFO
+
+158 LOAD_GLOBAL 6 (Exception)
+160 CHECK_EXC_MATCH
+162 POP_JUMP_FORWARD_IF_FALSE 60 (to 234)
+164 STORE_DEREF 4 (self)
+
+166 NOP
+
+168 LOAD_DEREF 0 (self)
+170 LOAD_ATTR 4 (root)
+172 LOAD_METHOD 5 (after)
+174 LOAD_CONST 2 (0)
+176 LOAD_CLOSURE 4 (self)
+178 LOAD_CLOSURE 0 (self)
+180 BUILD_TUPLE 2
+182 LOAD_CONST 7 (code object <lambda>)
+184 MAKE_FUNCTION 8 (closure)
+186 CALL 2
+188 POP_TOP
+190 JUMP_FORWARD 16 (to 214)
+192 PUSH_EXC_INFO
+
+194 LOAD_GLOBAL 6 (Exception)
+196 CHECK_EXC_MATCH
+198 POP_JUMP_FORWARD_IF_FALSE 3 (to 206)
+200 POP_TOP
+
+202 POP_EXCEPT
+204 JUMP_FORWARD 4 (to 214)
+
+206 RERAISE 0
+208 COPY 3
+210 POP_EXCEPT
+212 RERAISE 1
+
+214 POP_EXCEPT
+216 LOAD_CONST 1 (None)
+218 STORE_DEREF 4 (self)
+220 DELETE_DEREF 4 (self)
+222 LOAD_CONST 1 (None)
+224 RETURN_VALUE
+226 LOAD_CONST 1 (None)
+228 STORE_DEREF 4 (self)
+230 DELETE_DEREF 4 (self)
+232 RERAISE 1
+
+234 RERAISE 0
+236 COPY 3
+238 POP_EXCEPT
+240 RERAISE 1
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("⏸️ Pausing generation at Video tab: ")
+8 LOAD_DEREF 0 (reason)
+10 FORMAT_VALUE 0
+12 LOAD_CONST 2 (". Re-registering to obtain new API key...")
+14 BUILD_STRING 3
+16 CALL 1
+18 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("🛑 Timeout waiting for new GenAI API key.")
+8 CALL 1
+10 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("🛑 request_new_api_key_and_wait error: ")
+8 LOAD_DEREF 0 (e)
+10 FORMAT_VALUE 0
+12 BUILD_STRING 2
+14 CALL 1
+16 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_ATTR 0 (show_password_var)
+6 LOAD_METHOD 1 (get)
+8 CALL 0
+10 POP_JUMP_FORWARD_IF_FALSE 2 (to 16)
+12 LOAD_CONST 1 ("")
+14 JUMP_FORWARD 1 (to 18)
+16 LOAD_CONST 2 ("*")
+18 STORE_FAST 1 (show_char)
+
+20 LOAD_GLOBAL 5 (NULL + hasattr)
+22 LOAD_FAST 0 (self)
+24 LOAD_CONST 3 ("password_entry")
+26 CALL 2
+28 POP_JUMP_FORWARD_IF_FALSE 34 (to 50)
+30 LOAD_FAST 0 (self)
+32 LOAD_ATTR 3 (password_entry)
+34 POP_JUMP_FORWARD_IF_FALSE 27 (to 50)
+
+36 LOAD_FAST 0 (self)
+38 LOAD_ATTR 3 (password_entry)
+40 LOAD_METHOD 4 (config)
+42 LOAD_FAST 1 (show_char)
+44 KW_NAMES 4 (('show',))
+46 CALL 1
+48 POP_TOP
+
+50 LOAD_GLOBAL 5 (NULL + hasattr)
+52 LOAD_FAST 0 (self)
+54 LOAD_CONST 5 ("password_confirm_entry")
+56 CALL 2
+58 POP_JUMP_FORWARD_IF_FALSE 36 (to 84)
+60 LOAD_FAST 0 (self)
+62 LOAD_ATTR 5 (password_confirm_entry)
+64 POP_JUMP_FORWARD_IF_FALSE 31 (to 88)
+
+66 LOAD_FAST 0 (self)
+68 LOAD_ATTR 5 (password_confirm_entry)
+70 LOAD_METHOD 4 (config)
+72 LOAD_FAST 1 (show_char)
+74 KW_NAMES 4 (('show',))
+76 CALL 1
+78 POP_TOP
+80 LOAD_CONST 7 (None)
+82 RETURN_VALUE
+
+84 LOAD_CONST 7 (None)
+86 RETURN_VALUE
+88 LOAD_CONST 7 (None)
+90 RETURN_VALUE
+92 PUSH_EXC_INFO
+
+94 LOAD_GLOBAL 12 (Exception)
+96 CHECK_EXC_MATCH
+98 POP_JUMP_FORWARD_IF_FALSE 35 (to 138)
+100 STORE_FAST 2 (e)
+
+102 LOAD_FAST 0 (self)
+104 LOAD_METHOD 7 (log_message)
+106 LOAD_CONST 6 ("⚠️ Toggle password visibility error: ")
+108 LOAD_FAST 2 (e)
+110 FORMAT_VALUE 0
+112 BUILD_STRING 2
+114 CALL 1
+116 POP_TOP
+118 POP_EXCEPT
+120 LOAD_CONST 7 (None)
+122 STORE_FAST 2 (e)
+124 DELETE_FAST 2 (e)
+126 LOAD_CONST 7 (None)
+128 RETURN_VALUE
+130 LOAD_CONST 7 (None)
+132 STORE_FAST 2 (e)
+134 DELETE_FAST 2 (e)
+136 RERAISE 1
+
+138 RERAISE 0
+140 COPY 3
+142 POP_EXCEPT
+144 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_ATTR 0 (password_var)
+6 LOAD_METHOD 1 (get)
+8 CALL 0
+10 STORE_FAST 1 (pwd)
+
+12 LOAD_FAST 0 (self)
+14 LOAD_ATTR 2 (root)
+16 LOAD_METHOD 3 (clipboard_clear)
+18 CALL 0
+20 POP_TOP
+
+22 LOAD_FAST 0 (self)
+24 LOAD_ATTR 2 (root)
+26 LOAD_METHOD 4 (clipboard_append)
+28 LOAD_FAST 1 (pwd)
+30 CALL 1
+32 POP_TOP
+
+34 LOAD_FAST 0 (self)
+36 LOAD_METHOD 5 (log_message)
+38 LOAD_CONST 1 ("ℹ️ Password copied to clipboard.")
+40 CALL 1
+42 POP_TOP
+44 LOAD_CONST 3 (None)
+46 RETURN_VALUE
+48 PUSH_EXC_INFO
+
+50 LOAD_GLOBAL 12 (Exception)
+52 CHECK_EXC_MATCH
+54 POP_JUMP_FORWARD_IF_FALSE 35 (to 94)
+56 STORE_FAST 2 (e)
+
+58 LOAD_FAST 0 (self)
+60 LOAD_METHOD 5 (log_message)
+62 LOAD_CONST 2 ("🛑 Copy password error: ")
+64 LOAD_FAST 2 (e)
+66 FORMAT_VALUE 0
+68 BUILD_STRING 2
+70 CALL 1
+72 POP_TOP
+74 POP_EXCEPT
+76 LOAD_CONST 3 (None)
+78 STORE_FAST 2 (e)
+80 DELETE_FAST 2 (e)
+82 LOAD_CONST 3 (None)
+84 RETURN_VALUE
+86 LOAD_CONST 3 (None)
+88 STORE_FAST 2 (e)
+90 DELETE_FAST 2 (e)
+92 RERAISE 1
+
+94 RERAISE 0
+96 COPY 3
+98 POP_EXCEPT
+100 RERAISE 1
+
+
+0 LOAD_DEREF 0 (self)
+2 LOAD_ATTR 0 (firefox_api_key_var)
+4 LOAD_METHOD 1 (get)
+6 CALL 0
+8 JUMP_IF_TRUE_OR_POP 1 (to 12)
+10 LOAD_CONST 1 ("")
+12 LOAD_METHOD 2 (strip)
+14 CALL 0
+16 STORE_DEREF 2 (self)
+
+18 LOAD_DEREF 2 (self)
+20 POP_JUMP_FORWARD_IF_TRUE 2 (to 26)
+
+22 LOAD_CONST 2 (None)
+24 RETURN_VALUE
+
+26 LOAD_CLOSURE 2 (self)
+28 LOAD_CLOSURE 0 (self)
+30 BUILD_TUPLE 2
+32 LOAD_CONST 3 (code object _worker)
+34 MAKE_FUNCTION 8 (closure)
+36 STORE_FAST 1 (_worker)
+
+38 LOAD_GLOBAL 7 (NULL + threading)
+40 LOAD_ATTR 4 (Thread)
+42 LOAD_FAST 1 (_worker)
+44 LOAD_CONST 4 (True)
+46 KW_NAMES 5 (('target', 'daemon'))
+48 CALL 2
+50 LOAD_METHOD 5 (start)
+52 CALL 0
+54 POP_TOP
+56 LOAD_CONST 2 (None)
+58 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 NOP
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (('FirefoxRelayService',))
+8 IMPORT_NAME 0 (services.firefox_relay_service)
+10 IMPORT_FROM 1 (FirefoxRelayService)
+12 STORE_FAST 0 (FirefoxRelayService)
+14 POP_TOP
+
+16 PUSH_NULL
+18 LOAD_FAST 0 (FirefoxRelayService)
+20 LOAD_DEREF 6 (key)
+22 KW_NAMES 3 (('api_key',))
+24 CALL 1
+26 STORE_DEREF 5 (svc)
+
+28 LOAD_DEREF 7 (self)
+30 LOAD_METHOD 2 (log_message)
+32 LOAD_CONST 4 ("✅ Detected Firefox Relay API key from temp. Validating...")
+34 CALL 1
+36 POP_TOP
+
+38 LOAD_DEREF 5 (svc)
+40 LOAD_METHOD 3 (test_connection)
+42 CALL 0
+44 STORE_DEREF 4 (results)
+
+46 LOAD_DEREF 4 (results)
+48 LOAD_METHOD 4 (get)
+50 LOAD_CONST 5 ("success")
+52 CALL 1
+54 POP_JUMP_FORWARD_IF_FALSE 36 (to 88)
+
+56 LOAD_CLOSURE 4 (results)
+58 LOAD_CLOSURE 7 (self)
+60 LOAD_CLOSURE 5 (svc)
+62 BUILD_TUPLE 3
+64 LOAD_CONST 6 (code object _on_ok)
+66 MAKE_FUNCTION 8 (closure)
+68 STORE_FAST 1 (_on_ok)
+
+70 LOAD_DEREF 7 (self)
+72 LOAD_ATTR 5 (root)
+74 LOAD_METHOD 6 (after)
+76 LOAD_CONST 1 (0)
+78 LOAD_FAST 1 (_on_ok)
+80 CALL 2
+82 POP_TOP
+84 LOAD_CONST 0 (None)
+86 RETURN_VALUE
+
+88 LOAD_CLOSURE 7 (self)
+90 BUILD_TUPLE 1
+92 LOAD_CONST 7 (code object _on_fail)
+94 MAKE_FUNCTION 8 (closure)
+96 STORE_FAST 2 (_on_fail)
+
+98 LOAD_DEREF 7 (self)
+100 LOAD_ATTR 5 (root)
+102 LOAD_METHOD 6 (after)
+104 LOAD_CONST 1 (0)
+106 LOAD_FAST 2 (_on_fail)
+108 CALL 2
+110 POP_TOP
+112 LOAD_CONST 0 (None)
+114 RETURN_VALUE
+116 PUSH_EXC_INFO
+
+118 LOAD_GLOBAL 14 (Exception)
+120 CHECK_EXC_MATCH
+122 POP_JUMP_FORWARD_IF_FALSE 42 (to 168)
+124 STORE_DEREF 3 (e)
+
+126 LOAD_DEREF 7 (self)
+128 LOAD_ATTR 5 (root)
+130 LOAD_METHOD 6 (after)
+132 LOAD_CONST 1 (0)
+134 LOAD_CLOSURE 3 (e)
+136 LOAD_CLOSURE 7 (self)
+138 BUILD_TUPLE 2
+140 LOAD_CONST 8 (code object <lambda>)
+142 MAKE_FUNCTION 8 (closure)
+144 CALL 2
+146 POP_TOP
+148 POP_EXCEPT
+150 LOAD_CONST 0 (None)
+152 STORE_DEREF 3 (e)
+154 DELETE_DEREF 3 (e)
+156 LOAD_CONST 0 (None)
+158 RETURN_VALUE
+160 LOAD_CONST 0 (None)
+162 STORE_DEREF 3 (e)
+164 DELETE_DEREF 3 (e)
+166 RERAISE 1
+
+168 RERAISE 0
+170 COPY 3
+172 POP_EXCEPT
+174 RERAISE 1
+
+0 COPY_FREE_VARS 3
+
+2 LOAD_DEREF 2 (svc)
+4 LOAD_DEREF 1 (self)
+6 STORE_ATTR 0 (firefox_relay_service)
+
+8 NOP
+
+10 LOAD_DEREF 1 (self)
+12 LOAD_ATTR 1 (firefox_status_label)
+14 LOAD_METHOD 2 (config)
+16 LOAD_CONST 1 ("Firefox Relay: ✅ Connected")
+18 LOAD_GLOBAL 6 (SUCCESS)
+20 KW_NAMES 2 (('text', 'bootstyle'))
+22 CALL 2
+24 POP_TOP
+26 JUMP_FORWARD 16 (to 50)
+28 PUSH_EXC_INFO
+
+30 LOAD_GLOBAL 8 (Exception)
+32 CHECK_EXC_MATCH
+34 POP_JUMP_FORWARD_IF_FALSE 3 (to 42)
+36 POP_TOP
+
+38 POP_EXCEPT
+40 JUMP_FORWARD 4 (to 50)
+
+42 RERAISE 0
+44 COPY 3
+46 POP_EXCEPT
+48 RERAISE 1
+
+50 LOAD_DEREF 1 (self)
+52 LOAD_METHOD 5 (log_message)
+54 LOAD_CONST 3 ("✅ Firefox Relay API key is valid (auto).")
+56 CALL 1
+58 POP_TOP
+
+60 LOAD_DEREF 1 (self)
+62 LOAD_METHOD 5 (log_message)
+64 LOAD_CONST 4 ("✅ Using URL: ")
+66 LOAD_DEREF 0 (results)
+68 LOAD_METHOD 6 (get)
+70 LOAD_CONST 5 ("working_url")
+72 LOAD_CONST 6 ("N/A")
+74 CALL 2
+76 FORMAT_VALUE 0
+78 BUILD_STRING 2
+80 CALL 1
+82 POP_TOP
+
+84 NOP
+
+86 LOAD_DEREF 1 (self)
+88 LOAD_ATTR 7 (status_var)
+90 LOAD_METHOD 8 (set)
+92 LOAD_CONST 7 ("Ready")
+94 CALL 1
+96 POP_TOP
+98 JUMP_FORWARD 16 (to 122)
+100 PUSH_EXC_INFO
+
+102 LOAD_GLOBAL 8 (Exception)
+104 CHECK_EXC_MATCH
+106 POP_JUMP_FORWARD_IF_FALSE 3 (to 114)
+108 POP_TOP
+
+110 POP_EXCEPT
+112 JUMP_FORWARD 4 (to 122)
+
+114 RERAISE 0
+116 COPY 3
+118 POP_EXCEPT
+120 RERAISE 1
+
+122 LOAD_DEREF 1 (self)
+124 LOAD_ATTR 9 (data_generated)
+126 POP_JUMP_FORWARD_IF_FALSE 52 (to 172)
+
+128 NOP
+
+130 LOAD_DEREF 1 (self)
+132 LOAD_ATTR 10 (start_btn)
+134 LOAD_METHOD 2 (config)
+136 LOAD_GLOBAL 22 (NORMAL)
+138 KW_NAMES 8 (('state',))
+140 CALL 1
+142 POP_TOP
+144 LOAD_CONST 0 (None)
+146 RETURN_VALUE
+148 PUSH_EXC_INFO
+
+150 LOAD_GLOBAL 8 (Exception)
+152 CHECK_EXC_MATCH
+154 POP_JUMP_FORWARD_IF_FALSE 4 (to 164)
+156 POP_TOP
+
+158 POP_EXCEPT
+160 LOAD_CONST 0 (None)
+162 RETURN_VALUE
+
+164 RERAISE 0
+166 COPY 3
+168 POP_EXCEPT
+170 RERAISE 1
+
+172 LOAD_CONST 0 (None)
+174 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 NOP
+
+4 LOAD_DEREF 0 (self)
+6 LOAD_ATTR 0 (firefox_status_label)
+8 LOAD_METHOD 1 (config)
+10 LOAD_CONST 1 ("Firefox Relay: 🛑 Invalid API Key")
+12 LOAD_GLOBAL 4 (DANGER)
+14 KW_NAMES 2 (('text', 'bootstyle'))
+16 CALL 2
+18 POP_TOP
+20 JUMP_FORWARD 16 (to 44)
+22 PUSH_EXC_INFO
+
+24 LOAD_GLOBAL 6 (Exception)
+26 CHECK_EXC_MATCH
+28 POP_JUMP_FORWARD_IF_FALSE 3 (to 36)
+30 POP_TOP
+
+32 POP_EXCEPT
+34 JUMP_FORWARD 4 (to 44)
+
+36 RERAISE 0
+38 COPY 3
+40 POP_EXCEPT
+42 RERAISE 1
+
+44 LOAD_DEREF 0 (self)
+46 LOAD_METHOD 4 (log_message)
+48 LOAD_CONST 3 ("⚠️ Auto-validate API key failed. Please click 'Test API Key'.")
+50 CALL 1
+52 POP_TOP
+54 LOAD_CONST 0 (None)
+56 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("⚠️ Auto-init Relay failed: ")
+8 LOAD_DEREF 0 (e)
+10 FORMAT_VALUE 0
+12 BUILD_STRING 2
+14 CALL 1
+16 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + max)
+4 LOAD_CONST 1 (1)
+6 LOAD_GLOBAL 3 (NULL + int)
+8 LOAD_FAST 1 (total_sec)
+10 CALL 1
+12 CALL 2
+14 LOAD_FAST 0 (self)
+16 STORE_ATTR 2 (gmail_poll_total)
+
+18 LOAD_GLOBAL 1 (NULL + max)
+20 LOAD_CONST 1 (1)
+22 LOAD_GLOBAL 3 (NULL + int)
+24 LOAD_FAST 2 (interval_sec)
+26 CALL 1
+28 CALL 2
+30 LOAD_FAST 0 (self)
+32 STORE_ATTR 3 (gmail_poll_interval)
+
+34 LOAD_GLOBAL 9 (NULL + time)
+36 LOAD_ATTR 4 (time)
+38 CALL 0
+40 LOAD_FAST 0 (self)
+42 STORE_ATTR 5 (gmail_poll_start)
+
+44 LOAD_CONST 2 (True)
+46 LOAD_FAST 0 (self)
+48 STORE_ATTR 6 (gmail_progress_running)
+
+50 LOAD_FAST 0 (self)
+52 LOAD_ATTR 7 (gmail_progress)
+54 LOAD_METHOD 8 (configure)
+56 LOAD_FAST 0 (self)
+58 LOAD_ATTR 2 (gmail_poll_total)
+60 LOAD_CONST 3 (0)
+62 KW_NAMES 4 (('maximum', 'value'))
+64 CALL 2
+66 POP_TOP
+
+68 NOP
+
+70 LOAD_FAST 0 (self)
+72 LOAD_ATTR 9 (gmail_progress_container)
+74 LOAD_METHOD 10 (pack)
+76 LOAD_GLOBAL 22 (X)
+78 LOAD_CONST 5 ((8, 0))
+80 KW_NAMES 6 (('fill', 'pady'))
+82 CALL 2
+84 POP_TOP
+86 JUMP_FORWARD 16 (to 110)
+88 PUSH_EXC_INFO
+
+90 LOAD_GLOBAL 24 (Exception)
+92 CHECK_EXC_MATCH
+94 POP_JUMP_FORWARD_IF_FALSE 3 (to 102)
+96 POP_TOP
+
+98 POP_EXCEPT
+100 JUMP_FORWARD 4 (to 110)
+
+102 RERAISE 0
+104 COPY 3
+106 POP_EXCEPT
+108 RERAISE 1
+
+110 LOAD_FAST 0 (self)
+112 LOAD_METHOD 13 (_update_gmail_progress)
+114 CALL 0
+116 POP_TOP
+118 LOAD_CONST 8 (None)
+120 RETURN_VALUE
+122 PUSH_EXC_INFO
+
+124 LOAD_GLOBAL 24 (Exception)
+126 CHECK_EXC_MATCH
+128 POP_JUMP_FORWARD_IF_FALSE 35 (to 168)
+130 STORE_FAST 3 (e)
+
+132 LOAD_FAST 0 (self)
+134 LOAD_METHOD 14 (log_message)
+136 LOAD_CONST 7 ("⚠️ Could not start Gmail progress: ")
+138 LOAD_FAST 3 (e)
+140 FORMAT_VALUE 0
+142 BUILD_STRING 2
+144 CALL 1
+146 POP_TOP
+148 POP_EXCEPT
+150 LOAD_CONST 8 (None)
+152 STORE_FAST 3 (e)
+154 DELETE_FAST 3 (e)
+156 LOAD_CONST 8 (None)
+158 RETURN_VALUE
+160 LOAD_CONST 8 (None)
+162 STORE_FAST 3 (e)
+164 DELETE_FAST 3 (e)
+166 RERAISE 1
+
+168 RERAISE 0
+170 COPY 3
+172 POP_EXCEPT
+174 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (gmail_progress_running)
+4 POP_JUMP_FORWARD_IF_TRUE 2 (to 10)
+
+6 LOAD_CONST 0 (None)
+8 RETURN_VALUE
+
+10 LOAD_GLOBAL 3 (NULL + time)
+12 LOAD_ATTR 1 (time)
+14 CALL 0
+16 STORE_FAST 1 (now)
+
+18 LOAD_FAST 1 (now)
+20 LOAD_GLOBAL 5 (NULL + getattr)
+22 LOAD_FAST 0 (self)
+24 LOAD_CONST 1 ("gmail_poll_start")
+26 LOAD_FAST 1 (now)
+28 CALL 3
+30 BINARY_OP 10
+32 STORE_FAST 2 (elapsed)
+
+34 LOAD_GLOBAL 5 (NULL + getattr)
+36 LOAD_FAST 0 (self)
+38 LOAD_CONST 2 ("gmail_poll_total")
+40 LOAD_CONST 3 (1)
+42 CALL 3
+44 STORE_FAST 3 (total)
+
+46 LOAD_GLOBAL 5 (NULL + getattr)
+48 LOAD_FAST 0 (self)
+50 LOAD_CONST 4 ("gmail_poll_interval")
+52 LOAD_CONST 5 (5)
+54 CALL 3
+56 STORE_FAST 4 (interval)
+
+58 LOAD_GLOBAL 7 (NULL + int)
+60 LOAD_GLOBAL 9 (NULL + max)
+62 LOAD_CONST 6 (0)
+64 LOAD_FAST 3 (total)
+66 LOAD_FAST 2 (elapsed)
+68 BINARY_OP 10
+70 CALL 2
+72 CALL 1
+74 STORE_FAST 5 (remaining)
+
+76 LOAD_GLOBAL 7 (NULL + int)
+78 LOAD_FAST 2 (elapsed)
+80 LOAD_FAST 4 (interval)
+82 BINARY_OP 2
+84 CALL 1
+86 LOAD_CONST 3 (1)
+88 BINARY_OP 0
+90 STORE_FAST 6 (attempt)
+
+92 NOP
+
+94 LOAD_FAST 0 (self)
+96 LOAD_ATTR 5 (gmail_progress)
+98 LOAD_METHOD 6 (configure)
+100 LOAD_GLOBAL 15 (NULL + min)
+102 LOAD_FAST 3 (total)
+104 LOAD_FAST 2 (elapsed)
+106 CALL 2
+108 KW_NAMES 7 (('value',))
+110 CALL 1
+112 POP_TOP
+
+114 LOAD_FAST 0 (self)
+116 LOAD_ATTR 8 (gmail_progress_label)
+118 LOAD_METHOD 9 (config)
+120 LOAD_CONST 8 ("Gmail polling attempt=")
+122 LOAD_FAST 6 (attempt)
+124 FORMAT_VALUE 0
+126 LOAD_CONST 9 (" remaining=")
+128 LOAD_FAST 5 (remaining)
+130 FORMAT_VALUE 0
+132 LOAD_CONST 10 ("s")
+134 BUILD_STRING 5
+136 KW_NAMES 11 (('text',))
+138 CALL 1
+140 POP_TOP
+142 JUMP_FORWARD 16 (to 166)
+144 PUSH_EXC_INFO
+
+146 LOAD_GLOBAL 20 (Exception)
+148 CHECK_EXC_MATCH
+150 POP_JUMP_FORWARD_IF_FALSE 3 (to 158)
+152 POP_TOP
+
+154 POP_EXCEPT
+156 JUMP_FORWARD 4 (to 166)
+
+158 RERAISE 0
+160 COPY 3
+162 POP_EXCEPT
+164 RERAISE 1
+
+166 LOAD_FAST 2 (elapsed)
+168 LOAD_FAST 3 (total)
+170 COMPARE_OP 0 (<)
+172 POP_JUMP_FORWARD_IF_FALSE 46 (to 202)
+174 LOAD_FAST 0 (self)
+176 LOAD_ATTR 0 (gmail_progress_running)
+178 POP_JUMP_FORWARD_IF_FALSE 39 (to 202)
+
+180 LOAD_FAST 0 (self)
+182 LOAD_ATTR 11 (root)
+184 LOAD_METHOD 12 (after)
+186 LOAD_CONST 12 (500)
+188 LOAD_FAST 0 (self)
+190 LOAD_ATTR 13 (_update_gmail_progress)
+192 CALL 2
+194 LOAD_FAST 0 (self)
+196 STORE_ATTR 14 (gmail_progress_job)
+198 LOAD_CONST 0 (None)
+200 RETURN_VALUE
+
+202 LOAD_FAST 0 (self)
+204 LOAD_METHOD 15 (stop_gmail_progress)
+206 CALL 0
+208 POP_TOP
+210 LOAD_CONST 0 (None)
+212 RETURN_VALUE
+
+
+0 LOAD_CONST 1 (False)
+2 LOAD_FAST 0 (self)
+4 STORE_ATTR 0 (gmail_progress_running)
+
+6 LOAD_GLOBAL 3 (NULL + getattr)
+8 LOAD_FAST 0 (self)
+10 LOAD_CONST 2 ("gmail_progress_job")
+12 LOAD_CONST 0 (None)
+14 CALL 3
+16 POP_JUMP_FORWARD_IF_FALSE 56 (to 64)
+
+18 NOP
+
+20 LOAD_FAST 0 (self)
+22 LOAD_ATTR 2 (root)
+24 LOAD_METHOD 3 (after_cancel)
+26 LOAD_FAST 0 (self)
+28 LOAD_ATTR 4 (gmail_progress_job)
+30 CALL 1
+32 POP_TOP
+34 JUMP_FORWARD 16 (to 58)
+36 PUSH_EXC_INFO
+
+38 LOAD_GLOBAL 10 (Exception)
+40 CHECK_EXC_MATCH
+42 POP_JUMP_FORWARD_IF_FALSE 3 (to 50)
+44 POP_TOP
+
+46 POP_EXCEPT
+48 JUMP_FORWARD 4 (to 58)
+
+50 RERAISE 0
+52 COPY 3
+54 POP_EXCEPT
+56 RERAISE 1
+
+58 LOAD_CONST 0 (None)
+60 LOAD_FAST 0 (self)
+62 STORE_ATTR 4 (gmail_progress_job)
+
+64 NOP
+
+66 LOAD_FAST 0 (self)
+68 LOAD_ATTR 6 (gmail_progress_container)
+70 LOAD_METHOD 7 (pack_forget)
+72 CALL 0
+74 POP_TOP
+76 LOAD_CONST 0 (None)
+78 RETURN_VALUE
+80 PUSH_EXC_INFO
+
+82 LOAD_GLOBAL 10 (Exception)
+84 CHECK_EXC_MATCH
+86 POP_JUMP_FORWARD_IF_FALSE 4 (to 96)
+88 POP_TOP
+
+90 POP_EXCEPT
+92 LOAD_CONST 0 (None)
+94 RETURN_VALUE
+
+96 RERAISE 0
+98 COPY 3
+100 POP_EXCEPT
+102 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (log_message)
+4 LOAD_CONST 1 ("✅ Auto-generating initial data...")
+6 CALL 1
+8 POP_TOP
+
+10 LOAD_FAST 0 (self)
+12 LOAD_ATTR 1 (status_var)
+14 LOAD_METHOD 2 (set)
+16 LOAD_CONST 2 ("Generating data...")
+18 CALL 1
+20 POP_TOP
+
+22 NOP
+
+24 LOAD_FAST 0 (self)
+26 LOAD_ATTR 3 (random_user_service)
+28 LOAD_METHOD 4 (get_random_user)
+
+30 LOAD_GLOBAL 10 (settings)
+32 LOAD_ATTR 6 (DEFAULT_GENDER)
+
+34 LOAD_GLOBAL 10 (settings)
+36 LOAD_ATTR 7 (DEFAULT_NATIONALITIES)
+
+38 KW_NAMES 3 (('gender', 'nationalities'))
+40 CALL 2
+42 STORE_FAST 1 (user_data)
+
+44 LOAD_FAST 1 (user_data)
+46 POP_JUMP_FORWARD_IF_TRUE 15 (to 56)
+
+48 LOAD_GLOBAL 17 (NULL + Exception)
+50 LOAD_CONST 4 ("Failed to get random user data")
+52 CALL 1
+54 RAISE_VARARGS 1 (exception instance)
+
+56 LOAD_FAST 0 (self)
+58 LOAD_ATTR 9 (first_name_var)
+60 LOAD_METHOD 2 (set)
+62 LOAD_FAST 1 (user_data)
+64 LOAD_CONST 5 ("first_name")
+66 BINARY_SUBSCR
+68 CALL 1
+70 POP_TOP
+
+72 LOAD_FAST 0 (self)
+74 LOAD_ATTR 10 (last_name_var)
+76 LOAD_METHOD 2 (set)
+78 LOAD_FAST 1 (user_data)
+80 LOAD_CONST 6 ("last_name")
+82 BINARY_SUBSCR
+84 CALL 1
+86 POP_TOP
+
+88 LOAD_FAST 0 (self)
+90 LOAD_ATTR 3 (random_user_service)
+92 LOAD_METHOD 11 (generate_company_name)
+94 CALL 0
+96 STORE_FAST 2 (company)
+
+98 LOAD_FAST 0 (self)
+100 LOAD_ATTR 12 (company_var)
+102 LOAD_METHOD 2 (set)
+104 LOAD_FAST 2 (company)
+106 CALL 1
+108 POP_TOP
+
+110 LOAD_FAST 0 (self)
+112 LOAD_ATTR 3 (random_user_service)
+114 LOAD_METHOD 13 (generate_password)
+
+116 LOAD_GLOBAL 10 (settings)
+118 LOAD_ATTR 14 (DEFAULT_PASSWORD_LENGTH)
+
+120 CALL 1
+122 STORE_FAST 3 (password)
+
+124 LOAD_FAST 0 (self)
+126 LOAD_ATTR 15 (password_var)
+128 LOAD_METHOD 2 (set)
+130 LOAD_FAST 3 (password)
+132 CALL 1
+134 POP_TOP
+
+136 LOAD_FAST 0 (self)
+138 LOAD_ATTR 16 (password_confirm_var)
+140 LOAD_METHOD 2 (set)
+142 LOAD_FAST 3 (password)
+144 CALL 1
+146 POP_TOP
+
+148 LOAD_FAST 0 (self)
+150 LOAD_ATTR 17 (email_var)
+152 LOAD_METHOD 2 (set)
+154 LOAD_CONST 7 ("Will be generated from Firefox Relay")
+156 CALL 1
+158 POP_TOP
+
+160 LOAD_FAST 0 (self)
+162 LOAD_METHOD 0 (log_message)
+164 LOAD_CONST 8 ("✅ Initial data generated successfully!")
+166 CALL 1
+168 POP_TOP
+
+170 LOAD_FAST 0 (self)
+172 LOAD_METHOD 0 (log_message)
+174 LOAD_CONST 9 ("✅ Email akan dibuat otomatis dari Firefox Relay saat registrasi")
+176 CALL 1
+178 POP_TOP
+
+180 LOAD_GLOBAL 37 (NULL + getattr)
+182 LOAD_FAST 0 (self)
+184 LOAD_CONST 10 ("firefox_relay_service")
+186 LOAD_CONST 11 (None)
+188 CALL 3
+190 POP_JUMP_FORWARD_IF_FALSE 47 (to 214)
+
+192 LOAD_FAST 0 (self)
+194 LOAD_ATTR 1 (status_var)
+196 LOAD_METHOD 2 (set)
+198 LOAD_CONST 12 ("Ready")
+200 CALL 1
+202 POP_TOP
+
+204 LOAD_FAST 0 (self)
+206 LOAD_METHOD 19 (update_start_button_state)
+208 CALL 0
+210 POP_TOP
+212 JUMP_FORWARD 26 (to 226)
+
+214 LOAD_FAST 0 (self)
+216 LOAD_ATTR 1 (status_var)
+218 LOAD_METHOD 2 (set)
+220 LOAD_CONST 13 ("Ready - Please set Firefox Relay API Key")
+222 CALL 1
+224 POP_TOP
+
+226 LOAD_CONST 14 (True)
+228 LOAD_FAST 0 (self)
+230 STORE_ATTR 20 (data_generated)
+
+232 LOAD_FAST 0 (self)
+234 LOAD_METHOD 19 (update_start_button_state)
+236 CALL 0
+238 POP_TOP
+
+240 LOAD_GLOBAL 43 (NULL + log_user_action)
+242 LOAD_FAST 0 (self)
+244 LOAD_ATTR 22 (logger)
+
+246 LOAD_CONST 15 ("AUTO_GENERATE_DATA")
+248 LOAD_FAST 1 (user_data)
+250 LOAD_CONST 5 ("first_name")
+252 BINARY_SUBSCR
+
+254 LOAD_FAST 1 (user_data)
+256 LOAD_CONST 6 ("last_name")
+258 BINARY_SUBSCR
+
+260 LOAD_FAST 2 (company)
+
+262 LOAD_CONST 16 (('first_name', 'last_name', 'company'))
+264 BUILD_CONST_KEY_MAP 3
+266 CALL 3
+268 POP_TOP
+270 LOAD_CONST 11 (None)
+272 RETURN_VALUE
+274 PUSH_EXC_INFO
+
+276 LOAD_GLOBAL 16 (Exception)
+278 CHECK_EXC_MATCH
+280 POP_JUMP_FORWARD_IF_FALSE 79 (to 346)
+282 STORE_FAST 4 (e)
+
+284 LOAD_CONST 17 ("Error generating initial data: ")
+286 LOAD_GLOBAL 47 (NULL + str)
+288 LOAD_FAST 4 (e)
+290 CALL 1
+292 FORMAT_VALUE 0
+294 BUILD_STRING 2
+296 STORE_FAST 5 (error_msg)
+
+298 LOAD_FAST 0 (self)
+300 LOAD_METHOD 0 (log_message)
+302 LOAD_CONST 18 ("🛑 ")
+304 LOAD_FAST 5 (error_msg)
+306 FORMAT_VALUE 0
+308 BUILD_STRING 2
+310 CALL 1
+312 POP_TOP
+
+314 LOAD_FAST 0 (self)
+316 LOAD_ATTR 1 (status_var)
+318 LOAD_METHOD 2 (set)
+320 LOAD_CONST 19 ("Error generating data")
+322 CALL 1
+324 POP_TOP
+326 POP_EXCEPT
+328 LOAD_CONST 11 (None)
+330 STORE_FAST 4 (e)
+332 DELETE_FAST 4 (e)
+334 LOAD_CONST 11 (None)
+336 RETURN_VALUE
+338 LOAD_CONST 11 (None)
+340 STORE_FAST 4 (e)
+342 DELETE_FAST 4 (e)
+344 RERAISE 1
+
+346 RERAISE 0
+348 COPY 3
+350 POP_EXCEPT
+352 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (log_message)
+4 LOAD_CONST 1 ("🔄️ Refreshing data...")
+6 CALL 1
+8 POP_TOP
+
+10 LOAD_FAST 0 (self)
+12 LOAD_ATTR 1 (status_var)
+14 LOAD_METHOD 2 (set)
+16 LOAD_CONST 2 ("Refreshing...")
+18 CALL 1
+20 POP_TOP
+
+22 LOAD_FAST 0 (self)
+24 LOAD_METHOD 3 (auto_generate_initial_data)
+26 CALL 0
+28 POP_TOP
+30 LOAD_CONST 3 (None)
+32 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (firefox_api_key_var)
+4 LOAD_METHOD 1 (get)
+6 CALL 0
+8 LOAD_METHOD 2 (strip)
+10 CALL 0
+12 STORE_FAST 1 (api_key)
+
+14 LOAD_FAST 1 (api_key)
+16 POP_JUMP_FORWARD_IF_TRUE 23 (to 34)
+
+18 LOAD_GLOBAL 7 (NULL + messagebox)
+20 LOAD_ATTR 4 (showwarning)
+22 LOAD_CONST 1 ("Warning")
+24 LOAD_CONST 2 ("Please enter Firefox Relay API key first")
+26 CALL 2
+28 POP_TOP
+
+30 LOAD_CONST 3 (None)
+32 RETURN_VALUE
+
+34 LOAD_FAST 0 (self)
+36 LOAD_METHOD 5 (log_message)
+38 LOAD_CONST 4 ("⏳ Testing Firefox Relay API key...")
+40 CALL 1
+42 POP_TOP
+
+44 LOAD_FAST 0 (self)
+46 LOAD_METHOD 5 (log_message)
+48 LOAD_CONST 5 ("⚙️ Trying different authentication formats...")
+50 CALL 1
+52 POP_TOP
+
+54 NOP
+
+56 LOAD_CONST 6 (0)
+58 LOAD_CONST 7 (('FirefoxRelayService',))
+60 IMPORT_NAME 6 (services.firefox_relay_service)
+62 IMPORT_FROM 7 (FirefoxRelayService)
+64 STORE_FAST 2 (FirefoxRelayService)
+66 POP_TOP
+
+68 PUSH_NULL
+70 LOAD_FAST 2 (FirefoxRelayService)
+72 LOAD_FAST 1 (api_key)
+74 KW_NAMES 8 (('api_key',))
+76 CALL 1
+78 STORE_FAST 3 (test_service)
+
+80 LOAD_FAST 3 (test_service)
+82 LOAD_METHOD 8 (test_connection)
+84 CALL 0
+86 STORE_FAST 4 (results)
+
+88 LOAD_FAST 4 (results)
+90 LOAD_CONST 9 ("success")
+92 BINARY_SUBSCR
+94 POP_JUMP_FORWARD_IF_FALSE 374 (to 346)
+
+96 LOAD_FAST 0 (self)
+98 LOAD_ATTR 9 (firefox_status_label)
+100 LOAD_METHOD 10 (config)
+102 LOAD_CONST 10 ("Firefox Relay: ✅ Connected")
+104 LOAD_GLOBAL 22 (SUCCESS)
+106 KW_NAMES 11 (('text', 'bootstyle'))
+108 CALL 2
+110 POP_TOP
+
+112 LOAD_FAST 0 (self)
+114 LOAD_METHOD 5 (log_message)
+116 LOAD_CONST 12 ("✅ Firefox Relay API key is valid!")
+118 CALL 1
+120 POP_TOP
+
+122 LOAD_FAST 0 (self)
+124 LOAD_METHOD 5 (log_message)
+126 LOAD_CONST 13 ("✅ Using URL: ")
+128 LOAD_FAST 4 (results)
+130 LOAD_METHOD 1 (get)
+132 LOAD_CONST 14 ("working_url")
+134 LOAD_CONST 15 ("N/A")
+136 CALL 2
+138 FORMAT_VALUE 0
+140 BUILD_STRING 2
+142 CALL 1
+144 POP_TOP
+
+146 LOAD_FAST 0 (self)
+148 LOAD_METHOD 5 (log_message)
+150 LOAD_CONST 16 ("⏳ Auth format: ")
+152 LOAD_FAST 4 (results)
+154 LOAD_CONST 17 ("auth_format")
+156 BINARY_SUBSCR
+158 FORMAT_VALUE 0
+160 BUILD_STRING 2
+162 CALL 1
+164 POP_TOP
+
+166 LOAD_FAST 0 (self)
+168 LOAD_METHOD 5 (log_message)
+170 LOAD_CONST 18 ("🔊 Found ")
+172 LOAD_FAST 4 (results)
+174 LOAD_CONST 19 ("masks_count")
+176 BINARY_SUBSCR
+178 FORMAT_VALUE 0
+180 LOAD_CONST 20 (" existing email masks")
+182 BUILD_STRING 3
+184 CALL 1
+186 POP_TOP
+
+188 LOAD_FAST 3 (test_service)
+190 LOAD_FAST 0 (self)
+192 STORE_ATTR 12 (firefox_relay_service)
+
+194 NOP
+
+196 LOAD_FAST 0 (self)
+198 LOAD_METHOD 13 (_save_relay_key_to_temp)
+200 LOAD_FAST 1 (api_key)
+202 CALL 1
+204 POP_TOP
+
+206 LOAD_FAST 0 (self)
+208 LOAD_METHOD 5 (log_message)
+210 LOAD_CONST 21 ("📩 Firefox Relay API key saved to temp.")
+212 CALL 1
+214 POP_TOP
+216 JUMP_FORWARD 47 (to 270)
+218 PUSH_EXC_INFO
+
+220 LOAD_GLOBAL 28 (Exception)
+222 CHECK_EXC_MATCH
+224 POP_JUMP_FORWARD_IF_FALSE 34 (to 262)
+226 STORE_FAST 5 (e)
+
+228 LOAD_FAST 0 (self)
+230 LOAD_METHOD 5 (log_message)
+232 LOAD_CONST 22 ("⚠️ Could not save API key to temp: ")
+234 LOAD_FAST 5 (e)
+236 FORMAT_VALUE 0
+238 BUILD_STRING 2
+240 CALL 1
+242 POP_TOP
+244 POP_EXCEPT
+246 LOAD_CONST 3 (None)
+248 STORE_FAST 5 (e)
+250 DELETE_FAST 5 (e)
+252 JUMP_FORWARD 8 (to 270)
+254 LOAD_CONST 3 (None)
+256 STORE_FAST 5 (e)
+258 DELETE_FAST 5 (e)
+260 RERAISE 1
+
+262 RERAISE 0
+264 COPY 3
+266 POP_EXCEPT
+268 RERAISE 1
+
+270 LOAD_FAST 0 (self)
+272 LOAD_ATTR 15 (data_generated)
+274 POP_JUMP_FORWARD_IF_FALSE 46 (to 296)
+
+276 LOAD_FAST 0 (self)
+278 LOAD_ATTR 16 (status_var)
+280 LOAD_METHOD 17 (set)
+282 LOAD_CONST 23 ("Ready")
+284 CALL 1
+286 POP_TOP
+
+288 LOAD_FAST 0 (self)
+290 LOAD_METHOD 18 (update_start_button_state)
+292 CALL 0
+294 POP_TOP
+
+296 LOAD_GLOBAL 7 (NULL + messagebox)
+298 LOAD_ATTR 19 (showinfo)
+
+300 LOAD_CONST 24 ("Success")
+
+302 LOAD_CONST 25 ("Firefox Relay API key is valid!\nURL: ")
+304 LOAD_FAST 4 (results)
+306 LOAD_METHOD 1 (get)
+308 LOAD_CONST 14 ("working_url")
+310 LOAD_CONST 15 ("N/A")
+312 CALL 2
+
+314 FORMAT_VALUE 0
+
+316 LOAD_CONST 26 ("\nAuth: ")
+318 LOAD_FAST 4 (results)
+320 LOAD_CONST 17 ("auth_format")
+322 BINARY_SUBSCR
+
+324 FORMAT_VALUE 0
+
+326 LOAD_CONST 27 ("\nExisting masks: ")
+328 LOAD_FAST 4 (results)
+330 LOAD_CONST 19 ("masks_count")
+332 BINARY_SUBSCR
+
+334 FORMAT_VALUE 0
+336 BUILD_STRING 6
+
+338 CALL 2
+340 POP_TOP
+342 LOAD_CONST 3 (None)
+344 RETURN_VALUE
+
+346 LOAD_FAST 0 (self)
+348 LOAD_ATTR 9 (firefox_status_label)
+350 LOAD_METHOD 10 (config)
+352 LOAD_CONST 28 ("Firefox Relay: 🛑 Invalid API Key")
+354 LOAD_GLOBAL 40 (DANGER)
+356 KW_NAMES 11 (('text', 'bootstyle'))
+358 CALL 2
+360 POP_TOP
+
+362 LOAD_FAST 4 (results)
+364 LOAD_METHOD 1 (get)
+366 LOAD_CONST 29 ("error")
+368 LOAD_CONST 30 ("Unknown error")
+370 CALL 2
+372 STORE_FAST 6 (error_msg)
+
+374 LOAD_FAST 0 (self)
+376 LOAD_METHOD 5 (log_message)
+378 LOAD_CONST 31 ("🛑 Firefox Relay API key test failed: ")
+380 LOAD_FAST 6 (error_msg)
+382 FORMAT_VALUE 0
+384 BUILD_STRING 2
+386 CALL 1
+388 POP_TOP
+
+390 LOAD_GLOBAL 7 (NULL + messagebox)
+392 LOAD_ATTR 21 (showerror)
+394 LOAD_CONST 32 ("Error")
+396 LOAD_CONST 33 ("API key test failed:\n")
+398 LOAD_FAST 6 (error_msg)
+400 FORMAT_VALUE 0
+402 BUILD_STRING 2
+404 CALL 2
+406 POP_TOP
+408 LOAD_CONST 3 (None)
+410 RETURN_VALUE
+412 PUSH_EXC_INFO
+
+414 LOAD_GLOBAL 28 (Exception)
+416 CHECK_EXC_MATCH
+418 POP_JUMP_FORWARD_IF_FALSE 118 (to 500)
+420 STORE_FAST 5 (e)
+
+422 LOAD_FAST 0 (self)
+424 LOAD_ATTR 9 (firefox_status_label)
+426 LOAD_METHOD 10 (config)
+428 LOAD_CONST 34 ("Firefox Relay: 🛑 Connection Error")
+430 LOAD_GLOBAL 40 (DANGER)
+432 KW_NAMES 11 (('text', 'bootstyle'))
+434 CALL 2
+436 POP_TOP
+
+438 LOAD_FAST 0 (self)
+440 LOAD_METHOD 5 (log_message)
+442 LOAD_CONST 35 ("🛑 Firefox Relay connection error: ")
+444 LOAD_GLOBAL 45 (NULL + str)
+446 LOAD_FAST 5 (e)
+448 CALL 1
+450 FORMAT_VALUE 0
+452 BUILD_STRING 2
+454 CALL 1
+456 POP_TOP
+
+458 LOAD_GLOBAL 7 (NULL + messagebox)
+460 LOAD_ATTR 21 (showerror)
+462 LOAD_CONST 32 ("Error")
+464 LOAD_CONST 36 ("Connection error:\n")
+466 LOAD_GLOBAL 45 (NULL + str)
+468 LOAD_FAST 5 (e)
+470 CALL 1
+472 FORMAT_VALUE 0
+474 BUILD_STRING 2
+476 CALL 2
+478 POP_TOP
+480 POP_EXCEPT
+482 LOAD_CONST 3 (None)
+484 STORE_FAST 5 (e)
+486 DELETE_FAST 5 (e)
+488 LOAD_CONST 3 (None)
+490 RETURN_VALUE
+492 LOAD_CONST 3 (None)
+494 STORE_FAST 5 (e)
+496 DELETE_FAST 5 (e)
+498 RERAISE 1
+
+500 RERAISE 0
+502 COPY 3
+504 POP_EXCEPT
+506 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (firefox_api_key_var)
+4 LOAD_METHOD 1 (get)
+6 CALL 0
+8 LOAD_METHOD 2 (strip)
+10 CALL 0
+12 STORE_FAST 1 (api_key)
+
+14 LOAD_FAST 1 (api_key)
+16 POP_JUMP_FORWARD_IF_TRUE 23 (to 34)
+
+18 LOAD_GLOBAL 7 (NULL + messagebox)
+20 LOAD_ATTR 4 (showwarning)
+22 LOAD_CONST 1 ("Warning")
+24 LOAD_CONST 2 ("Masukkan Firefox Relay API key terlebih dahulu")
+26 CALL 2
+28 POP_TOP
+
+30 LOAD_CONST 3 (None)
+32 RETURN_VALUE
+
+34 LOAD_FAST 0 (self)
+36 LOAD_ATTR 5 (firefox_relay_service)
+38 POP_JUMP_FORWARD_IF_TRUE 71 (to 112)
+
+40 NOP
+
+42 LOAD_GLOBAL 13 (NULL + FirefoxRelayService)
+44 LOAD_FAST 1 (api_key)
+46 KW_NAMES 4 (('api_key',))
+48 CALL 1
+50 LOAD_FAST 0 (self)
+52 STORE_ATTR 5 (firefox_relay_service)
+54 JUMP_FORWARD 48 (to 112)
+56 PUSH_EXC_INFO
+
+58 LOAD_GLOBAL 14 (Exception)
+60 CHECK_EXC_MATCH
+62 POP_JUMP_FORWARD_IF_FALSE 35 (to 104)
+64 STORE_FAST 2 (e)
+
+66 LOAD_GLOBAL 7 (NULL + messagebox)
+68 LOAD_ATTR 8 (showerror)
+70 LOAD_CONST 5 ("Error")
+72 LOAD_CONST 6 ("Gagal inisialisasi service:\n")
+74 LOAD_FAST 2 (e)
+76 FORMAT_VALUE 0
+78 BUILD_STRING 2
+80 CALL 2
+82 POP_TOP
+
+84 POP_EXCEPT
+86 LOAD_CONST 3 (None)
+88 STORE_FAST 2 (e)
+90 DELETE_FAST 2 (e)
+92 LOAD_CONST 3 (None)
+94 RETURN_VALUE
+96 LOAD_CONST 3 (None)
+98 STORE_FAST 2 (e)
+100 DELETE_FAST 2 (e)
+102 RERAISE 1
+
+104 RERAISE 0
+106 COPY 3
+108 POP_EXCEPT
+110 RERAISE 1
+
+112 LOAD_GLOBAL 7 (NULL + messagebox)
+114 LOAD_ATTR 9 (askyesno)
+116 LOAD_CONST 7 ("Confirm")
+118 LOAD_CONST 8 ("Yakin ingin menghapus SEMUA email masks? Tindakan ini tidak dapat dibatalkan.")
+120 CALL 2
+122 POP_JUMP_FORWARD_IF_TRUE 2 (to 128)
+
+124 LOAD_CONST 3 (None)
+126 RETURN_VALUE
+
+128 LOAD_FAST 0 (self)
+130 LOAD_METHOD 10 (log_message)
+132 LOAD_CONST 9 ("🛑 Deleting all Firefox Relay masks...")
+134 CALL 1
+136 POP_TOP
+
+138 NOP
+
+140 LOAD_FAST 0 (self)
+142 LOAD_ATTR 5 (firefox_relay_service)
+144 LOAD_METHOD 11 (delete_all_masks)
+146 CALL 0
+148 STORE_FAST 3 (result)
+
+150 LOAD_FAST 3 (result)
+152 LOAD_METHOD 1 (get)
+154 LOAD_CONST 10 ("requested")
+156 LOAD_CONST 11 (0)
+158 CALL 2
+160 STORE_FAST 4 (requested)
+
+162 LOAD_FAST 3 (result)
+164 LOAD_METHOD 1 (get)
+166 LOAD_CONST 12 ("deleted")
+168 LOAD_CONST 11 (0)
+170 CALL 2
+172 STORE_FAST 5 (deleted)
+
+174 LOAD_GLOBAL 25 (NULL + len)
+176 LOAD_FAST 3 (result)
+178 LOAD_METHOD 1 (get)
+180 LOAD_CONST 13 ("failed_ids")
+182 BUILD_LIST 0
+184 CALL 2
+186 CALL 1
+188 STORE_FAST 6 (failed)
+
+190 LOAD_FAST 0 (self)
+192 LOAD_METHOD 10 (log_message)
+194 LOAD_CONST 14 ("✅ Delete summary: requested=")
+196 LOAD_FAST 4 (requested)
+198 FORMAT_VALUE 0
+200 LOAD_CONST 15 (", deleted=")
+202 LOAD_FAST 5 (deleted)
+204 FORMAT_VALUE 0
+206 LOAD_CONST 16 (", failed=")
+208 LOAD_FAST 6 (failed)
+210 FORMAT_VALUE 0
+212 BUILD_STRING 6
+214 CALL 1
+216 POP_TOP
+
+218 LOAD_GLOBAL 7 (NULL + messagebox)
+220 LOAD_ATTR 13 (showinfo)
+222 LOAD_CONST 17 ("Delete All Masks")
+224 LOAD_CONST 18 ("Requested: ")
+226 LOAD_FAST 4 (requested)
+228 FORMAT_VALUE 0
+230 LOAD_CONST 19 ("\nDeleted: ")
+232 LOAD_FAST 5 (deleted)
+234 FORMAT_VALUE 0
+236 LOAD_CONST 20 ("\nFailed: ")
+238 LOAD_FAST 6 (failed)
+240 FORMAT_VALUE 0
+242 BUILD_STRING 6
+244 CALL 2
+246 POP_TOP
+248 LOAD_CONST 3 (None)
+250 RETURN_VALUE
+252 PUSH_EXC_INFO
+
+254 LOAD_GLOBAL 14 (Exception)
+256 CHECK_EXC_MATCH
+258 POP_JUMP_FORWARD_IF_FALSE 59 (to 316)
+260 STORE_FAST 2 (e)
+
+262 LOAD_FAST 0 (self)
+264 LOAD_METHOD 10 (log_message)
+266 LOAD_CONST 21 ("🛑 Delete all masks error: ")
+268 LOAD_FAST 2 (e)
+270 FORMAT_VALUE 0
+272 BUILD_STRING 2
+274 CALL 1
+276 POP_TOP
+
+278 LOAD_GLOBAL 7 (NULL + messagebox)
+280 LOAD_ATTR 8 (showerror)
+282 LOAD_CONST 5 ("Error")
+284 LOAD_CONST 22 ("Delete error:\n")
+286 LOAD_FAST 2 (e)
+288 FORMAT_VALUE 0
+290 BUILD_STRING 2
+292 CALL 2
+294 POP_TOP
+296 POP_EXCEPT
+298 LOAD_CONST 3 (None)
+300 STORE_FAST 2 (e)
+302 DELETE_FAST 2 (e)
+304 LOAD_CONST 3 (None)
+306 RETURN_VALUE
+308 LOAD_CONST 3 (None)
+310 STORE_FAST 2 (e)
+312 DELETE_FAST 2 (e)
+314 RERAISE 1
+
+316 RERAISE 0
+318 COPY 3
+320 POP_EXCEPT
+322 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (is_running)
+4 POP_JUMP_FORWARD_IF_FALSE 2 (to 10)
+
+6 LOAD_CONST 1 (None)
+8 RETURN_VALUE
+
+10 LOAD_FAST 0 (self)
+12 LOAD_ATTR 1 (firefox_relay_service)
+14 POP_JUMP_FORWARD_IF_TRUE 194 (to 182)
+
+16 LOAD_FAST 0 (self)
+18 LOAD_ATTR 2 (firefox_api_key_var)
+20 LOAD_METHOD 3 (get)
+22 CALL 0
+24 JUMP_IF_TRUE_OR_POP 1 (to 28)
+26 LOAD_CONST 2 ("")
+28 LOAD_METHOD 4 (strip)
+30 CALL 0
+32 STORE_FAST 1 (api_key)
+
+34 LOAD_FAST 1 (api_key)
+36 POP_JUMP_FORWARD_IF_TRUE 23 (to 54)
+
+38 LOAD_GLOBAL 11 (NULL + messagebox)
+40 LOAD_ATTR 6 (showerror)
+42 LOAD_CONST 3 ("Error")
+44 LOAD_CONST 4 ("Please set and test Firefox Relay API key first!")
+46 CALL 2
+48 POP_TOP
+
+50 LOAD_CONST 1 (None)
+52 RETURN_VALUE
+
+54 NOP
+
+56 LOAD_CONST 5 (0)
+58 LOAD_CONST 6 (('FirefoxRelayService',))
+60 IMPORT_NAME 7 (services.firefox_relay_service)
+62 IMPORT_FROM 8 (FirefoxRelayService)
+64 STORE_FAST 2 (FirefoxRelayService)
+66 POP_TOP
+
+68 PUSH_NULL
+70 LOAD_FAST 2 (FirefoxRelayService)
+72 LOAD_FAST 1 (api_key)
+74 KW_NAMES 7 (('api_key',))
+76 CALL 1
+78 LOAD_FAST 0 (self)
+80 STORE_ATTR 1 (firefox_relay_service)
+
+82 NOP
+
+84 LOAD_FAST 0 (self)
+86 LOAD_ATTR 9 (firefox_status_label)
+88 LOAD_METHOD 10 (config)
+90 LOAD_CONST 8 ("Firefox Relay: â\x8f³ Connecting...")
+92 LOAD_GLOBAL 22 (INFO)
+94 KW_NAMES 9 (('text', 'bootstyle'))
+96 CALL 2
+98 POP_TOP
+100 JUMP_FORWARD 16 (to 124)
+102 PUSH_EXC_INFO
+
+104 LOAD_GLOBAL 24 (Exception)
+106 CHECK_EXC_MATCH
+108 POP_JUMP_FORWARD_IF_FALSE 3 (to 116)
+110 POP_TOP
+
+112 POP_EXCEPT
+114 JUMP_FORWARD 4 (to 124)
+
+116 RERAISE 0
+118 COPY 3
+120 POP_EXCEPT
+122 RERAISE 1
+124 JUMP_FORWARD 48 (to 182)
+126 PUSH_EXC_INFO
+
+128 LOAD_GLOBAL 24 (Exception)
+130 CHECK_EXC_MATCH
+132 POP_JUMP_FORWARD_IF_FALSE 35 (to 174)
+134 STORE_FAST 3 (e)
+
+136 LOAD_GLOBAL 11 (NULL + messagebox)
+138 LOAD_ATTR 6 (showerror)
+140 LOAD_CONST 3 ("Error")
+142 LOAD_CONST 10 ("Failed to initialize Firefox Relay service:\n")
+144 LOAD_FAST 3 (e)
+146 FORMAT_VALUE 0
+148 BUILD_STRING 2
+150 CALL 2
+152 POP_TOP
+
+154 POP_EXCEPT
+156 LOAD_CONST 1 (None)
+158 STORE_FAST 3 (e)
+160 DELETE_FAST 3 (e)
+162 LOAD_CONST 1 (None)
+164 RETURN_VALUE
+166 LOAD_CONST 1 (None)
+168 STORE_FAST 3 (e)
+170 DELETE_FAST 3 (e)
+172 RERAISE 1
+
+174 RERAISE 0
+176 COPY 3
+178 POP_EXCEPT
+180 RERAISE 1
+
+182 NOP
+
+184 LOAD_FAST 0 (self)
+186 LOAD_ATTR 1 (firefox_relay_service)
+188 LOAD_METHOD 13 (auto_purge_if_limit_reached)
+190 LOAD_CONST 11 (5)
+192 KW_NAMES 12 (('limit',))
+194 CALL 1
+196 STORE_FAST 4 (purge_res)
+
+198 LOAD_FAST 4 (purge_res)
+200 LOAD_METHOD 3 (get)
+202 LOAD_CONST 13 ("purged")
+204 CALL 1
+206 POP_JUMP_FORWARD_IF_FALSE 104 (to 266)
+
+208 LOAD_FAST 0 (self)
+210 LOAD_METHOD 14 (log_message)
+
+212 LOAD_CONST 14 ("🧹 Auto purge masks triggered: requested=")
+214 LOAD_FAST 4 (purge_res)
+216 LOAD_METHOD 3 (get)
+218 LOAD_CONST 15 ("requested")
+220 LOAD_CONST 5 (0)
+222 CALL 2
+224 FORMAT_VALUE 0
+
+226 LOAD_CONST 16 (", deleted=")
+228 LOAD_FAST 4 (purge_res)
+230 LOAD_METHOD 3 (get)
+232 LOAD_CONST 17 ("deleted")
+234 LOAD_CONST 5 (0)
+236 CALL 2
+
+238 FORMAT_VALUE 0
+
+240 LOAD_CONST 18 (", failed=")
+242 LOAD_GLOBAL 31 (NULL + len)
+244 LOAD_FAST 4 (purge_res)
+246 LOAD_METHOD 3 (get)
+248 LOAD_CONST 19 ("failed_ids")
+250 BUILD_LIST 0
+252 CALL 2
+254 CALL 1
+
+256 FORMAT_VALUE 0
+258 BUILD_STRING 6
+
+260 CALL 1
+262 POP_TOP
+264 JUMP_FORWARD 44 (to 290)
+
+266 LOAD_FAST 0 (self)
+268 LOAD_METHOD 14 (log_message)
+270 LOAD_CONST 20 ("ℹ️ Current masks count: ")
+272 LOAD_FAST 4 (purge_res)
+274 LOAD_METHOD 3 (get)
+276 LOAD_CONST 21 ("count")
+278 LOAD_CONST 22 ("N/A")
+280 CALL 2
+282 FORMAT_VALUE 0
+284 BUILD_STRING 2
+286 CALL 1
+288 POP_TOP
+290 JUMP_FORWARD 47 (to 344)
+292 PUSH_EXC_INFO
+
+294 LOAD_GLOBAL 24 (Exception)
+296 CHECK_EXC_MATCH
+298 POP_JUMP_FORWARD_IF_FALSE 34 (to 336)
+300 STORE_FAST 3 (e)
+
+302 LOAD_FAST 0 (self)
+304 LOAD_METHOD 14 (log_message)
+306 LOAD_CONST 23 ("⚠️ Auto purge check failed: ")
+308 LOAD_FAST 3 (e)
+310 FORMAT_VALUE 0
+312 BUILD_STRING 2
+314 CALL 1
+316 POP_TOP
+318 POP_EXCEPT
+320 LOAD_CONST 1 (None)
+322 STORE_FAST 3 (e)
+324 DELETE_FAST 3 (e)
+326 JUMP_FORWARD 8 (to 344)
+328 LOAD_CONST 1 (None)
+330 STORE_FAST 3 (e)
+332 DELETE_FAST 3 (e)
+334 RERAISE 1
+
+336 RERAISE 0
+338 COPY 3
+340 POP_EXCEPT
+342 RERAISE 1
+
+344 LOAD_FAST 0 (self)
+346 LOAD_METHOD 14 (log_message)
+348 LOAD_CONST 24 ("🔊 Creating Firefox Relay email...")
+350 CALL 1
+352 POP_TOP
+
+354 LOAD_FAST 0 (self)
+356 LOAD_ATTR 16 (status_var)
+358 LOAD_METHOD 17 (set)
+360 LOAD_CONST 25 ("Creating email...")
+362 CALL 1
+364 POP_TOP
+
+366 NOP
+
+368 LOAD_FAST 0 (self)
+370 LOAD_ATTR 1 (firefox_relay_service)
+372 LOAD_METHOD 18 (create_relay_mask)
+
+374 LOAD_CONST 26 ("Auto registration - ")
+376 LOAD_GLOBAL 39 (NULL + datetime)
+378 LOAD_ATTR 20 (now)
+380 CALL 0
+382 LOAD_METHOD 21 (strftime)
+384 LOAD_CONST 27 ("%Y%m%d_%H%M%S")
+386 CALL 1
+388 FORMAT_VALUE 0
+390 BUILD_STRING 2
+
+392 CALL 1
+394 STORE_FAST 5 (mask)
+
+396 LOAD_FAST 5 (mask)
+398 POP_JUMP_FORWARD_IF_TRUE 15 (to 408)
+
+400 LOAD_GLOBAL 25 (NULL + Exception)
+402 LOAD_CONST 28 ("Failed to create Firefox Relay email")
+404 CALL 1
+406 RAISE_VARARGS 1 (exception instance)
+
+408 LOAD_FAST 5 (mask)
+410 LOAD_CONST 29 ("full_address")
+412 BINARY_SUBSCR
+414 STORE_FAST 6 (relay_email)
+
+416 LOAD_FAST 0 (self)
+418 LOAD_ATTR 22 (email_var)
+420 LOAD_METHOD 17 (set)
+422 LOAD_FAST 6 (relay_email)
+424 CALL 1
+426 POP_TOP
+
+428 LOAD_FAST 0 (self)
+430 LOAD_METHOD 14 (log_message)
+432 LOAD_CONST 30 ("✅ Created relay email: ")
+434 LOAD_FAST 6 (relay_email)
+436 FORMAT_VALUE 0
+438 BUILD_STRING 2
+440 CALL 1
+442 POP_TOP
+444 JUMP_FORWARD 86 (to 524)
+446 PUSH_EXC_INFO
+
+448 LOAD_GLOBAL 24 (Exception)
+450 CHECK_EXC_MATCH
+452 POP_JUMP_FORWARD_IF_FALSE 73 (to 516)
+454 STORE_FAST 3 (e)
+
+456 LOAD_CONST 31 ("Failed to create relay email: ")
+458 LOAD_GLOBAL 47 (NULL + str)
+460 LOAD_FAST 3 (e)
+462 CALL 1
+464 FORMAT_VALUE 0
+466 BUILD_STRING 2
+468 STORE_FAST 7 (error_msg)
+
+470 LOAD_FAST 0 (self)
+472 LOAD_METHOD 14 (log_message)
+474 LOAD_CONST 32 ("🛑 ")
+476 LOAD_FAST 7 (error_msg)
+478 FORMAT_VALUE 0
+480 BUILD_STRING 2
+482 CALL 1
+484 POP_TOP
+
+486 LOAD_GLOBAL 11 (NULL + messagebox)
+488 LOAD_ATTR 6 (showerror)
+490 LOAD_CONST 3 ("Error")
+492 LOAD_FAST 7 (error_msg)
+494 CALL 2
+496 POP_TOP
+498 POP_EXCEPT
+500 LOAD_CONST 1 (None)
+502 STORE_FAST 3 (e)
+504 DELETE_FAST 3 (e)
+506 JUMP_FORWARD 8 (to 524)
+508 LOAD_CONST 1 (None)
+510 STORE_FAST 3 (e)
+512 DELETE_FAST 3 (e)
+514 RERAISE 1
+
+516 RERAISE 0
+518 COPY 3
+520 POP_EXCEPT
+522 RERAISE 1
+
+524 LOAD_FAST 0 (self)
+526 LOAD_ATTR 24 (first_name_var)
+528 LOAD_METHOD 3 (get)
+530 CALL 0
+532 LOAD_METHOD 4 (strip)
+534 CALL 0
+
+536 LOAD_FAST 0 (self)
+538 LOAD_ATTR 25 (last_name_var)
+540 LOAD_METHOD 3 (get)
+542 CALL 0
+544 LOAD_METHOD 4 (strip)
+546 CALL 0
+
+548 LOAD_FAST 0 (self)
+550 LOAD_ATTR 22 (email_var)
+552 LOAD_METHOD 3 (get)
+554 CALL 0
+556 LOAD_METHOD 4 (strip)
+558 CALL 0
+
+560 LOAD_FAST 0 (self)
+562 LOAD_ATTR 26 (company_var)
+564 LOAD_METHOD 3 (get)
+566 CALL 0
+568 LOAD_METHOD 4 (strip)
+570 CALL 0
+
+572 LOAD_FAST 0 (self)
+574 LOAD_ATTR 27 (password_var)
+576 LOAD_METHOD 3 (get)
+578 CALL 0
+
+580 LOAD_FAST 0 (self)
+582 LOAD_ATTR 28 (password_confirm_var)
+584 LOAD_METHOD 3 (get)
+586 CALL 0
+
+588 LOAD_CONST 33 (('first_name', 'last_name', 'email', 'company', 'password', 'password_confirm'))
+590 BUILD_CONST_KEY_MAP 6
+592 STORE_FAST 8 (user_data)
+
+594 LOAD_FAST 8 (user_data)
+596 LOAD_CONST 34 ("first_name")
+598 BINARY_SUBSCR
+600 POP_JUMP_FORWARD_IF_FALSE 8 (to 610)
+602 LOAD_FAST 8 (user_data)
+604 LOAD_CONST 35 ("last_name")
+606 BINARY_SUBSCR
+608 POP_JUMP_FORWARD_IF_TRUE 23 (to 626)
+
+610 LOAD_GLOBAL 11 (NULL + messagebox)
+612 LOAD_ATTR 6 (showerror)
+614 LOAD_CONST 3 ("Error")
+616 LOAD_CONST 36 ("First name and last name are required!")
+618 CALL 2
+620 POP_TOP
+
+622 LOAD_CONST 1 (None)
+624 RETURN_VALUE
+
+626 LOAD_FAST 8 (user_data)
+628 LOAD_CONST 37 ("password")
+630 BINARY_SUBSCR
+632 LOAD_FAST 8 (user_data)
+634 LOAD_CONST 38 ("password_confirm")
+636 BINARY_SUBSCR
+638 COMPARE_OP 3 (!=)
+640 POP_JUMP_FORWARD_IF_FALSE 23 (to 658)
+
+642 LOAD_GLOBAL 11 (NULL + messagebox)
+644 LOAD_ATTR 6 (showerror)
+646 LOAD_CONST 3 ("Error")
+648 LOAD_CONST 39 ("Password confirmation tidak cocok!")
+650 CALL 2
+652 POP_TOP
+
+654 LOAD_CONST 1 (None)
+656 RETURN_VALUE
+
+658 LOAD_CONST 40 (True)
+660 LOAD_FAST 0 (self)
+662 STORE_ATTR 0 (is_running)
+
+664 LOAD_FAST 0 (self)
+666 LOAD_ATTR 29 (start_btn)
+668 LOAD_METHOD 10 (config)
+670 LOAD_GLOBAL 60 (DISABLED)
+672 KW_NAMES 41 (('state',))
+674 CALL 1
+676 POP_TOP
+
+678 LOAD_FAST 0 (self)
+680 LOAD_ATTR 31 (stop_btn)
+682 LOAD_METHOD 10 (config)
+684 LOAD_GLOBAL 64 (NORMAL)
+686 KW_NAMES 41 (('state',))
+688 CALL 1
+690 POP_TOP
+
+692 LOAD_FAST 0 (self)
+694 LOAD_ATTR 16 (status_var)
+696 LOAD_METHOD 17 (set)
+698 LOAD_CONST 42 ("Running...")
+700 CALL 1
+702 POP_TOP
+
+704 LOAD_FAST 0 (self)
+706 LOAD_METHOD 14 (log_message)
+708 LOAD_CONST 43 ("▶️ Starting automation...")
+710 CALL 1
+712 POP_TOP
+
+714 LOAD_GLOBAL 67 (NULL + threading)
+716 LOAD_ATTR 34 (Thread)
+
+718 LOAD_FAST 0 (self)
+720 LOAD_ATTR 35 (run_automation)
+
+722 LOAD_FAST 8 (user_data)
+724 BUILD_TUPLE 1
+
+726 LOAD_CONST 40 (True)
+
+728 KW_NAMES 44 (('target', 'args', 'daemon'))
+730 CALL 3
+732 STORE_FAST 9 (thread)
+
+734 LOAD_FAST 9 (thread)
+736 LOAD_METHOD 36 (start)
+738 CALL 0
+740 POP_TOP
+742 LOAD_CONST 1 (None)
+744 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_CONST 1 (0)
+4 LOAD_CONST 2 (('CloudSkillAutomation',))
+6 IMPORT_NAME 0 (automation.cloudskill_automation)
+8 IMPORT_FROM 1 (CloudSkillAutomation)
+10 STORE_FAST 2 (CloudSkillAutomation)
+12 POP_TOP
+
+14 LOAD_CONST 1 (0)
+16 LOAD_CONST 3 (('GmailService',))
+18 IMPORT_NAME 2 (services.gmail_service)
+20 IMPORT_FROM 3 (GmailService)
+22 STORE_FAST 3 (GmailService)
+24 POP_TOP
+
+26 LOAD_DEREF 0 (self)
+28 LOAD_ATTR 4 (gmail_credentials_path_var)
+30 LOAD_METHOD 5 (get)
+32 CALL 0
+34 LOAD_METHOD 6 (strip)
+36 CALL 0
+38 STORE_FAST 4 (cred_path)
+
+40 LOAD_GLOBAL 15 (NULL + Path)
+42 LOAD_GLOBAL 16 (__file__)
+44 CALL 1
+46 LOAD_METHOD 9 (resolve)
+48 CALL 0
+50 LOAD_ATTR 10 (parent)
+52 LOAD_ATTR 10 (parent)
+54 STORE_FAST 5 (project_root)
+
+56 LOAD_GLOBAL 15 (NULL + Path)
+58 LOAD_FAST 3 (GmailService)
+60 LOAD_METHOD 11 (get_default_token_path)
+62 CALL 0
+64 CALL 1
+66 STORE_FAST 6 (token_la)
+
+68 LOAD_FAST 6 (token_la)
+70 LOAD_METHOD 12 (exists)
+72 CALL 0
+74 JUMP_IF_TRUE_OR_POP 22 (to 86)
+76 LOAD_FAST 5 (project_root)
+78 LOAD_CONST 4 ("token.json")
+80 BINARY_OP 11
+82 LOAD_METHOD 12 (exists)
+84 CALL 0
+86 STORE_FAST 7 (token_exists)
+
+88 LOAD_GLOBAL 27 (NULL + bool)
+90 LOAD_FAST 4 (cred_path)
+92 CALL 1
+94 JUMP_IF_TRUE_OR_POP 1 (to 98)
+96 LOAD_FAST 7 (token_exists)
+98 STORE_FAST 8 (gmail_ready)
+
+100 LOAD_FAST 8 (gmail_ready)
+102 STORE_FAST 9 (keep_open)
+
+104 PUSH_NULL
+106 LOAD_FAST 2 (CloudSkillAutomation)
+
+108 LOAD_CONST 5 (False)
+
+110 LOAD_DEREF 0 (self)
+112 LOAD_ATTR 14 (captcha_service)
+
+114 LOAD_FAST 9 (keep_open)
+
+116 LOAD_DEREF 0 (self)
+118 LOAD_ATTR 15 (extension_mode_var)
+120 LOAD_METHOD 5 (get)
+122 CALL 0
+
+124 KW_NAMES 6 (('headless', 'captcha_solver', 'keep_browser_open', 'extension_mode'))
+126 CALL 4
+128 LOAD_DEREF 0 (self)
+130 STORE_ATTR 16 (automation)
+
+132 LOAD_DEREF 0 (self)
+134 LOAD_ATTR 16 (automation)
+136 LOAD_METHOD 17 (register_account)
+138 LOAD_FAST 1 (user_data)
+140 CALL 1
+142 STORE_FAST 10 (result)
+
+144 LOAD_FAST 10 (result)
+146 LOAD_METHOD 5 (get)
+148 LOAD_CONST 7 ("success")
+150 CALL 1
+152 POP_JUMP_FORWARD_IF_FALSE 1314 (to 1128)
+
+154 LOAD_DEREF 0 (self)
+156 LOAD_METHOD 18 (log_message)
+158 LOAD_CONST 8 ("✅ Registration completed successfully!")
+160 CALL 1
+162 POP_TOP
+
+164 LOAD_DEREF 0 (self)
+166 LOAD_ATTR 19 (root)
+168 LOAD_METHOD 20 (after)
+170 LOAD_CONST 1 (0)
+172 LOAD_CLOSURE 0 (self)
+174 BUILD_TUPLE 1
+176 LOAD_CONST 9 (code object <lambda>)
+178 MAKE_FUNCTION 8 (closure)
+180 CALL 2
+182 POP_TOP
+
+184 LOAD_FAST 8 (gmail_ready)
+186 POP_JUMP_FORWARD_IF_FALSE 1239 (to 1118)
+
+188 NOP
+
+190 LOAD_DEREF 0 (self)
+192 LOAD_METHOD 18 (log_message)
+194 LOAD_CONST 10 ("⏳ Checking Gmail inbox for confirmation email...")
+196 CALL 1
+198 POP_TOP
+
+200 LOAD_FAST 4 (cred_path)
+202 POP_JUMP_FORWARD_IF_FALSE 12 (to 216)
+204 PUSH_NULL
+206 LOAD_FAST 3 (GmailService)
+208 LOAD_FAST 4 (cred_path)
+210 KW_NAMES 11 (('credentials_path',))
+212 CALL 1
+214 JUMP_FORWARD 9 (to 222)
+216 PUSH_NULL
+218 LOAD_FAST 3 (GmailService)
+220 CALL 0
+222 STORE_FAST 11 (svc)
+
+224 LOAD_CONST 12 (180)
+226 STORE_DEREF 26 (poll_interval_sec)
+
+228 LOAD_CONST 13 (5)
+230 STORE_DEREF 25 (error_msg)
+
+232 LOAD_DEREF 0 (self)
+234 LOAD_ATTR 19 (root)
+236 LOAD_METHOD 20 (after)
+238 LOAD_CONST 1 (0)
+240 LOAD_CLOSURE 25 (error_msg)
+242 LOAD_CLOSURE 0 (self)
+244 LOAD_CLOSURE 26 (poll_interval_sec)
+246 BUILD_TUPLE 3
+248 LOAD_CONST 14 (code object <lambda>)
+250 MAKE_FUNCTION 8 (closure)
+252 CALL 2
+254 POP_TOP
+
+256 NOP
+
+258 LOAD_FAST 11 (svc)
+260 LOAD_METHOD 21 (wait_for_email)
+
+262 LOAD_FAST 1 (user_data)
+264 LOAD_METHOD 5 (get)
+266 LOAD_CONST 15 ("email")
+268 LOAD_CONST 16 ("")
+270 CALL 2
+
+272 LOAD_CONST 17 ("Welcome to Google Cloud Skills Boost")
+
+274 LOAD_CONST 18 ("noreply@cloudskillsboost.google")
+276 LOAD_DEREF 26 (poll_interval_sec)
+
+278 LOAD_DEREF 25 (error_msg)
+
+280 KW_NAMES 19 (('target_email', 'subject_contains', 'from_contains', 'timeout_sec', 'poll_interval_sec'))
+282 CALL 5
+284 STORE_FAST 12 (msg)
+
+286 LOAD_DEREF 0 (self)
+288 LOAD_ATTR 19 (root)
+290 LOAD_METHOD 20 (after)
+292 LOAD_CONST 1 (0)
+294 LOAD_DEREF 0 (self)
+296 LOAD_ATTR 22 (stop_gmail_progress)
+298 CALL 2
+300 POP_TOP
+302 JUMP_FORWARD 37 (to 330)
+304 PUSH_EXC_INFO
+306 LOAD_DEREF 0 (self)
+308 LOAD_ATTR 19 (root)
+310 LOAD_METHOD 20 (after)
+312 LOAD_CONST 1 (0)
+314 LOAD_DEREF 0 (self)
+316 LOAD_ATTR 22 (stop_gmail_progress)
+318 CALL 2
+320 POP_TOP
+322 RERAISE 0
+324 COPY 3
+326 POP_EXCEPT
+328 RERAISE 1
+
+330 LOAD_FAST 12 (msg)
+332 POP_JUMP_FORWARD_IF_FALSE 882 (to 982)
+
+334 LOAD_FAST 11 (svc)
+336 LOAD_METHOD 23 (extract_links)
+338 LOAD_FAST 12 (msg)
+340 CALL 1
+342 STORE_FAST 13 (links)
+
+344 LOAD_DEREF 0 (self)
+346 LOAD_METHOD 18 (log_message)
+348 LOAD_CONST 20 ("✅ Confirmation email found. Links: ")
+350 LOAD_FAST 13 (links)
+352 POP_JUMP_FORWARD_IF_FALSE 10 (to 366)
+354 LOAD_FAST 13 (links)
+356 LOAD_CONST 21 (None)
+358 LOAD_CONST 22 (3)
+360 BUILD_SLICE 2
+362 BINARY_SUBSCR
+364 JUMP_FORWARD 1 (to 368)
+366 LOAD_CONST 23 ("No links found")
+368 FORMAT_VALUE 0
+370 BUILD_STRING 2
+372 CALL 1
+374 POP_TOP
+
+376 LOAD_FAST 13 (links)
+378 POP_JUMP_FORWARD_IF_FALSE 821 (to 980)
+
+380 LOAD_CONST 21 (None)
+382 STORE_FAST 14 (chosen)
+
+384 LOAD_CONST 21 (None)
+386 STORE_FAST 15 (notif_link)
+
+388 LOAD_CONST 21 (None)
+390 STORE_FAST 16 (cloud_link)
+
+392 LOAD_FAST 13 (links)
+394 GET_ITER
+396 FOR_ITER 32 (to 430)
+398 STORE_FAST 17 (u)
+
+400 LOAD_FAST 17 (u)
+402 JUMP_IF_TRUE_OR_POP 1 (to 406)
+404 LOAD_CONST 16 ("")
+406 LOAD_METHOD 24 (lower)
+408 CALL 0
+410 STORE_FAST 18 (ul)
+
+412 LOAD_CONST 24 ("notifications.googleapis.com/email/redirect")
+414 LOAD_FAST 18 (ul)
+416 CONTAINS_OP 0 (in)
+418 POP_JUMP_FORWARD_IF_FALSE 4 (to 428)
+
+420 LOAD_FAST 17 (u)
+422 STORE_FAST 15 (notif_link)
+
+424 POP_TOP
+426 JUMP_FORWARD 1 (to 430)
+
+428 JUMP_BACKWARD 33 (to 396)
+
+430 LOAD_FAST 15 (notif_link)
+432 POP_JUMP_FORWARD_IF_TRUE 43 (to 488)
+
+434 LOAD_FAST 13 (links)
+436 GET_ITER
+438 FOR_ITER 40 (to 488)
+440 STORE_FAST 17 (u)
+
+442 LOAD_FAST 17 (u)
+444 JUMP_IF_TRUE_OR_POP 1 (to 448)
+446 LOAD_CONST 16 ("")
+448 LOAD_METHOD 24 (lower)
+450 CALL 0
+452 STORE_FAST 18 (ul)
+
+454 LOAD_CONST 25 ("cloudskillsboost.google")
+456 LOAD_FAST 18 (ul)
+458 CONTAINS_OP 0 (in)
+460 POP_JUMP_FORWARD_IF_TRUE 8 (to 478)
+462 LOAD_CONST 26 ("/users/confirmation")
+464 LOAD_FAST 18 (ul)
+466 CONTAINS_OP 0 (in)
+468 POP_JUMP_FORWARD_IF_TRUE 4 (to 478)
+470 LOAD_CONST 27 ("confirm")
+472 LOAD_FAST 18 (ul)
+474 CONTAINS_OP 0 (in)
+476 POP_JUMP_FORWARD_IF_FALSE 4 (to 486)
+
+478 LOAD_FAST 17 (u)
+480 STORE_FAST 16 (cloud_link)
+
+482 POP_TOP
+484 JUMP_FORWARD 1 (to 488)
+
+486 JUMP_BACKWARD 41 (to 438)
+
+488 LOAD_FAST 15 (notif_link)
+490 JUMP_IF_TRUE_OR_POP 13 (to 510)
+492 LOAD_FAST 16 (cloud_link)
+494 JUMP_IF_TRUE_OR_POP 11 (to 510)
+496 LOAD_FAST 13 (links)
+498 POP_JUMP_FORWARD_IF_FALSE 8 (to 508)
+500 LOAD_FAST 13 (links)
+502 LOAD_CONST 1 (0)
+504 BINARY_SUBSCR
+506 JUMP_FORWARD 1 (to 510)
+508 LOAD_CONST 21 (None)
+510 STORE_FAST 14 (chosen)
+
+512 NOP
+
+514 LOAD_FAST 15 (notif_link)
+516 POP_JUMP_FORWARD_IF_FALSE 31 (to 544)
+518 LOAD_FAST 14 (chosen)
+520 LOAD_FAST 15 (notif_link)
+522 COMPARE_OP 2 (==)
+524 POP_JUMP_FORWARD_IF_FALSE 25 (to 544)
+
+526 LOAD_DEREF 0 (self)
+528 LOAD_METHOD 18 (log_message)
+530 LOAD_CONST 28 ("ℹ️ Opening confirmation link (Google redirect): ")
+532 LOAD_FAST 14 (chosen)
+534 FORMAT_VALUE 0
+536 BUILD_STRING 2
+538 CALL 1
+540 POP_TOP
+542 JUMP_FORWARD 24 (to 560)
+
+544 LOAD_DEREF 0 (self)
+546 LOAD_METHOD 18 (log_message)
+548 LOAD_CONST 29 ("ℹ️ Opening confirmation link: ")
+550 LOAD_FAST 14 (chosen)
+552 FORMAT_VALUE 0
+554 BUILD_STRING 2
+556 CALL 1
+558 POP_TOP
+
+560 LOAD_DEREF 0 (self)
+562 LOAD_ATTR 16 (automation)
+564 LOAD_METHOD 25 (confirm_via_link)
+
+566 LOAD_FAST 14 (chosen)
+
+568 LOAD_FAST 1 (user_data)
+570 LOAD_METHOD 5 (get)
+572 LOAD_CONST 30 ("password")
+574 LOAD_CONST 16 ("")
+576 CALL 2
+
+578 LOAD_FAST 1 (user_data)
+580 LOAD_METHOD 5 (get)
+582 LOAD_CONST 15 ("email")
+584 LOAD_CONST 16 ("")
+586 CALL 2
+
+588 CALL 3
+590 STORE_FAST 19 (confirm_result)
+
+592 LOAD_FAST 19 (confirm_result)
+594 LOAD_METHOD 5 (get)
+596 LOAD_CONST 7 ("success")
+598 CALL 1
+600 POP_JUMP_FORWARD_IF_FALSE 412 (to 858)
+
+602 LOAD_DEREF 0 (self)
+604 LOAD_METHOD 18 (log_message)
+606 LOAD_CONST 31 ("✅ Confirmation link processed successfully.")
+608 CALL 1
+610 POP_TOP
+
+612 NOP
+
+614 LOAD_DEREF 0 (self)
+616 LOAD_ATTR 26 (lab_url_var)
+618 LOAD_METHOD 5 (get)
+620 CALL 0
+622 JUMP_IF_TRUE_OR_POP 1 (to 626)
+624 LOAD_CONST 16 ("")
+626 LOAD_METHOD 6 (strip)
+628 CALL 0
+630 STORE_FAST 20 (lab_url)
+
+632 LOAD_DEREF 0 (self)
+634 LOAD_ATTR 27 (auto_start_lab_var)
+636 LOAD_METHOD 5 (get)
+638 CALL 0
+640 POP_JUMP_FORWARD_IF_FALSE 271 (to 804)
+642 LOAD_FAST 20 (lab_url)
+644 POP_JUMP_FORWARD_IF_FALSE 268 (to 804)
+
+646 LOAD_DEREF 0 (self)
+648 LOAD_METHOD 18 (log_message)
+650 LOAD_CONST 32 ("▶️ Starting lab (auto)")
+652 CALL 1
+654 POP_TOP
+
+656 LOAD_DEREF 0 (self)
+658 LOAD_ATTR 16 (automation)
+660 LOAD_METHOD 28 (start_lab)
+662 LOAD_FAST 20 (lab_url)
+664 CALL 1
+666 STORE_FAST 21 (result_lab)
+
+668 LOAD_FAST 21 (result_lab)
+670 LOAD_METHOD 5 (get)
+672 LOAD_CONST 7 ("success")
+674 CALL 1
+676 POP_JUMP_FORWARD_IF_FALSE 157 (to 782)
+
+678 LOAD_DEREF 0 (self)
+680 LOAD_METHOD 18 (log_message)
+682 LOAD_CONST 33 ("✅ Lab started successfully. URL: ")
+684 LOAD_FAST 21 (result_lab)
+686 LOAD_METHOD 5 (get)
+688 LOAD_CONST 34 ("url")
+690 CALL 1
+692 FORMAT_VALUE 0
+694 BUILD_STRING 2
+696 CALL 1
+698 POP_TOP
+
+700 NOP
+
+702 LOAD_FAST 21 (result_lab)
+704 LOAD_METHOD 5 (get)
+706 LOAD_CONST 35 ("api_key")
+708 CALL 1
+710 JUMP_IF_TRUE_OR_POP 1 (to 714)
+712 LOAD_CONST 16 ("")
+714 LOAD_METHOD 6 (strip)
+716 CALL 0
+718 STORE_FAST 22 (api_key_val)
+
+720 LOAD_FAST 22 (api_key_val)
+722 POP_JUMP_FORWARD_IF_FALSE 53 (to 758)
+
+724 LOAD_DEREF 0 (self)
+726 LOAD_ATTR 19 (root)
+728 LOAD_METHOD 20 (after)
+730 LOAD_CONST 1 (0)
+732 LOAD_FAST 22 (api_key_val)
+734 BUILD_TUPLE 1
+736 LOAD_CLOSURE 0 (self)
+738 BUILD_TUPLE 1
+740 LOAD_CONST 36 (code object <lambda>)
+742 MAKE_FUNCTION 9 (default, closure)
+744 CALL 2
+746 POP_TOP
+
+748 LOAD_DEREF 0 (self)
+750 LOAD_METHOD 18 (log_message)
+752 LOAD_CONST 37 ("Received GenAI API key from Lab. Injected to Video Generator tab.")
+754 CALL 1
+756 POP_TOP
+758 JUMP_FORWARD 59 (to 804)
+760 PUSH_EXC_INFO
+
+762 LOAD_GLOBAL 58 (Exception)
+764 CHECK_EXC_MATCH
+766 POP_JUMP_FORWARD_IF_FALSE 3 (to 774)
+768 POP_TOP
+
+770 POP_EXCEPT
+772 JUMP_FORWARD 47 (to 804)
+
+774 RERAISE 0
+776 COPY 3
+778 POP_EXCEPT
+780 RERAISE 1
+
+782 LOAD_DEREF 0 (self)
+784 LOAD_METHOD 18 (log_message)
+786 LOAD_CONST 38 ("⚠️ Start Lab failed: ")
+788 LOAD_FAST 21 (result_lab)
+790 LOAD_METHOD 5 (get)
+792 LOAD_CONST 39 ("error")
+794 CALL 1
+796 FORMAT_VALUE 0
+798 BUILD_STRING 2
+800 CALL 1
+802 POP_TOP
+804 JUMP_FORWARD 90 (to 880)
+806 PUSH_EXC_INFO
+
+808 LOAD_GLOBAL 58 (Exception)
+810 CHECK_EXC_MATCH
+812 POP_JUMP_FORWARD_IF_FALSE 34 (to 850)
+814 STORE_FAST 23 (e)
+
+816 LOAD_DEREF 0 (self)
+818 LOAD_METHOD 18 (log_message)
+820 LOAD_CONST 40 ("⚠️ Auto Start Lab error: ")
+822 LOAD_FAST 23 (e)
+824 FORMAT_VALUE 0
+826 BUILD_STRING 2
+828 CALL 1
+830 POP_TOP
+832 POP_EXCEPT
+834 LOAD_CONST 21 (None)
+836 STORE_FAST 23 (e)
+838 DELETE_FAST 23 (e)
+840 JUMP_FORWARD 51 (to 880)
+842 LOAD_CONST 21 (None)
+844 STORE_FAST 23 (e)
+846 DELETE_FAST 23 (e)
+848 RERAISE 1
+
+850 RERAISE 0
+852 COPY 3
+854 POP_EXCEPT
+856 RERAISE 1
+
+858 LOAD_DEREF 0 (self)
+860 LOAD_METHOD 18 (log_message)
+862 LOAD_CONST 41 ("⚠️ Confirmation processing failed: ")
+864 LOAD_FAST 19 (confirm_result)
+866 LOAD_METHOD 5 (get)
+868 LOAD_CONST 39 ("error")
+870 CALL 1
+872 FORMAT_VALUE 0
+874 BUILD_STRING 2
+876 CALL 1
+878 POP_TOP
+880 JUMP_FORWARD 47 (to 934)
+882 PUSH_EXC_INFO
+
+884 LOAD_GLOBAL 58 (Exception)
+886 CHECK_EXC_MATCH
+888 POP_JUMP_FORWARD_IF_FALSE 34 (to 926)
+890 STORE_FAST 23 (e)
+
+892 LOAD_DEREF 0 (self)
+894 LOAD_METHOD 18 (log_message)
+896 LOAD_CONST 42 ("⚠️ Error opening confirmation link: ")
+898 LOAD_FAST 23 (e)
+900 FORMAT_VALUE 0
+902 BUILD_STRING 2
+904 CALL 1
+906 POP_TOP
+908 POP_EXCEPT
+910 LOAD_CONST 21 (None)
+912 STORE_FAST 23 (e)
+914 DELETE_FAST 23 (e)
+916 JUMP_FORWARD 8 (to 934)
+918 LOAD_CONST 21 (None)
+920 STORE_FAST 23 (e)
+922 DELETE_FAST 23 (e)
+924 RERAISE 1
+
+926 RERAISE 0
+928 COPY 3
+930 POP_EXCEPT
+932 RERAISE 1
+
+934 NOP
+
+936 LOAD_DEREF 0 (self)
+938 LOAD_ATTR 27 (auto_start_lab_var)
+940 LOAD_METHOD 5 (get)
+942 CALL 0
+944 POP_JUMP_FORWARD_IF_TRUE 25 (to 956)
+
+946 LOAD_DEREF 0 (self)
+948 LOAD_ATTR 16 (automation)
+950 LOAD_METHOD 30 (shutdown)
+952 CALL 0
+954 POP_TOP
+956 JUMP_FORWARD 81 (to 1028)
+958 PUSH_EXC_INFO
+
+960 LOAD_GLOBAL 58 (Exception)
+962 CHECK_EXC_MATCH
+964 POP_JUMP_FORWARD_IF_FALSE 3 (to 972)
+966 POP_TOP
+
+968 POP_EXCEPT
+970 JUMP_FORWARD 69 (to 1028)
+
+972 RERAISE 0
+974 COPY 3
+976 POP_EXCEPT
+978 RERAISE 1
+
+980 JUMP_FORWARD 64 (to 1028)
+
+982 LOAD_DEREF 0 (self)
+984 LOAD_METHOD 18 (log_message)
+986 LOAD_CONST 43 ("🛑 No matching email arrived within timeout.")
+988 CALL 1
+990 POP_TOP
+
+992 NOP
+
+994 LOAD_DEREF 0 (self)
+996 LOAD_ATTR 16 (automation)
+998 LOAD_METHOD 30 (shutdown)
+1000 CALL 0
+1002 POP_TOP
+1004 JUMP_FORWARD 16 (to 1028)
+1006 PUSH_EXC_INFO
+
+1008 LOAD_GLOBAL 58 (Exception)
+1010 CHECK_EXC_MATCH
+1012 POP_JUMP_FORWARD_IF_FALSE 3 (to 1020)
+1014 POP_TOP
+
+1016 POP_EXCEPT
+1018 JUMP_FORWARD 4 (to 1028)
+
+1020 RERAISE 0
+1022 COPY 3
+1024 POP_EXCEPT
+1026 RERAISE 1
+1028 JUMP_FORWARD 111 (to 1128)
+1030 PUSH_EXC_INFO
+
+1032 LOAD_GLOBAL 58 (Exception)
+1034 CHECK_EXC_MATCH
+1036 POP_JUMP_FORWARD_IF_FALSE 77 (to 1110)
+1038 STORE_FAST 23 (e)
+
+1040 LOAD_DEREF 0 (self)
+1042 LOAD_METHOD 18 (log_message)
+1044 LOAD_CONST 44 ("🛑 Gmail read error: ")
+1046 LOAD_FAST 23 (e)
+1048 FORMAT_VALUE 0
+1050 BUILD_STRING 2
+1052 CALL 1
+1054 POP_TOP
+
+1056 NOP
+
+1058 LOAD_DEREF 0 (self)
+1060 LOAD_ATTR 16 (automation)
+1062 LOAD_METHOD 30 (shutdown)
+1064 CALL 0
+1066 POP_TOP
+1068 JUMP_FORWARD 16 (to 1092)
+1070 PUSH_EXC_INFO
+
+1072 LOAD_GLOBAL 58 (Exception)
+1074 CHECK_EXC_MATCH
+1076 POP_JUMP_FORWARD_IF_FALSE 3 (to 1084)
+1078 POP_TOP
+
+1080 POP_EXCEPT
+1082 JUMP_FORWARD 4 (to 1092)
+
+1084 RERAISE 0
+1086 COPY 3
+1088 POP_EXCEPT
+1090 RERAISE 1
+1092 POP_EXCEPT
+1094 LOAD_CONST 21 (None)
+1096 STORE_FAST 23 (e)
+1098 DELETE_FAST 23 (e)
+1100 JUMP_FORWARD 29 (to 1128)
+1102 LOAD_CONST 21 (None)
+1104 STORE_FAST 23 (e)
+1106 DELETE_FAST 23 (e)
+1108 RERAISE 1
+
+1110 RERAISE 0
+1112 COPY 3
+1114 POP_EXCEPT
+1116 RERAISE 1
+
+1118 LOAD_DEREF 0 (self)
+1120 LOAD_METHOD 18 (log_message)
+1122 LOAD_CONST 45 ("🛑 Gmail not configured (no credentials or token). Skipping email confirmation check.")
+1124 CALL 1
+1126 POP_TOP
+1128 JUMP_FORWARD 125 (to 1236)
+1130 PUSH_EXC_INFO
+
+1132 LOAD_GLOBAL 58 (Exception)
+1134 CHECK_EXC_MATCH
+1136 POP_JUMP_FORWARD_IF_FALSE 112 (to 1228)
+1138 STORE_FAST 23 (e)
+
+1140 LOAD_CONST 46 ("Automation error: ")
+1142 LOAD_GLOBAL 63 (NULL + str)
+1144 LOAD_FAST 23 (e)
+1146 CALL 1
+1148 FORMAT_VALUE 0
+1150 BUILD_STRING 2
+1152 STORE_DEREF 24 (self)
+
+1154 LOAD_DEREF 0 (self)
+1156 LOAD_METHOD 18 (log_message)
+1158 LOAD_CONST 47 ("🛑 ")
+1160 LOAD_DEREF 24 (self)
+1162 FORMAT_VALUE 0
+1164 BUILD_STRING 2
+1166 CALL 1
+1168 POP_TOP
+
+1170 LOAD_DEREF 0 (self)
+1172 LOAD_ATTR 19 (root)
+1174 LOAD_METHOD 20 (after)
+1176 LOAD_CONST 1 (0)
+1178 LOAD_CLOSURE 0 (self)
+1180 BUILD_TUPLE 1
+1182 LOAD_CONST 48 (code object <lambda>)
+1184 MAKE_FUNCTION 8 (closure)
+1186 CALL 2
+1188 POP_TOP
+
+1190 LOAD_DEREF 0 (self)
+1192 LOAD_ATTR 19 (root)
+1194 LOAD_METHOD 20 (after)
+1196 LOAD_CONST 1 (0)
+1198 LOAD_CLOSURE 24 (self)
+1200 BUILD_TUPLE 1
+1202 LOAD_CONST 49 (code object <lambda>)
+1204 MAKE_FUNCTION 8 (closure)
+1206 CALL 2
+1208 POP_TOP
+1210 POP_EXCEPT
+1212 LOAD_CONST 21 (None)
+1214 STORE_FAST 23 (e)
+1216 DELETE_FAST 23 (e)
+1218 JUMP_FORWARD 8 (to 1236)
+1220 LOAD_CONST 21 (None)
+1222 STORE_FAST 23 (e)
+1224 DELETE_FAST 23 (e)
+1226 RERAISE 1
+
+1228 RERAISE 0
+1230 COPY 3
+1232 POP_EXCEPT
+1234 RERAISE 1
+
+1236 LOAD_DEREF 0 (self)
+1238 LOAD_ATTR 19 (root)
+1240 LOAD_METHOD 20 (after)
+1242 LOAD_CONST 1 (0)
+1244 LOAD_DEREF 0 (self)
+1246 LOAD_ATTR 32 (automation_finished)
+1248 CALL 2
+1250 POP_TOP
+1252 LOAD_CONST 21 (None)
+1254 RETURN_VALUE
+1256 PUSH_EXC_INFO
+1258 LOAD_DEREF 0 (self)
+1260 LOAD_ATTR 19 (root)
+1262 LOAD_METHOD 20 (after)
+1264 LOAD_CONST 1 (0)
+1266 LOAD_DEREF 0 (self)
+1268 LOAD_ATTR 32 (automation_finished)
+1270 CALL 2
+1272 POP_TOP
+1274 RERAISE 0
+1276 COPY 3
+1278 POP_EXCEPT
+1280 RERAISE 1
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_ATTR 0 (status_var)
+6 LOAD_METHOD 1 (set)
+8 LOAD_CONST 1 ("Registration completed")
+10 CALL 1
+12 RETURN_VALUE
+
+0 COPY_FREE_VARS 3
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (start_gmail_progress)
+6 LOAD_DEREF 2 (timeout_sec)
+8 LOAD_DEREF 0 (poll_interval_sec)
+10 CALL 2
+12 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (set_genai_api_key)
+6 LOAD_FAST 0 (k)
+8 CALL 1
+10 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_ATTR 0 (status_var)
+6 LOAD_METHOD 1 (set)
+8 LOAD_CONST 1 ("Error")
+10 CALL 1
+12 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_GLOBAL 1 (NULL + messagebox)
+4 LOAD_ATTR 1 (showerror)
+6 LOAD_CONST 1 ("Error")
+8 LOAD_DEREF 0 (error_msg)
+10 CALL 2
+12 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + Path)
+4 LOAD_GLOBAL 2 (__file__)
+6 CALL 1
+8 LOAD_METHOD 2 (resolve)
+10 CALL 0
+12 LOAD_ATTR 3 (parent)
+14 LOAD_ATTR 3 (parent)
+16 STORE_FAST 1 (project_root)
+
+18 LOAD_FAST 1 (project_root)
+20 LOAD_CONST 1 ("token.json")
+22 BINARY_OP 11
+24 STORE_FAST 2 (token_default)
+
+26 LOAD_FAST 0 (self)
+28 LOAD_ATTR 4 (gmail_credentials_path_var)
+30 LOAD_METHOD 5 (get)
+32 CALL 0
+34 LOAD_METHOD 6 (strip)
+36 CALL 0
+38 STORE_FAST 3 (cred_path)
+
+40 NOP
+
+42 LOAD_CONST 2 (0)
+44 LOAD_CONST 3 (('GmailService',))
+46 IMPORT_NAME 7 (services.gmail_service)
+48 IMPORT_FROM 8 (GmailService)
+50 STORE_FAST 4 (GmailService)
+52 POP_TOP
+
+54 LOAD_GLOBAL 1 (NULL + Path)
+56 LOAD_FAST 4 (GmailService)
+58 LOAD_METHOD 9 (get_default_token_path)
+60 CALL 0
+62 CALL 1
+64 STORE_FAST 5 (token_la)
+66 JUMP_FORWARD 31 (to 98)
+68 PUSH_EXC_INFO
+
+70 LOAD_GLOBAL 20 (Exception)
+72 CHECK_EXC_MATCH
+74 POP_JUMP_FORWARD_IF_FALSE 18 (to 90)
+76 POP_TOP
+
+78 LOAD_GLOBAL 1 (NULL + Path)
+80 LOAD_CONST 4 ("")
+82 CALL 1
+84 STORE_FAST 5 (token_la)
+86 POP_EXCEPT
+88 JUMP_FORWARD 4 (to 98)
+
+90 RERAISE 0
+92 COPY 3
+94 POP_EXCEPT
+96 RERAISE 1
+
+98 LOAD_GLOBAL 23 (NULL + str)
+100 LOAD_FAST 5 (token_la)
+102 CALL 1
+104 POP_JUMP_FORWARD_IF_FALSE 20 (to 114)
+106 LOAD_FAST 5 (token_la)
+108 LOAD_METHOD 12 (exists)
+110 CALL 0
+112 JUMP_FORWARD 1 (to 116)
+114 LOAD_CONST 5 (False)
+116 JUMP_IF_TRUE_OR_POP 19 (to 124)
+118 LOAD_FAST 2 (token_default)
+120 LOAD_METHOD 12 (exists)
+122 CALL 0
+124 STORE_FAST 6 (token_exists)
+
+126 LOAD_FAST 6 (token_exists)
+128 POP_JUMP_FORWARD_IF_TRUE 65 (to 186)
+130 LOAD_FAST 3 (cred_path)
+132 POP_JUMP_FORWARD_IF_FALSE 63 (to 186)
+
+134 NOP
+
+136 LOAD_GLOBAL 1 (NULL + Path)
+138 LOAD_FAST 3 (cred_path)
+140 CALL 1
+142 STORE_FAST 7 (cpath)
+
+144 LOAD_FAST 7 (cpath)
+146 LOAD_ATTR 3 (parent)
+148 LOAD_CONST 1 ("token.json")
+150 BINARY_OP 11
+152 STORE_FAST 8 (token_alt)
+
+154 LOAD_FAST 8 (token_alt)
+156 LOAD_METHOD 12 (exists)
+158 CALL 0
+160 STORE_FAST 6 (token_exists)
+162 JUMP_FORWARD 16 (to 186)
+164 PUSH_EXC_INFO
+
+166 LOAD_GLOBAL 20 (Exception)
+168 CHECK_EXC_MATCH
+170 POP_JUMP_FORWARD_IF_FALSE 3 (to 178)
+172 POP_TOP
+
+174 POP_EXCEPT
+176 JUMP_FORWARD 4 (to 186)
+
+178 RERAISE 0
+180 COPY 3
+182 POP_EXCEPT
+184 RERAISE 1
+
+186 NOP
+
+188 LOAD_FAST 0 (self)
+190 LOAD_METHOD 13 (log_message)
+
+192 LOAD_CONST 6 ("✅ Gmail token check | localappdata=")
+194 LOAD_GLOBAL 23 (NULL + str)
+196 LOAD_FAST 5 (token_la)
+198 CALL 1
+200 POP_JUMP_FORWARD_IF_FALSE 2 (to 206)
+202 LOAD_FAST 5 (token_la)
+204 JUMP_FORWARD 1 (to 208)
+206 LOAD_CONST 7 ("N/A")
+208 FORMAT_VALUE 0
+210 LOAD_CONST 8 (" exists=")
+212 LOAD_GLOBAL 23 (NULL + str)
+214 LOAD_FAST 5 (token_la)
+216 CALL 1
+218 POP_JUMP_FORWARD_IF_FALSE 20 (to 228)
+220 LOAD_FAST 5 (token_la)
+222 LOAD_METHOD 12 (exists)
+224 CALL 0
+226 JUMP_FORWARD 1 (to 230)
+228 LOAD_CONST 5 (False)
+230 FORMAT_VALUE 0
+
+232 LOAD_CONST 9 (" | legacy_project=")
+234 LOAD_FAST 2 (token_default)
+
+236 FORMAT_VALUE 0
+
+238 LOAD_CONST 8 (" exists=")
+240 LOAD_FAST 2 (token_default)
+242 LOAD_METHOD 12 (exists)
+244 CALL 0
+
+246 FORMAT_VALUE 0
+
+248 LOAD_CONST 10 (" | cred_path=")
+250 LOAD_FAST 3 (cred_path)
+252 POP_JUMP_FORWARD_IF_FALSE 2 (to 258)
+254 LOAD_CONST 11 ("set")
+256 JUMP_FORWARD 1 (to 260)
+
+258 LOAD_CONST 12 ("empty")
+260 FORMAT_VALUE 0
+262 BUILD_STRING 10
+
+264 CALL 1
+266 POP_TOP
+268 JUMP_FORWARD 16 (to 292)
+270 PUSH_EXC_INFO
+
+272 LOAD_GLOBAL 20 (Exception)
+274 CHECK_EXC_MATCH
+276 POP_JUMP_FORWARD_IF_FALSE 3 (to 284)
+278 POP_TOP
+
+280 POP_EXCEPT
+282 JUMP_FORWARD 4 (to 292)
+
+284 RERAISE 0
+286 COPY 3
+288 POP_EXCEPT
+290 RERAISE 1
+
+292 LOAD_FAST 6 (token_exists)
+294 POP_JUMP_FORWARD_IF_FALSE 35 (to 316)
+
+296 LOAD_FAST 0 (self)
+298 LOAD_ATTR 14 (gmail_status_label)
+300 LOAD_METHOD 15 (config)
+302 LOAD_CONST 13 ("Gmail: ✅ Ready (token found)")
+304 LOAD_GLOBAL 32 (SUCCESS)
+306 KW_NAMES 14 (('text', 'bootstyle'))
+308 CALL 2
+310 POP_TOP
+312 LOAD_CONST 17 (None)
+314 RETURN_VALUE
+
+316 LOAD_FAST 3 (cred_path)
+318 POP_JUMP_FORWARD_IF_FALSE 35 (to 340)
+
+320 LOAD_FAST 0 (self)
+322 LOAD_ATTR 14 (gmail_status_label)
+324 LOAD_METHOD 15 (config)
+326 LOAD_CONST 15 ("Gmail: ✅ Credentials set (authenticate to enable)")
+328 LOAD_GLOBAL 34 (INFO)
+330 KW_NAMES 14 (('text', 'bootstyle'))
+332 CALL 2
+334 POP_TOP
+336 LOAD_CONST 17 (None)
+338 RETURN_VALUE
+
+340 LOAD_FAST 0 (self)
+342 LOAD_ATTR 14 (gmail_status_label)
+344 LOAD_METHOD 15 (config)
+346 LOAD_CONST 16 ("Gmail: 🛑 Not configured")
+348 LOAD_GLOBAL 36 (WARNING)
+350 KW_NAMES 14 (('text', 'bootstyle'))
+352 CALL 2
+354 POP_TOP
+356 LOAD_CONST 17 (None)
+358 RETURN_VALUE
+360 PUSH_EXC_INFO
+
+362 LOAD_GLOBAL 20 (Exception)
+364 CHECK_EXC_MATCH
+366 POP_JUMP_FORWARD_IF_FALSE 4 (to 376)
+368 POP_TOP
+
+370 POP_EXCEPT
+372 LOAD_CONST 17 (None)
+374 RETURN_VALUE
+
+376 RERAISE 0
+378 COPY 3
+380 POP_EXCEPT
+382 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (log_message)
+4 LOAD_CONST 1 ("⛔ Stopping automation...")
+6 CALL 1
+8 POP_TOP
+
+10 LOAD_CONST 2 (False)
+12 LOAD_FAST 0 (self)
+14 STORE_ATTR 1 (is_running)
+
+16 LOAD_FAST 0 (self)
+18 LOAD_METHOD 2 (automation_finished)
+20 CALL 0
+22 POP_TOP
+24 LOAD_CONST 3 (None)
+26 RETURN_VALUE
+
+
+0 LOAD_CONST 1 (False)
+2 LOAD_FAST 0 (self)
+4 STORE_ATTR 0 (is_running)
+
+6 LOAD_FAST 0 (self)
+8 LOAD_METHOD 1 (update_start_button_state)
+10 CALL 0
+12 POP_TOP
+
+14 LOAD_FAST 0 (self)
+16 LOAD_ATTR 2 (stop_btn)
+18 LOAD_METHOD 3 (config)
+20 LOAD_GLOBAL 8 (DISABLED)
+22 KW_NAMES 2 (('state',))
+24 CALL 1
+26 POP_TOP
+
+28 LOAD_FAST 0 (self)
+30 LOAD_ATTR 5 (status_var)
+32 LOAD_METHOD 6 (get)
+34 CALL 0
+36 LOAD_CONST 3 (('Running...', 'Error'))
+38 CONTAINS_OP 0 (in)
+40 POP_JUMP_FORWARD_IF_FALSE 28 (to 58)
+
+42 LOAD_FAST 0 (self)
+44 LOAD_ATTR 5 (status_var)
+46 LOAD_METHOD 7 (set)
+48 LOAD_CONST 4 ("Ready")
+50 CALL 1
+52 POP_TOP
+54 LOAD_CONST 5 (None)
+56 RETURN_VALUE
+
+58 LOAD_CONST 5 (None)
+60 RETURN_VALUE
+
+
+0 LOAD_CLOSURE 0 (self)
+2 BUILD_TUPLE 1
+4 LOAD_CONST 1 (code object _worker)
+6 MAKE_FUNCTION 8 (closure)
+8 STORE_FAST 1 (_worker)
+
+10 LOAD_GLOBAL 1 (NULL + threading)
+12 LOAD_ATTR 1 (Thread)
+14 LOAD_FAST 1 (_worker)
+16 LOAD_CONST 2 (True)
+18 KW_NAMES 3 (('target', 'daemon'))
+20 CALL 2
+22 LOAD_METHOD 2 (start)
+24 CALL 0
+26 POP_TOP
+28 LOAD_CONST 4 (None)
+30 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 NOP
+
+4 LOAD_GLOBAL 1 (NULL + ensure_license)
+6 CALL 0
+8 STORE_DEREF 2 (res)
+10 JUMP_FORWARD 43 (to 66)
+12 PUSH_EXC_INFO
+
+14 LOAD_GLOBAL 2 (Exception)
+16 CHECK_EXC_MATCH
+18 POP_JUMP_FORWARD_IF_FALSE 30 (to 58)
+20 STORE_FAST 0 (e)
+
+22 LOAD_CONST 1 (False)
+24 LOAD_CONST 0 (None)
+26 LOAD_CONST 2 ("error")
+28 LOAD_GLOBAL 5 (NULL + str)
+30 LOAD_FAST 0 (e)
+32 CALL 1
+34 LOAD_CONST 3 (('is_allowed', 'plan', 'status', 'reason'))
+36 BUILD_CONST_KEY_MAP 4
+38 STORE_DEREF 2 (res)
+40 POP_EXCEPT
+42 LOAD_CONST 0 (None)
+44 STORE_FAST 0 (e)
+46 DELETE_FAST 0 (e)
+48 JUMP_FORWARD 8 (to 66)
+50 LOAD_CONST 0 (None)
+52 STORE_FAST 0 (e)
+54 DELETE_FAST 0 (e)
+56 RERAISE 1
+
+58 RERAISE 0
+60 COPY 3
+62 POP_EXCEPT
+64 RERAISE 1
+
+66 LOAD_CLOSURE 2 (res)
+68 LOAD_CLOSURE 3 (self)
+70 BUILD_TUPLE 2
+72 LOAD_CONST 4 (code object _apply)
+74 MAKE_FUNCTION 8 (closure)
+76 STORE_FAST 1 (_apply)
+
+78 NOP
+
+80 LOAD_DEREF 3 (self)
+82 LOAD_ATTR 3 (root)
+84 LOAD_METHOD 4 (after)
+86 LOAD_CONST 5 (0)
+88 LOAD_FAST 1 (_apply)
+90 CALL 2
+92 POP_TOP
+94 LOAD_CONST 0 (None)
+96 RETURN_VALUE
+98 PUSH_EXC_INFO
+
+100 LOAD_GLOBAL 2 (Exception)
+102 CHECK_EXC_MATCH
+104 POP_JUMP_FORWARD_IF_FALSE 4 (to 114)
+106 POP_TOP
+
+108 POP_EXCEPT
+110 LOAD_CONST 0 (None)
+112 RETURN_VALUE
+
+114 RERAISE 0
+116 COPY 3
+118 POP_EXCEPT
+120 RERAISE 1
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 4 (res)
+4 LOAD_DEREF 5 (self)
+6 STORE_ATTR 0 (license_info)
+
+8 NOP
+
+10 LOAD_GLOBAL 3 (NULL + hasattr)
+12 LOAD_DEREF 5 (self)
+14 LOAD_CONST 1 ("license_plan_var")
+16 CALL 2
+18 POP_JUMP_FORWARD_IF_FALSE 60 (to 46)
+
+20 LOAD_DEREF 5 (self)
+22 LOAD_ATTR 2 (license_plan_var)
+24 LOAD_METHOD 3 (set)
+26 LOAD_GLOBAL 9 (NULL + str)
+28 LOAD_DEREF 4 (res)
+30 LOAD_METHOD 5 (get)
+32 LOAD_CONST 2 ("plan")
+34 CALL 1
+36 JUMP_IF_TRUE_OR_POP 1 (to 40)
+38 LOAD_CONST 3 ("Unknown")
+40 CALL 1
+42 CALL 1
+44 POP_TOP
+
+46 LOAD_DEREF 4 (res)
+48 LOAD_METHOD 5 (get)
+50 LOAD_CONST 4 ("expiresAt")
+52 CALL 1
+54 STORE_FAST 0 (exp)
+
+56 LOAD_CONST 3 ("Unknown")
+58 STORE_FAST 1 (disp)
+
+60 NOP
+
+62 LOAD_GLOBAL 13 (NULL + isinstance)
+64 LOAD_FAST 0 (exp)
+66 LOAD_GLOBAL 8 (str)
+68 CALL 2
+70 POP_JUMP_FORWARD_IF_FALSE 63 (to 104)
+72 LOAD_FAST 0 (exp)
+74 POP_JUMP_FORWARD_IF_FALSE 61 (to 104)
+
+76 LOAD_GLOBAL 15 (NULL + datetime)
+78 LOAD_ATTR 8 (fromisoformat)
+80 LOAD_FAST 0 (exp)
+82 LOAD_METHOD 9 (replace)
+84 LOAD_CONST 5 ("Z")
+86 LOAD_CONST 6 ("+00:00")
+88 CALL 2
+90 CALL 1
+92 STORE_FAST 2 (dt)
+
+94 LOAD_FAST 2 (dt)
+96 LOAD_METHOD 10 (strftime)
+98 LOAD_CONST 7 ("%d/%m/%Y")
+100 CALL 1
+102 STORE_FAST 1 (disp)
+104 JUMP_FORWARD 16 (to 128)
+106 PUSH_EXC_INFO
+
+108 LOAD_GLOBAL 22 (Exception)
+110 CHECK_EXC_MATCH
+112 POP_JUMP_FORWARD_IF_FALSE 3 (to 120)
+114 POP_TOP
+
+116 POP_EXCEPT
+118 JUMP_FORWARD 4 (to 128)
+
+120 RERAISE 0
+122 COPY 3
+124 POP_EXCEPT
+126 RERAISE 1
+
+128 LOAD_GLOBAL 3 (NULL + hasattr)
+130 LOAD_DEREF 5 (self)
+132 LOAD_CONST 8 ("license_expiry_var")
+134 CALL 2
+136 POP_JUMP_FORWARD_IF_FALSE 26 (to 150)
+
+138 LOAD_DEREF 5 (self)
+140 LOAD_ATTR 12 (license_expiry_var)
+142 LOAD_METHOD 3 (set)
+144 LOAD_FAST 1 (disp)
+146 CALL 1
+148 POP_TOP
+150 JUMP_FORWARD 16 (to 174)
+152 PUSH_EXC_INFO
+
+154 LOAD_GLOBAL 22 (Exception)
+156 CHECK_EXC_MATCH
+158 POP_JUMP_FORWARD_IF_FALSE 3 (to 166)
+160 POP_TOP
+
+162 POP_EXCEPT
+164 JUMP_FORWARD 4 (to 174)
+
+166 RERAISE 0
+168 COPY 3
+170 POP_EXCEPT
+172 RERAISE 1
+
+174 LOAD_GLOBAL 9 (NULL + str)
+176 LOAD_DEREF 4 (res)
+178 LOAD_METHOD 5 (get)
+180 LOAD_CONST 2 ("plan")
+182 CALL 1
+184 JUMP_IF_TRUE_OR_POP 1 (to 188)
+186 LOAD_CONST 9 ("")
+188 CALL 1
+190 LOAD_METHOD 13 (lower)
+192 CALL 0
+194 STORE_FAST 3 (plan)
+
+196 LOAD_FAST 3 (plan)
+198 LOAD_CONST 10 ("free")
+200 COMPARE_OP 2 (==)
+202 POP_JUMP_FORWARD_IF_FALSE 22 (to 216)
+
+204 LOAD_DEREF 5 (self)
+206 LOAD_METHOD 14 (log_message)
+208 LOAD_CONST 11 ("🔒 License plan is 'free'.")
+210 CALL 1
+212 POP_TOP
+214 JUMP_FORWARD 88 (to 264)
+
+216 LOAD_DEREF 4 (res)
+218 LOAD_METHOD 5 (get)
+220 LOAD_CONST 12 ("is_allowed")
+222 LOAD_CONST 13 (True)
+224 CALL 2
+226 POP_JUMP_FORWARD_IF_TRUE 45 (to 254)
+
+228 LOAD_DEREF 5 (self)
+230 LOAD_METHOD 14 (log_message)
+232 LOAD_CONST 14 ("🔒 License not allowed: ")
+234 LOAD_DEREF 4 (res)
+236 LOAD_METHOD 5 (get)
+238 LOAD_CONST 15 ("reason")
+240 LOAD_CONST 16 ("unknown")
+242 CALL 2
+244 FORMAT_VALUE 0
+246 BUILD_STRING 2
+248 CALL 1
+250 POP_TOP
+252 JUMP_FORWARD 21 (to 264)
+
+254 LOAD_DEREF 5 (self)
+256 LOAD_METHOD 14 (log_message)
+258 LOAD_CONST 17 ("🔓 License valid.")
+260 CALL 1
+262 POP_TOP
+
+264 LOAD_DEREF 5 (self)
+266 LOAD_METHOD 15 (update_start_button_state)
+268 CALL 0
+270 POP_TOP
+272 LOAD_CONST 0 (None)
+274 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_CONST 1 (True)
+4 STORE_FAST 1 (allowed)
+
+6 LOAD_GLOBAL 1 (NULL + getattr)
+8 LOAD_FAST 0 (self)
+10 LOAD_CONST 2 ("license_info")
+12 LOAD_CONST 3 (None)
+14 CALL 3
+16 STORE_FAST 2 (info)
+
+18 LOAD_FAST 2 (info)
+20 POP_JUMP_FORWARD_IF_NONE 95 (to 68)
+
+22 LOAD_GLOBAL 3 (NULL + str)
+24 LOAD_FAST 2 (info)
+26 LOAD_METHOD 2 (get)
+28 LOAD_CONST 4 ("plan")
+30 CALL 1
+32 JUMP_IF_TRUE_OR_POP 1 (to 36)
+34 LOAD_CONST 5 ("")
+36 CALL 1
+38 LOAD_METHOD 3 (lower)
+40 CALL 0
+42 STORE_FAST 3 (plan)
+
+44 LOAD_GLOBAL 9 (NULL + bool)
+46 LOAD_FAST 2 (info)
+48 LOAD_METHOD 2 (get)
+50 LOAD_CONST 6 ("is_allowed")
+52 LOAD_CONST 1 (True)
+54 CALL 2
+56 CALL 1
+58 JUMP_IF_FALSE_OR_POP 5 (to 66)
+60 LOAD_FAST 3 (plan)
+62 LOAD_CONST 7 ("free")
+64 COMPARE_OP 3 (!=)
+66 STORE_FAST 1 (allowed)
+
+68 LOAD_FAST 1 (allowed)
+70 POP_JUMP_FORWARD_IF_FALSE 21 (to 88)
+72 LOAD_FAST 0 (self)
+74 LOAD_ATTR 5 (data_generated)
+76 POP_JUMP_FORWARD_IF_FALSE 14 (to 88)
+78 LOAD_FAST 0 (self)
+80 LOAD_ATTR 6 (is_running)
+82 POP_JUMP_FORWARD_IF_TRUE 7 (to 88)
+84 LOAD_GLOBAL 14 (NORMAL)
+86 JUMP_FORWARD 6 (to 90)
+88 LOAD_GLOBAL 16 (DISABLED)
+90 STORE_FAST 4 (state)
+
+92 NOP
+
+94 LOAD_FAST 0 (self)
+96 LOAD_ATTR 9 (start_btn)
+98 LOAD_METHOD 10 (config)
+100 LOAD_FAST 4 (state)
+102 KW_NAMES 8 (('state',))
+104 CALL 1
+106 POP_TOP
+108 LOAD_CONST 3 (None)
+110 RETURN_VALUE
+112 PUSH_EXC_INFO
+
+114 LOAD_GLOBAL 22 (Exception)
+116 CHECK_EXC_MATCH
+118 POP_JUMP_FORWARD_IF_FALSE 4 (to 128)
+120 POP_TOP
+
+122 POP_EXCEPT
+124 LOAD_CONST 3 (None)
+126 RETURN_VALUE
+
+128 RERAISE 0
+130 COPY 3
+132 POP_EXCEPT
+134 RERAISE 1
+136 PUSH_EXC_INFO
+
+138 LOAD_GLOBAL 22 (Exception)
+140 CHECK_EXC_MATCH
+142 POP_JUMP_FORWARD_IF_FALSE 4 (to 152)
+144 POP_TOP
+
+146 POP_EXCEPT
+148 LOAD_CONST 3 (None)
+150 RETURN_VALUE
+
+152 RERAISE 0
+154 COPY 3
+156 POP_EXCEPT
+158 RERAISE 1
+
+
+0 LOAD_GLOBAL 1 (NULL + datetime)
+2 LOAD_ATTR 1 (now)
+4 CALL 0
+6 LOAD_METHOD 2 (strftime)
+8 LOAD_CONST 1 ("%H:%M:%S")
+10 CALL 1
+12 STORE_FAST 2 (timestamp)
+
+14 LOAD_CONST 2 ("[")
+16 LOAD_FAST 2 (timestamp)
+18 FORMAT_VALUE 0
+20 LOAD_CONST 3 ("] ")
+22 LOAD_FAST 1 (message)
+24 FORMAT_VALUE 0
+26 LOAD_CONST 4 ("\n")
+28 BUILD_STRING 5
+30 STORE_FAST 3 (log_entry)
+
+32 LOAD_FAST 0 (self)
+34 LOAD_ATTR 3 (log_text)
+36 LOAD_METHOD 4 (insert)
+38 LOAD_GLOBAL 10 (tk)
+40 LOAD_ATTR 6 (END)
+42 LOAD_FAST 3 (log_entry)
+44 CALL 2
+46 POP_TOP
+
+48 LOAD_FAST 0 (self)
+50 LOAD_ATTR 3 (log_text)
+52 LOAD_METHOD 7 (see)
+54 LOAD_GLOBAL 10 (tk)
+56 LOAD_ATTR 6 (END)
+58 CALL 1
+60 POP_TOP
+
+62 LOAD_FAST 0 (self)
+64 LOAD_ATTR 8 (logger)
+66 LOAD_METHOD 9 (info)
+68 LOAD_FAST 1 (message)
+70 CALL 1
+72 POP_TOP
+74 LOAD_CONST 5 (None)
+76 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (log_text)
+4 LOAD_METHOD 1 (delete)
+6 LOAD_CONST 1 ("1.0")
+8 LOAD_GLOBAL 4 (tk)
+10 LOAD_ATTR 3 (END)
+12 CALL 2
+14 POP_TOP
+
+16 LOAD_FAST 0 (self)
+18 LOAD_METHOD 4 (log_message)
+20 LOAD_CONST 2 ("Logs cleared")
+22 CALL 1
+24 POP_TOP
+26 LOAD_CONST 3 (None)
+28 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + filedialog)
+4 LOAD_ATTR 1 (asksaveasfilename)
+
+6 LOAD_CONST 1 (".txt")
+8 LOAD_CONST 2 (('Text files', '*.txt'))
+10 LOAD_CONST 3 (('All files', '*.*'))
+12 BUILD_LIST 2
+
+14 LOAD_CONST 4 ("Save Logs")
+16 KW_NAMES 5 (('defaultextension', 'filetypes', 'title'))
+18 CALL 3
+20 STORE_FAST 1 (filename)
+
+22 LOAD_FAST 1 (filename)
+24 POP_JUMP_FORWARD_IF_FALSE 150 (to 140)
+
+26 LOAD_FAST 0 (self)
+28 LOAD_ATTR 2 (log_text)
+30 LOAD_METHOD 3 (get)
+32 LOAD_CONST 6 ("1.0")
+34 LOAD_GLOBAL 8 (tk)
+36 LOAD_ATTR 5 (END)
+38 CALL 2
+40 STORE_FAST 2 (content)
+
+42 LOAD_GLOBAL 13 (NULL + open)
+44 LOAD_FAST 1 (filename)
+46 LOAD_CONST 7 ("w")
+48 LOAD_CONST 8 ("utf-8")
+50 KW_NAMES 9 (('encoding',))
+52 CALL 3
+54 BEFORE_WITH
+56 STORE_FAST 3 (f)
+
+58 LOAD_FAST 3 (f)
+60 LOAD_METHOD 7 (write)
+62 LOAD_FAST 2 (content)
+64 CALL 1
+66 POP_TOP
+
+68 LOAD_CONST 10 (None)
+70 LOAD_CONST 10 (None)
+72 LOAD_CONST 10 (None)
+74 CALL 2
+76 POP_TOP
+78 JUMP_FORWARD 11 (to 102)
+80 PUSH_EXC_INFO
+82 WITH_EXCEPT_START
+84 POP_JUMP_FORWARD_IF_TRUE 4 (to 94)
+86 RERAISE 2
+88 COPY 3
+90 POP_EXCEPT
+92 RERAISE 1
+94 POP_TOP
+96 POP_EXCEPT
+98 POP_TOP
+100 POP_TOP
+
+102 LOAD_FAST 0 (self)
+104 LOAD_METHOD 8 (log_message)
+106 LOAD_CONST 11 ("Logs saved to: ")
+108 LOAD_FAST 1 (filename)
+110 FORMAT_VALUE 0
+112 BUILD_STRING 2
+114 CALL 1
+116 POP_TOP
+
+118 LOAD_GLOBAL 19 (NULL + messagebox)
+120 LOAD_ATTR 10 (showinfo)
+122 LOAD_CONST 12 ("Success")
+124 LOAD_CONST 13 ("Logs saved to:\n")
+126 LOAD_FAST 1 (filename)
+128 FORMAT_VALUE 0
+130 BUILD_STRING 2
+132 CALL 2
+134 POP_TOP
+136 LOAD_CONST 10 (None)
+138 RETURN_VALUE
+
+140 LOAD_CONST 10 (None)
+142 RETURN_VALUE
+144 PUSH_EXC_INFO
+
+146 LOAD_GLOBAL 22 (Exception)
+148 CHECK_EXC_MATCH
+150 POP_JUMP_FORWARD_IF_FALSE 74 (to 216)
+152 STORE_FAST 4 (e)
+
+154 LOAD_CONST 14 ("Error saving logs: ")
+156 LOAD_GLOBAL 25 (NULL + str)
+158 LOAD_FAST 4 (e)
+160 CALL 1
+162 FORMAT_VALUE 0
+164 BUILD_STRING 2
+166 STORE_FAST 5 (error_msg)
+
+168 LOAD_FAST 0 (self)
+170 LOAD_METHOD 8 (log_message)
+172 LOAD_CONST 15 ("🛑 ")
+174 LOAD_FAST 5 (error_msg)
+176 FORMAT_VALUE 0
+178 BUILD_STRING 2
+180 CALL 1
+182 POP_TOP
+
+184 LOAD_GLOBAL 19 (NULL + messagebox)
+186 LOAD_ATTR 13 (showerror)
+188 LOAD_CONST 16 ("Error")
+190 LOAD_FAST 5 (error_msg)
+192 CALL 2
+194 POP_TOP
+196 POP_EXCEPT
+198 LOAD_CONST 10 (None)
+200 STORE_FAST 4 (e)
+202 DELETE_FAST 4 (e)
+204 LOAD_CONST 10 (None)
+206 RETURN_VALUE
+208 LOAD_CONST 10 (None)
+210 STORE_FAST 4 (e)
+212 DELETE_FAST 4 (e)
+214 RERAISE 1
+
+216 RERAISE 0
+218 COPY 3
+220 POP_EXCEPT
+222 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_GLOBAL 1 (NULL + filedialog)
+4 LOAD_ATTR 1 (askopenfilename)
+
+6 LOAD_CONST 1 ("Select Gmail credentials.json")
+8 LOAD_CONST 2 (('JSON files', '*.json'))
+10 LOAD_CONST 3 (('All files', '*.*'))
+12 BUILD_LIST 2
+
+14 KW_NAMES 4 (('title', 'filetypes'))
+16 CALL 2
+18 STORE_FAST 1 (filename)
+
+20 LOAD_FAST 1 (filename)
+22 POP_JUMP_FORWARD_IF_FALSE 111 (to 100)
+
+24 LOAD_FAST 0 (self)
+26 LOAD_ATTR 2 (gmail_credentials_path_var)
+28 LOAD_METHOD 3 (set)
+30 LOAD_FAST 1 (filename)
+32 CALL 1
+34 POP_TOP
+
+36 LOAD_FAST 0 (self)
+38 LOAD_METHOD 4 (log_message)
+40 LOAD_CONST 5 ("✅ Gmail credentials set: ")
+42 LOAD_FAST 1 (filename)
+44 FORMAT_VALUE 0
+46 BUILD_STRING 2
+48 CALL 1
+50 POP_TOP
+
+52 NOP
+
+54 LOAD_FAST 0 (self)
+56 LOAD_METHOD 5 (_save_gmail_cred_path_to_temp)
+58 LOAD_FAST 1 (filename)
+60 CALL 1
+62 POP_TOP
+64 JUMP_FORWARD 16 (to 88)
+66 PUSH_EXC_INFO
+
+68 LOAD_GLOBAL 12 (Exception)
+70 CHECK_EXC_MATCH
+72 POP_JUMP_FORWARD_IF_FALSE 3 (to 80)
+74 POP_TOP
+
+76 POP_EXCEPT
+78 JUMP_FORWARD 4 (to 88)
+
+80 RERAISE 0
+82 COPY 3
+84 POP_EXCEPT
+86 RERAISE 1
+
+88 LOAD_FAST 0 (self)
+90 LOAD_METHOD 7 (update_gmail_status_label)
+92 CALL 0
+94 POP_TOP
+96 LOAD_CONST 7 (None)
+98 RETURN_VALUE
+
+100 LOAD_CONST 7 (None)
+102 RETURN_VALUE
+104 PUSH_EXC_INFO
+
+106 LOAD_GLOBAL 12 (Exception)
+108 CHECK_EXC_MATCH
+110 POP_JUMP_FORWARD_IF_FALSE 35 (to 150)
+112 STORE_FAST 2 (e)
+
+114 LOAD_FAST 0 (self)
+116 LOAD_METHOD 4 (log_message)
+118 LOAD_CONST 6 ("🛑 Error selecting Gmail credentials: ")
+120 LOAD_FAST 2 (e)
+122 FORMAT_VALUE 0
+124 BUILD_STRING 2
+126 CALL 1
+128 POP_TOP
+130 POP_EXCEPT
+132 LOAD_CONST 7 (None)
+134 STORE_FAST 2 (e)
+136 DELETE_FAST 2 (e)
+138 LOAD_CONST 7 (None)
+140 RETURN_VALUE
+142 LOAD_CONST 7 (None)
+144 STORE_FAST 2 (e)
+146 DELETE_FAST 2 (e)
+148 RERAISE 1
+
+150 RERAISE 0
+152 COPY 3
+154 POP_EXCEPT
+156 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_ATTR 0 (gmail_credentials_path_var)
+6 LOAD_METHOD 1 (get)
+8 CALL 0
+10 LOAD_METHOD 2 (strip)
+12 CALL 0
+14 STORE_FAST 1 (cred_path)
+
+16 LOAD_FAST 1 (cred_path)
+18 POP_JUMP_FORWARD_IF_TRUE 23 (to 36)
+
+20 LOAD_GLOBAL 7 (NULL + messagebox)
+22 LOAD_ATTR 4 (showwarning)
+24 LOAD_CONST 1 ("Gmail")
+26 LOAD_CONST 2 ("Silakan pilih credentials.json terlebih dahulu.")
+28 CALL 2
+30 POP_TOP
+
+32 LOAD_CONST 3 (None)
+34 RETURN_VALUE
+
+36 LOAD_FAST 0 (self)
+38 LOAD_ATTR 5 (gmail_auth_code_var)
+40 LOAD_METHOD 6 (set)
+42 LOAD_CONST 4 ("")
+44 CALL 1
+46 POP_TOP
+
+48 LOAD_FAST 0 (self)
+50 LOAD_ATTR 7 (gmail_auth_url_var)
+52 LOAD_METHOD 6 (set)
+54 LOAD_CONST 4 ("")
+56 CALL 1
+58 POP_TOP
+
+60 LOAD_CONST 5 (0)
+62 LOAD_CONST 6 (('InstalledAppFlow',))
+64 IMPORT_NAME 8 (google_auth_oauthlib.flow)
+66 IMPORT_FROM 9 (InstalledAppFlow)
+68 STORE_FAST 2 (InstalledAppFlow)
+70 POP_TOP
+
+72 LOAD_CONST 5 (0)
+74 LOAD_CONST 7 (('SCOPES', 'GmailService'))
+76 IMPORT_NAME 10 (services.gmail_service)
+78 IMPORT_FROM 11 (SCOPES)
+80 STORE_FAST 3 (SCOPES)
+82 IMPORT_FROM 12 (GmailService)
+84 STORE_FAST 4 (GmailService)
+86 POP_TOP
+
+88 LOAD_FAST 2 (InstalledAppFlow)
+90 LOAD_METHOD 13 (from_client_secrets_file)
+92 LOAD_FAST 1 (cred_path)
+94 LOAD_FAST 3 (SCOPES)
+96 CALL 2
+98 LOAD_FAST 0 (self)
+100 STORE_ATTR 14 (_gmail_oauth_flow)
+
+102 NOP
+
+104 LOAD_CONST 8 ("urn:ietf:wg:oauth:2.0:oob")
+106 LOAD_FAST 0 (self)
+108 LOAD_ATTR 14 (_gmail_oauth_flow)
+110 STORE_ATTR 15 (redirect_uri)
+112 JUMP_FORWARD 16 (to 136)
+114 PUSH_EXC_INFO
+
+116 LOAD_GLOBAL 32 (Exception)
+118 CHECK_EXC_MATCH
+120 POP_JUMP_FORWARD_IF_FALSE 3 (to 128)
+122 POP_TOP
+
+124 POP_EXCEPT
+126 JUMP_FORWARD 4 (to 136)
+
+128 RERAISE 0
+130 COPY 3
+132 POP_EXCEPT
+134 RERAISE 1
+
+136 LOAD_FAST 0 (self)
+138 LOAD_ATTR 14 (_gmail_oauth_flow)
+140 LOAD_METHOD 17 (authorization_url)
+
+142 LOAD_CONST 9 ("offline")
+
+144 LOAD_CONST 10 ("true")
+
+146 LOAD_CONST 11 ("consent")
+148 KW_NAMES 12 (('access_type', 'include_granted_scopes', 'prompt'))
+150 CALL 3
+152 UNPACK_SEQUENCE 2
+154 STORE_FAST 5 (auth_url)
+156 STORE_FAST 6 (_)
+
+158 LOAD_FAST 0 (self)
+160 LOAD_ATTR 7 (gmail_auth_url_var)
+162 LOAD_METHOD 6 (set)
+164 LOAD_FAST 5 (auth_url)
+166 CALL 1
+168 POP_TOP
+
+170 LOAD_FAST 0 (self)
+172 LOAD_METHOD 18 (log_message)
+174 LOAD_CONST 13 ("ℹ️ Gmail Auth URL generated. Copy URL and authenticate in your browser.")
+176 CALL 1
+178 POP_TOP
+180 LOAD_CONST 3 (None)
+182 RETURN_VALUE
+184 PUSH_EXC_INFO
+
+186 LOAD_GLOBAL 32 (Exception)
+188 CHECK_EXC_MATCH
+190 POP_JUMP_FORWARD_IF_FALSE 35 (to 230)
+192 STORE_FAST 7 (e)
+
+194 LOAD_FAST 0 (self)
+196 LOAD_METHOD 18 (log_message)
+198 LOAD_CONST 14 ("🛑 Failed to generate Gmail Auth URL: ")
+200 LOAD_FAST 7 (e)
+202 FORMAT_VALUE 0
+204 BUILD_STRING 2
+206 CALL 1
+208 POP_TOP
+210 POP_EXCEPT
+212 LOAD_CONST 3 (None)
+214 STORE_FAST 7 (e)
+216 DELETE_FAST 7 (e)
+218 LOAD_CONST 3 (None)
+220 RETURN_VALUE
+222 LOAD_CONST 3 (None)
+224 STORE_FAST 7 (e)
+226 DELETE_FAST 7 (e)
+228 RERAISE 1
+
+230 RERAISE 0
+232 COPY 3
+234 POP_EXCEPT
+236 RERAISE 1
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_ATTR 0 (gmail_auth_url_var)
+6 LOAD_METHOD 1 (get)
+8 CALL 0
+10 LOAD_METHOD 2 (strip)
+12 CALL 0
+14 STORE_FAST 1 (url)
+
+16 LOAD_FAST 1 (url)
+18 POP_JUMP_FORWARD_IF_TRUE 2 (to 24)
+
+20 LOAD_CONST 0 (None)
+22 RETURN_VALUE
+
+24 LOAD_FAST 0 (self)
+26 LOAD_ATTR 3 (root)
+28 LOAD_METHOD 4 (clipboard_clear)
+30 CALL 0
+32 POP_TOP
+
+34 LOAD_FAST 0 (self)
+36 LOAD_ATTR 3 (root)
+38 LOAD_METHOD 5 (clipboard_append)
+40 LOAD_FAST 1 (url)
+42 CALL 1
+44 POP_TOP
+
+46 LOAD_FAST 0 (self)
+48 LOAD_METHOD 6 (log_message)
+50 LOAD_CONST 1 ("ℹ️ Auth URL copied to clipboard.")
+52 CALL 1
+54 POP_TOP
+56 LOAD_CONST 0 (None)
+58 RETURN_VALUE
+60 PUSH_EXC_INFO
+
+62 LOAD_GLOBAL 14 (Exception)
+64 CHECK_EXC_MATCH
+66 POP_JUMP_FORWARD_IF_FALSE 35 (to 106)
+68 STORE_FAST 2 (e)
+
+70 LOAD_FAST 0 (self)
+72 LOAD_METHOD 6 (log_message)
+74 LOAD_CONST 2 ("🛑 Clipboard error: ")
+76 LOAD_FAST 2 (e)
+78 FORMAT_VALUE 0
+80 BUILD_STRING 2
+82 CALL 1
+84 POP_TOP
+86 POP_EXCEPT
+88 LOAD_CONST 0 (None)
+90 STORE_FAST 2 (e)
+92 DELETE_FAST 2 (e)
+94 LOAD_CONST 0 (None)
+96 RETURN_VALUE
+98 LOAD_CONST 0 (None)
+100 STORE_FAST 2 (e)
+102 DELETE_FAST 2 (e)
+104 RERAISE 1
+
+106 RERAISE 0
+108 COPY 3
+110 POP_EXCEPT
+112 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (gmail_auth_code_var)
+4 LOAD_METHOD 1 (get)
+6 CALL 0
+8 LOAD_METHOD 2 (strip)
+10 CALL 0
+12 STORE_FAST 1 (code)
+
+14 LOAD_FAST 1 (code)
+16 POP_JUMP_FORWARD_IF_TRUE 23 (to 34)
+
+18 LOAD_GLOBAL 7 (NULL + messagebox)
+20 LOAD_ATTR 4 (showwarning)
+22 LOAD_CONST 1 ("Gmail")
+24 LOAD_CONST 2 ("Silakan paste verification code terlebih dahulu.")
+26 CALL 2
+28 POP_TOP
+
+30 LOAD_CONST 0 (None)
+32 RETURN_VALUE
+
+34 LOAD_GLOBAL 11 (NULL + threading)
+36 LOAD_ATTR 6 (Thread)
+38 LOAD_FAST 0 (self)
+40 LOAD_ATTR 7 (complete_gmail_auth)
+42 LOAD_FAST 1 (code)
+44 BUILD_TUPLE 1
+46 LOAD_CONST 3 (True)
+48 KW_NAMES 4 (('target', 'args', 'daemon'))
+50 CALL 3
+52 STORE_FAST 2 (t)
+
+54 LOAD_FAST 2 (t)
+56 LOAD_METHOD 8 (start)
+58 CALL 0
+60 POP_TOP
+62 LOAD_CONST 0 (None)
+64 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_ATTR 0 (_gmail_oauth_flow)
+6 POP_JUMP_FORWARD_IF_TRUE 30 (to 28)
+
+8 LOAD_DEREF 0 (self)
+10 LOAD_ATTR 1 (root)
+12 LOAD_METHOD 2 (after)
+14 LOAD_CONST 1 (0)
+16 LOAD_CONST 2 (code object <lambda>)
+18 MAKE_FUNCTION 0 (No arguments)
+20 CALL 2
+22 POP_TOP
+
+24 LOAD_CONST 0 (None)
+26 RETURN_VALUE
+
+28 LOAD_DEREF 0 (self)
+30 LOAD_ATTR 0 (_gmail_oauth_flow)
+32 LOAD_METHOD 3 (fetch_token)
+34 LOAD_FAST 1 (code)
+36 KW_NAMES 3 (('code',))
+38 CALL 1
+40 POP_TOP
+
+42 LOAD_DEREF 0 (self)
+44 LOAD_ATTR 0 (_gmail_oauth_flow)
+46 LOAD_ATTR 4 (credentials)
+48 STORE_FAST 2 (creds)
+
+50 LOAD_CONST 1 (0)
+52 LOAD_CONST 4 (('GmailService',))
+54 IMPORT_NAME 5 (services.gmail_service)
+56 IMPORT_FROM 6 (GmailService)
+58 STORE_FAST 3 (GmailService)
+60 POP_TOP
+
+62 LOAD_DEREF 0 (self)
+64 LOAD_ATTR 7 (gmail_credentials_path_var)
+66 LOAD_METHOD 8 (get)
+68 CALL 0
+70 LOAD_METHOD 9 (strip)
+72 CALL 0
+74 STORE_FAST 4 (cred_path)
+
+76 PUSH_NULL
+78 LOAD_FAST 3 (GmailService)
+80 LOAD_FAST 4 (cred_path)
+82 KW_NAMES 5 (('credentials_path',))
+84 CALL 1
+86 STORE_FAST 5 (svc)
+
+88 LOAD_FAST 5 (svc)
+90 LOAD_ATTR 10 (token_path)
+92 STORE_FAST 6 (token_path)
+
+94 LOAD_CONST 6 (False)
+96 STORE_FAST 7 (saved_ok)
+
+98 NOP
+
+100 LOAD_CONST 1 (0)
+102 LOAD_CONST 0 (None)
+104 IMPORT_NAME 11 (os)
+106 STORE_FAST 8 (os)
+
+108 LOAD_FAST 8 (os)
+110 LOAD_METHOD 12 (makedirs)
+112 LOAD_FAST 8 (os)
+114 LOAD_ATTR 13 (path)
+116 LOAD_METHOD 14 (dirname)
+118 LOAD_FAST 6 (token_path)
+120 CALL 1
+122 LOAD_CONST 7 (True)
+124 KW_NAMES 8 (('exist_ok',))
+126 CALL 2
+128 POP_TOP
+
+130 LOAD_GLOBAL 31 (NULL + open)
+132 LOAD_FAST 6 (token_path)
+134 LOAD_CONST 9 ("w")
+136 LOAD_CONST 10 ("utf-8")
+138 KW_NAMES 11 (('encoding',))
+140 CALL 3
+142 BEFORE_WITH
+144 STORE_FAST 9 (f)
+
+146 LOAD_FAST 9 (f)
+148 LOAD_METHOD 16 (write)
+150 LOAD_FAST 2 (creds)
+152 LOAD_METHOD 17 (to_json)
+154 CALL 0
+156 CALL 1
+158 POP_TOP
+
+160 LOAD_CONST 0 (None)
+162 LOAD_CONST 0 (None)
+164 LOAD_CONST 0 (None)
+166 CALL 2
+168 POP_TOP
+170 JUMP_FORWARD 11 (to 194)
+172 PUSH_EXC_INFO
+174 WITH_EXCEPT_START
+176 POP_JUMP_FORWARD_IF_TRUE 4 (to 186)
+178 RERAISE 2
+180 COPY 3
+182 POP_EXCEPT
+184 RERAISE 1
+186 POP_TOP
+188 POP_EXCEPT
+190 POP_TOP
+192 POP_TOP
+
+194 LOAD_CONST 7 (True)
+196 STORE_FAST 7 (saved_ok)
+198 JUMP_FORWARD 54 (to 258)
+200 PUSH_EXC_INFO
+
+202 LOAD_GLOBAL 36 (Exception)
+204 CHECK_EXC_MATCH
+206 POP_JUMP_FORWARD_IF_FALSE 41 (to 250)
+208 STORE_DEREF 10 (self)
+
+210 LOAD_DEREF 0 (self)
+212 LOAD_ATTR 1 (root)
+214 LOAD_METHOD 2 (after)
+216 LOAD_CONST 1 (0)
+218 LOAD_CLOSURE 10 (self)
+220 LOAD_CLOSURE 0 (self)
+222 BUILD_TUPLE 2
+224 LOAD_CONST 12 (code object <lambda>)
+226 MAKE_FUNCTION 8 (closure)
+228 CALL 2
+230 POP_TOP
+232 POP_EXCEPT
+234 LOAD_CONST 0 (None)
+236 STORE_DEREF 10 (self)
+238 DELETE_DEREF 10 (self)
+240 JUMP_FORWARD 8 (to 258)
+242 LOAD_CONST 0 (None)
+244 STORE_DEREF 10 (self)
+246 DELETE_DEREF 10 (self)
+248 RERAISE 1
+
+250 RERAISE 0
+252 COPY 3
+254 POP_EXCEPT
+256 RERAISE 1
+
+258 NOP
+
+260 LOAD_FAST 4 (cred_path)
+262 POP_JUMP_FORWARD_IF_FALSE 21 (to 274)
+
+264 LOAD_DEREF 0 (self)
+266 LOAD_METHOD 19 (_save_gmail_cred_path_to_temp)
+268 LOAD_FAST 4 (cred_path)
+270 CALL 1
+272 POP_TOP
+274 JUMP_FORWARD 16 (to 298)
+276 PUSH_EXC_INFO
+
+278 LOAD_GLOBAL 36 (Exception)
+280 CHECK_EXC_MATCH
+282 POP_JUMP_FORWARD_IF_FALSE 3 (to 290)
+284 POP_TOP
+
+286 POP_EXCEPT
+288 JUMP_FORWARD 4 (to 298)
+
+290 RERAISE 0
+292 COPY 3
+294 POP_EXCEPT
+296 RERAISE 1
+
+298 LOAD_FAST 7 (saved_ok)
+300 POP_JUMP_FORWARD_IF_FALSE 59 (to 340)
+
+302 LOAD_DEREF 0 (self)
+304 LOAD_ATTR 1 (root)
+306 LOAD_METHOD 2 (after)
+308 LOAD_CONST 1 (0)
+310 LOAD_CLOSURE 0 (self)
+312 BUILD_TUPLE 1
+314 LOAD_CONST 13 (code object <lambda>)
+316 MAKE_FUNCTION 8 (closure)
+318 CALL 2
+320 POP_TOP
+
+322 LOAD_DEREF 0 (self)
+324 LOAD_ATTR 1 (root)
+326 LOAD_METHOD 2 (after)
+328 LOAD_CONST 1 (0)
+330 LOAD_CONST 14 (code object <lambda>)
+332 MAKE_FUNCTION 0 (No arguments)
+334 CALL 2
+336 POP_TOP
+338 JUMP_FORWARD 28 (to 356)
+
+340 LOAD_DEREF 0 (self)
+342 LOAD_ATTR 1 (root)
+344 LOAD_METHOD 2 (after)
+346 LOAD_CONST 1 (0)
+348 LOAD_CONST 15 (code object <lambda>)
+350 MAKE_FUNCTION 0 (No arguments)
+352 CALL 2
+354 POP_TOP
+
+356 LOAD_DEREF 0 (self)
+358 LOAD_ATTR 1 (root)
+360 LOAD_METHOD 2 (after)
+362 LOAD_CONST 1 (0)
+364 LOAD_DEREF 0 (self)
+366 LOAD_ATTR 20 (update_gmail_status_label)
+368 CALL 2
+370 POP_TOP
+372 LOAD_CONST 0 (None)
+374 RETURN_VALUE
+376 PUSH_EXC_INFO
+
+378 LOAD_GLOBAL 36 (Exception)
+380 CHECK_EXC_MATCH
+382 POP_JUMP_FORWARD_IF_FALSE 72 (to 448)
+384 STORE_DEREF 10 (self)
+
+386 LOAD_DEREF 0 (self)
+388 LOAD_ATTR 1 (root)
+390 LOAD_METHOD 2 (after)
+392 LOAD_CONST 1 (0)
+394 LOAD_CLOSURE 10 (self)
+396 LOAD_CLOSURE 0 (self)
+398 BUILD_TUPLE 2
+400 LOAD_CONST 16 (code object <lambda>)
+402 MAKE_FUNCTION 8 (closure)
+404 CALL 2
+406 POP_TOP
+
+408 LOAD_DEREF 0 (self)
+410 LOAD_ATTR 1 (root)
+412 LOAD_METHOD 2 (after)
+414 LOAD_CONST 1 (0)
+416 LOAD_CLOSURE 10 (self)
+418 BUILD_TUPLE 1
+420 LOAD_CONST 17 (code object <lambda>)
+422 MAKE_FUNCTION 8 (closure)
+424 CALL 2
+426 POP_TOP
+428 POP_EXCEPT
+430 LOAD_CONST 0 (None)
+432 STORE_DEREF 10 (self)
+434 DELETE_DEREF 10 (self)
+436 LOAD_CONST 0 (None)
+438 RETURN_VALUE
+440 LOAD_CONST 0 (None)
+442 STORE_DEREF 10 (self)
+444 DELETE_DEREF 10 (self)
+446 RERAISE 1
+
+448 RERAISE 0
+450 COPY 3
+452 POP_EXCEPT
+454 RERAISE 1
+
+
+0 LOAD_GLOBAL 1 (NULL + messagebox)
+2 LOAD_ATTR 1 (showwarning)
+4 LOAD_CONST 1 ("Gmail")
+6 LOAD_CONST 2 ("Silakan klik 'Get Auth URL' terlebih dahulu.")
+8 CALL 2
+10 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("⚠️ Could not save token: ")
+8 LOAD_DEREF 0 (e)
+10 FORMAT_VALUE 0
+12 BUILD_STRING 2
+14 CALL 1
+16 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("✅ Gmail authenticated (manual) and token stored.")
+8 CALL 1
+10 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + messagebox)
+2 LOAD_ATTR 1 (showinfo)
+4 LOAD_CONST 1 ("Gmail")
+6 LOAD_CONST 2 ("Authentication berhasil. Token disimpan untuk run berikutnya.")
+8 CALL 2
+10 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + messagebox)
+2 LOAD_ATTR 1 (showwarning)
+4 LOAD_CONST 1 ("Gmail")
+6 LOAD_CONST 2 ("Authentication berhasil, tetapi token tidak dapat disimpan. Coba ulangi atau jalankan proses 'Authenticate' (bukan manual code) agar penyimpanan otomatis oleh service.")
+8 CALL 2
+10 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("🛑 Complete Gmail auth error: ")
+8 LOAD_DEREF 0 (e)
+10 FORMAT_VALUE 0
+12 BUILD_STRING 2
+14 CALL 1
+16 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_GLOBAL 1 (NULL + messagebox)
+4 LOAD_ATTR 1 (showerror)
+6 LOAD_CONST 1 ("Gmail")
+8 LOAD_CONST 2 ("Authentication gagal:\n")
+10 LOAD_DEREF 0 (e)
+12 FORMAT_VALUE 0
+14 BUILD_STRING 2
+16 CALL 2
+18 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (gmail_credentials_path_var)
+4 LOAD_METHOD 1 (get)
+6 CALL 0
+8 LOAD_METHOD 2 (strip)
+10 CALL 0
+12 STORE_FAST 1 (cred_path)
+
+14 LOAD_FAST 1 (cred_path)
+16 POP_JUMP_FORWARD_IF_TRUE 23 (to 34)
+
+18 LOAD_GLOBAL 7 (NULL + messagebox)
+20 LOAD_ATTR 4 (showwarning)
+22 LOAD_CONST 1 ("Gmail")
+24 LOAD_CONST 2 ("Silakan pilih credentials.json terlebih dahulu.")
+26 CALL 2
+28 POP_TOP
+
+30 LOAD_CONST 3 (None)
+32 RETURN_VALUE
+
+34 LOAD_FAST 0 (self)
+36 LOAD_METHOD 5 (log_message)
+38 LOAD_CONST 4 ("⏳ Starting Gmail OAuth authentication...")
+40 CALL 1
+42 POP_TOP
+
+44 LOAD_GLOBAL 13 (NULL + threading)
+46 LOAD_ATTR 7 (Thread)
+48 LOAD_FAST 0 (self)
+50 LOAD_ATTR 8 (authenticate_gmail)
+52 LOAD_FAST 1 (cred_path)
+54 BUILD_TUPLE 1
+56 LOAD_CONST 5 (True)
+58 KW_NAMES 6 (('target', 'args', 'daemon'))
+60 CALL 3
+62 STORE_FAST 2 (t)
+
+64 LOAD_FAST 2 (t)
+66 LOAD_METHOD 9 (start)
+68 CALL 0
+70 POP_TOP
+72 LOAD_CONST 3 (None)
+74 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_CONST 1 (0)
+4 LOAD_CONST 2 (('GmailService',))
+6 IMPORT_NAME 0 (services.gmail_service)
+8 IMPORT_FROM 1 (GmailService)
+10 STORE_FAST 2 (GmailService)
+12 POP_TOP
+
+14 PUSH_NULL
+16 LOAD_FAST 2 (GmailService)
+18 LOAD_FAST 1 (cred_path)
+20 KW_NAMES 3 (('credentials_path',))
+22 CALL 1
+24 STORE_FAST 3 (svc)
+
+26 LOAD_FAST 3 (svc)
+28 LOAD_METHOD 2 (get_service)
+30 CALL 0
+32 STORE_FAST 4 (service)
+
+34 LOAD_FAST 4 (service)
+36 LOAD_METHOD 3 (users)
+38 CALL 0
+40 LOAD_METHOD 4 (labels)
+42 CALL 0
+44 LOAD_METHOD 5 (list)
+46 LOAD_CONST 4 ("me")
+48 KW_NAMES 5 (('userId',))
+50 CALL 1
+52 LOAD_METHOD 6 (execute)
+54 CALL 0
+56 STORE_FAST 5 (_)
+
+58 NOP
+
+60 LOAD_FAST 1 (cred_path)
+62 POP_JUMP_FORWARD_IF_FALSE 21 (to 74)
+
+64 LOAD_DEREF 0 (self)
+66 LOAD_METHOD 7 (_save_gmail_cred_path_to_temp)
+68 LOAD_FAST 1 (cred_path)
+70 CALL 1
+72 POP_TOP
+74 JUMP_FORWARD 16 (to 98)
+76 PUSH_EXC_INFO
+
+78 LOAD_GLOBAL 16 (Exception)
+80 CHECK_EXC_MATCH
+82 POP_JUMP_FORWARD_IF_FALSE 3 (to 90)
+84 POP_TOP
+
+86 POP_EXCEPT
+88 JUMP_FORWARD 4 (to 98)
+
+90 RERAISE 0
+92 COPY 3
+94 POP_EXCEPT
+96 RERAISE 1
+
+98 LOAD_DEREF 0 (self)
+100 LOAD_ATTR 9 (root)
+102 LOAD_METHOD 10 (after)
+104 LOAD_CONST 1 (0)
+106 LOAD_CLOSURE 0 (self)
+108 BUILD_TUPLE 1
+110 LOAD_CONST 6 (code object <lambda>)
+112 MAKE_FUNCTION 8 (closure)
+114 CALL 2
+116 POP_TOP
+
+118 LOAD_DEREF 0 (self)
+120 LOAD_ATTR 9 (root)
+122 LOAD_METHOD 10 (after)
+124 LOAD_CONST 1 (0)
+126 LOAD_CONST 7 (code object <lambda>)
+128 MAKE_FUNCTION 0 (No arguments)
+130 CALL 2
+132 POP_TOP
+
+134 LOAD_DEREF 0 (self)
+136 LOAD_ATTR 9 (root)
+138 LOAD_METHOD 10 (after)
+140 LOAD_CONST 1 (0)
+142 LOAD_DEREF 0 (self)
+144 LOAD_ATTR 11 (update_gmail_status_label)
+146 CALL 2
+148 POP_TOP
+150 LOAD_CONST 0 (None)
+152 RETURN_VALUE
+154 PUSH_EXC_INFO
+
+156 LOAD_GLOBAL 16 (Exception)
+158 CHECK_EXC_MATCH
+160 POP_JUMP_FORWARD_IF_FALSE 72 (to 226)
+162 STORE_DEREF 6 (self)
+
+164 LOAD_DEREF 0 (self)
+166 LOAD_ATTR 9 (root)
+168 LOAD_METHOD 10 (after)
+170 LOAD_CONST 1 (0)
+172 LOAD_CLOSURE 6 (self)
+174 LOAD_CLOSURE 0 (self)
+176 BUILD_TUPLE 2
+178 LOAD_CONST 8 (code object <lambda>)
+180 MAKE_FUNCTION 8 (closure)
+182 CALL 2
+184 POP_TOP
+
+186 LOAD_DEREF 0 (self)
+188 LOAD_ATTR 9 (root)
+190 LOAD_METHOD 10 (after)
+192 LOAD_CONST 1 (0)
+194 LOAD_CLOSURE 6 (self)
+196 BUILD_TUPLE 1
+198 LOAD_CONST 9 (code object <lambda>)
+200 MAKE_FUNCTION 8 (closure)
+202 CALL 2
+204 POP_TOP
+206 POP_EXCEPT
+208 LOAD_CONST 0 (None)
+210 STORE_DEREF 6 (self)
+212 DELETE_DEREF 6 (self)
+214 LOAD_CONST 0 (None)
+216 RETURN_VALUE
+218 LOAD_CONST 0 (None)
+220 STORE_DEREF 6 (self)
+222 DELETE_DEREF 6 (self)
+224 RERAISE 1
+
+226 RERAISE 0
+228 COPY 3
+230 POP_EXCEPT
+232 RERAISE 1
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_DEREF 0 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("✅ Gmail authenticated and token stored.")
+8 CALL 1
+10 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + messagebox)
+2 LOAD_ATTR 1 (showinfo)
+4 LOAD_CONST 1 ("Gmail")
+6 LOAD_CONST 2 ("Authentication berhasil. Token disimpan untuk run berikutnya.")
+8 CALL 2
+10 RETURN_VALUE
+
+0 COPY_FREE_VARS 2
+
+2 LOAD_DEREF 1 (self)
+4 LOAD_METHOD 0 (log_message)
+6 LOAD_CONST 1 ("🛑 Gmail authentication error: ")
+8 LOAD_DEREF 0 (e)
+10 FORMAT_VALUE 0
+12 BUILD_STRING 2
+14 CALL 1
+16 RETURN_VALUE
+
+0 COPY_FREE_VARS 1
+
+2 LOAD_GLOBAL 1 (NULL + messagebox)
+4 LOAD_ATTR 1 (showerror)
+6 LOAD_CONST 1 ("Gmail")
+8 LOAD_CONST 2 ("Authentication gagal:\n")
+10 LOAD_DEREF 0 (e)
+12 FORMAT_VALUE 0
+14 BUILD_STRING 2
+16 CALL 2
+18 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_GLOBAL 3 (NULL + tempfile)
+4 LOAD_ATTR 2 (gettempdir)
+6 CALL 0
+8 CALL 1
+10 STORE_FAST 1 (tmpdir)
+
+12 LOAD_FAST 1 (tmpdir)
+14 LOAD_CONST 1 ("autocloudskill_firefox_api_key.txt")
+16 BINARY_OP 11
+18 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_relay_key_temp_path)
+4 CALL 0
+6 STORE_FAST 2 (p)
+
+8 LOAD_FAST 2 (p)
+10 LOAD_METHOD 1 (write_text)
+12 LOAD_FAST 1 (api_key)
+14 LOAD_METHOD 2 (strip)
+16 CALL 0
+18 LOAD_CONST 1 ("utf-8")
+20 KW_NAMES 2 (('encoding',))
+22 CALL 2
+24 POP_TOP
+26 LOAD_CONST 0 (None)
+28 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_relay_key_temp_path)
+4 CALL 0
+6 STORE_FAST 1 (p)
+
+8 LOAD_FAST 1 (p)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_FALSE 40 (to 32)
+
+16 LOAD_FAST 1 (p)
+18 LOAD_METHOD 2 (read_text)
+20 LOAD_CONST 1 ("utf-8")
+22 KW_NAMES 2 (('encoding',))
+24 CALL 1
+26 LOAD_METHOD 3 (strip)
+28 CALL 0
+30 RETURN_VALUE
+
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_GLOBAL 3 (NULL + tempfile)
+4 LOAD_ATTR 2 (gettempdir)
+6 CALL 0
+8 CALL 1
+10 STORE_FAST 1 (tmpdir)
+
+12 LOAD_FAST 1 (tmpdir)
+14 LOAD_CONST 1 ("autocloudskill_gmail_credentials_path.txt")
+16 BINARY_OP 11
+18 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_gmail_cred_temp_path)
+4 CALL 0
+6 STORE_FAST 2 (p)
+
+8 LOAD_FAST 2 (p)
+10 LOAD_METHOD 1 (write_text)
+12 LOAD_FAST 1 (path_str)
+14 LOAD_METHOD 2 (strip)
+16 CALL 0
+18 LOAD_CONST 1 ("utf-8")
+20 KW_NAMES 2 (('encoding',))
+22 CALL 2
+24 POP_TOP
+26 LOAD_CONST 0 (None)
+28 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_GLOBAL 3 (NULL + tempfile)
+4 LOAD_ATTR 2 (gettempdir)
+6 CALL 0
+8 CALL 1
+10 STORE_FAST 1 (tmpdir)
+
+12 LOAD_FAST 1 (tmpdir)
+14 LOAD_CONST 1 ("autocloudskill_lab_url.txt")
+16 BINARY_OP 11
+18 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_METHOD 0 (_lab_url_temp_path)
+6 CALL 0
+8 STORE_FAST 2 (p)
+
+10 LOAD_FAST 2 (p)
+12 LOAD_METHOD 1 (write_text)
+14 LOAD_FAST 1 (url)
+16 JUMP_IF_TRUE_OR_POP 1 (to 20)
+18 LOAD_CONST 1 ("")
+20 LOAD_METHOD 2 (strip)
+22 CALL 0
+24 LOAD_CONST 2 ("utf-8")
+26 KW_NAMES 3 (('encoding',))
+28 CALL 2
+30 POP_TOP
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+36 PUSH_EXC_INFO
+
+38 LOAD_GLOBAL 6 (Exception)
+40 CHECK_EXC_MATCH
+42 POP_JUMP_FORWARD_IF_FALSE 4 (to 52)
+44 POP_TOP
+
+46 POP_EXCEPT
+48 LOAD_CONST 0 (None)
+50 RETURN_VALUE
+
+52 RERAISE 0
+54 COPY 3
+56 POP_EXCEPT
+58 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_lab_url_temp_path)
+4 CALL 0
+6 STORE_FAST 1 (p)
+
+8 LOAD_FAST 1 (p)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_FALSE 40 (to 32)
+
+16 LOAD_FAST 1 (p)
+18 LOAD_METHOD 2 (read_text)
+20 LOAD_CONST 1 ("utf-8")
+22 KW_NAMES 2 (('encoding',))
+24 CALL 1
+26 LOAD_METHOD 3 (strip)
+28 CALL 0
+30 RETURN_VALUE
+
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_GLOBAL 3 (NULL + tempfile)
+4 LOAD_ATTR 2 (gettempdir)
+6 CALL 0
+8 CALL 1
+10 STORE_FAST 1 (tmpdir)
+
+12 LOAD_FAST 1 (tmpdir)
+14 LOAD_CONST 1 ("autocloudskill_auto_start_lab.txt")
+16 BINARY_OP 11
+18 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_METHOD 0 (_auto_start_lab_temp_path)
+6 CALL 0
+8 STORE_FAST 2 (p)
+
+10 LOAD_FAST 2 (p)
+12 LOAD_METHOD 1 (write_text)
+14 LOAD_FAST 1 (value)
+16 POP_JUMP_FORWARD_IF_FALSE 2 (to 22)
+18 LOAD_CONST 1 ("1")
+20 JUMP_FORWARD 1 (to 24)
+22 LOAD_CONST 2 ("0")
+24 LOAD_CONST 3 ("utf-8")
+26 KW_NAMES 4 (('encoding',))
+28 CALL 2
+30 POP_TOP
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+36 PUSH_EXC_INFO
+
+38 LOAD_GLOBAL 4 (Exception)
+40 CHECK_EXC_MATCH
+42 POP_JUMP_FORWARD_IF_FALSE 4 (to 52)
+44 POP_TOP
+
+46 POP_EXCEPT
+48 LOAD_CONST 0 (None)
+50 RETURN_VALUE
+
+52 RERAISE 0
+54 COPY 3
+56 POP_EXCEPT
+58 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_auto_start_lab_temp_path)
+4 CALL 0
+6 STORE_FAST 1 (p)
+
+8 LOAD_FAST 1 (p)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_FALSE 64 (to 48)
+
+16 LOAD_FAST 1 (p)
+18 LOAD_METHOD 2 (read_text)
+20 LOAD_CONST 1 ("utf-8")
+22 KW_NAMES 2 (('encoding',))
+24 CALL 1
+26 LOAD_METHOD 3 (strip)
+28 CALL 0
+30 JUMP_IF_TRUE_OR_POP 1 (to 34)
+32 LOAD_CONST 3 ("0")
+34 LOAD_METHOD 4 (lower)
+36 CALL 0
+38 STORE_FAST 2 (val)
+
+40 LOAD_FAST 2 (val)
+42 LOAD_CONST 4 (('1', 'true', 'yes', 'on'))
+44 CONTAINS_OP 0 (in)
+46 RETURN_VALUE
+
+48 LOAD_CONST 0 (None)
+50 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + Path)
+2 LOAD_GLOBAL 3 (NULL + tempfile)
+4 LOAD_ATTR 2 (gettempdir)
+6 CALL 0
+8 CALL 1
+10 STORE_FAST 1 (tmpdir)
+
+12 LOAD_FAST 1 (tmpdir)
+14 LOAD_CONST 1 ("autocloudskill_recaptcha_extension.txt")
+16 BINARY_OP 11
+18 RETURN_VALUE
+
+
+0 NOP
+
+2 LOAD_FAST 0 (self)
+4 LOAD_METHOD 0 (_recaptcha_ext_temp_path)
+6 CALL 0
+8 STORE_FAST 2 (p)
+
+10 LOAD_FAST 2 (p)
+12 LOAD_METHOD 1 (write_text)
+14 LOAD_FAST 1 (value)
+16 POP_JUMP_FORWARD_IF_FALSE 2 (to 22)
+18 LOAD_CONST 1 ("1")
+20 JUMP_FORWARD 1 (to 24)
+22 LOAD_CONST 2 ("0")
+24 LOAD_CONST 3 ("utf-8")
+26 KW_NAMES 4 (('encoding',))
+28 CALL 2
+30 POP_TOP
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+36 PUSH_EXC_INFO
+
+38 LOAD_GLOBAL 4 (Exception)
+40 CHECK_EXC_MATCH
+42 POP_JUMP_FORWARD_IF_FALSE 4 (to 52)
+44 POP_TOP
+
+46 POP_EXCEPT
+48 LOAD_CONST 0 (None)
+50 RETURN_VALUE
+
+52 RERAISE 0
+54 COPY 3
+56 POP_EXCEPT
+58 RERAISE 1
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_recaptcha_ext_temp_path)
+4 CALL 0
+6 STORE_FAST 1 (p)
+
+8 LOAD_FAST 1 (p)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_FALSE 64 (to 48)
+
+16 LOAD_FAST 1 (p)
+18 LOAD_METHOD 2 (read_text)
+20 LOAD_CONST 1 ("utf-8")
+22 KW_NAMES 2 (('encoding',))
+24 CALL 1
+26 LOAD_METHOD 3 (strip)
+28 CALL 0
+30 JUMP_IF_TRUE_OR_POP 1 (to 34)
+32 LOAD_CONST 3 ("0")
+34 LOAD_METHOD 4 (lower)
+36 CALL 0
+38 STORE_FAST 2 (val)
+
+40 LOAD_FAST 2 (val)
+42 LOAD_CONST 4 (('1', 'true', 'yes', 'on'))
+44 CONTAINS_OP 0 (in)
+46 RETURN_VALUE
+
+48 LOAD_CONST 0 (None)
+50 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_METHOD 0 (_gmail_cred_temp_path)
+4 CALL 0
+6 STORE_FAST 1 (p)
+
+8 LOAD_FAST 1 (p)
+10 LOAD_METHOD 1 (exists)
+12 CALL 0
+14 POP_JUMP_FORWARD_IF_FALSE 40 (to 32)
+
+16 LOAD_FAST 1 (p)
+18 LOAD_METHOD 2 (read_text)
+20 LOAD_CONST 1 ("utf-8")
+22 KW_NAMES 2 (('encoding',))
+24 CALL 1
+26 LOAD_METHOD 3 (strip)
+28 CALL 0
+30 RETURN_VALUE
+
+32 LOAD_CONST 0 (None)
+34 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (is_running)
+4 POP_JUMP_FORWARD_IF_FALSE 82 (to 52)
+
+6 LOAD_GLOBAL 3 (NULL + messagebox)
+8 LOAD_ATTR 2 (askokcancel)
+10 LOAD_CONST 1 ("Quit")
+12 LOAD_CONST 2 ("Automation is running. Are you sure you want to quit?")
+14 CALL 2
+16 POP_JUMP_FORWARD_IF_FALSE 59 (to 48)
+
+18 LOAD_FAST 0 (self)
+20 LOAD_METHOD 3 (stop_automation)
+22 CALL 0
+24 POP_TOP
+
+26 LOAD_FAST 0 (self)
+28 LOAD_ATTR 4 (root)
+30 LOAD_METHOD 5 (after)
+32 LOAD_CONST 3 (1000)
+34 LOAD_FAST 0 (self)
+36 LOAD_ATTR 4 (root)
+38 LOAD_ATTR 6 (destroy)
+40 CALL 2
+42 POP_TOP
+44 LOAD_CONST 5 (None)
+46 RETURN_VALUE
+
+48 LOAD_CONST 5 (None)
+50 RETURN_VALUE
+
+52 LOAD_GLOBAL 15 (NULL + log_user_action)
+54 LOAD_FAST 0 (self)
+56 LOAD_ATTR 8 (logger)
+58 LOAD_CONST 4 ("APPLICATION_EXIT")
+60 CALL 2
+62 POP_TOP
+
+64 LOAD_FAST 0 (self)
+66 LOAD_ATTR 4 (root)
+68 LOAD_METHOD 6 (destroy)
+70 CALL 0
+72 POP_TOP
+74 LOAD_CONST 5 (None)
+76 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (self)
+2 LOAD_ATTR 0 (root)
+4 LOAD_METHOD 1 (protocol)
+6 LOAD_CONST 1 ("WM_DELETE_WINDOW")
+8 LOAD_FAST 0 (self)
+10 LOAD_ATTR 2 (on_closing)
+12 CALL 2
+14 POP_TOP
+
+16 LOAD_FAST 0 (self)
+18 LOAD_ATTR 0 (root)
+20 LOAD_METHOD 3 (mainloop)
+22 CALL 0
+24 POP_TOP
+26 LOAD_CONST 2 (None)
+28 RETURN_VALUE

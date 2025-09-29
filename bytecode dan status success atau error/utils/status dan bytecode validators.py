@@ -1,0 +1,484 @@
+Python Code - Decompilation Success
+
+0 LOAD_CONST 0 ("\nUtility untuk validasi data\n")
+2 STORE_NAME 0 (__doc__)
+
+4 LOAD_CONST 1 (0)
+6 LOAD_CONST 2 (None)
+8 IMPORT_NAME 1 (re)
+10 STORE_NAME 1 (re)
+
+12 LOAD_CONST 1 (0)
+14 LOAD_CONST 3 (('Dict', 'List', 'Optional'))
+16 IMPORT_NAME 2 (typing)
+18 IMPORT_FROM 3 (Dict)
+20 STORE_NAME 3 (Dict)
+22 IMPORT_FROM 4 (List)
+24 STORE_NAME 4 (List)
+26 IMPORT_FROM 5 (Optional)
+28 STORE_NAME 5 (Optional)
+30 POP_TOP
+
+32 LOAD_CONST 4 ("email")
+34 LOAD_NAME 6 (str)
+36 LOAD_CONST 5 ("return")
+38 LOAD_NAME 7 (bool)
+40 BUILD_TUPLE 4
+42 LOAD_CONST 6 (code object validate_email)
+44 MAKE_FUNCTION 4 (annotation)
+46 STORE_NAME 8 (validate_email)
+
+48 LOAD_CONST 7 ("password")
+50 LOAD_NAME 6 (str)
+52 LOAD_CONST 5 ("return")
+54 LOAD_NAME 3 (Dict)
+56 LOAD_NAME 6 (str)
+58 LOAD_NAME 7 (bool)
+60 BUILD_TUPLE 2
+62 BINARY_SUBSCR
+64 BUILD_TUPLE 4
+66 LOAD_CONST 8 (code object validate_password_strength)
+68 MAKE_FUNCTION 4 (annotation)
+70 STORE_NAME 9 (validate_password_strength)
+
+72 LOAD_CONST 7 ("password")
+74 LOAD_NAME 6 (str)
+76 LOAD_CONST 5 ("return")
+78 LOAD_NAME 7 (bool)
+80 BUILD_TUPLE 4
+82 LOAD_CONST 9 (code object is_password_strong)
+84 MAKE_FUNCTION 4 (annotation)
+86 STORE_NAME 10 (is_password_strong)
+
+88 LOAD_CONST 10 ("name")
+90 LOAD_NAME 6 (str)
+92 LOAD_CONST 5 ("return")
+94 LOAD_NAME 7 (bool)
+96 BUILD_TUPLE 4
+98 LOAD_CONST 11 (code object validate_name)
+100 MAKE_FUNCTION 4 (annotation)
+102 STORE_NAME 11 (validate_name)
+
+104 LOAD_CONST 12 ("company")
+106 LOAD_NAME 6 (str)
+108 LOAD_CONST 5 ("return")
+110 LOAD_NAME 7 (bool)
+112 BUILD_TUPLE 4
+114 LOAD_CONST 13 (code object validate_company_name)
+116 MAKE_FUNCTION 4 (annotation)
+118 STORE_NAME 12 (validate_company_name)
+
+120 LOAD_CONST 34 ((None,))
+122 LOAD_CONST 14 ("text")
+124 LOAD_NAME 6 (str)
+126 LOAD_CONST 15 ("max_length")
+128 LOAD_NAME 13 (int)
+130 LOAD_CONST 5 ("return")
+132 LOAD_NAME 6 (str)
+134 BUILD_TUPLE 6
+136 LOAD_CONST 16 (code object sanitize_input)
+138 MAKE_FUNCTION 5 (default, annotation)
+140 STORE_NAME 14 (sanitize_input)
+
+142 LOAD_CONST 17 ("user_data")
+144 LOAD_NAME 3 (Dict)
+146 LOAD_CONST 5 ("return")
+148 LOAD_NAME 4 (List)
+150 LOAD_NAME 6 (str)
+152 BINARY_SUBSCR
+154 BUILD_TUPLE 4
+156 LOAD_CONST 18 (code object validate_user_data)
+158 MAKE_FUNCTION 4 (annotation)
+160 STORE_NAME 15 (validate_user_data)
+
+162 LOAD_CONST 19 ("phone")
+164 LOAD_NAME 6 (str)
+166 LOAD_CONST 5 ("return")
+168 LOAD_NAME 6 (str)
+170 BUILD_TUPLE 4
+172 LOAD_CONST 20 (code object format_phone_number)
+174 MAKE_FUNCTION 4 (annotation)
+176 STORE_NAME 16 (format_phone_number)
+
+178 LOAD_NAME 17 (__name__)
+180 LOAD_CONST 21 ("__main__")
+182 COMPARE_OP 2 (==)
+184 POP_JUMP_FORWARD_IF_FALSE 98 (to 310)
+
+186 LOAD_CONST 22 ("John")
+
+188 LOAD_CONST 23 ("Doe")
+
+190 LOAD_CONST 24 ("john.doe@example.com")
+
+192 LOAD_CONST 25 ("SecurePass123!")
+
+194 LOAD_CONST 26 ("TechCorp Ltd")
+196 LOAD_CONST 27 (('first_name', 'last_name', 'email', 'password', 'company'))
+198 BUILD_CONST_KEY_MAP 5
+200 STORE_NAME 18 (test_data)
+
+202 PUSH_NULL
+204 LOAD_NAME 15 (validate_user_data)
+206 LOAD_NAME 18 (test_data)
+208 CALL 1
+210 STORE_NAME 19 (errors)
+
+212 LOAD_NAME 19 (errors)
+214 POP_JUMP_FORWARD_IF_FALSE 31 (to 254)
+
+216 PUSH_NULL
+218 LOAD_NAME 20 (print)
+220 LOAD_CONST 28 ("Validation errors:")
+222 CALL 1
+224 POP_TOP
+
+226 LOAD_NAME 19 (errors)
+228 GET_ITER
+230 FOR_ITER 16 (to 252)
+232 STORE_NAME 21 (error)
+
+234 PUSH_NULL
+236 LOAD_NAME 20 (print)
+238 LOAD_CONST 29 ("  - ")
+240 LOAD_NAME 21 (error)
+242 FORMAT_VALUE 0
+244 BUILD_STRING 2
+246 CALL 1
+248 POP_TOP
+250 JUMP_BACKWARD 17 (to 230)
+
+252 JUMP_FORWARD 11 (to 264)
+
+254 PUSH_NULL
+256 LOAD_NAME 20 (print)
+258 LOAD_CONST 30 ("All validations passed!")
+260 CALL 1
+262 POP_TOP
+
+264 BUILD_LIST 0
+266 LOAD_CONST 31 (('weak', 'StrongPass123!', 'noUpper123!', 'NOLOWER123!'))
+268 LIST_EXTEND 1
+270 STORE_NAME 22 (password_tests)
+
+272 LOAD_NAME 22 (password_tests)
+274 GET_ITER
+276 FOR_ITER 30 (to 314)
+278 STORE_NAME 23 (pwd)
+
+280 PUSH_NULL
+282 LOAD_NAME 20 (print)
+284 LOAD_CONST 32 ("Password '")
+286 LOAD_NAME 23 (pwd)
+288 FORMAT_VALUE 0
+290 LOAD_CONST 33 ("' is strong: ")
+292 PUSH_NULL
+294 LOAD_NAME 10 (is_password_strong)
+296 LOAD_NAME 23 (pwd)
+298 CALL 1
+300 FORMAT_VALUE 0
+302 BUILD_STRING 4
+304 CALL 1
+306 POP_TOP
+308 JUMP_BACKWARD 29 (to 276)
+
+310 LOAD_CONST 2 (None)
+312 RETURN_VALUE
+
+314 LOAD_CONST 2 (None)
+316 RETURN_VALUE
+
+
+0 LOAD_CONST 1 ("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+2 STORE_FAST 1 (pattern)
+
+4 LOAD_GLOBAL 1 (NULL + bool)
+6 LOAD_GLOBAL 3 (NULL + re)
+8 LOAD_ATTR 2 (match)
+10 LOAD_FAST 1 (pattern)
+12 LOAD_FAST 0 (email)
+14 CALL 2
+16 CALL 1
+18 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + len)
+2 LOAD_FAST 0 (password)
+4 CALL 1
+6 LOAD_CONST 1 (8)
+8 COMPARE_OP 5 (>=)
+
+10 LOAD_GLOBAL 3 (NULL + bool)
+12 LOAD_GLOBAL 5 (NULL + re)
+14 LOAD_ATTR 3 (search)
+16 LOAD_CONST 2 ("[A-Z]")
+18 LOAD_FAST 0 (password)
+20 CALL 2
+22 CALL 1
+
+24 LOAD_GLOBAL 3 (NULL + bool)
+26 LOAD_GLOBAL 5 (NULL + re)
+28 LOAD_ATTR 3 (search)
+30 LOAD_CONST 3 ("[a-z]")
+32 LOAD_FAST 0 (password)
+34 CALL 2
+36 CALL 1
+
+38 LOAD_GLOBAL 3 (NULL + bool)
+40 LOAD_GLOBAL 5 (NULL + re)
+42 LOAD_ATTR 3 (search)
+44 LOAD_CONST 4 ("\\d")
+46 LOAD_FAST 0 (password)
+48 CALL 2
+50 CALL 1
+
+52 LOAD_GLOBAL 3 (NULL + bool)
+54 LOAD_GLOBAL 5 (NULL + re)
+56 LOAD_ATTR 3 (search)
+58 LOAD_CONST 5 ('[!@#$%^&*(),.?":{}|<>]')
+60 LOAD_FAST 0 (password)
+62 CALL 2
+64 CALL 1
+
+66 LOAD_CONST 6 (" ")
+68 LOAD_FAST 0 (password)
+70 CONTAINS_OP 1 (not in)
+
+72 LOAD_CONST 7 (('min_length', 'has_uppercase', 'has_lowercase', 'has_digit', 'has_special', 'no_spaces'))
+74 BUILD_CONST_KEY_MAP 6
+76 RETURN_VALUE
+
+
+0 LOAD_GLOBAL 1 (NULL + validate_password_strength)
+2 LOAD_FAST 0 (password)
+4 CALL 1
+6 STORE_FAST 1 (validations)
+
+8 LOAD_GLOBAL 3 (NULL + all)
+10 LOAD_FAST 1 (validations)
+12 LOAD_METHOD 2 (values)
+14 CALL 0
+16 CALL 1
+18 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (name)
+2 POP_JUMP_FORWARD_IF_FALSE 20 (to 12)
+4 LOAD_FAST 0 (name)
+6 LOAD_METHOD 0 (strip)
+8 CALL 0
+10 POP_JUMP_FORWARD_IF_TRUE 2 (to 16)
+
+12 LOAD_CONST 1 (False)
+14 RETURN_VALUE
+
+16 LOAD_CONST 2 ("^[a-zA-Z\\s\\-']+$")
+18 STORE_FAST 1 (pattern)
+
+20 LOAD_GLOBAL 3 (NULL + bool)
+22 LOAD_GLOBAL 5 (NULL + re)
+24 LOAD_ATTR 3 (match)
+26 LOAD_FAST 1 (pattern)
+28 LOAD_FAST 0 (name)
+30 LOAD_METHOD 0 (strip)
+32 CALL 0
+34 CALL 2
+36 CALL 1
+38 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (company)
+2 POP_JUMP_FORWARD_IF_FALSE 20 (to 12)
+4 LOAD_FAST 0 (company)
+6 LOAD_METHOD 0 (strip)
+8 CALL 0
+10 POP_JUMP_FORWARD_IF_TRUE 2 (to 16)
+
+12 LOAD_CONST 1 (False)
+14 RETURN_VALUE
+
+16 LOAD_CONST 2 ("^[a-zA-Z0-9\\s\\-&.,()]+$")
+18 STORE_FAST 1 (pattern)
+
+20 LOAD_GLOBAL 3 (NULL + bool)
+22 LOAD_GLOBAL 5 (NULL + re)
+24 LOAD_ATTR 3 (match)
+26 LOAD_FAST 1 (pattern)
+28 LOAD_FAST 0 (company)
+30 LOAD_METHOD 0 (strip)
+32 CALL 0
+34 CALL 2
+36 CALL 1
+38 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (text)
+2 POP_JUMP_FORWARD_IF_TRUE 2 (to 8)
+
+4 LOAD_CONST 1 ("")
+6 RETURN_VALUE
+
+8 LOAD_FAST 0 (text)
+10 LOAD_METHOD 0 (strip)
+12 CALL 0
+14 STORE_FAST 0 (text)
+
+16 LOAD_FAST 1 (max_length)
+18 POP_JUMP_FORWARD_IF_FALSE 29 (to 44)
+20 LOAD_GLOBAL 3 (NULL + len)
+22 LOAD_FAST 0 (text)
+24 CALL 1
+26 LOAD_FAST 1 (max_length)
+28 COMPARE_OP 4 (>)
+30 POP_JUMP_FORWARD_IF_FALSE 10 (to 44)
+
+32 LOAD_FAST 0 (text)
+34 LOAD_CONST 2 (None)
+36 LOAD_FAST 1 (max_length)
+38 BUILD_SLICE 2
+40 BINARY_SUBSCR
+42 STORE_FAST 0 (text)
+
+44 LOAD_FAST 0 (text)
+46 RETURN_VALUE
+
+
+0 BUILD_LIST 0
+2 STORE_FAST 1 (errors)
+
+4 LOAD_FAST 0 (user_data)
+6 LOAD_METHOD 0 (get)
+8 LOAD_CONST 1 ("first_name")
+10 LOAD_CONST 2 ("")
+12 CALL 2
+14 STORE_FAST 2 (first_name)
+
+16 LOAD_GLOBAL 3 (NULL + validate_name)
+18 LOAD_FAST 2 (first_name)
+20 CALL 1
+22 POP_JUMP_FORWARD_IF_TRUE 21 (to 34)
+
+24 LOAD_FAST 1 (errors)
+26 LOAD_METHOD 2 (append)
+28 LOAD_CONST 3 ("First name tidak valid")
+30 CALL 1
+32 POP_TOP
+
+34 LOAD_FAST 0 (user_data)
+36 LOAD_METHOD 0 (get)
+38 LOAD_CONST 4 ("last_name")
+40 LOAD_CONST 2 ("")
+42 CALL 2
+44 STORE_FAST 3 (last_name)
+
+46 LOAD_GLOBAL 3 (NULL + validate_name)
+48 LOAD_FAST 3 (last_name)
+50 CALL 1
+52 POP_JUMP_FORWARD_IF_TRUE 21 (to 64)
+
+54 LOAD_FAST 1 (errors)
+56 LOAD_METHOD 2 (append)
+58 LOAD_CONST 5 ("Last name tidak valid")
+60 CALL 1
+62 POP_TOP
+
+64 LOAD_FAST 0 (user_data)
+66 LOAD_METHOD 0 (get)
+68 LOAD_CONST 6 ("email")
+70 LOAD_CONST 2 ("")
+72 CALL 2
+74 STORE_FAST 4 (email)
+
+76 LOAD_GLOBAL 7 (NULL + validate_email)
+78 LOAD_FAST 4 (email)
+80 CALL 1
+82 POP_JUMP_FORWARD_IF_TRUE 21 (to 94)
+
+84 LOAD_FAST 1 (errors)
+86 LOAD_METHOD 2 (append)
+88 LOAD_CONST 7 ("Format email tidak valid")
+90 CALL 1
+92 POP_TOP
+
+94 LOAD_FAST 0 (user_data)
+96 LOAD_METHOD 0 (get)
+98 LOAD_CONST 8 ("password")
+100 LOAD_CONST 2 ("")
+102 CALL 2
+104 STORE_FAST 5 (password)
+
+106 LOAD_GLOBAL 9 (NULL + is_password_strong)
+108 LOAD_FAST 5 (password)
+110 CALL 1
+112 POP_JUMP_FORWARD_IF_TRUE 21 (to 124)
+
+114 LOAD_FAST 1 (errors)
+116 LOAD_METHOD 2 (append)
+118 LOAD_CONST 9 ("Password tidak memenuhi kriteria keamanan")
+120 CALL 1
+122 POP_TOP
+
+124 LOAD_FAST 0 (user_data)
+126 LOAD_METHOD 0 (get)
+128 LOAD_CONST 10 ("company")
+130 LOAD_CONST 2 ("")
+132 CALL 2
+134 STORE_FAST 6 (company)
+
+136 LOAD_FAST 6 (company)
+138 POP_JUMP_FORWARD_IF_FALSE 36 (to 158)
+140 LOAD_GLOBAL 11 (NULL + validate_company_name)
+142 LOAD_FAST 6 (company)
+144 CALL 1
+146 POP_JUMP_FORWARD_IF_TRUE 21 (to 158)
+
+148 LOAD_FAST 1 (errors)
+150 LOAD_METHOD 2 (append)
+152 LOAD_CONST 11 ("Nama company tidak valid")
+154 CALL 1
+156 POP_TOP
+
+158 LOAD_FAST 1 (errors)
+160 RETURN_VALUE
+
+
+0 LOAD_FAST 0 (phone)
+2 POP_JUMP_FORWARD_IF_TRUE 2 (to 8)
+
+4 LOAD_CONST 1 ("")
+6 RETURN_VALUE
+
+8 LOAD_GLOBAL 1 (NULL + re)
+10 LOAD_ATTR 1 (sub)
+12 LOAD_CONST 2 ("[^\\d+]")
+14 LOAD_CONST 1 ("")
+16 LOAD_FAST 0 (phone)
+18 CALL 3
+20 STORE_FAST 1 (cleaned)
+
+22 LOAD_FAST 1 (cleaned)
+24 LOAD_METHOD 2 (startswith)
+26 LOAD_CONST 3 ("+")
+28 CALL 1
+30 POP_JUMP_FORWARD_IF_FALSE 2 (to 36)
+
+32 LOAD_FAST 1 (cleaned)
+34 RETURN_VALUE
+
+36 LOAD_FAST 1 (cleaned)
+38 LOAD_METHOD 2 (startswith)
+40 LOAD_CONST 4 ("0")
+42 CALL 1
+44 POP_JUMP_FORWARD_IF_FALSE 13 (to 62)
+
+46 LOAD_CONST 5 ("+44")
+48 LOAD_FAST 1 (cleaned)
+50 LOAD_CONST 6 (1)
+52 LOAD_CONST 7 (None)
+54 BUILD_SLICE 2
+56 BINARY_SUBSCR
+58 BINARY_OP 0
+60 RETURN_VALUE
+
+62 LOAD_FAST 1 (cleaned)
+64 RETURN_VALUE
