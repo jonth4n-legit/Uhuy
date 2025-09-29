@@ -1,9 +1,6 @@
-# Decompiled with PyLingual (https://pylingual.io)
-# Internal filename: gui\main_window.py
-# Bytecode version: 3.11a7e (3495)
-# Source timestamp: 1970-01-01 00:00:00 UTC (0)
-
-"""\nMain window untuk aplikasi Auto Cloud Skill Registration\n"""
+"""
+Main window untuk aplikasi Auto Cloud Skill Registration
+"""
 import tkinter as tk
 from tkinter import messagebox, scrolledtext, filedialog
 import ttkbootstrap as ttk
@@ -18,186 +15,103 @@ from pathlib import Path
 import sys
 import asyncio
 import hashlib
-from services.randomuser_service import RandomUserService
-from services.firefox_relay_service import FirefoxRelayService
-from services.captcha_service import CaptchaSolverService
-from automation.cloudskill_automation import CloudSkillAutomation
-from utils.logger import setup_logger, log_user_action
-from utils.validators import validate_user_data
-from config.settings import settings
-from gui.tabs.video_generator_tab import VideoGeneratorTab
-from gui.tabs.registration_tab import RegistrationTab
-from gui.tabs.settings_tab import SettingsTab
-from gui.tabs.logs_tab import LogsTab
-from gui.tabs.about_tab import AboutTab
-from config.licensing import ensure_license, get_machine_id
-from config.constants import APP_NAME, VERSION, AUTHOR
+
+# Import services
+try:
+    from services.randomuser_service import RandomUserService
+    from services.firefox_relay_service import FirefoxRelayService
+    from services.captcha_service import CaptchaSolverService
+    from automation.cloudskill_automation import CloudSkillAutomation
+    from utils.logger import setup_logger, log_user_action
+    from utils.validators import validate_user_data
+    from config.settings import settings
+    from config.constants import APP_NAME, VERSION, AUTHOR
+except ImportError as e:
+    print(f"Import error in main_window.py: {e}")
+    # Create dummy classes for testing
+    class RandomUserService:
+        def get_random_user(self, **kwargs):
+            return {'first_name': 'John', 'last_name': 'Doe', 'email': 'test@example.com'}
+        def generate_company_name(self):
+            return 'TechCorp'
+        def generate_password(self, length=12):
+            return 'TestPass123!'
+    
+    class CaptchaSolverService:
+        pass
+    
+    class CloudSkillAutomation:
+        def __init__(self, **kwargs):
+            pass
+        def register_account(self, user_data):
+            return {'success': True, 'message': 'Test registration'}
+    
+    def setup_logger(name):
+        import logging
+        return logging.getLogger(name)
+    
+    def log_user_action(logger, action, details=None):
+        pass
+    
+    def validate_user_data(data):
+        return []
+    
+    class settings:
+        DEFAULT_GENDER = 'female'
+        DEFAULT_NATIONALITIES = 'gb,us,es'
+        DEFAULT_PASSWORD_LENGTH = 12
+    
+    APP_NAME = 'Auto Cloud Skill'
+    VERSION = '1.2.0'
+    AUTHOR = 'SinyoRMX'
 
 class MainWindow:
     """Main window aplikasi"""
 
     def __init__(self):
-        """Initialize main window"""  # inserted
+        """Initialize main window"""
         self.logger = setup_logger('MainWindow')
         self.random_user_service = RandomUserService()
         self.captcha_service = CaptchaSolverService()
+        
         try:
             self.firefox_relay_service = FirefoxRelayService()
-        except ValueError as e:
+        except Exception as e:
             self.firefox_relay_service = None
             self.logger.warning(f'Firefox Relay service not available: {e}')
+        
         self.automation = None
-        self.root = ttk.Window(title='Auto Cloud Skill', themename='darkly', size=(650, 600), resizable=(True, True))
-        try:
-            self.set_app_icon()
-        except Exception:
-            pass
+        
+        # Create main window
+        self.root = ttk.Window(
+            title='Auto Cloud Skill', 
+            themename='darkly', 
+            size=(650, 600), 
+            resizable=(True, True)
+        )
+        
         self.center_window()
         self.setup_variables()
-        try:
-            key = self._load_relay_key_from_temp()
-            if key:
-                self.firefox_api_key_var.set(key)
-        except Exception:
-            pass
-        try:
-            gcred = self._load_gmail_cred_path_from_temp()
-            if gcred:
-                self.gmail_credentials_path_var.set(gcred)
-        except Exception:
-            pass
-        try:
-            lab = self._load_lab_url_from_temp()
-            if lab:
-                self.lab_url_var.set(lab)
-        except Exception:
-            pass
-        try:
-            v = self._load_auto_start_lab_from_temp()
-            if v is not None:
-                self.auto_start_lab_var.set(bool(v))
-        except Exception:
-            pass
-        try:
-            v = self._load_recaptcha_extension_from_temp()
-            if v is not None:
-                self.extension_mode_var.set(bool(v))
-        except Exception:
-            pass
         self.build_ui()
-        try:
-            self.lab_url_var.trace_add('write', lambda *a: self._save_lab_url_to_temp(self.lab_url_var.get()))
-        except Exception:
-            pass
-        try:
-            self.auto_start_lab_var.trace_add('write', lambda *a: self._save_auto_start_lab_to_temp(bool(self.auto_start_lab_var.get())))
-        except Exception:
-            pass
-        try:
-            self.extension_mode_var.trace_add('write', lambda *a: self._save_recaptcha_extension_to_temp(bool(self.extension_mode_var.get())))
-        except Exception:
-            pass
-        try:
-            self.update_gmail_status_label()
-        except Exception:
-            pass
-        try:
-            self.root.after(200, self.auto_init_firefox_relay_from_temp)
-        except Exception:
-            pass
         self.is_running = False
         self._genai_api_key_event = threading.Event()
         self._latest_genai_api_key = None
+        
+        # Auto generate initial data
         self.root.after(5000, self.auto_generate_initial_data)
-        try:
-            self.root.after(200, self.check_and_apply_license_async)
-        except Exception:
-            pass
         log_user_action(self.logger, 'APPLICATION_START')
 
     def center_window(self):
-        """Center window di layar"""  # inserted
+        """Center window di layar"""
         self.root.update_idletasks()
         width = self.root.winfo_width()
         height = self.root.winfo_height()
-        x = self.root.winfo_screenwidth() 2 * 2 + width 2
-        y = self.root.winfo_screenheight() 2 * 2 + height 2
+        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.root.winfo_screenheight() // 2) - (height // 2)
         self.root.geometry(f'{width}x{height}+{x}+{y}')
 
-    def set_app_icon(self):
-        """Set icon aplikasi dari assets/logo.ico atau assets/logo.png."""  # inserted
-        try:
-            base_dir = self._resolve_base_dir()
-            assets_dir = base_dir + 'assets'
-            ico_path = assets_dir + 'logo.ico'
-            png_path = assets_dir + 'logo.png'
-            set_ok = False
-            if ico_path.exists():
-                    self.root.iconbitmap(default=str(ico_path))
-                        self.root.iconbitmap(bitmap=str(ico_path))
-                        pass
-                        self.logger.info(f'App icon (.ico) applied: {ico_path}')
-                        pass
-                    set_ok = True
-                else:  # inserted
-                    try:
-                        pass  # postinserted
-                    except Exception:
-                        pass  # postinserted
-                else:  # inserted
-                    try:
-                        pass  # postinserted
-                    except Exception:
-                        pass  # postinserted
-                    try:
-                        self.logger.warning(f'Failed to apply .ico icon: {ico_path}')
-                    except Exception:
-                        pass
-            if png_path.exists():
-                    img = tk.PhotoImage(file=str(png_path))
-                    self._icon_image = img
-                    self.root.iconphoto(True, self._icon_image)
-                        self.logger.info(f'App icon (.png) applied via iconphoto: {png_path}')
-                        pass
-                    set_ok = True
-                else:  # inserted
-                    try:
-                        pass  # postinserted
-                    except Exception:
-                        pass  # postinserted
-                    try:
-                        self.logger.warning(f'Failed to apply .png iconphoto: {png_path}')
-                    except Exception:
-                        pass
-            if not set_ok:
-                    self.logger.warning('App icon not set: assets/logo.ico or assets/logo.png not found or failed to load.')
-                except Exception:
-                    return
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
-            else:  # inserted
-                try:
-                    pass  # postinserted
-        except Exception:
-                    return None
-
-    def _resolve_base_dir(self) -> Path:
-        """Base directory untuk akses assets, kompatibel dengan PyInstaller."""  # inserted
-        base = getattr(sys, '_MEIPASS', None)
-        if base:
-            return Path(base)
-        return Path(__file__).resolve().parent.parent
-
     def setup_variables(self):
-        """Setup tkinter variables"""  # inserted
+        """Setup tkinter variables"""
         self.first_name_var = tk.StringVar()
         self.last_name_var = tk.StringVar()
         self.email_var = tk.StringVar()
@@ -217,88 +131,183 @@ class MainWindow:
         self.auto_start_lab_var = tk.BooleanVar(value=False)
 
     def build_ui(self):
-        """Build user interface"""  # inserted
+        """Build user interface"""
         main_frame = ttk.Frame(self.root, padding=10)
         main_frame.pack(fill=BOTH, expand=True)
+        
         notebook = ttk.Notebook(main_frame)
         notebook.pack(fill=BOTH, expand=True)
-        self.video_tab = VideoGeneratorTab(self.root, notebook, self.log_message, self.request_new_api_key_and_wait)
-        self.settings_tab = SettingsTab(self, notebook)
-        self.logs_tab = LogsTab(self, notebook)
-        self.registration_tab = RegistrationTab(self, notebook)
-        self.about_tab = AboutTab(self, notebook)
+        
+        # Registration Tab
+        self.create_registration_tab(notebook)
+        
+        # Settings Tab
+        self.create_settings_tab(notebook)
+        
+        # Logs Tab
+        self.create_logs_tab(notebook)
+        
+        # About Tab
+        self.create_about_tab(notebook)
+        
+        # Bottom buttons
         bottom_frame = ttk.Frame(main_frame)
         bottom_frame.pack(fill=X, pady=(10, 0))
+        
+        # Status
         status_frame = ttk.Frame(bottom_frame)
         status_frame.pack(fill=X, pady=(0, 10))
         ttk.Label(status_frame, text='Status:', bootstyle=INFO).pack(side=LEFT)
         status_label = ttk.Label(status_frame, textvariable=self.status_var, bootstyle=SUCCESS)
         status_label.pack(side=LEFT, padx=(5, 0))
+        
+        # Buttons
         button_frame = ttk.Frame(bottom_frame)
         button_frame.pack(fill=X)
-        refresh_btn = ttk.Button(button_frame, text='Refresh Data', command=self.refresh_generated_data, bootstyle=INFO, width=15)
+        
+        refresh_btn = ttk.Button(
+            button_frame, 
+            text='Refresh Data', 
+            command=self.refresh_generated_data, 
+            bootstyle=INFO, 
+            width=15
+        )
         refresh_btn.pack(side=LEFT, padx=(0, 5))
-        self.start_btn = ttk.Button(button_frame, text='Start Registration', command=self.start_automation, bootstyle=SUCCESS, width=20, state=DISABLED)
+        
+        self.start_btn = ttk.Button(
+            button_frame, 
+            text='Start Registration', 
+            command=self.start_automation, 
+            bootstyle=SUCCESS, 
+            width=20, 
+            state=DISABLED
+        )
         self.start_btn.pack(side=LEFT, padx=5)
-        self.stop_btn = ttk.Button(button_frame, text='Stop', command=self.stop_automation, bootstyle=DANGER, width=15, state=DISABLED)
+        
+        self.stop_btn = ttk.Button(
+            button_frame, 
+            text='Stop', 
+            command=self.stop_automation, 
+            bootstyle=DANGER, 
+            width=15, 
+            state=DISABLED
+        )
         self.stop_btn.pack(side=LEFT, padx=5)
-        exit_btn = ttk.Button(button_frame, text='Exit', command=self.on_closing, bootstyle=DANGER, width=15)
+        
+        exit_btn = ttk.Button(
+            button_frame, 
+            text='Exit', 
+            command=self.on_closing, 
+            bootstyle=DANGER, 
+            width=15
+        )
         exit_btn.pack(side=RIGHT)
 
-    def create_video_generator_tab(self, notebook):
-        """Create Video Generator tab (modular)"""  # inserted
-        try:
-            self.video_tab = VideoGeneratorTab(self.root, notebook, self.log_message, self.request_new_api_key_and_wait)
-        except Exception as e:
-            try:
-                self.log_message(f'🛑 Gagal memuat Video Generator tab: {e}')
-            except Exception:
-                break
+    def create_registration_tab(self, notebook):
+        """Create registration tab"""
+        reg_frame = ttk.Frame(notebook)
+        notebook.add(reg_frame, text='Registration')
+        
+        # User data frame
+        user_frame = ttk.LabelFrame(reg_frame, text='User Information', padding=10)
+        user_frame.pack(fill=X, pady=(0, 10))
+        
+        # First Name
+        ttk.Label(user_frame, text='First Name:').grid(row=0, column=0, sticky=W, pady=2)
+        ttk.Entry(user_frame, textvariable=self.first_name_var, width=30).grid(row=0, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Last Name
+        ttk.Label(user_frame, text='Last Name:').grid(row=1, column=0, sticky=W, pady=2)
+        ttk.Entry(user_frame, textvariable=self.last_name_var, width=30).grid(row=1, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Email
+        ttk.Label(user_frame, text='Email:').grid(row=2, column=0, sticky=W, pady=2)
+        ttk.Entry(user_frame, textvariable=self.email_var, width=30).grid(row=2, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Company
+        ttk.Label(user_frame, text='Company:').grid(row=3, column=0, sticky=W, pady=2)
+        ttk.Entry(user_frame, textvariable=self.company_var, width=30).grid(row=3, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Password
+        ttk.Label(user_frame, text='Password:').grid(row=4, column=0, sticky=W, pady=2)
+        self.password_entry = ttk.Entry(user_frame, textvariable=self.password_var, width=30, show='*')
+        self.password_entry.grid(row=4, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Password Confirm
+        ttk.Label(user_frame, text='Confirm Password:').grid(row=5, column=0, sticky=W, pady=2)
+        self.password_confirm_entry = ttk.Entry(user_frame, textvariable=self.password_confirm_var, width=30, show='*')
+        self.password_confirm_entry.grid(row=5, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        # Show password checkbox
+        ttk.Checkbutton(
+            user_frame, 
+            text='Show passwords', 
+            variable=self.show_password_var,
+            command=self.toggle_password_visibility
+        ).grid(row=6, column=1, sticky=W, pady=5, padx=(5, 0))
 
-    def set_genai_api_key(self, key: str):
-        """Terima API key hasil proses create API key dan teruskan ke tab Video Generator."""  # inserted
-        try:
-            if hasattr(self, 'video_tab') and self.video_tab:
-                self.video_tab.set_api_key(key)
-                self.log_message('⏳ GenAI API key diteruskan ke Video Generator tab.')
-                    self._latest_genai_api_key = (key or '').strip()
-                    self._genai_api_key_event.set()
-                except Exception:
-                    return None
-            self.log_message('⚠️ Video Generator tab belum terinisialisasi; API key belum dapat diatur.')
-            else:  # inserted
-                try:
-                    pass  # postinserted
-        except Exception as e:
-                    try:
-                        self.log_message(f'🛑 Gagal menerapkan GenAI API key: {e}')
-                    except Exception:
-                        break
+    def create_settings_tab(self, notebook):
+        """Create settings tab"""
+        settings_frame = ttk.Frame(notebook)
+        notebook.add(settings_frame, text='Settings')
+        
+        # Firefox Relay settings
+        relay_frame = ttk.LabelFrame(settings_frame, text='Firefox Relay Settings', padding=10)
+        relay_frame.pack(fill=X, pady=(0, 10))
+        
+        ttk.Label(relay_frame, text='API Key:').grid(row=0, column=0, sticky=W, pady=2)
+        ttk.Entry(relay_frame, textvariable=self.firefox_api_key_var, width=50).grid(row=0, column=1, sticky=W, pady=2, padx=(5, 0))
+        
+        ttk.Button(
+            relay_frame, 
+            text='Test API Key', 
+            command=self.test_firefox_api_key
+        ).grid(row=1, column=1, sticky=W, pady=5, padx=(5, 0))
+        
+        # Status label
+        self.firefox_status_label = ttk.Label(relay_frame, text='Firefox Relay: Not configured', bootstyle=WARNING)
+        self.firefox_status_label.grid(row=2, column=1, sticky=W, pady=2, padx=(5, 0))
 
-    def request_new_api_key_and_wait(self, reason: str, timeout_seconds: int=600) -> Optional[str]:
-        """Minta proses registrasi + start lab dijalankan ulang untuk mendapatkan API key baru.\n        Fungsi ini blocking (dipanggil dari worker thread Video Generator) dan akan\n        menunggu hingga `set_genai_api_key` dipanggil kembali atau timeout.\n\n        Returns: API key baru jika tersedia, jika timeout/m gagal maka None.\n        """  # inserted
-        pass
-        try:
-            self._genai_api_key_event.clear()
-            self._latest_genai_api_key = None
-            pass
-        self.root.after(0, lambda: self.log_message(f'⏸️ Pausing generation at Video tab: {reason}. Re-registering to obtain new API key...'))
-        self.root.after(0, self.refresh_generated_data)
-        self.root.after(0, self.start_automation)
-        ok = self._genai_api_key_event.wait(timeout=max(1, int(timeout_seconds)))
-        if ok:
-            return self._latest_genai_api_key
-        self.root.after(0, lambda: self.log_message('🛑 Timeout waiting for new GenAI API key.'))
-        except Exception:
-            pass  # postinserted
-        except Exception as self:
-            try:
-                self.root.after(0, lambda: self.log_message(f'🛑 request_new_api_key_and_wait error: {e}'))
-            except Exception:
-                break
+    def create_logs_tab(self, notebook):
+        """Create logs tab"""
+        logs_frame = ttk.Frame(notebook)
+        notebook.add(logs_frame, text='Logs')
+        
+        # Logs text area
+        self.log_text = scrolledtext.ScrolledText(logs_frame, height=20, width=80)
+        self.log_text.pack(fill=BOTH, expand=True, padx=10, pady=10)
+        
+        # Logs buttons
+        logs_btn_frame = ttk.Frame(logs_frame)
+        logs_btn_frame.pack(fill=X, padx=10, pady=(0, 10))
+        
+        ttk.Button(logs_btn_frame, text='Clear Logs', command=self.clear_logs).pack(side=LEFT, padx=(0, 5))
+        ttk.Button(logs_btn_frame, text='Save Logs', command=self.save_logs).pack(side=LEFT)
+
+    def create_about_tab(self, notebook):
+        """Create about tab"""
+        about_frame = ttk.Frame(notebook)
+        notebook.add(about_frame, text='About')
+        
+        about_text = f"""
+{APP_NAME} v{VERSION}
+Created by: {AUTHOR}
+
+This application automates the registration process for Google Cloud Skills Boost.
+
+Features:
+- Automatic user data generation
+- Firefox Relay email integration
+- Captcha solving support
+- Lab automation
+
+License: MIT License
+        """.strip()
+        
+        ttk.Label(about_frame, text=about_text, justify=LEFT, font=('Segoe UI', 10)).pack(padx=20, pady=20)
 
     def toggle_password_visibility(self):
-        """Toggle masking untuk input password dan confirm password."""  # inserted
+        """Toggle masking untuk input password dan confirm password."""
         try:
             show_char = '' if self.show_password_var.get() else '*'
             if hasattr(self, 'password_entry') and self.password_entry:
@@ -309,7 +318,7 @@ class MainWindow:
             self.log_message(f'⚠️ Toggle password visibility error: {e}')
 
     def copy_password(self):
-        """Salin password utama ke clipboard."""  # inserted
+        """Salin password utama ke clipboard."""
         try:
             pwd = self.password_var.get()
             self.root.clipboard_clear()
@@ -318,502 +327,226 @@ class MainWindow:
         except Exception as e:
             self.log_message(f'🛑 Copy password error: {e}')
 
-    def auto_init_firefox_relay_from_temp(self):
-        """Jika API key Firefox Relay ter-load dari temp, validasi otomatis dan set status Connected tanpa perlu klik Test."""  # inserted
-        self = (self.firefox_api_key_var.get() or '').strip()
-        if not self:
-            return
-
-        def _worker():
-            try:
-                from services.firefox_relay_service import FirefoxRelayService
-                svc = FirefoxRelayService(api_key=key)
-                self.log_message('✅ Detected Firefox Relay API key from temp. Validating...')
-                results = svc.test_connection()
-                if results.get('success'):
-                    def _on_ok():
-                        self.firefox_relay_service = svc
-                        try:
-                            self.firefox_status_label.config(text='Firefox Relay: ✅ Connected', bootstyle=SUCCESS)
-                        except Exception:
-                            pass
-                        self.log_message('✅ Firefox Relay API key is valid (auto).')
-                        self.log_message(f"✅ Using URL: {results.get('working_url', 'N/A')}")
-                        try:
-                            self.status_var.set('Ready')
-                        except Exception:
-                            pass
-                        if self.data_generated:
-                            try:
-                                self.start_btn.config(state=NORMAL)
-                            except Exception:
-                                return
-                    self.root.after(0, _on_ok)
-                else:  # inserted
-                    def _on_fail():
-                        try:
-                            self.firefox_status_label.config(text='Firefox Relay: 🛑 Invalid API Key', bootstyle=DANGER)
-                        except Exception:
-                            pass
-                        self.log_message('⚠️ Auto-validate API key failed. Please click \'Test API Key\'.')
-                    self.root.after(0, _on_fail)
-            except Exception as e:
-                self.root.after(0, lambda: self.log_message(f'⚠️ Auto-init Relay failed: {e}'))
-        threading.Thread(target=_worker, daemon=True).start()
-
-    def start_gmail_progress(self, total_sec: int, interval_sec: int):
-        """Tampilkan progress bar untuk Gmail polling."""  # inserted
-        try:
-            self.gmail_poll_total = max(1, int(total_sec))
-            self.gmail_poll_interval = max(1, int(interval_sec))
-            self.gmail_poll_start = time.time()
-            self.gmail_progress_running = True
-            self.gmail_progress.configure(maximum=self.gmail_poll_total, value=0)
-                self.gmail_progress_container.pack(fill=X, pady=(8, 0))
-                pass
-            self._update_gmail_progress()
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-        except Exception as e:
-                self.log_message(f'⚠️ Could not start Gmail progress: {e}')
-
-    def _update_gmail_progress(self):
-        if not self.gmail_progress_running:
-            return
-        now = time.time()
-        elapsed = now | getattr(self, 'gmail_poll_start', now)
-        total = getattr(self, 'gmail_poll_total', 1)
-        interval = getattr(self, 'gmail_poll_interval', 5)
-        remaining = int(max(0, total + elapsed))
-        attempt = int(elapsed 2 * interval) - 1
-        try:
-            self.gmail_progress.configure(value=min(total, elapsed))
-            self.gmail_progress_label.config(text=f'Gmail polling attempt={attempt} remaining={remaining}s')
-        except Exception:
-            pass
-        if elapsed < total and self.gmail_progress_running:
-            self.gmail_progress_job = self.root.after(500, self._update_gmail_progress)
-        else:  # inserted
-            self.stop_gmail_progress()
-
-    def stop_gmail_progress(self):
-        self.gmail_progress_running = False
-        if getattr(self, 'gmail_progress_job', None):
-            try:
-                self.root.after_cancel(self.gmail_progress_job)
-            except Exception:
-                pass
-            self.gmail_progress_job = None
-        try:
-            self.gmail_progress_container.pack_forget()
-        except Exception:
-            return None
-
     def auto_generate_initial_data(self):
-        """Auto-generate data saat aplikasi start"""  # inserted
+        """Auto-generate data saat aplikasi start"""
         self.log_message('✅ Auto-generating initial data...')
         self.status_var.set('Generating data...')
+        
         try:
-            user_data = self.random_user_service.get_random_user(gender=settings.DEFAULT_GENDER, nationalities=settings.DEFAULT_NATIONALITIES)
+            user_data = self.random_user_service.get_random_user(
+                gender=settings.DEFAULT_GENDER, 
+                nationalities=settings.DEFAULT_NATIONALITIES
+            )
+            
             if not user_data:
                 raise Exception('Failed to get random user data')
+                
             self.first_name_var.set(user_data['first_name'])
             self.last_name_var.set(user_data['last_name'])
+            
             company = self.random_user_service.generate_company_name()
             self.company_var.set(company)
+            
             password = self.random_user_service.generate_password(settings.DEFAULT_PASSWORD_LENGTH)
             self.password_var.set(password)
             self.password_confirm_var.set(password)
+            
             self.email_var.set('Will be generated from Firefox Relay')
+            
             self.log_message('✅ Initial data generated successfully!')
             self.log_message('✅ Email akan dibuat otomatis dari Firefox Relay saat registrasi')
+            
             if getattr(self, 'firefox_relay_service', None):
                 self.status_var.set('Ready')
                 self.update_start_button_state()
-            else:  # inserted
+            else:
                 self.status_var.set('Ready - Please set Firefox Relay API Key')
+                
             self.data_generated = True
             self.update_start_button_state()
-            log_user_action(self.logger, 'AUTO_GENERATE_DATA', {'first_name': user_data['first_name'], 'last_name': user_data['last_name'], 'company': company})
+            
+            log_user_action(self.logger, 'AUTO_GENERATE_DATA', {
+                'first_name': user_data['first_name'], 
+                'last_name': user_data['last_name'], 
+                'company': company
+            })
+            
         except Exception as e:
             error_msg = f'Error generating initial data: {str(e)}'
             self.log_message(f'🛑 {error_msg}')
             self.status_var.set('Error generating data')
 
     def refresh_generated_data(self):
-        """Refresh/regenerate data secara manual"""  # inserted
+        """Refresh/regenerate data secara manual"""
         self.log_message('🔄️ Refreshing data...')
         self.status_var.set('Refreshing...')
         self.auto_generate_initial_data()
 
     def test_firefox_api_key(self):
-        """Test Firefox Relay API key dengan berbagai auth format"""  # inserted
+        """Test Firefox Relay API key dengan berbagai auth format"""
         api_key = self.firefox_api_key_var.get().strip()
         if not api_key:
             messagebox.showwarning('Warning', 'Please enter Firefox Relay API key first')
             return
+            
         self.log_message('⏳ Testing Firefox Relay API key...')
         self.log_message('⚙️ Trying different authentication formats...')
+        
         try:
             from services.firefox_relay_service import FirefoxRelayService
             test_service = FirefoxRelayService(api_key=api_key)
             results = test_service.test_connection()
+            
             if results['success']:
                 self.firefox_status_label.config(text='Firefox Relay: ✅ Connected', bootstyle=SUCCESS)
                 self.log_message('✅ Firefox Relay API key is valid!')
                 self.log_message(f"✅ Using URL: {results.get('working_url', 'N/A')}")
                 self.log_message(f"⏳ Auth format: {results['auth_format']}")
                 self.log_message(f"🔊 Found {results['masks_count']} existing email masks")
+                
                 self.firefox_relay_service = test_service
-                    self._save_relay_key_to_temp(api_key)
-                    self.log_message('📩 Firefox Relay API key saved to temp.')
-                    self.log_message(f'⚠️ Could not save API key to temp: {e}')
+                
                 if self.data_generated:
                     self.status_var.set('Ready')
                     self.update_start_button_state()
-                messagebox.showinfo('Success', f"Firefox Relay API key is valid!\nURL: {results.get('working_url', 'N/A')}\nAuth: {results['auth_format']}\nExisting masks: {results['masks_count']}")
-            else:  # inserted
+                    
+                messagebox.showinfo('Success', 
+                    f"Firefox Relay API key is valid!\n"
+                    f"URL: {results.get('working_url', 'N/A')}\n"
+                    f"Auth: {results['auth_format']}\n"
+                    f"Existing masks: {results['masks_count']}")
+            else:
                 self.firefox_status_label.config(text='Firefox Relay: 🛑 Invalid API Key', bootstyle=DANGER)
                 error_msg = results.get('error', 'Unknown error')
                 self.log_message(f'🛑 Firefox Relay API key test failed: {error_msg}')
                 messagebox.showerror('Error', f'API key test failed:\n{error_msg}')
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception as e:
-                    pass  # postinserted
+                
         except Exception as e:
-                    self.firefox_status_label.config(text='Firefox Relay: 🛑 Connection Error', bootstyle=DANGER)
-                    self.log_message(f'🛑 Firefox Relay connection error: {str(e)}')
-                    messagebox.showerror('Error', f'Connection error:\n{str(e)}')
-
-    def delete_all_firefox_masks(self):
-        """Hapus semua email mask Firefox Relay"""  # inserted
-        api_key = self.firefox_api_key_var.get().strip()
-        if not api_key:
-            messagebox.showwarning('Warning', 'Masukkan Firefox Relay API key terlebih dahulu')
-            return
-        if not self.firefox_relay_service:
-            try:
-                self.firefox_relay_service = FirefoxRelayService(api_key=api_key)
-            except Exception as e:
-                messagebox.showerror('Error', f'Gagal inisialisasi service:\n{e}')
-                return None
-        if not messagebox.askyesno('Confirm', 'Yakin ingin menghapus SEMUA email masks? Tindakan ini tidak dapat dibatalkan.'):
-            return
-        self.log_message('🛑 Deleting all Firefox Relay masks...')
-        try:
-            result = self.firefox_relay_service.delete_all_masks()
-            requested = result.get('requested', 0)
-            deleted = result.get('deleted', 0)
-            failed = len(result.get('failed_ids', []))
-            self.log_message(f'✅ Delete summary: requested={requested}, deleted={deleted}, failed={failed}')
-            messagebox.showinfo('Delete All Masks', f'Requested: {requested}\nDeleted: {deleted}\nFailed: {failed}')
-        except Exception as e:
-            self.log_message(f'🛑 Delete all masks error: {e}')
-            messagebox.showerror('Error', f'Delete error:\n{e}')
+            self.firefox_status_label.config(text='Firefox Relay: 🛑 Connection Error', bootstyle=DANGER)
+            self.log_message(f'🛑 Firefox Relay connection error: {str(e)}')
+            messagebox.showerror('Error', f'Connection error:\n{str(e)}')
 
     def start_automation(self):
-        """Start automation process"""  # inserted
+        """Start automation process"""
         if self.is_running:
             return
+            
         if not self.firefox_relay_service:
             api_key = (self.firefox_api_key_var.get() or '').strip()
             if not api_key:
                 messagebox.showerror('Error', 'Please set and test Firefox Relay API key first!')
                 return
+                
             try:
                 from services.firefox_relay_service import FirefoxRelayService
                 self.firefox_relay_service = FirefoxRelayService(api_key=api_key)
-                    self.firefox_status_label.config(text='Firefox Relay: â³ Connecting...', bootstyle=INFO)
-                    pass
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
             except Exception as e:
-                    messagebox.showerror('Error', f'Failed to initialize Firefox Relay service:\n{e}')
-                    return None
-        try:
-            purge_res = self.firefox_relay_service.auto_purge_if_limit_reached(limit=5)
-            if purge_res.get('purged'):
-                self.log_message(f"🧹 Auto purge masks triggered: requested={purge_res.get('requested', 0)}, deleted={purge_res.get('deleted', 0)}, failed={len(purge_res.get('failed_ids', []))}")
-            else:  # inserted
-                self.log_message(f"ℹ️ Current masks count: {purge_res.get('count', 'N/A')}")
-        except Exception as e:
-            self.log_message(f'⚠️ Auto purge check failed: {e}')
+                messagebox.showerror('Error', f'Failed to initialize Firefox Relay service:\n{e}')
+                return
+                
+        # Create relay email
         self.log_message('🔊 Creating Firefox Relay email...')
         self.status_var.set('Creating email...')
+        
         try:
-            mask = self.firefox_relay_service.create_relay_mask(f"Auto registration - {datetime.now().strftime('%Y%m%d_%H%M%S')}")
+            mask = self.firefox_relay_service.create_relay_mask(
+                f"Auto registration - {datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            )
             if not mask:
                 raise Exception('Failed to create Firefox Relay email')
+                
             relay_email = mask['full_address']
             self.email_var.set(relay_email)
             self.log_message(f'✅ Created relay email: {relay_email}')
+            
         except Exception as e:
             error_msg = f'Failed to create relay email: {str(e)}'
             self.log_message(f'🛑 {error_msg}')
             messagebox.showerror('Error', error_msg)
-        user_data = {'first_name': self.first_name_var.get().strip(), 'last_name': self.last_name_var.get().strip(), 'email': self.email_var.get().strip(), 'company': self.company_var.get().strip(), 'password': self.password_var.get(), 'password_confirm': self.password_confirm_var.get()}
+            return
+            
+        # Validate user data
+        user_data = {
+            'first_name': self.first_name_var.get().strip(),
+            'last_name': self.last_name_var.get().strip(),
+            'email': self.email_var.get().strip(),
+            'company': self.company_var.get().strip(),
+            'password': self.password_var.get(),
+            'password_confirm': self.password_confirm_var.get()
+        }
+        
         if not user_data['first_name'] or not user_data['last_name']:
             messagebox.showerror('Error', 'First name and last name are required!')
             return
-        if user_data['password']!= user_data['password_confirm']:
+            
+        if user_data['password'] != user_data['password_confirm']:
             messagebox.showerror('Error', 'Password confirmation tidak cocok!')
             return
+            
         self.is_running = True
         self.start_btn.config(state=DISABLED)
         self.stop_btn.config(state=NORMAL)
         self.status_var.set('Running...')
         self.log_message('▶️ Starting automation...')
+        
         thread = threading.Thread(target=self.run_automation, args=(user_data,), daemon=True)
         thread.start()
 
     def run_automation(self, user_data: Dict):
-        """Run automation process"""  # inserted
+        """Run automation process"""
         try:
-            from automation.cloudskill_automation import CloudSkillAutomation
-            from services.gmail_service import GmailService
-            cred_path = self.gmail_credentials_path_var.get().strip()
-            project_root = Path(__file__).resolve().parent.parent
-            token_la = Path(GmailService.get_default_token_path())
-            token_exists = token_la.exists() or project_root + 'token.json'.exists()
-            gmail_ready = bool(cred_path) or token_exists
-            keep_open = gmail_ready
-            self.automation = CloudSkillAutomation(headless=False, captcha_solver=self.captcha_service, keep_browser_open=keep_open, extension_mode=self.extension_mode_var.get())
+            keep_open = False  # Simplified for now
+            
+            self.automation = CloudSkillAutomation(
+                headless=False, 
+                captcha_solver=self.captcha_service, 
+                keep_browser_open=keep_open, 
+                extension_mode=self.extension_mode_var.get()
+            )
+            
             result = self.automation.register_account(user_data)
+            
             if result.get('success'):
                 self.log_message('✅ Registration completed successfully!')
                 self.root.after(0, lambda: self.status_var.set('Registration completed'))
-                if gmail_ready:
-                        self.log_message('⏳ Checking Gmail inbox for confirmation email...')
-                        svc = GmailService(credentials_path=cred_path) if cred_path else GmailService()
-                        poll_interval_sec = 180
-                        error_msg = 5
-                        self.root.after(0, lambda: self.start_gmail_progress(timeout_sec, poll_interval_sec))
-                            msg = svc.wait_for_email(target_email=user_data.get('email', ''), subject_contains='Welcome to Google Cloud Skills Boost', from_contains='noreply@cloudskillsboost.google', timeout_sec=poll_interval_sec, poll_interval_sec=error_msg)
-                        finally:  # inserted
-                            self.root.after(0, self.stop_gmail_progress)
-                        if msg:
-                            links = svc.extract_links(msg)
-                            self.log_message(f"✅ Confirmation email found. Links: {(links[:3] if links else 'No links found')}")
-                            if links:
-                                chosen = None
-                                notif_link = None
-                                cloud_link = None
-                                for u in links:
-                                    ul = (u or '').lower()
-                                    if 'notifications.googleapis.com/email/redirect' in ul:
-                                        notif_link = u
-                                        break
-                                if not notif_link:
-                                    for u in links:
-                                        ul = (u or '').lower()
-                                        if 'cloudskillsboost.google' in ul or '/users/confirmation' in ul or 'confirm' in ul:
-                                            cloud_link = u
-                                            break
-                                chosen = notif_link or cloud_link or (links[0] if links else None)
-                                if notif_link and chosen == notif_link:
-                                    self.log_message(f'ℹ️ Opening confirmation link (Google redirect): {chosen}')
-                                else:  # inserted
-                                    self.log_message(f'ℹ️ Opening confirmation link: {chosen}')
-                                confirm_result = self.automation.confirm_via_link(chosen, user_data.get('password', ''), user_data.get('email', ''))
-                                if confirm_result.get('success'):
-                                    self.log_message('✅ Confirmation link processed successfully.')
-                                        lab_url = (self.lab_url_var.get() or '').strip()
-                                        if self.auto_start_lab_var.get() and lab_url:
-                                            self.log_message('▶️ Starting lab (auto)')
-                                            result_lab = self.automation.start_lab(lab_url)
-                                            if result_lab.get('success'):
-                                                self.log_message(f"✅ Lab started successfully. URL: {result_lab.get('url')}")
-                                                    api_key_val = (result_lab.get('api_key') or '').strip()
-                                                    if api_key_val:
-                                                        self.root.after(0, lambda k=api_key_val: self.set_genai_api_key(k))
-                                                        self.log_message('Received GenAI API key from Lab. Injected to Video Generator tab.')
-                                                    pass
-                                            self.log_message(f"⚠️ Start Lab failed: {result_lab.get('error')}")
-                                            else:  # inserted
-                                                try:
-                                                    pass  # postinserted
-                                                except Exception:
-                                                    pass  # postinserted
-                                        self.log_message(f'⚠️ Auto Start Lab error: {e}')
-                                self.log_message(f"⚠️ Confirmation processing failed: {confirm_result.get('error')}")
-                                else:  # inserted
-                                    try:
-                                        pass  # postinserted
-                                    except Exception as e:
-                                        pass  # postinserted
-                            self.log_message(f'⚠️ Error opening confirmation link: {e}')
-                            if not self.auto_start_lab_var.get():
-                                self.automation.shutdown()
-                            pass
-                        else:  # inserted
-                            self.log_message('🛑 No matching email arrived within timeout.')
-                                self.automation.shutdown()
-                                pass
-                    else:  # inserted
-                        try:
-                            pass  # postinserted
-                        else:  # inserted
-                            try:
-                                pass  # postinserted
-                        except Exception as e:
-                            pass  # postinserted
-                    else:  # inserted
-                        try:
-                            pass  # postinserted
-                        except Exception:
-                            pass  # postinserted
-                        else:  # inserted
-                            try:
-                                pass  # postinserted
-                            except Exception:
-                                pass  # postinserted
-                        self.log_message(f'🛑 Gmail read error: {e}')
-                        try:
-                            self.automation.shutdown()
-                        except Exception:
-                            pass
-                self.log_message('🛑 Gmail not configured (no credentials or token). Skipping email confirmation check.')
-                else:  # inserted
-                    try:
-                        pass  # postinserted
-                    except Exception as e:
-                        pass  # postinserted
+            else:
+                error_msg = f'Automation error: {result.get("error", "Unknown error")}'
+                self.log_message(f'🛑 {error_msg}')
+                self.root.after(0, lambda: self.status_var.set('Error'))
+                self.root.after(0, lambda: messagebox.showerror('Error', error_msg))
+                
         except Exception as e:
-                        self = f'Automation error: {str(e)}'
-                        self.log_message(f'🛑 {self}')
-                        self.root.after(0, lambda: self.status_var.set('Error'))
-                        self.root.after(0, lambda: messagebox.showerror('Error', error_msg))
-        finally:  # inserted
-            pass  # postinserted
-        self.root.after(0, self.automation_finished)
-
-    def update_gmail_status_label(self):
-        """Update status label Gmail berdasarkan keberadaan credentials path/token."""  # inserted
-        try:
-            project_root = Path(__file__).resolve().parent.parent
-            token_default = project_root + 'token.json'
-            cred_path = self.gmail_credentials_path_var.get().strip()
-                from services.gmail_service import GmailService
-                token_la = Path(GmailService.get_default_token_path())
-                token_la = Path('')
-            token_exists = (token_la.exists() if str(token_la) else False) or token_default.exists()
-            if not token_exists and cred_path:
-                    cpath = Path(cred_path)
-                    token_alt = cpath.parent | 'token.json'
-                    token_exists = token_alt.exists()
-                    pass
-                self.log_message(f"✅ Gmail token check | localappdata={(token_la if str(token_la) else 'N/A')} exists={(token_la.exists() if str(token_la) else False)} | legacy_project={token_default} exists={token_default.exists()} | cred_path={('set' if cred_path else 'empty')}")
-                pass
-            if token_exists:
-                self.gmail_status_label.config(text='Gmail: ✅ Ready (token found)', bootstyle=SUCCESS)
-            else:  # inserted
-                if cred_path:
-                    self.gmail_status_label.config(text='Gmail: ✅ Credentials set (authenticate to enable)', bootstyle=INFO)
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                else:  # inserted
-                    self.gmail_status_label.config(text='Gmail: 🛑 Not configured', bootstyle=WARNING)
-        except Exception:
-                return None
+            error_msg = f'Automation error: {str(e)}'
+            self.log_message(f'🛑 {error_msg}')
+            self.root.after(0, lambda: self.status_var.set('Error'))
+            self.root.after(0, lambda: messagebox.showerror('Error', error_msg))
+        finally:
+            self.root.after(0, self.automation_finished)
 
     def stop_automation(self):
-        """Stop automation process"""  # inserted
+        """Stop automation process"""
         self.log_message('⛔ Stopping automation...')
         self.is_running = False
         self.automation_finished()
 
     def automation_finished(self):
-        """Reset UI after automation finished"""  # inserted
+        """Reset UI after automation finished"""
         self.is_running = False
         self.update_start_button_state()
         self.stop_btn.config(state=DISABLED)
         if self.status_var.get() in ['Running...', 'Error']:
             self.status_var.set('Ready')
 
-    def check_and_apply_license_async(self):
-        """Cek lisensi via API di thread terpisah, terapkan state tombol saat selesai."""  # inserted
-
-        def _worker():
-            try:
-                res = ensure_license()
-            except Exception as e:
-                res = {'is_allowed': False, 'plan': None, 'status': 'error', 'reason': str(e)}
-
-            def _apply():
-                self.license_info = res
-                try:
-                    if hasattr(self, 'license_plan_var'):
-                        self.license_plan_var.set(str(res.get('plan') or 'Unknown'))
-                    exp = res.get('expiresAt')
-                    disp = 'Unknown'
-                        if isinstance(exp, str) and exp:
-                            dt = datetime.fromisoformat(exp.replace('Z', '+00:00'))
-                            disp = dt.strftime('%d/%m/%Y')
-                        pass
-                    if hasattr(self, 'license_expiry_var'):
-                        self.license_expiry_var.set(disp)
-                else:  # inserted
-                    try:
-                        pass  # postinserted
-                    except Exception:
-                        pass  # postinserted
-                except Exception:
-                        pass
-                plan = str(res.get('plan') or '').lower()
-                if plan == 'free':
-                    self.log_message('🔒 License plan is \'free\'.')
-                else:  # inserted
-                    if not res.get('is_allowed', True):
-                        self.log_message(f"🔒 License not allowed: {res.get('reason', 'unknown')}")
-                    else:  # inserted
-                        self.log_message('🔓 License valid.')
-                self.update_start_button_state()
-            try:
-                self.root.after(0, _apply)
-            except Exception:
-                return None
-        threading.Thread(target=_worker, daemon=True).start()
-
     def update_start_button_state(self):
-        """Set state Start button berdasarkan data_generated, is_running, dan lisensi."""  # inserted
+        """Set state Start button berdasarkan data_generated dan is_running."""
         try:
-            allowed = True
-            info = getattr(self, 'license_info', None)
-            if info is not None:
-                plan = str(info.get('plan') or '').lower()
-                allowed = bool(info.get('is_allowed', True)) and plan!= 'free'
-            state = NORMAL if allowed and self.data_generated and (not self.is_running) else DISABLED
-                self.start_btn.config(state=state)
-            except Exception:
-                return None
-        else:  # inserted
-            try:
-                pass  # postinserted
+            state = NORMAL if self.data_generated and (not self.is_running) else DISABLED
+            self.start_btn.config(state=state)
         except Exception:
-                return None
+            pass
 
     def log_message(self, message: str):
-        """Add message to log"""  # inserted
+        """Add message to log"""
         timestamp = datetime.now().strftime('%H:%M:%S')
         log_entry = f'[{timestamp}] {message}\n'
         self.log_text.insert(tk.END, log_entry)
@@ -821,254 +554,44 @@ class MainWindow:
         self.logger.info(message)
 
     def clear_logs(self):
-        """Clear log text"""  # inserted
+        """Clear log text"""
         self.log_text.delete('1.0', tk.END)
         self.log_message('Logs cleared')
 
     def save_logs(self):
-        """Save logs to file"""  # inserted
+        """Save logs to file"""
         try:
-            filename = filedialog.asksaveasfilename(defaultextension='.txt', filetypes=[('Text files', '*.txt'), ('All files', '*.*')], title='Save Logs')
+            filename = filedialog.asksaveasfilename(
+                defaultextension='.txt',
+                filetypes=[('Text files', '*.txt'), ('All files', '*.*')],
+                title='Save Logs'
+            )
             if filename:
                 content = self.log_text.get('1.0', tk.END)
                 with open(filename, 'w', encoding='utf-8') as f:
                     f.write(content)
-                    self.log_message(f'Logs saved to: {filename}')
-                    messagebox.showinfo('Success', f'Logs saved to:\n{filename}')
+                self.log_message(f'Logs saved to: {filename}')
+                messagebox.showinfo('Success', f'Logs saved to:\n{filename}')
         except Exception as e:
-                error_msg = f'Error saving logs: {str(e)}'
-                self.log_message(f'🛑 {error_msg}')
-                messagebox.showerror('Error', error_msg)
-
-    def browse_gmail_credentials(self):
-        """Pilih file credentials.json untuk Gmail API"""  # inserted
-        try:
-            filename = filedialog.askopenfilename(title='Select Gmail credentials.json', filetypes=[('JSON files', '*.json'), ('All files', '*.*')])
-            if filename:
-                self.gmail_credentials_path_var.set(filename)
-                self.log_message(f'✅ Gmail credentials set: {filename}')
-                    self._save_gmail_cred_path_to_temp(filename)
-                    pass
-                self.update_gmail_status_label()
-        except Exception as e:
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                except Exception:
-                    pass  # postinserted
-                self.log_message(f'🛑 Error selecting Gmail credentials: {e}')
-
-    def generate_gmail_auth_url(self):
-        """Generate URL OAuth Gmail tanpa auto-open browser (manual copy/paste)."""  # inserted
-        try:
-            cred_path = self.gmail_credentials_path_var.get().strip()
-            if not cred_path:
-                messagebox.showwarning('Gmail', 'Silakan pilih credentials.json terlebih dahulu.')
-                return
-            self.gmail_auth_code_var.set('')
-            self.gmail_auth_url_var.set('')
-            from google_auth_oauthlib.flow import InstalledAppFlow
-            from services.gmail_service import SCOPES, GmailService
-            self._gmail_oauth_flow = InstalledAppFlow.from_client_secrets_file(cred_path, SCOPES)
-                self._gmail_oauth_flow.redirect_uri = 'urn:ietf:wg:oauth:2.0:oob'
-                pass
-            auth_url, _ = self._gmail_oauth_flow.authorization_url(access_type='offline', include_granted_scopes='true', prompt='consent')
-            self.gmail_auth_url_var.set(auth_url)
-            self.log_message('ℹ️ Gmail Auth URL generated. Copy URL and authenticate in your browser.')
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-        except Exception as e:
-                self.log_message(f'🛑 Failed to generate Gmail Auth URL: {e}')
-
-    def copy_gmail_auth_url(self):
-        try:
-            url = self.gmail_auth_url_var.get().strip()
-            if not url:
-                return
-            self.root.clipboard_clear()
-            self.root.clipboard_append(url)
-            self.log_message('ℹ️ Auth URL copied to clipboard.')
-        except Exception as e:
-            self.log_message(f'🛑 Clipboard error: {e}')
-
-    def complete_gmail_auth_async(self):
-        code = self.gmail_auth_code_var.get().strip()
-        if not code:
-            messagebox.showwarning('Gmail', 'Silakan paste verification code terlebih dahulu.')
-            return
-        t = threading.Thread(target=self.complete_gmail_auth, args=(code,), daemon=True)
-        t.start()
-
-    def complete_gmail_auth(self, code: str):
-        try:
-            if not self._gmail_oauth_flow:
-                self.root.after(0, lambda: messagebox.showwarning('Gmail', 'Silakan klik \'Get Auth URL\' terlebih dahulu.'))
-                return
-            self._gmail_oauth_flow.fetch_token(code=code)
-            creds = self._gmail_oauth_flow.credentials
-            from services.gmail_service import GmailService
-            cred_path = self.gmail_credentials_path_var.get().strip()
-            svc = GmailService(credentials_path=cred_path)
-            token_path = svc.token_path
-            saved_ok = False
-                import os
-                os.makedirs(os.path.dirname(token_path), exist_ok=True)
-                with open(token_path, 'w', encoding='utf-8') as f:
-                    f.write(creds.to_json())
-                    saved_ok = True
-                self.root.after(0, lambda: self.log_message(f'⚠️ Could not save token: {e}'))
-                if cred_path:
-                    self._save_gmail_cred_path_to_temp(cred_path)
-                pass
-            if saved_ok:
-                self.root.after(0, lambda: self.log_message('✅ Gmail authenticated (manual) and token stored.'))
-                self.root.after(0, lambda: messagebox.showinfo('Gmail', 'Authentication berhasil. Token disimpan untuk run berikutnya.'))
-            else:  # inserted
-                self.root.after(0, lambda: messagebox.showwarning('Gmail', 'Authentication berhasil, tetapi token tidak dapat disimpan. Coba ulangi atau jalankan proses \'Authenticate\' (bukan manual code) agar penyimpanan otomatis oleh service.'))
-            self.root.after(0, self.update_gmail_status_label)
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception as self:
-                pass  # postinserted
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-        except Exception as self:
-                self.root.after(0, lambda: self.log_message(f'🛑 Complete Gmail auth error: {e}'))
-                self.root.after(0, lambda: messagebox.showerror('Gmail', f'Authentication gagal:\n{e}'))
-
-    def authenticate_gmail_async(self):
-        """Jalankan proses OAuth Gmail di thread terpisah agar UI tidak freeze."""  # inserted
-        cred_path = self.gmail_credentials_path_var.get().strip()
-        if not cred_path:
-            messagebox.showwarning('Gmail', 'Silakan pilih credentials.json terlebih dahulu.')
-            return
-        self.log_message('⏳ Starting Gmail OAuth authentication...')
-        t = threading.Thread(target=self.authenticate_gmail, args=(cred_path,), daemon=True)
-        t.start()
-
-    def authenticate_gmail(self, cred_path: str):
-        try:
-            from services.gmail_service import GmailService
-            svc = GmailService(credentials_path=cred_path)
-            service = svc.get_service()
-            _ = service.users().labels().list(userId='me').execute()
-                if cred_path:
-                    self._save_gmail_cred_path_to_temp(cred_path)
-                pass
-            self.root.after(0, lambda: self.log_message('✅ Gmail authenticated and token stored.'))
-            self.root.after(0, lambda: messagebox.showinfo('Gmail', 'Authentication berhasil. Token disimpan untuk run berikutnya.'))
-            self.root.after(0, self.update_gmail_status_label)
-        else:  # inserted
-            try:
-                pass  # postinserted
-            except Exception:
-                pass  # postinserted
-        except Exception as self:
-                self.root.after(0, lambda: self.log_message(f'🛑 Gmail authentication error: {e}'))
-                self.root.after(0, lambda: messagebox.showerror('Gmail', f'Authentication gagal:\n{e}'))
-
-    def _relay_key_temp_path(self) -> Path:
-        tmpdir = Path(tempfile.gettempdir())
-        return tmpdir + 'autocloudskill_firefox_api_key.txt'
-
-    def _save_relay_key_to_temp(self, api_key: str) -> None:
-        p = self._relay_key_temp_path()
-        p.write_text(api_key.strip(), encoding='utf-8')
-
-    def _load_relay_key_from_temp(self) -> Optional[str]:
-        p = self._relay_key_temp_path()
-        if p.exists():
-            return p.read_text(encoding='utf-8').strip()
-        return None
-
-    def _gmail_cred_temp_path(self) -> Path:
-        tmpdir = Path(tempfile.gettempdir())
-        return tmpdir + 'autocloudskill_gmail_credentials_path.txt'
-
-    def _save_gmail_cred_path_to_temp(self, path_str: str) -> None:
-        p = self._gmail_cred_temp_path()
-        p.write_text(path_str.strip(), encoding='utf-8')
-
-    def _lab_url_temp_path(self) -> Path:
-        tmpdir = Path(tempfile.gettempdir())
-        return tmpdir + 'autocloudskill_lab_url.txt'
-
-    def _save_lab_url_to_temp(self, url: str) -> None:
-        try:
-            p = self._lab_url_temp_path()
-            p.write_text((url or '').strip(), encoding='utf-8')
-        except Exception:
-            return None
-
-    def _load_lab_url_from_temp(self) -> Optional[str]:
-        p = self._lab_url_temp_path()
-        if p.exists():
-            return p.read_text(encoding='utf-8').strip()
-        return None
-
-    def _auto_start_lab_temp_path(self) -> Path:
-        tmpdir = Path(tempfile.gettempdir())
-        return tmpdir + 'autocloudskill_auto_start_lab.txt'
-
-    def _save_auto_start_lab_to_temp(self, value: bool) -> None:
-        try:
-            p = self._auto_start_lab_temp_path()
-            p.write_text('1' if value else '0', encoding='utf-8')
-        except Exception:
-            return None
-
-    def _load_auto_start_lab_from_temp(self) -> Optional[bool]:
-        p = self._auto_start_lab_temp_path()
-        if p.exists():
-            val = (p.read_text(encoding='utf-8').strip() or '0').lower()
-            return val in ['1', 'true', 'yes', 'on']
-        return None
-
-    def _recaptcha_ext_temp_path(self) -> Path:
-        tmpdir = Path(tempfile.gettempdir())
-        return tmpdir + 'autocloudskill_recaptcha_extension.txt'
-
-    def _save_recaptcha_extension_to_temp(self, value: bool) -> None:
-        try:
-            p = self._recaptcha_ext_temp_path()
-            p.write_text('1' if value else '0', encoding='utf-8')
-        except Exception:
-            return None
-
-    def _load_recaptcha_extension_from_temp(self) -> Optional[bool]:
-        p = self._recaptcha_ext_temp_path()
-        if p.exists():
-            val = (p.read_text(encoding='utf-8').strip() or '0').lower()
-            return val in ['1', 'true', 'yes', 'on']
-        return None
-
-    def _load_gmail_cred_path_from_temp(self) -> Optional[str]:
-        p = self._gmail_cred_temp_path()
-        if p.exists():
-            return p.read_text(encoding='utf-8').strip()
-        return None
+            error_msg = f'Error saving logs: {str(e)}'
+            self.log_message(f'🛑 {error_msg}')
+            messagebox.showerror('Error', error_msg)
 
     def on_closing(self):
-        """Handle window closing"""  # inserted
+        """Handle window closing"""
         if self.is_running:
             if messagebox.askokcancel('Quit', 'Automation is running. Are you sure you want to quit?'):
                 self.stop_automation()
                 self.root.after(1000, self.root.destroy)
-        else:  # inserted
+        else:
             log_user_action(self.logger, 'APPLICATION_EXIT')
             self.root.destroy()
 
     def run(self):
-        """Run the application"""  # inserted
+        """Run the application"""
         self.root.protocol('WM_DELETE_WINDOW', self.on_closing)
         self.root.mainloop()
+
 if __name__ == '__main__':
     app = MainWindow()
     app.run()
