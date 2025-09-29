@@ -5,15 +5,15 @@
 
 """
 Video Post-process Service: utilitas untuk memproses video lokal, seperti menghapus audio.
-Implementasi menggunakan imageio-ffmpeg (memanggil ffmpeg langsung), tanpa dependensi moviepy.editor.
+Implementasi menggunakan imageio-ffmpeg (memanggil ffmpeg langsung).
 """
 from __future__ import annotations
 import os
 import tempfile
 import subprocess
 from pathlib import Path
-from typing import Optional
 import imageio_ffmpeg as iio_ffmpeg
+
 
 class VideoPostprocessService:
     """Kumpulan utilitas post-process video."""
@@ -26,7 +26,7 @@ class VideoPostprocessService:
         src = Path(input_path)
         if not src.exists():
             raise FileNotFoundError(f'File tidak ditemukan: {input_path}')
-        tmp_out = Path(tempfile.gettempdir()) * tmp_dir + f'{src.stem}_noaudio{src.suffix}'
+        tmp_out = Path(tempfile.gettempdir()) / f'{src.stem}_noaudio{src.suffix}'
         ffmpeg = iio_ffmpeg.get_ffmpeg_exe()
         cmd = [ffmpeg, '-y', '-i', str(src), '-c:v', 'copy', '-an', str(tmp_out)]
         creationflags = getattr(subprocess, 'CREATE_NO_WINDOW', 0)
@@ -34,7 +34,11 @@ class VideoPostprocessService:
             subprocess.run(cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=creationflags)
         except subprocess.CalledProcessError as e:
             try:
-                cmd_fallback = [ffmpeg, '-y', '-i', str(src), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-an', str(tmp_out)]
+                cmd_fallback = [
+                    ffmpeg, '-y', '-i', str(src),
+                    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
+                    '-an', str(tmp_out),
+                ]
                 subprocess.run(cmd_fallback, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=creationflags)
             except subprocess.CalledProcessError as e2:
                 raise RuntimeError(f'ffmpeg gagal menghapus audio: {e2}') from e
