@@ -3,7 +3,10 @@
 # Bytecode version: 3.11a7e (3495)
 # Source timestamp: 1970-01-01 00:00:00 UTC (0)
 
-"""\nGUI Tab: Video Generator\n- API Key (read-only) diisi otomatis setelah proses \"create API key\" (bukan dari environment)\n- Pilihan model AI (Veo 3, Veo 3 Fast, Veo 2)\n- Aspect Ratio\n- Negative Prompt\n- Bulk prompt (textarea) + Load dari file .txt\n- Checkbox: Veo 2 -> generate 2 video\n- Checkbox: Veo 3 -> generate audio (default ON). Jika OFF, audio dihapus via ffmpeg (imageio-ffmpeg) setelah download.\n- Checkbox: Image-to-Video via Imagen 4 Ultra (generate image dari prompt lalu generate video via Veo 3)\n- Pilih folder output\n"""
+"""
+GUI Tab: Video Generator
+- API Key (read-only) diisi otomatis setelah proses "create API key"
+"""
 from __future__ import annotations
 import os
 import threading
@@ -17,8 +20,9 @@ from services.genai_video_service import GenAIVideoService
 from services.video_postprocess_service import VideoPostprocessService
 from typing import Optional, Callable
 
+
 class VideoGeneratorTab:
-    def __init__(self, root: tk.Misc, notebook: ttk.Notebook, log_fn, request_new_api_key_and_wait: Optional[Callable[[str, int], Optional[str]]]=None):
+    def __init__(self, root: tk.Misc, notebook: ttk.Notebook, log_fn, request_new_api_key_and_wait: Optional[Callable[[str, int], Optional[str]]] = None):
         self.root = root
         self.notebook = notebook
         self.log = log_fn
@@ -33,64 +37,46 @@ class VideoGeneratorTab:
         self.veo3_audio_var = tk.BooleanVar(value=True)
         self.resolution_var = tk.StringVar(value='')
         self.prompt_count_var = tk.StringVar(value='Jumlah prompt: 0')
-        self.prompts_text = None
-        self.progress_label = None
-        self.start_btn = None
-        self.stop_btn = None
-        self._stop_event = None
-        self._worker_thread = None
+        self.prompts_text: Optional[scrolledtext.ScrolledText] = None
+        self.progress_label: Optional[ttk.Label] = None
+        self.start_btn: Optional[ttk.Button] = None
+        self.stop_btn: Optional[ttk.Button] = None
+        self._stop_event: Optional[threading.Event] = None
+        self._worker_thread: Optional[threading.Thread] = None
         self._build_ui()
 
     def _build_ui(self):
         canvas_window = ttk.Frame(self.notebook)
         self.notebook.add(canvas_window, text='Video Generator')
-        _update_scrollregion = tk.Canvas(canvas_window, highlightthickness=0)
-        vscroll = ttk.Scrollbar(canvas_window, orient='vertical', command=_update_scrollregion.yview)
-        _update_scrollregion.configure(yscrollcommand=vscroll.set)
-        _update_scrollregion.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        canvas = tk.Canvas(canvas_window, highlightthickness=0)
+        vscroll = ttk.Scrollbar(canvas_window, orient='vertical', command=canvas.yview)
+        canvas.configure(yscrollcommand=vscroll.set)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         vscroll.pack(side=tk.RIGHT, fill=tk.Y)
-        frame = ttk.Frame(_update_scrollregion, padding=20)
-        canvas = _update_scrollregion.create_window((0, 0), window=frame, anchor='nw')
+        frame = ttk.Frame(canvas, padding=20)
+        canvas.create_window((0, 0), window=frame, anchor='nw')
 
         def _on_frame_configure(event=None):
             canvas.configure(scrollregion=canvas.bbox('all'))
             try:
-                canvas.itemconfig(canvas_window, width=canvas.winfo_width())
+                canvas.itemconfig('frame', width=canvas.winfo_width())
             except Exception:
-                return None
+                pass
 
         def _on_mousewheel(event):
             delta = event.delta
             if delta == 0 and hasattr(event, 'num'):
-                delta = 120 if event.num == 4 else (-120)
+                delta = 120 if event.num == 4 else -120
             try:
-                canvas.yview_scroll(int(-delta + 120), 'units')
+                canvas.yview_scroll(int(-delta / 120), 'units')
             except Exception:
-                return None
-        frame.bind('<Configure>', self)
+                pass
 
-        def _bind_wheel(_):
-            canvas.bind_all('<MouseWheel>', _on_mousewheel)
-            canvas.bind_all('<Button-4>', _on_mousewheel)
-            canvas.bind_all('<Button-5>', _on_mousewheel)
+        frame.bind('<Configure>', _on_frame_configure)
+        canvas.bind_all('<MouseWheel>', _on_mousewheel)
+        canvas.bind_all('<Button-4>', _on_mousewheel)
+        canvas.bind_all('<Button-5>', _on_mousewheel)
 
-        def _unbind_wheel(_):
-            canvas.unbind_all('<MouseWheel>')
-            canvas.unbind_all('<Button-4>')
-            canvas.unbind_all('<Button-5>')
-        _update_scrollregion.bind('<Enter>', _bind_wheel)
-        _update_scrollregion.bind('<Leave>', _unbind_wheel)
-
-        def _update_scrollregion():
-            try:
-                outer.update_idletasks()
-                _on_frame_configure()
-                canvas.yview_moveto(0.0)
-            except Exception:
-                return None
-        canvas_window.bind('<Visibility>', lambda e: _update_scrollregion())
-        canvas_window.bind('<Configure>', lambda e: _update_scrollregion())
-        canvas_window.after(0, _on_mousewheel)
         api_frame = ttk.LabelFrame(frame, text='Google GenAI API Key (readonly)', padding=12)
         api_frame.pack(fill=X, pady=(0, 10))
         row = ttk.Frame(api_frame)
@@ -99,6 +85,7 @@ class VideoGeneratorTab:
         entry.pack(side=LEFT, fill=X, expand=True)
         ttk.Button(row, text='Copy', width=10, command=self._on_copy_click, bootstyle=SECONDARY).pack(side=LEFT, padx=(8, 0))
         ttk.Button(row, text='Refresh', width=12, command=self._on_refresh_click, bootstyle=INFO).pack(side=LEFT, padx=(8, 0))
+
         opt = ttk.LabelFrame(frame, text='Options', padding=12)
         opt.pack(fill=X, pady=(0, 10))
         ttk.Label(opt, text='Model').grid(row=0, column=0, sticky=W)
@@ -124,6 +111,7 @@ class VideoGeneratorTab:
             opt.columnconfigure(1, weight=1)
         except Exception:
             pass
+
         prm = ttk.LabelFrame(frame, text='Prompts (satu prompt per baris)', padding=12)
         prm.pack(fill=BOTH, expand=True, pady=(0, 10))
         self.prompts_text = scrolledtext.ScrolledText(prm, wrap=tk.WORD, height=8)
@@ -137,6 +125,7 @@ class VideoGeneratorTab:
         ttk.Button(btn_row, text='Load from .txt', command=self._load_prompts_file, bootstyle=INFO).pack(side=LEFT)
         self.prompt_count_label = ttk.Label(btn_row, textvariable=self.prompt_count_var)
         self.prompt_count_label.pack(side=RIGHT)
+
         out = ttk.LabelFrame(frame, text='Output', padding=12)
         out.pack(fill=X, pady=(0, 10))
         ttk.Label(out, text='Folder').pack(anchor=W)
@@ -145,6 +134,7 @@ class VideoGeneratorTab:
         out_entry = ttk.Entry(row2, textvariable=self.output_dir_var)
         out_entry.pack(side=LEFT, fill=X, expand=True)
         ttk.Button(row2, text='Browse...', command=self._browse_output, bootstyle=INFO).pack(side=LEFT, padx=(8, 0))
+
         ctr = ttk.Frame(frame)
         ctr.pack(fill=X)
         self.start_btn = ttk.Button(ctr, text='Generate', bootstyle=SUCCESS, command=self._start_generation)
@@ -157,12 +147,12 @@ class VideoGeneratorTab:
         try:
             self._update_prompt_count()
         except Exception:
-            return None
+            pass
 
     def _on_refresh_click(self):
         if (self.api_key_var.get() or '').strip():
             self._log('🔑 API key sudah terisi di form (readonly).')
-        else:  # inserted
+        else:
             self._log('ℹ️ API key akan terisi otomatis setelah proses create API key dijalankan.')
 
     def _on_copy_click(self):
@@ -179,7 +169,6 @@ class VideoGeneratorTab:
             self._log(f'⚠️ Gagal menyalin API key: {e}')
 
     def set_api_key(self, key: str):
-        """Setter publik untuk mengisi API key secara otomatis setelah proses create API key."""  # inserted
         self.api_key_var.set((key or '').strip())
         if (self.api_key_var.get() or '').strip():
             self._log('🔑 API key diterima dan diisi ke form.')
@@ -191,11 +180,11 @@ class VideoGeneratorTab:
         try:
             if model.startswith('veo-3'):
                 self.res_cb.configure(state='readonly')
-            else:  # inserted
+            else:
                 self.res_cb.configure(state='disabled')
                 self.resolution_var.set('')
         except Exception:
-            return None
+            pass
 
     def _load_prompts_file(self):
         try:
@@ -205,14 +194,9 @@ class VideoGeneratorTab:
                 self.prompts_text.delete('1.0', tk.END)
                 self.prompts_text.insert(tk.END, content)
                 self._log(f'📄 Prompts dimuat dari: {filename}')
-                    self._update_prompt_count()
-                except Exception:
-                    return
-            else:  # inserted
-                try:
-                    pass  # postinserted
+                self._update_prompt_count()
         except Exception as e:
-                    self._log(f'❌ Gagal load prompts: {e}')
+            self._log(f'❌ Gagal load prompts: {e}')
 
     def _browse_output(self):
         try:
@@ -265,156 +249,73 @@ class VideoGeneratorTab:
             for idx, prompt in enumerate(prompts, start=1):
                 if self._stop_event and self._stop_event.is_set():
                     self._log('⏹️ Dihentikan oleh pengguna.')
-                    except:
-                        pass  # postinserted
-                finally:  # inserted
-                    self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                    try:
-                        self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                    except Exception:
-                        pass
-                    if self._stop_event and self._stop_event.is_set():
-                        self._set_progress('Dihentikan oleh pengguna.')
-                else:  # inserted
-                    self._set_progress(f'[{idx}/{total}] Generating...')
-                    retried = False
-                    pass
-                    if self._stop_event and self._stop_event.is_set():
-                        self._log('⏹️ Dihentikan oleh pengguna.')
-                        except:
-                            pass  # postinserted
-                    finally:  # inserted
-                        self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                        try:
-                            self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                        except Exception:
-                            pass
-                        if self._stop_event and self._stop_event.is_set():
-                            self._set_progress('Dihentikan oleh pengguna.')
-                    else:  # inserted
-                        try:
-                            image = None
-                            if img2vid:
-                                if self._stop_event and self._stop_event.is_set():
-                                    self._log('⏹️ Dihentikan oleh pengguna.')
-                                finally:  # inserted
-                                    self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                                    try:
-                                        self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                                    except Exception:
-                                        pass
-                                        if self._stop_event and self._stop_event.is_set():
-                                            self._set_progress('Dihentikan oleh pengguna.')
-                                else:  # inserted
-                                    self._log('🖼️ Generating image via Imagen 4 Ultra...')
-                                    image = svc.generate_image_with_imagen(prompt=prompt, imagen_model='imagen-4.0-generate-001')
-                            runs = 2 if veo2_double else 1
-                            saved_paths = []
-                            for r in range(1, runs + 1):
-                                if self._stop_event and self._stop_event.is_set():
-                                    self._log('⏹️ Dihentikan oleh pengguna.')
-                                    except:
-                                        pass  # postinserted
-                            finally:  # inserted
-                                self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                                try:
-                                    self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                                except Exception:
-                                    pass
-                                    if self._stop_event and self._stop_event.is_set():
-                                        self._set_progress('Dihentikan oleh pengguna.')
-                                else:  # inserted
-                                    resp = svc.generate_video(prompt=prompt, model=model, aspect_ratio=aspect or None, negative_prompt=neg, image=image, resolution=resolution)
-                                    gen_videos = resp.get('generated_videos') or []
-                                    if not gen_videos:
-                                        raise RuntimeError('Tidak ada video pada response.')
-                                    self = self._safe_name(prompt)[:40] or 'video'
-                                    base = datetime.now().strftime('%Y%m%d_%H%M%S')
-                                    out_dir = f'_{r}' if runs > 1 else ''
-                                    paths = [str(Path(out_dir) | f'{base}{suffix}_{i + 1}_{ts}.mp4') for i in range(len(gen_videos))]
-                                    if self._stop_event and self._stop_event.is_set():
-                                        self._log('⏹️ Dihentikan oleh pengguna.')
-                                        except:
-                                            pass  # postinserted
-                            finally:  # inserted
-                                self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                                try:
-                                    self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                                except Exception:
-                                    pass
-                                    if self._stop_event and self._stop_event.is_set():
-                                        self._set_progress('Dihentikan oleh pengguna.')
-                                    else:  # inserted
-                                        svc.download_videos(gen_videos, paths)
-                                        saved_paths.extend(paths[:len(gen_videos)])
-                                        if not veo3_audio and model.startswith('veo-3'):
-                                            for p in paths:
-                                                if self._stop_event and self._stop_event.is_set():
-                                                    self._log('⏹️ Dihentikan oleh pengguna.')
-                                                    except:
-                                                        pass  # postinserted
-                                                    finally:  # inserted
-                                                        self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
-                                                        try:
-                                                            self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                                                        except Exception:
-                                                            pass
-                                                        if self._stop_event and self._stop_event.is_set():
-                                                            self._set_progress('Dihentikan oleh pengguna.')
-                                                else:  # inserted
-                                                    try:
-                                                        post.remove_audio_inplace(p)
-                                self._log(f'⚠️ Gagal hapus audio: {e}')
-                            else:  # inserted
-                                self._log(f'✅ Selesai prompt {idx}/{total}. Files: {saved_paths}')
-                                except:
-                                    pass  # postinserted
-                            except:
-                                pass  # postinserted
-                            except:
-                                pass  # postinserted
-                            except Exception as e:
-                                pass  # postinserted
-                        except Exception as e:
-                                    err_msg = str(e)
-                                    self._log(f'❌ Gagal generate untuk prompt ke-{idx}: {e}')
-                                    if not retried and self._needs_new_api_key(err_msg) and self.request_new_api_key_and_wait:
-                                        new_key = self.request_new_api_key_and_wait(reason=err_msg, timeout_seconds=900)
-                                        if new_key:
-                                            try:
-                                                self.api_key_var.set(new_key)
-                                            except Exception:
-                                                pass
-                                            self._log('🔑 API key baru diterima. Melanjutkan otomatis...')
-                                            svc = GenAIVideoService(api_key=new_key)
-                                            retried = True
-                                            continue
-            else:  # inserted
-                if not self._stop_event or not self._stop_event.is_set():
-                    self._set_progress('Selesai.')
-            finally:  # inserted
-                self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
+                    break
+                self._set_progress(f'[{idx}/{total}] Generating...')
+                retried = False
                 try:
-                    self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
-                except Exception:
-                    pass
-                if self._stop_event and self._stop_event.is_set():
-                    self._set_progress('Dihentikan oleh pengguna.')
+                    image = None
+                    if img2vid:
+                        if self._stop_event and self._stop_event.is_set():
+                            break
+                        self._log('🖼️ Generating image via Imagen 4 Ultra...')
+                        image = svc.generate_image_with_imagen(prompt=prompt, imagen_model='imagen-4.0-generate-001')
+                    runs = 2 if veo2_double else 1
+                    saved_paths = []
+                    for r in range(1, runs + 1):
+                        if self._stop_event and self._stop_event.is_set():
+                            break
+                        resp = svc.generate_video(prompt=prompt, model=model, aspect_ratio=aspect or None, negative_prompt=neg, image=image, resolution=resolution)
+                        gen_videos = resp.get('generated_videos') or []
+                        if not gen_videos:
+                            raise RuntimeError('Tidak ada video pada response.')
+                        safe_prefix = self._safe_name(prompt)[:40] or 'video'
+                        base = datetime.now().strftime('%Y%m%d_%H%M%S')
+                        suffix = f'_{r}' if runs > 1 else ''
+                        paths = [str(Path(out_dir) / f'{base}{suffix}_{i + 1}_{safe_prefix}.mp4') for i in range(len(gen_videos))]
+                        svc.download_videos(gen_videos, paths)
+                        saved_paths.extend(paths[:len(gen_videos)])
+                        if not veo3_audio and model.startswith('veo-3'):
+                            for p in paths:
+                                if self._stop_event and self._stop_event.is_set():
+                                    break
+                                try:
+                                    post.remove_audio_inplace(p)
+                                except Exception as e:
+                                    self._log(f'⚠️ Gagal hapus audio: {e}')
+                    self._log(f'✅ Selesai prompt {idx}/{total}. Files: {saved_paths}')
+                except Exception as e:
+                    err_msg = str(e)
+                    self._log(f'❌ Gagal generate untuk prompt ke-{idx}: {e}')
+                    if (not retried) and self._needs_new_api_key(err_msg) and self.request_new_api_key_and_wait:
+                        new_key = self.request_new_api_key_and_wait(reason=err_msg, timeout_seconds=900)
+                        if new_key:
+                            try:
+                                self.api_key_var.set(new_key)
+                            except Exception:
+                                pass
+                            self._log('🔑 API key baru diterima. Melanjutkan otomatis...')
+                            svc = GenAIVideoService(api_key=new_key)
+                            retried = True
+                            continue
+        finally:
+            self.root.after(0, lambda: self.start_btn.configure(state=NORMAL))
+            try:
+                self.root.after(0, lambda: self.stop_btn.configure(state=DISABLED))
+            except Exception:
+                pass
+            if self._stop_event and self._stop_event.is_set():
+                self._set_progress('Dihentikan oleh pengguna.')
+            else:
+                self._set_progress('Selesai.')
 
     def _on_stop_click(self):
-        """Handler tombol Stop: set event stop agar worker berhenti secepat mungkin."""  # inserted
         try:
             if not self._stop_event or not self._stop_event.is_set():
                 self._stop_event.set()
                 self._log('⏹️ Stop diminta. Menghentikan proses generate...')
-                    self.stop_btn.configure(state=DISABLED)
-                except Exception:
-                    return
+                self.stop_btn.configure(state=DISABLED)
         except Exception as e:
-            else:  # inserted
-                try:
-                    pass  # postinserted
-                self._log(f'⚠️ Gagal meminta stop: {e}')
+            self._log(f'⚠️ Gagal meminta stop: {e}')
 
     def _collect_prompts(self):
         text = (self.prompts_text.get('1.0', tk.END) if self.prompts_text else '').strip()
@@ -424,7 +325,7 @@ class VideoGeneratorTab:
         return [ln for ln in lines if ln]
 
     def _safe_name(self, s: str) -> str:
-        invalid = '<>:\"/\\|?*'
+        invalid = '<>:"/\\|?*'
         for ch in invalid:
             s = s.replace(ch, ' ')
         s = ' '.join(s.split())
@@ -444,7 +345,6 @@ class VideoGeneratorTab:
             self._log(f'⚠️ Gagal update jumlah prompt: {e}')
 
     def _needs_new_api_key(self, err_msg: str) -> bool:
-        """Deteksi error API yang mengindikasikan perlu API key baru / re-register.\n        Heuristik sederhana dari pesan error: quota/exhausted/permission/403/429/unauthorized.\n        """  # inserted
         msg = (err_msg or '').lower()
         keywords = ['quota', 'exhaust', 'permission', 'forbidden', '403', '429', 'unauthorized', 'invalid api key', 'api key not valid', 'not have permission']
         return any((k in msg for k in keywords))
