@@ -1,0 +1,42 @@
+# Core dependencies
+tkinter
+ttkbootstrap>=1.10.1
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+python-dotenv>=1.0.0
+
+# Google APIs
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+google-auth>=2.23.0
+google-genai>=0.3.0
+
+# Browser automation
+playwright>=1.40.0
+
+# Image/Video processing
+Pillow>=10.0.0
+moviepy>=1.0.3
+imageio>=2.31.0
+imageio-ffmpeg>=0.4.9
+
+# Audio processing
+speechrecognition>=3.10.0
+
+# Utilities
+pathlib2>=2.3.7
+typing-extensions>=4.8.0
+tenacity>=8.2.0
+pydantic>=2.4.0
+pydantic-core>=2.10.0
+
+# Optional dependencies for enhanced functionality
+numpy>=1.24.0
+opencv-python>=4.8.0
+ffmpeg-python>=0.2.0
+
+# Development dependencies (optional)
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0
