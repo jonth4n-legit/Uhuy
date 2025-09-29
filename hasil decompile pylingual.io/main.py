@@ -1,19 +1,27 @@
-# Decompiled with PyLingual (https://pylingual.io)
-# Internal filename: 'main.py'
-# Bytecode version: 3.11a7e (3495)
-# Source timestamp: 1970-01-01 00:00:00 UTC (0)
-
-# irreducible cflow, using cdg fallback
-"""\nMain entry point untuk aplikasi Auto Cloud Skill Registration\n"""
+"""
+Main entry point untuk aplikasi Auto Cloud Skill Registration
+"""
 import sys
 import os
 import traceback
 from pathlib import Path
+
+# Add project root to path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
-from gui.main_window import MainWindow
-from config.settings import settings
-from utils.logger import setup_logger, main_logger
+
+try:
+    from gui.main_window import MainWindow
+    from config.settings import settings
+    from utils.logger import setup_logger
+except ImportError as e:
+    print(f'❌ Import error: {e}')
+    print('\nPastikan semua dependencies sudah diinstall:')
+    print('pip install -r requirements.txt')
+    print('\nDan pastikan Playwright browser sudah diinstall:')
+    print('playwright install chromium')
+    sys.exit(1)
+
 def main():
     """Main function"""
     logger = setup_logger('Main')
@@ -23,6 +31,7 @@ def main():
         app = MainWindow()
         app.run()
         logger.info('Application terminated normally')
+        return 0
     except KeyboardInterrupt:
         logger.info('Application interrupted by user')
         return 0
@@ -32,18 +41,10 @@ def main():
         print(f'\n❌ Unexpected error: {e}')
         print('Check logs for more details.')
         return 1
-    else:
-        return 0
+
 if __name__ == '__main__':
     try:
         sys.exit(main())
-    except ImportError as e:
-        print(f'❌ Import error: {e}')
-        print('\nPastikan semua dependencies sudah diinstall:')
-        print('pip install -r requirements.txt')
-        print('\nDan pastikan Playwright browser sudah diinstall:')
-        print('playwright install chromium')
-        sys.exit(1)
     except Exception as e:
         print(f'❌ Fatal error: {e}')
         print(f'Traceback: {traceback.format_exc()}')
