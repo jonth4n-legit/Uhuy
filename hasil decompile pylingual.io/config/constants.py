@@ -38,3 +38,16 @@ def validate_config() -> bool:
         Always True - validation moved to GUI
     """
     return True
+
+def get_browser_options() -> dict:
+    """
+    Get browser options untuk Playwright
+    
+    Returns:
+        Dict dengan browser options
+    """
+    return {
+        'headless': PLAYWRIGHT_HEADLESS,
+        'timeout': PLAYWRIGHT_TIMEOUT,
+        'user_agent': BROWSER_USER_AGENT
+    }
